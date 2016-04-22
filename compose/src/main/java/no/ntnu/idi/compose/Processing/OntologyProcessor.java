@@ -30,7 +30,7 @@ public class OntologyProcessor {
 	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
 	/**
-	 * 
+	 * This should be computed from the Average Population and Class Richness
 	 * @param inputOntology
 	 */
 	public double computeSparsityProfile(File onto){
@@ -46,7 +46,7 @@ public class OntologyProcessor {
 	 * @param onto1
 	 * @param onto2
 	 */
-	public double computeAverageDepth(File onto){
+	public double computeAverageDepth(File ontoFile1, File ontoFile2){
 		return 0;
 	}
 
@@ -58,12 +58,15 @@ public class OntologyProcessor {
 	 * @param onto2
 	 * @throws OWLOntologyCreationException 
 	 */
-	public static double computeAveragePopulation(File onto1, File onto2) throws OWLOntologyCreationException{
+	public static double computeAveragePopulation(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException {
 
-		int classes = OWLLoader.getNumClasses(onto1, onto2);
-		int individuals = OWLLoader.getNumIndividuals(onto1, onto2);
+		int classesOnto1 = OWLLoader.getNumClasses(ontoFile1);
+		int classesOnto2 = OWLLoader.getNumClasses(ontoFile2);
+		int individualsOnto1 = OWLLoader.getNumIndividuals(ontoFile1);
+		int individualsOnto2 = OWLLoader.getNumIndividuals(ontoFile2);
 		
-		double averagePopulation = (double)individuals / (double)classes;
+		double averagePopulation = ((double)individualsOnto1 + (double)individualsOnto2) / ((double)classesOnto1 + (double)classesOnto2);
+		
 		return averagePopulation;
 	}
 
@@ -75,42 +78,36 @@ public class OntologyProcessor {
 	 * @param onto2
 	 * @throws OWLOntologyCreationException 
 	 */
-	public static double computeClassRichness(File inputFile) throws OWLOntologyCreationException{
+	public static double computeClassRichness(File ontoFile) throws OWLOntologyCreationException{
 		
-		OWLOntology localOnt = manager.loadOntologyFromOntologyDocument(inputFile);
-		//get all classes and put them in a data structure
-		Iterator<OWLClass> itr = localOnt.getClassesInSignature().iterator();
+		int numClassesContainingIndividuals = OWLLoader.containsIndividuals(ontoFile);
+		int numClassesInTotal = OWLLoader.getNumClasses(ontoFile);
 		
-		//counter to keep track of num classes with individuals
-		int counter = 0;
-		
-		//
-		double classRichness = 0;
-		
-		while(itr.hasNext()) {
-			if (OWLLoader.containsIndividuals(itr.next()) == true) {
-				counter++;
-			}
-		}
-		
-		classRichness = (double)counter / (double)localOnt.getClassesInSignature().size();
-		
+		double classRichness = (double)numClassesContainingIndividuals / (double)numClassesInTotal;
+
 		return classRichness;
 	}
 
 	/**
-	 * Inheritance Richness is the average number of subclasses (Ci) per class (C). IR
-	 * = HC (C, Ci) / C
+	 * Inheritance Richness (IR): This metric can distinguish a horizontal ontology from a vertical ontology or an ontology with different levels of specialization. 
+	 * Inheritance Richness is the average number of subclasses (Ci) per class (C). IR = HC (C, Ci) / C
 	 * 
 	 * @param onto1
 	 * @param onto2
+	 * @throws OWLOntologyCreationException 
 	 */
-	public double computeInheritanceRichness(LoadedOntology onto1, LoadedOntology onto2){
-		return 0;
+	public static double computeInheritanceRichness(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
+		
+		int numSubClassesOnto1 = OWLLoader.getNumSubClasses(ontoFile1);
+		int numSubClassesOnto2 = OWLLoader.getNumSubClasses(ontoFile2);
+		int numClassesOnto1 = OWLLoader.getNumClasses(ontoFile1);
+		int numClassesOnto2 = OWLLoader.getNumClasses(ontoFile2);	
+
+		return (numSubClassesOnto1 + numSubClassesOnto2) / (numClassesOnto1 + numClassesOnto2);
 	}
 
 	/**
-	 * Null label and comment (N): The percentage of terms with no comment nor label
+	 * Null label and comment (N): The percentage of concepts with no comment nor label
 	 * (NCi). N = |NCi| / |T|.
 	 * 
 	 * @param onto1
@@ -121,19 +118,22 @@ public class OntologyProcessor {
 	}
 
 	/**
-	 * Relationship Richness (RR): The percentage of object properties (P) that are
-	 * different from subClassOf relations (SC) -> RR = |P| / |SC| + |P|
+	 * Relationship Richness (RR): This metric reflects the diversity of relations and placement of relations in the ontology. The percentage of object properties (P) that are
+	 * different from subClassOf relations (SC) -> RR = |P| / (|SC| + |P|). If an ontology has an RR close to zero, that would indicate that most of the relationships are is-a relations.
 	 * 
 	 * @param onto1
 	 * @param onto2
+	 * @throws OWLOntologyCreationException 
 	 */
-	public double computeRelationshipRichness(File onto1, File onto2){
+	public static double computeRelationshipRichness(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
 		
-		int numSubClasses;
-		int numObjectProperties;
+		int numSubClasses = OWLLoader.getNumSubClasses(ontoFile1) + OWLLoader.getNumSubClasses(ontoFile2);
+		//int numSubClassesOnto2 = OWLLoader.getNumSubClasses(ontoFile2);
+		int numObjectProperties = OWLLoader.getNumObjectProperties(ontoFile1) + OWLLoader.getNumObjectProperties(ontoFile2);
+		//int numObjectPropertiesOnto2 = OWLLoader.getNumObjectProperties(ontoFile2);
 		
 		
-		return 0;
+		return  (double)numObjectProperties / ((double)numSubClasses + (double)numObjectProperties);
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class OntologyProcessor {
 	 * @param onto1
 	 * @param onto2
 	 */
-	public double computeWordNetCoverage(LoadedOntology onto1, LoadedOntology onto2){
+	public double computeWordNetCoverage(File ontoFile1, File ontoFile2){
 		return 0;
 	}
 
@@ -165,24 +165,19 @@ public class OntologyProcessor {
 		return null;
 	}
 
-	public String getOntologyFormat(File ontologyFile) {
-		// FIXME Auto-generated method stub
-		return null;
-	}
-
-	public Map FindEnrichment(Map keywords, String URI, double confidence) {
-		// FIXME Auto-generated method stub
-		return null;
-	}
 	
 	public static void main(String[] args) throws OWLOntologyCreationException, URISyntaxException, OntowrapException {
 		
 		File onto1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
 		File onto2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/Bibtex Ontology/BibTex.owl");
 
-		System.out.println("The Average Population (AP) is: " + computeAveragePopulation(onto1, onto2));
+		//System.out.println("The Average Population (AP) is: " + computeAveragePopulation(onto1, onto2));
 		
 		System.out.println("The Class Richness (CR) is: " + computeClassRichness(onto1));
+		
+		//System.out.println("The Inheritance Richness (IR) is: " + computeInheritanceRichness(onto1, onto2));
+		
+		System.out.println("The Relationship Richness (RR) is: " + computeRelationshipRichness(onto1, onto2));
 	}
 
 }
