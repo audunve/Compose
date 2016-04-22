@@ -15,6 +15,7 @@ public class MatcherSelector {
 
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}

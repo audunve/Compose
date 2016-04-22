@@ -14,6 +14,7 @@ public class DBPediaEnrichmentCollector implements EnrichmentCollector {
 
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}

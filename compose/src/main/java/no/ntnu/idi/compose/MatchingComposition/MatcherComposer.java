@@ -15,6 +15,7 @@ public class MatcherComposer {
 
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}

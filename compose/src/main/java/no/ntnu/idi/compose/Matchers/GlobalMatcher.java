@@ -15,6 +15,7 @@ public class GlobalMatcher implements Matcher {
 
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}

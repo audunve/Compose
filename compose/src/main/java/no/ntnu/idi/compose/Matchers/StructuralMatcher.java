@@ -15,6 +15,7 @@ public class StructuralMatcher implements Matcher {
 
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}

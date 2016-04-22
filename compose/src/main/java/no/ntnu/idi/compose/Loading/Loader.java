@@ -2,6 +2,8 @@ package no.ntnu.idi.compose.Loading;
 
 import java.io.File;
 
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+
 /**
  * @author audunvennesland
  * @version 1.0
@@ -16,6 +18,13 @@ public interface Loader {
 	 * @param ontologyFile
 	 */
 	public void loadOntologyFromFile(File ontologyFile);
+	
+	/**
+	 * 
+	 * @param ontologyFile
+	 * @throws OWLOntologyCreationException 
+	 */
+	public void loadInputOntologies(File file1, File file2) throws OWLOntologyCreationException;
 
 	/**
 	 * 

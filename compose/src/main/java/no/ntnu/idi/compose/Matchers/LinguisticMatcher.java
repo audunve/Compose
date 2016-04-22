@@ -15,6 +15,7 @@ public class LinguisticMatcher implements Matcher {
 
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}

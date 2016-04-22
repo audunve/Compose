@@ -1,73 +1,41 @@
 package no.ntnu.idi.compose.Processing;
 
 
-
-
 import java.io.File;
+import java.net.URISyntaxException;
+import java.util.Iterator;
 import java.util.Map;
 
-import org.semanticweb.owl.util.OWLManager;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 
 import fr.inrialpes.exmo.ontowrap.LoadedOntology;
-import no.ntnu.idi.compose.Enrichment.EnrichmentCollector;
-import no.ntnu.idi.compose.Loading.Loader;
+import fr.inrialpes.exmo.ontowrap.OntowrapException;
+import no.ntnu.idi.compose.Loading.OWLLoader;
 
 /**
  * @author audunvennesland
  * @version 1.0
  * @created 21-apr-2016 10:34:52
  */
-public class OntologyProcessor implements EnrichmentCollector, Processor, Loader {
-
-	private OWLManager manager;
-	private File file;
-	private LoadedOntology onto;
+public class OntologyProcessor {
 
 	public OntologyProcessor(){
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
-
-	/**
-	 * 
-	 * @param ontologyFile
-	 */
-	public String getOntologyFormat(LoadedOntology ontologyFile){
-		return "";
-	}
-
-	/**
-	 * 
-	 * @param ontologyFile
-	 */
-	public int getNumClasses(LoadedOntology ontologyFile){
-		return 0;
-	}
-
-	/**
-	 * 
-	 * @param ontologyFile
-	 */
-	public int getNumIndividuals(LoadedOntology ontologyFile){
-		return 0;
-	}
-
-	/**
-	 * 
-	 * @param ontologyFile
-	 */
-	public int getNumObjectProperties(LoadedOntology ontologyFile){
-		return 0;
-	}
+	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 
 	/**
 	 * 
 	 * @param inputOntology
 	 */
-	public double computeSparsityProfile(LoadedOntology inputOntology){
+	public double computeSparsityProfile(File onto){
+		
+		
 		return 0;
 	}
 
@@ -78,7 +46,7 @@ public class OntologyProcessor implements EnrichmentCollector, Processor, Loader
 	 * @param onto1
 	 * @param onto2
 	 */
-	public double computeAverageDepth(LoadedOntology onto1, LoadedOntology onto2){
+	public double computeAverageDepth(File onto){
 		return 0;
 	}
 
@@ -88,20 +56,46 @@ public class OntologyProcessor implements EnrichmentCollector, Processor, Loader
 	 * 
 	 * @param onto1
 	 * @param onto2
+	 * @throws OWLOntologyCreationException 
 	 */
-	public double computeAveragePopulation(LoadedOntology onto1, LoadedOntology onto2){
-		return 0;
+	public static double computeAveragePopulation(File onto1, File onto2) throws OWLOntologyCreationException{
+
+		int classes = OWLLoader.getNumClasses(onto1, onto2);
+		int individuals = OWLLoader.getNumIndividuals(onto1, onto2);
+		
+		double averagePopulation = (double)individuals / (double)classes;
+		return averagePopulation;
 	}
 
 	/**
 	 * Class Richness (CR): The ratio of the number of classes for which instances
-	 * (Ci) exist
+	 * (Ci) exist (|Ci|) divided by the total number of classes in the ontology
 	 * 
 	 * @param onto1
 	 * @param onto2
+	 * @throws OWLOntologyCreationException 
 	 */
-	public double computeClassRichness(LoadedOntology onto1, LoadedOntology onto2){
-		return 0;
+	public static double computeClassRichness(File inputFile) throws OWLOntologyCreationException{
+		
+		OWLOntology localOnt = manager.loadOntologyFromOntologyDocument(inputFile);
+		//get all classes and put them in a data structure
+		Iterator<OWLClass> itr = localOnt.getClassesInSignature().iterator();
+		
+		//counter to keep track of num classes with individuals
+		int counter = 0;
+		
+		//
+		double classRichness = 0;
+		
+		while(itr.hasNext()) {
+			if (OWLLoader.containsIndividuals(itr.next()) == true) {
+				counter++;
+			}
+		}
+		
+		classRichness = (double)counter / (double)localOnt.getClassesInSignature().size();
+		
+		return classRichness;
 	}
 
 	/**
@@ -133,7 +127,12 @@ public class OntologyProcessor implements EnrichmentCollector, Processor, Loader
 	 * @param onto1
 	 * @param onto2
 	 */
-	public double computeRelationshipRichness(LoadedOntology onto1, LoadedOntology onto2){
+	public double computeRelationshipRichness(File onto1, File onto2){
+		
+		int numSubClasses;
+		int numObjectProperties;
+		
+		
 		return 0;
 	}
 
@@ -162,19 +161,8 @@ public class OntologyProcessor implements EnrichmentCollector, Processor, Loader
 	 * @param confidence
 	 */
 	public Map findEnrichment(Map keywords, String URI, double confidence){
+		// FIXME Auto-generated method stub
 		return null;
-	}
-
-	public void loadOntologyFromURI(){
-
-	}
-
-	/**
-	 * 
-	 * @param ontologyFile
-	 */
-	public void loadOntologyFromFile(File ontologyFile){
-
 	}
 
 	public String getOntologyFormat(File ontologyFile) {
@@ -185,6 +173,16 @@ public class OntologyProcessor implements EnrichmentCollector, Processor, Loader
 	public Map FindEnrichment(Map keywords, String URI, double confidence) {
 		// FIXME Auto-generated method stub
 		return null;
+	}
+	
+	public static void main(String[] args) throws OWLOntologyCreationException, URISyntaxException, OntowrapException {
+		
+		File onto1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
+		File onto2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/Bibtex Ontology/BibTex.owl");
+
+		System.out.println("The Average Population (AP) is: " + computeAveragePopulation(onto1, onto2));
+		
+		System.out.println("The Class Richness (CR) is: " + computeClassRichness(onto1));
 	}
 
 }

@@ -1,7 +1,6 @@
 package no.ntnu.idi.compose.Alignment;
 
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author audunvennesland
@@ -14,6 +13,7 @@ public abstract class EdoalAligner implements Alignment {
 
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}

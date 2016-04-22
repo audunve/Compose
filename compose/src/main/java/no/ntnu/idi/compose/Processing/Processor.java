@@ -1,11 +1,6 @@
 package no.ntnu.idi.compose.Processing;
 
-import java.io.File;
-
-import org.semanticweb.owlapi.model.OWLOntology;
-
 import fr.inrialpes.exmo.ontowrap.LoadedOntology;
-import fr.inrialpes.exmo.ontowrap.Ontology;
 
 /**
  * @author audunvennesland

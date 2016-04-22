@@ -13,6 +13,7 @@ public class DBSchemaLoader implements Loader {
 
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}
@@ -35,6 +36,11 @@ public class DBSchemaLoader implements Loader {
 
 	public void loadOntologyFromURI(){
 
+	}
+
+	public void loadInputOntologies(File file1, File file2) {
+		// FIXME Auto-generated method stub
+		
 	}
 
 }

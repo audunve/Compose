@@ -15,6 +15,7 @@ public class SemanticMatcher implements Matcher {
 
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}

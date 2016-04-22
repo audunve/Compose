@@ -15,6 +15,7 @@ public class WordEmbeddingMatcher implements Matcher {
 
 	}
 
+	@Override
 	public void finalize() throws Throwable {
 
 	}
