@@ -33,7 +33,7 @@ public class OntologyProcessor {
 	 * This should be computed from the Average Population and Class Richness
 	 * @param inputOntology
 	 */
-	public double computeSparsityProfile(File onto){
+	public double computeSparsityProfile(File ontoFile){
 		
 		
 		return 0;
@@ -103,18 +103,25 @@ public class OntologyProcessor {
 		int numClassesOnto1 = OWLLoader.getNumClasses(ontoFile1);
 		int numClassesOnto2 = OWLLoader.getNumClasses(ontoFile2);	
 
-		return (numSubClassesOnto1 + numSubClassesOnto2) / (numClassesOnto1 + numClassesOnto2);
+		return (double)(numSubClassesOnto1 + numSubClassesOnto2) / (double)(numClassesOnto1 + numClassesOnto2);
 	}
 
 	/**
 	 * Null label and comment (N): The percentage of concepts with no comment nor label
-	 * (NCi). N = |NCi| / |T|.
+	 * (NCi), so basically the concepts with no comment nor label divided by all concepts: N = |NCi| / |T|.
+	 * For now this metric only focuses on the classes, but the same principles apply for object properties and data properties as well
 	 * 
 	 * @param onto1
 	 * @param onto2
+	 * @throws OWLOntologyCreationException 
 	 */
-	public double computeNullLabelOrComment(LoadedOntology onto1, LoadedOntology onto2){
-		return 0;
+	public static double computeNullLabelOrComment(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
+		
+		int numClassesWithComments = OWLLoader.getNumClassesWithComments(ontoFile1) + OWLLoader.getNumClassesWithComments(ontoFile2);
+		int numClassesWithLabels = OWLLoader.getNumClassesWithLabels(ontoFile1) + OWLLoader.getNumClassesWithLabels(ontoFile2);
+		int numClasses = OWLLoader.getNumClasses(ontoFile1) + OWLLoader.getNumClasses(ontoFile2);
+		
+		return (((double)numClassesWithComments / (double)numClasses) + ((double)numClassesWithLabels / (double)numClasses)) / 2;
 	}
 
 	/**
@@ -128,10 +135,7 @@ public class OntologyProcessor {
 	public static double computeRelationshipRichness(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
 		
 		int numSubClasses = OWLLoader.getNumSubClasses(ontoFile1) + OWLLoader.getNumSubClasses(ontoFile2);
-		//int numSubClassesOnto2 = OWLLoader.getNumSubClasses(ontoFile2);
 		int numObjectProperties = OWLLoader.getNumObjectProperties(ontoFile1) + OWLLoader.getNumObjectProperties(ontoFile2);
-		//int numObjectPropertiesOnto2 = OWLLoader.getNumObjectProperties(ontoFile2);
-		
 		
 		return  (double)numObjectProperties / ((double)numSubClasses + (double)numObjectProperties);
 	}
@@ -142,9 +146,13 @@ public class OntologyProcessor {
 	 * 
 	 * @param onto1
 	 * @param onto2
+	 * @throws OWLOntologyCreationException 
 	 */
-	public double computeWordNetCoverage(File ontoFile1, File ontoFile2){
-		return 0;
+	public static double computeWordNetCoverage(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
+		
+		double WC = (OWLLoader.getWordNetCoverage(ontoFile1) + OWLLoader.getWordNetCoverage(ontoFile2)) / 2;
+		
+		return WC;
 	}
 
 	/**
@@ -171,13 +179,19 @@ public class OntologyProcessor {
 		File onto1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
 		File onto2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/Bibtex Ontology/BibTex.owl");
 
-		//System.out.println("The Average Population (AP) is: " + computeAveragePopulation(onto1, onto2));
+		System.out.println("The Average Population (AP) of BIBO and BibTex is: " + computeAveragePopulation(onto1, onto2));
 		
-		System.out.println("The Class Richness (CR) is: " + computeClassRichness(onto1));
+		System.out.println("The Class Richness (CR) of BIBO and BibTex is: " + computeClassRichness(onto1));
 		
-		//System.out.println("The Inheritance Richness (IR) is: " + computeInheritanceRichness(onto1, onto2));
+		System.out.println("The Inheritance Richness (IR) of BIBO and BibTex is: " + computeInheritanceRichness(onto1, onto2));
 		
-		System.out.println("The Relationship Richness (RR) is: " + computeRelationshipRichness(onto1, onto2));
+		System.out.println("The Relationship Richness (RR) of BIBO and BibTex is: " + computeRelationshipRichness(onto1, onto2));
+		
+		System.out.println("The WordNet Coverage (WC) of BIBO and BibTex is: " + computeWordNetCoverage(onto1, onto2));
+		
+		System.out.println("The NullLabelOrComment (N) of BIBO and BibTex is: " + computeNullLabelOrComment(onto1, onto2));
+		
+		
 	}
 
 }

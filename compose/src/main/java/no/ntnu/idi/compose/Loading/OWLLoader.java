@@ -9,11 +9,15 @@ import java.util.Set;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 import org.semanticweb.owlapi.model.OWLAxiomIndex;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDocumentFormat;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -22,6 +26,8 @@ import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
+
+import no.ntnu.idi.compose.WordNet.WordNetLexicon;
 
 
 /**
@@ -57,6 +63,8 @@ public class OWLLoader {
 
 		String ontologyFormat = format.toString();
 
+		manager.removeOntology(onto);
+
 		return ontologyFormat;
 	}
 
@@ -71,6 +79,8 @@ public class OWLLoader {
 
 		int numClasses = onto.getClassesInSignature().size();
 
+		manager.removeOntology(onto);
+
 		return numClasses;
 	}
 
@@ -80,6 +90,8 @@ public class OWLLoader {
 
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
 		int numObjectProperties = onto.getObjectPropertiesInSignature().size();
+
+		manager.removeOntology(onto);
 
 		return numObjectProperties;
 	}
@@ -91,6 +103,8 @@ public class OWLLoader {
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
 
 		int numIndividuals = onto.getIndividualsInSignature().size();
+
+		manager.removeOntology(onto);
 
 		return numIndividuals;
 	}
@@ -116,6 +130,8 @@ public class OWLLoader {
 			totalSubClassCount += subClassCount;
 		}		
 
+		manager.removeOntology(onto);
+
 		return totalSubClassCount;
 	}
 
@@ -129,31 +145,157 @@ public class OWLLoader {
 
 		numAxioms = onto.getAxiomCount();
 
+		manager.removeOntology(onto);
 
 		return numAxioms;
 	}
 
 	public static int containsIndividuals(File ontoFile) throws OWLOntologyCreationException {
-		
+
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
 		OWLReasoner reasoner = reasonerFactory.createReasoner(onto);
 		Iterator<OWLClass> itr = onto.getClassesInSignature().iterator();
 		int countClassesWithIndividuals = 0;
-		
+
 		OWLClass thisClass;
-		
+
 		while (itr.hasNext()) {
 			thisClass = itr.next();
 			if (!reasoner.getInstances(thisClass, true).isEmpty()) {
 				countClassesWithIndividuals++;
 			}
-	
+
 		}
+		manager.removeOntology(onto);
+
 		return countClassesWithIndividuals;
 	}
 
+	public static int getNumClassesWithComments(File ontoFile) throws OWLOntologyCreationException {
 
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		Iterator<OWLClass> itr = onto.getClassesInSignature().iterator();
+		int countClassesWithComments = 0;
+
+		IRI thisClass;
+
+		while (itr.hasNext()) {
+			thisClass = itr.next().getIRI();
+			
+			for (OWLAnnotationAssertionAxiom a : onto.getAnnotationAssertionAxioms(thisClass)) {
+				if (a.getProperty().isComment()) {
+					countClassesWithComments++;
+				}
+			}
+
+			}
+		
+		manager.removeOntology(onto);
+
+		return countClassesWithComments;
+	}
+	
+	public static int getNumClassesWithLabels(File ontoFile) throws OWLOntologyCreationException {
+
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		Iterator<OWLClass> itr = onto.getClassesInSignature().iterator();
+		int countClassesWithLabels = 0;
+
+		IRI thisClass;
+
+		while (itr.hasNext()) {
+			thisClass = itr.next().getIRI();
+			
+			for (OWLAnnotationAssertionAxiom a : onto.getAnnotationAssertionAxioms(thisClass)) {
+				if (a.getProperty().isLabel()) {
+					countClassesWithLabels++;
+				}
+			}
+
+			}
+		
+		manager.removeOntology(onto);
+
+		return countClassesWithLabels;
+	}
+	
+	public static int containsObjectPropertyCommentsOrLabels(File ontoFile) throws OWLOntologyCreationException {
+
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		Iterator<OWLObjectProperty> itr_props = onto.getObjectPropertiesInSignature().iterator();
+		int countObjectPropertiesWithCommentsOrLabels = 0;
+
+		IRI thisObjectProperty;
+
+		while (itr_props.hasNext()) {
+			thisObjectProperty = itr_props.next().getIRI();
+			
+			for (OWLAnnotationAssertionAxiom a : onto.getAnnotationAssertionAxioms(thisObjectProperty)) {
+				if (a.getProperty().isComment()) {
+					countObjectPropertiesWithCommentsOrLabels++;
+				}
+			}
+
+			}
+		
+		manager.removeOntology(onto);
+
+		return countObjectPropertiesWithCommentsOrLabels;
+	}
+	
+	public static int containsDataPropertyCommentsOrLabels(File ontoFile) throws OWLOntologyCreationException {
+
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		Iterator<OWLDataProperty> itr_props = onto.getDataPropertiesInSignature().iterator();
+		int countDataPropertiesWithCommentsOrLabels = 0;
+
+		IRI thisDataProperty;
+
+		while (itr_props.hasNext()) {
+			thisDataProperty = itr_props.next().getIRI();
+			
+			for (OWLAnnotationAssertionAxiom a : onto.getAnnotationAssertionAxioms(thisDataProperty)) {
+				if (a.getProperty().isComment()) {
+					countDataPropertiesWithCommentsOrLabels++;
+				}
+			}
+
+			}
+		
+		manager.removeOntology(onto);
+
+		return countDataPropertiesWithCommentsOrLabels;
+	}
+
+
+	public static double getWordNetCoverage(File ontoFile) throws OWLOntologyCreationException {
+	
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		Iterator<OWLClass> itr = onto.getClassesInSignature().iterator();
+		
+		String thisClass;
+		
+		int numClasses = onto.getClassesInSignature().size();
+		
+		int counter = 0;
+		
+		while(itr.hasNext()) {
+			thisClass = itr.next().getIRI().getFragment();
+			if (WordNetLexicon.containedInWordNet(thisClass) == true) {
+				counter++;			
+			}		
+		}
+		
+		double wordNetCoverage = (double)counter / (double)numClasses;
+		
+		return wordNetCoverage;	
+	}
 
 
 
@@ -161,24 +303,35 @@ public class OWLLoader {
 	public static void main(String[] args) throws OWLOntologyCreationException {
 
 		//import the owl files
-		//File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
+		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
 		File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/Bibtex Ontology/BibTex.owl");
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
-		//OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(file1);
+		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(file1);
+		
+		//Get annotations at ontology level
+		Iterator<OWLAnnotationProperty> annotations = onto1.getAnnotationPropertiesInSignature().iterator();
+		while (annotations.hasNext()) {
+			System.out.println(annotations.next().toString());
+		}
 
 		//Iterator<OWLClass> itr = onto1.getClassesInSignature().iterator();
 
-		//System.out.println("Number of classes in this ontology is: " + getNumClasses(file1));
+		//System.out.println("Number of classes in this ontology is: " + getNumClasses(file2));
 		//System.out.println("Number of object properties in these two ontologies are: " + getNumObjectProperties(file1, file2));
 		//System.out.println("Number of individuals in BIBO are: " + getNumIndividuals(file2));
 
 		//System.out.println("Number of axioms for BIBO: " + getNumAxioms(file1));
 		//System.out.println("Number of axioms for BibTex: " + getNumAxioms(file2));
 
-		//System.out.println("Number of subclasses in BIBO are: " + getNumSubClasses(file1));
+		System.out.println("Number of subclasses in BIBO are: " + getNumSubClasses(file2));
+
+		//System.out.println("BIBO contains " + containsIndividuals(file2) + " classes holding individuals" );
 		
-		System.out.println("BIBO contains " + containsIndividuals(file2) + " classes holding individuals" );
+		System.out.println("BIBO contains " + getNumClassesWithComments(file1) + " classes holding comments or labels" );
+		System.out.println("BIBO contains " + containsObjectPropertyCommentsOrLabels(file1) + " object properties holding comments or labels" );
+		System.out.println("BIBO contains " + containsDataPropertyCommentsOrLabels(file1) + " data properties holding comments or labels" );
+		//System.out.println("The WordNet Coverage (WC) of BIBO is " + getWordNetCoverage(file1));
 
 
 
