@@ -1,6 +1,12 @@
 package no.ntnu.idi.compose.Matchers;
 
 
+import java.io.File;
+//Java standard classes
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.util.Properties;
+
 //Alignment API classes
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
@@ -12,17 +18,12 @@ import fr.inrialpes.exmo.align.impl.method.NameAndPropertyAlignment;
 import fr.inrialpes.exmo.align.impl.method.StringDistAlignment;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
-//Java standard classes
-import java.io.UnsupportedEncodingException;
-import java.io.File;
-import java.net.URI;
-import java.util.Properties;
-
 
 
 public class TestMatcher {
 
 	public static void main( String[] args ) throws AlignmentException, UnsupportedEncodingException {
+
 
 		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
 		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
