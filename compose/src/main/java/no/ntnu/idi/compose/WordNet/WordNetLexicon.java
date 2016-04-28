@@ -15,7 +15,7 @@ import edu.smu.tspell.wordnet.*;
 public class WordNetLexicon
 {
 		
-	
+	//TO-DO: Currently there is no preprocessing of the input word (stemming, tokenization, etc.) and this should be implemented!
 	public static boolean containedInWordNet(String inputWord) {
 		
 		System.setProperty("wordnet.database.dir", "/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-3.0/dict");
@@ -37,7 +37,7 @@ public class WordNetLexicon
 	{
 
 			
-			File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
+			File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
 			
 			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 			OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
@@ -61,10 +61,10 @@ public class WordNetLexicon
 			
 			double wordNetCoverage = (double)counter / (double)numClasses;
 			
-			System.out.println("Number of classes in BIBO: " + numClasses);
-			System.out.println("Number of classes in BIBO listed in WordNet: " + counter);
+			System.out.println("Number of classes in BIBLIO: " + numClasses);
+			System.out.println("Number of classes in BIBLIO listed in WordNet: " + counter);
 			
-			System.out.println(wordNetCoverage);
+			System.out.println("The WordNet Coverage of BIBLIO is: " + wordNetCoverage);
 			
 
 			

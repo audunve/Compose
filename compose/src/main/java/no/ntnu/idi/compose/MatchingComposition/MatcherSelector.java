@@ -1,5 +1,6 @@
 package no.ntnu.idi.compose.MatchingComposition;
 
+import java.io.File;
 import java.util.Map;
 
 import fr.inrialpes.exmo.ontowrap.Ontology;
@@ -15,10 +16,6 @@ public class MatcherSelector {
 
 	}
 
-	@Override
-	public void finalize() throws Throwable {
-
-	}
 
 	/**
 	 * Given two input ontologies as parameters a collection of matchers is returned
@@ -27,7 +24,7 @@ public class MatcherSelector {
 	 * @param onto1
 	 * @param onto2
 	 */
-	public Map selectMatcher(Ontology onto1, Ontology onto2){
+	public Map selectMatcher(File ontoFile1, File ontoFile2) {
 		return null;
 	}
 

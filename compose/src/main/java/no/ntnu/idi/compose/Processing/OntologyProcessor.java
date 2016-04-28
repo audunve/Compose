@@ -117,11 +117,11 @@ public class OntologyProcessor {
 	 */
 	public static double computeNullLabelOrComment(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
 		
-		int numClassesWithComments = OWLLoader.getNumClassesWithComments(ontoFile1) + OWLLoader.getNumClassesWithComments(ontoFile2);
-		int numClassesWithLabels = OWLLoader.getNumClassesWithLabels(ontoFile1) + OWLLoader.getNumClassesWithLabels(ontoFile2);
+		int numClassesWithoutComments = OWLLoader.getNumClassesWithComments(ontoFile1) + OWLLoader.getNumClassesWithComments(ontoFile2);
+		int numClassesWithoutLabels = OWLLoader.getNumClassesWithoutLabels(ontoFile1) + OWLLoader.getNumClassesWithoutLabels(ontoFile2);
 		int numClasses = OWLLoader.getNumClasses(ontoFile1) + OWLLoader.getNumClasses(ontoFile2);
 		
-		return (((double)numClassesWithComments / (double)numClasses) + ((double)numClassesWithLabels / (double)numClasses)) / 2;
+		return (((double)numClassesWithoutComments / (double)numClasses) + ((double)numClassesWithoutLabels / (double)numClasses)) / 2;
 	}
 
 	/**
@@ -169,7 +169,7 @@ public class OntologyProcessor {
 	 * @param confidence
 	 */
 	public Map findEnrichment(Map keywords, String URI, double confidence){
-		// FIXME Auto-generated method stub
+		// TO-DO: Implement functionality for finding enrichments
 		return null;
 	}
 
@@ -177,7 +177,7 @@ public class OntologyProcessor {
 	public static void main(String[] args) throws OWLOntologyCreationException, URISyntaxException, OntowrapException {
 		
 		File onto1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
-		File onto2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/Bibtex Ontology/BibTex.owl");
+		File onto2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
 
 		System.out.println("The Average Population (AP) of BIBO and BibTex is: " + computeAveragePopulation(onto1, onto2));
 		
@@ -187,9 +187,9 @@ public class OntologyProcessor {
 		
 		System.out.println("The Relationship Richness (RR) of BIBO and BibTex is: " + computeRelationshipRichness(onto1, onto2));
 		
-		System.out.println("The WordNet Coverage (WC) of BIBO and BibTex is: " + computeWordNetCoverage(onto1, onto2));
+		System.out.println("The WordNet Coverage (WC) of BIBO and BibTex is: " + computeWordNetCoverage(onto1, onto2) + " (" + computeWordNetCoverage(onto1, onto2)*100 + " percent)");
 		
-		System.out.println("The NullLabelOrComment (N) of BIBO and BibTex is: " + computeNullLabelOrComment(onto1, onto2));
+		System.out.println("The NullLabelOrComment (N) of BIBO and BibTex is: " + computeNullLabelOrComment(onto1, onto2) + " (" + computeNullLabelOrComment(onto1, onto2)*100 + " percent)");
 		
 		
 	}

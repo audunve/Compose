@@ -178,6 +178,8 @@ public class OWLLoader {
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
 		Iterator<OWLClass> itr = onto.getClassesInSignature().iterator();
 		int countClassesWithComments = 0;
+		int sumClasses = onto.getClassesInSignature().size();
+		
 
 		IRI thisClass;
 
@@ -193,16 +195,19 @@ public class OWLLoader {
 			}
 		
 		manager.removeOntology(onto);
+		
+		int numClassesWithoutComments = sumClasses - countClassesWithComments;
 
-		return countClassesWithComments;
+		return numClassesWithoutComments;
 	}
 	
-	public static int getNumClassesWithLabels(File ontoFile) throws OWLOntologyCreationException {
+	public static int getNumClassesWithoutLabels(File ontoFile) throws OWLOntologyCreationException {
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
 		Iterator<OWLClass> itr = onto.getClassesInSignature().iterator();
 		int countClassesWithLabels = 0;
+		int sumClasses = onto.getClassesInSignature().size();
 
 		IRI thisClass;
 
@@ -218,8 +223,10 @@ public class OWLLoader {
 			}
 		
 		manager.removeOntology(onto);
+		
+		int numClassesWithoutLabels = sumClasses - countClassesWithLabels;
 
-		return countClassesWithLabels;
+		return numClassesWithoutLabels;
 	}
 	
 	public static int containsObjectPropertyCommentsOrLabels(File ontoFile) throws OWLOntologyCreationException {
@@ -304,7 +311,9 @@ public class OWLLoader {
 
 		//import the owl files
 		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
-		File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/Bibtex Ontology/BibTex.owl");
+		//File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/Bibtex Ontology/BibTex.owl");
+		File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(file1);
@@ -324,13 +333,13 @@ public class OWLLoader {
 		//System.out.println("Number of axioms for BIBO: " + getNumAxioms(file1));
 		//System.out.println("Number of axioms for BibTex: " + getNumAxioms(file2));
 
-		System.out.println("Number of subclasses in BIBO are: " + getNumSubClasses(file2));
+		System.out.println("Number of subclasses in BIBLIO are: " + getNumSubClasses(file2));
 
 		//System.out.println("BIBO contains " + containsIndividuals(file2) + " classes holding individuals" );
 		
-		System.out.println("BIBO contains " + getNumClassesWithComments(file1) + " classes holding comments or labels" );
-		System.out.println("BIBO contains " + containsObjectPropertyCommentsOrLabels(file1) + " object properties holding comments or labels" );
-		System.out.println("BIBO contains " + containsDataPropertyCommentsOrLabels(file1) + " data properties holding comments or labels" );
+		System.out.println("BIBLIO contains " + getNumClassesWithComments(file2) + " classes holding comments or labels" );
+		System.out.println("BIBLIO contains " + containsObjectPropertyCommentsOrLabels(file2) + " object properties holding comments or labels" );
+		System.out.println("BIBLIO contains " + containsDataPropertyCommentsOrLabels(file2) + " data properties holding comments or labels" );
 		//System.out.println("The WordNet Coverage (WC) of BIBO is " + getWordNetCoverage(file1));
 
 

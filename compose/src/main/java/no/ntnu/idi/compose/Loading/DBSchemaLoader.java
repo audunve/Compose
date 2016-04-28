@@ -39,7 +39,7 @@ public class DBSchemaLoader implements Loader {
 	}
 
 	public void loadInputOntologies(File file1, File file2) {
-		// FIXME Auto-generated method stub
+
 		
 	}
 
