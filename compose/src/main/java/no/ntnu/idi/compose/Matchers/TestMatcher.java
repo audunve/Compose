@@ -1,9 +1,11 @@
 package no.ntnu.idi.compose.Matchers;
 
 
+import java.io.BufferedWriter;
 import java.io.File;
-//Java standard classes
-import java.io.UnsupportedEncodingException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.util.Properties;
 
@@ -11,74 +13,100 @@ import java.util.Properties;
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
+import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Evaluator;
 
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
+import fr.inrialpes.exmo.align.impl.method.EditDistNameAlignment;
 import fr.inrialpes.exmo.align.impl.method.NameAndPropertyAlignment;
 import fr.inrialpes.exmo.align.impl.method.StringDistAlignment;
+import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
-
-
 
 public class TestMatcher {
 
-	public static void main( String[] args ) throws AlignmentException, UnsupportedEncodingException {
-
+	public static void main( String[] args ) throws AlignmentException, IOException {
+		
+		//Treshold for similarity score for which correspondences should be considered
+		final double THRESHOLD = 0.8;
+		final String MATCHER = "NGRAM";
 
 		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
 		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
 
 		URI onto1 = ontoFile1.toURI();
 		URI onto2 = ontoFile2.toURI();
-
+		//Parameters defining the (string) matching method to be applied
 		Properties params = new Properties();
 
-		// Aligning
-		AlignmentProcess a1 = new StringDistAlignment();
+		AlignmentProcess a = null;
 
-		//Audun: Changed the parameters so that the smoa distance is used to compute alignments
-		params.setProperty("stringFunction", "smoaDistance");
-		a1.init ( onto1, onto2 );
-		a1.align( (Alignment)null, params );
+		switch(MATCHER) {
 
-		//Audun: Changed the parameters so that the ngram distance is used to compute alignments
-		AlignmentProcess a2 = new StringDistAlignment();
-		a2.init(onto1, onto2);
-		params = new Properties();
-		params.setProperty("stringFunction", "ngramDistance");
-		a2.align((Alignment)null, params);
+		//Smoa distance
+		case "SMOA": 
+			a = new StringDistAlignment();
+			params.setProperty("stringFunction", "smoaDistance");
+			a.init ( onto1, onto2 );
+			a.align( (Alignment)null, params );
+			break;
 
-		//Audun: Changed the parameters so that the Jaro Winkler is used to compute alignments
-		AlignmentProcess a3 = new StringDistAlignment();
-		a3.init(onto1, onto2);
-		params = new Properties();
-		params.setProperty("stringFunction", "jaroWinklerMeasure");
-		a3.align((Alignment)null, params);
+			//N-gram distance
+		case "NGRAM":
+			a = new StringDistAlignment();
+			params.setProperty("stringFunction", "ngramDistance");
+			a.init ( onto1, onto2 );
+			a.align( (Alignment)null, params );
+			break;
 
-		//Audun: Name and Property Alignment
-		AlignmentProcess a4 = new NameAndPropertyAlignment();
-		a4.init(onto1, onto2);
-		params = new Properties();
-		params.setProperty("default", "default");
-		a4.align((Alignment)null, params);
+			//Jaro-Winkler 
+		case "JARO-WINKLER":
+			a = new StringDistAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			params.setProperty("stringFunction", "jaroWinklerMeasure");
+			a.align((Alignment)null, params);
+			break;
 
-		/*	    // Outputing computed alignments
-	    PrintWriter writer = new PrintWriter (
-				  new BufferedWriter(
-		                   new OutputStreamWriter( System.out, "UTF-8" )), true);
-	    AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-	    a4.render(renderer);
-	    writer.flush();
-	    writer.close();*/
+			//Edit (Levenshtein) distance
+		case "EDIT":
+			a = new EditDistNameAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			a.align((Alignment)null, params);
+			break;
+
+			//Name and property matcher
+		case "NAMEPROP":
+			a = new NameAndPropertyAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			a.align((Alignment)null, params);
+
+		}
+
+		//Storing the alignment as RDF
+		PrintWriter writer = new PrintWriter(
+				new BufferedWriter(
+						new FileWriter("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/new_alignment.rdf")), true); 
+		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+		
+		//Defines the threshold for correspondences to be included
+		a.cut(THRESHOLD);
+		a.render(renderer);
+		writer.flush();
+		writer.close();
 
 		//Evaluate the alignment against a reference alignment
 		AlignmentParser aparser = new AlignmentParser(0);
 		Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/OAEI_Biblio2BIBO_ReferenceAlignment.rdf").toURI());
 		Properties p = new Properties();
 
-		Evaluator evaluator = new PRecEvaluator(referenceAlignment, a4);
+		Evaluator evaluator = new PRecEvaluator(referenceAlignment, a);
 		evaluator.eval(p);
-
+		System.out.println("------------------------------");
+		System.out.println("Evaluation scores:");
+		System.out.println("------------------------------");
 		System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
 		System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
 		System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
