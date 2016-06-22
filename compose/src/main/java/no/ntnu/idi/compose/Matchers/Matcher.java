@@ -1,6 +1,9 @@
 package no.ntnu.idi.compose.Matchers;
 
+import java.io.File;
 import java.util.Map;
+
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import fr.inrialpes.exmo.ontowrap.Ontology;
 
@@ -17,13 +20,7 @@ public interface Matcher {
 	 * @param onto2
 	 * @param matcherComposition
 	 */
-	public void matchOntologies(Ontology onto1, Ontology onto2, Map matcherComposition);
+	public Map matchOntologies(File onto1, File onto2, Map matcherComposition);
 
-	/**
-	 * 
-	 * @param onto1
-	 * @param onto2
-	 */
-	public void matchOntologies(Ontology onto1, Ontology onto2);
 
 }

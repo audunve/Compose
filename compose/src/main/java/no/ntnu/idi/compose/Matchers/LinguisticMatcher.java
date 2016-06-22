@@ -1,5 +1,6 @@
 package no.ntnu.idi.compose.Matchers;
 
+import java.io.File;
 import java.util.Map;
 
 import fr.inrialpes.exmo.ontowrap.Ontology;
@@ -29,14 +30,12 @@ public class LinguisticMatcher implements Matcher {
 
 	}
 
-	/**
-	 * 
-	 * @param onto1
-	 * @param onto2
-	 * @param matcherComposition
-	 */
-	public void matchOntologies(Ontology onto1, Ontology onto2, Map matcherComposition){
 
+
+	@Override
+	public Map matchOntologies(File onto1, File onto2, Map matcherComposition) {
+		// FIXME Auto-generated method stub
+		return null;
 	}
 
 }

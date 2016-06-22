@@ -17,19 +17,21 @@ import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Evaluator;
 
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
+import fr.inrialpes.exmo.align.impl.method.ClassStructAlignment;
 import fr.inrialpes.exmo.align.impl.method.EditDistNameAlignment;
 import fr.inrialpes.exmo.align.impl.method.NameAndPropertyAlignment;
 import fr.inrialpes.exmo.align.impl.method.StringDistAlignment;
+import fr.inrialpes.exmo.align.impl.method.StrucSubsDistAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
 public class TestMatcher {
 
-	public static void main( String[] args ) throws AlignmentException, IOException {
-		
+	public static void main(String[] args) throws AlignmentException, IOException {
+
 		//Treshold for similarity score for which correspondences should be considered
 		final double THRESHOLD = 0.8;
-		final String MATCHER = "NGRAM";
+		final String MATCHER = "SUBSTRING";
 
 		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
 		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
@@ -83,6 +85,29 @@ public class TestMatcher {
 			params = new Properties();
 			a.align((Alignment)null, params);
 
+			//Name and property matcher
+		case "CLASSSTRUCT":
+			a = new ClassStructAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			a.align((Alignment)null, params);
+
+			//Hamming distance matcher
+		case "HAMMING":
+			a = new StringDistAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			params.setProperty("stringFunction", "hammingDistance");
+			a.align((Alignment)null, params);
+			
+			//Substring distance matcher
+		case "SUBSTRING":
+			a = new StringDistAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			params.setProperty("stringFunction", "subStringDistance");
+			a.align((Alignment)null, params);
+
 		}
 
 		//Storing the alignment as RDF
@@ -90,7 +115,7 @@ public class TestMatcher {
 				new BufferedWriter(
 						new FileWriter("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/new_alignment.rdf")), true); 
 		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-		
+
 		//Defines the threshold for correspondences to be included
 		a.cut(THRESHOLD);
 		a.render(renderer);

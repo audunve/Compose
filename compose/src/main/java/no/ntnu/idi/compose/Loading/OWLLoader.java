@@ -313,16 +313,17 @@ public class OWLLoader {
 		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
 		//File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/Bibtex Ontology/BibTex.owl");
 		File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		File file3 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Schema.org/schema.rdf");
 		
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(file1);
 		
 		//Get annotations at ontology level
-		Iterator<OWLAnnotationProperty> annotations = onto1.getAnnotationPropertiesInSignature().iterator();
+		/*Iterator<OWLAnnotationProperty> annotations = onto1.getAnnotationPropertiesInSignature().iterator();
 		while (annotations.hasNext()) {
 			System.out.println(annotations.next().toString());
-		}
+		}*/
 
 		//Iterator<OWLClass> itr = onto1.getClassesInSignature().iterator();
 
@@ -333,14 +334,14 @@ public class OWLLoader {
 		//System.out.println("Number of axioms for BIBO: " + getNumAxioms(file1));
 		//System.out.println("Number of axioms for BibTex: " + getNumAxioms(file2));
 
-		System.out.println("Number of subclasses in BIBLIO are: " + getNumSubClasses(file2));
+		System.out.println("Number of subclasses in Schema.org are: " + getNumSubClasses(file3));
 
-		//System.out.println("BIBO contains " + containsIndividuals(file2) + " classes holding individuals" );
+		System.out.println("Schema.org contains " + containsIndividuals(file3) + " classes holding individuals" );
 		
-		System.out.println("BIBLIO contains " + getNumClassesWithComments(file2) + " classes holding comments or labels" );
-		System.out.println("BIBLIO contains " + containsObjectPropertyCommentsOrLabels(file2) + " object properties holding comments or labels" );
-		System.out.println("BIBLIO contains " + containsDataPropertyCommentsOrLabels(file2) + " data properties holding comments or labels" );
-		//System.out.println("The WordNet Coverage (WC) of BIBO is " + getWordNetCoverage(file1));
+		System.out.println("Schema.org contains " + getNumClassesWithComments(file3) + " classes holding comments or labels" );
+		System.out.println("Schema.org contains " + containsObjectPropertyCommentsOrLabels(file3) + " object properties holding comments or labels" );
+		System.out.println("Schema.org contains " + containsDataPropertyCommentsOrLabels(file3) + " data properties holding comments or labels" );
+		System.out.println("The WordNet Coverage (WC) of Schema.org is " + getWordNetCoverage(file3));
 
 
 
