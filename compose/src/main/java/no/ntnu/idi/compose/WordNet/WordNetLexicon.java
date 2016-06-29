@@ -35,8 +35,7 @@ public class WordNetLexicon
 
 	public static void main(String[] args) throws OWLOntologyCreationException
 	{
-
-			
+		
 			File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
 			
 			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		

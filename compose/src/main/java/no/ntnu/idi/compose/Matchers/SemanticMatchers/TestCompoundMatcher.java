@@ -28,8 +28,8 @@ public class TestCompoundMatcher {
 		//Treshold for similarity score for which correspondences should be considered
 		double threshold = 0.6;
 
-		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
-		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
+		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/MyOwnExperiments/Bibliography_1.owl");
+		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/MyOwnExperiments/Bibliography_2.owl");
 
 		URI onto1 = ontoFile1.toURI();
 		URI onto2 = ontoFile2.toURI();

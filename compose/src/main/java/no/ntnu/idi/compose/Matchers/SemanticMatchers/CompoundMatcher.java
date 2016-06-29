@@ -80,4 +80,16 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 
 		return test;
 	}
+	
+	public static void main(String[] args) {
+		String s1 = "Vehicle";
+		String s2 = "RoadVehicle";
+		
+		if (isCompound(s1,s2) == true) {
+			System.out.println(s1 + " is subsumed by " + s2);
+		}
+		else {
+			System.out.println(s1 + " is not subsumed by " + s2);
+		}
+	}
 }

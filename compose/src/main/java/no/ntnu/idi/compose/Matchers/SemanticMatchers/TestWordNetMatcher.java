@@ -25,19 +25,23 @@ public class TestWordNetMatcher {
 
 		WordNetMatcher matcher = new WordNetMatcher();
 
-		//Treshold for similarity score for which correspondences should be considered
-		double threshold = 0.6;
+		//Threshold for similarity score for which correspondences should be considered
+		double threshold = 0.2;
+		
 
-		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
-		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
+		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/BIBO.owl");
+		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/Biblio_2015.rdf");
 
 		URI onto1 = ontoFile1.toURI();
 		URI onto2 = ontoFile2.toURI();
 
 		Properties params = new Properties();
 
+		long time = System.currentTimeMillis();
 		matcher.init(onto1, onto2);
 		matcher.align(null, params);
+		time = System.currentTimeMillis() - time;
+		System.out.println("The matching operation took " + time + " millisecond(s)");
 
 		//Storing the alignment as RDF
 		PrintWriter writer = new PrintWriter(
