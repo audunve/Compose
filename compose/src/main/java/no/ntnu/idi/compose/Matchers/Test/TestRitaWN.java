@@ -1,4 +1,4 @@
-package no.ntnu.idi.compose.Matchers;
+package no.ntnu.idi.compose.Matchers.Test;
 
 import rita.RiWordNet;
 

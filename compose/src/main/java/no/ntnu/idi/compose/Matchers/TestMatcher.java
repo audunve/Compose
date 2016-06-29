@@ -31,10 +31,12 @@ public class TestMatcher {
 
 		//Treshold for similarity score for which correspondences should be considered
 		final double THRESHOLD = 0.8;
-		final String MATCHER = "SUBSTRING";
+		final String MATCHER = "HAMMING";
 
-		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
-		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
+		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Conference.owl");
+		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Ekaw.owl");
+		//File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		//File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
 
 		URI onto1 = ontoFile1.toURI();
 		URI onto2 = ontoFile2.toURI();
@@ -124,7 +126,8 @@ public class TestMatcher {
 
 		//Evaluate the alignment against a reference alignment
 		AlignmentParser aparser = new AlignmentParser(0);
-		Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/OAEI_Biblio2BIBO_ReferenceAlignment.rdf").toURI());
+		//Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/OAEI_Biblio2BIBO_ReferenceAlignment.rdf").toURI());
+		Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/reference-alignment/conference-ekaw.rdf").toURI());
 		Properties p = new Properties();
 
 		Evaluator evaluator = new PRecEvaluator(referenceAlignment, a);

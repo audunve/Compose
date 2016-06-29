@@ -1,51 +1,69 @@
-package no.ntnu.idi.compose.Matchers.SemanticMatchers;
-
+package no.ntnu.idi.compose.Matchers.Test;
 
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.util.Properties;
 
+//Alignment API classes
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
+import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Evaluator;
 
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
+import fr.inrialpes.exmo.align.impl.method.ClassStructAlignment;
+import fr.inrialpes.exmo.align.impl.method.EditDistNameAlignment;
+import fr.inrialpes.exmo.align.impl.method.NameAndPropertyAlignment;
+import fr.inrialpes.exmo.align.impl.method.StringDistAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
+import fr.inrialpes.exmo.align.ling.JWNLAlignment;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
+import net.didion.jwnl.JWNL;
+import net.didion.jwnl.JWNLException;
+import net.didion.jwnl.dictionary.Dictionary;
 
-public class TestCompoundMatcher {
 
-	public static void main(String[] args) throws AlignmentException, IOException {
+public class TestWordNetMatcher_old {
 
-		CompoundMatcher matcher = new CompoundMatcher();
+	public static void main(String[] args) throws AlignmentException, IOException, JWNLException {
 
 		//Treshold for similarity score for which correspondences should be considered
-		double threshold = 0.6;
+		final double THRESHOLD = 0.8;
+		
+		JWNL.initialize(new FileInputStream("/Users/audunvennesland/git/Compose/compose/file_property.xml"));
+        final Dictionary dictionary = Dictionary.getInstance();
 
-		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/MyOwnExperiments/Bibliography_1.owl");
-		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/MyOwnExperiments/Bibliography_2.owl");
+		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
 
 		URI onto1 = ontoFile1.toURI();
 		URI onto2 = ontoFile2.toURI();
-
+		
+		//Parameters defining the (string) matching method to be applied
 		Properties params = new Properties();
 
-		matcher.init(onto1, onto2);
-		matcher.align(null, params);
+		AlignmentProcess a = new JWNLAlignment();
+		params.setProperty( "wndict", "/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-3.0/dict");
+		params.setProperty("wnFunction", "basicSynonymySimilarity");
+		a.init(onto1, onto2);
+		a.align( (Alignment)null, params );
 
 		//Storing the alignment as RDF
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(
 						new FileWriter("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/new_alignment.rdf")), true); 
 		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-		matcher.cut(threshold);
-		matcher.render(renderer);
+
+		//Defines the threshold for correspondences to be included
+		a.cut(THRESHOLD);
+		a.render(renderer);
 		writer.flush();
 		writer.close();
 
@@ -54,7 +72,7 @@ public class TestCompoundMatcher {
 		Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/OAEI_Biblio2BIBO_ReferenceAlignment.rdf").toURI());
 		Properties p = new Properties();
 
-		Evaluator evaluator = new PRecEvaluator(referenceAlignment, matcher);
+		Evaluator evaluator = new PRecEvaluator(referenceAlignment, a);
 		evaluator.eval(p);
 		System.out.println("------------------------------");
 		System.out.println("Evaluation scores:");
@@ -65,5 +83,4 @@ public class TestCompoundMatcher {
 
 
 	}
-
 }

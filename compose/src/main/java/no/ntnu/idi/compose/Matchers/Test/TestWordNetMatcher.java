@@ -1,4 +1,4 @@
-package no.ntnu.idi.compose.Matchers.SemanticMatchers;
+package no.ntnu.idi.compose.Matchers.Test;
 
 
 
@@ -18,6 +18,7 @@ import org.semanticweb.owl.align.Evaluator;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
+import no.ntnu.idi.compose.Matchers.SemanticMatchers.WordNetMatcher;
 
 public class TestWordNetMatcher {
 
