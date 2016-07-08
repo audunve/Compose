@@ -29,8 +29,8 @@ public class TestCompoundMatcher {
 		//Treshold for similarity score for which correspondences should be considered
 		double threshold = 0.6;
 
-		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/MyOwnExperiments/Bibliography_1.owl");
-		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/MyOwnExperiments/Bibliography_2.owl");
+		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/ekaw.owl");
+		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Conference.owl");
 
 		URI onto1 = ontoFile1.toURI();
 		URI onto2 = ontoFile2.toURI();
@@ -43,7 +43,7 @@ public class TestCompoundMatcher {
 		//Storing the alignment as RDF
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(
-						new FileWriter("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/new_alignment.rdf")), true); 
+						new FileWriter("/Users/audunvennesland/Documents/PhD/Development/Experiments/Compound_alignment.rdf")), true); 
 		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
 		matcher.cut(threshold);
 		matcher.render(renderer);

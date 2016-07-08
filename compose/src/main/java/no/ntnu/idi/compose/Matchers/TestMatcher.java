@@ -18,21 +18,27 @@ import org.semanticweb.owl.align.Evaluator;
 
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.method.ClassStructAlignment;
+import fr.inrialpes.exmo.align.impl.method.CompoundAlignment;
 import fr.inrialpes.exmo.align.impl.method.EditDistNameAlignment;
 import fr.inrialpes.exmo.align.impl.method.NameAndPropertyAlignment;
 import fr.inrialpes.exmo.align.impl.method.StringDistAlignment;
-import fr.inrialpes.exmo.align.impl.method.StrucSubsDistAlignment;
+import fr.inrialpes.exmo.align.impl.method.WordNetAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
+
+
 
 public class TestMatcher {
 
 	public static void main(String[] args) throws AlignmentException, IOException {
 
-		//Treshold for similarity score for which correspondences should be considered
-		final double THRESHOLD = 0.8;
-		final String MATCHER = "HAMMING";
+		//Threshold for similarity score for which correspondences should be considered
+		final double THRESHOLD = 0.2;
+		final String MATCHER = "WORDNET";
 
+		
+		//File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Music/MusicOntology/MusicOntology.owl");
+		//File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Music/MusicBrainz/MusicBrainz.owl");
 		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Conference.owl");
 		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Ekaw.owl");
 		//File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
@@ -102,6 +108,13 @@ public class TestMatcher {
 			params.setProperty("stringFunction", "hammingDistance");
 			a.align((Alignment)null, params);
 			
+		case "WORDNET":
+			a = new WordNetAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
+			
 			//Substring distance matcher
 		case "SUBSTRING":
 			a = new StringDistAlignment();
@@ -109,6 +122,15 @@ public class TestMatcher {
 			params = new Properties();
 			params.setProperty("stringFunction", "subStringDistance");
 			a.align((Alignment)null, params);
+				
+		/*case "COMPOUND":
+			a = new CompoundAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	*/
+			
+
 
 		}
 
