@@ -133,8 +133,6 @@ public class TestMatcher {
 			a.align((Alignment)null, params);	
 			break;
 
-
-
 		}
 
 		//Storing the alignment as RDF
