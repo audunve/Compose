@@ -16,13 +16,12 @@ import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Evaluator;
 
+import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
-import fr.inrialpes.exmo.align.impl.method.ClassStructAlignment;
-import fr.inrialpes.exmo.align.impl.method.CompoundAlignment;
-import fr.inrialpes.exmo.align.impl.method.EditDistNameAlignment;
-import fr.inrialpes.exmo.align.impl.method.NameAndPropertyAlignment;
-import fr.inrialpes.exmo.align.impl.method.StringDistAlignment;
-import fr.inrialpes.exmo.align.impl.method.WordNetAlignment;
+import no.ntnu.idi.compose.Matchers.CompoundAlignment;
+import no.ntnu.idi.compose.Matchers.EditDistNameAlignment;
+import no.ntnu.idi.compose.Matchers.StringDistAlignment;
+import no.ntnu.idi.compose.Matchers.WordNetAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
@@ -34,9 +33,9 @@ public class TestMatcher {
 
 		//Threshold for similarity score for which correspondences should be considered
 		final double THRESHOLD = 0.2;
-		final String MATCHER = "WORDNET";
+		final String MATCHER = "NGRAM_WITH_ALIGNMENT";
 
-		
+
 		//File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Music/MusicOntology/MusicOntology.owl");
 		//File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Music/MusicBrainz/MusicBrainz.owl");
 		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Conference.owl");
@@ -51,6 +50,9 @@ public class TestMatcher {
 
 		AlignmentProcess a = null;
 
+		AlignmentParser inputParser = new AlignmentParser(0);
+		Alignment inputAlignment = inputParser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/Conference-Ekaw/input_alignment.rdf").toURI());
+
 		switch(MATCHER) {
 
 		//Smoa distance
@@ -58,7 +60,8 @@ public class TestMatcher {
 			a = new StringDistAlignment();
 			params.setProperty("stringFunction", "smoaDistance");
 			a.init ( onto1, onto2 );
-			a.align( (Alignment)null, params );
+
+			a.align((Alignment)null, params );
 			break;
 
 			//N-gram distance
@@ -67,6 +70,14 @@ public class TestMatcher {
 			params.setProperty("stringFunction", "ngramDistance");
 			a.init ( onto1, onto2 );
 			a.align( (Alignment)null, params );
+			break;
+
+			//N-gram distance with input alignment
+		case "NGRAM_WITH_ALIGNMENT":
+			a = new StringDistAlignment();
+			params.setProperty("stringFunction", "ngramDistance");
+			a.init ( onto1, onto2 );
+			a.align( inputAlignment, params );
 			break;
 
 			//Jaro-Winkler 
@@ -86,19 +97,6 @@ public class TestMatcher {
 			a.align((Alignment)null, params);
 			break;
 
-			//Name and property matcher
-		case "NAMEPROP":
-			a = new NameAndPropertyAlignment();
-			a.init(onto1, onto2);
-			params = new Properties();
-			a.align((Alignment)null, params);
-
-			//Name and property matcher
-		case "CLASSSTRUCT":
-			a = new ClassStructAlignment();
-			a.init(onto1, onto2);
-			params = new Properties();
-			a.align((Alignment)null, params);
 
 			//Hamming distance matcher
 		case "HAMMING":
@@ -107,14 +105,9 @@ public class TestMatcher {
 			params = new Properties();
 			params.setProperty("stringFunction", "hammingDistance");
 			a.align((Alignment)null, params);
-			
-		case "WORDNET":
-			a = new WordNetAlignment();
-			a.init(onto1, onto2);
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-			
+			break;
+
+
 			//Substring distance matcher
 		case "SUBSTRING":
 			a = new StringDistAlignment();
@@ -122,14 +115,24 @@ public class TestMatcher {
 			params = new Properties();
 			params.setProperty("stringFunction", "subStringDistance");
 			a.align((Alignment)null, params);
-				
-		/*case "COMPOUND":
+			break;
+
+		case "WORDNET":
+			a = new WordNetAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
+			break;
+
+		case "COMPOUND":
 			a = new CompoundAlignment();
 			a.init(onto1, onto2);
 			params = new Properties();
 			params.setProperty("", "");
-			a.align((Alignment)null, params);	*/
-			
+			a.align((Alignment)null, params);	
+			break;
+
 
 
 		}
@@ -137,12 +140,21 @@ public class TestMatcher {
 		//Storing the alignment as RDF
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(
-						new FileWriter("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/new_alignment.rdf")), true); 
+						new FileWriter("/Users/audunvennesland/Documents/PhD/Development/Experiments/Conference-Ekaw/output_alignment_joined.rdf")), true); 
 		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-
-		//Defines the threshold for correspondences to be included
-		a.cut(THRESHOLD);
-		a.render(renderer);
+		
+		//to manipulate the alignments we using the BasicAlignment, not the Alignment
+		//clone the computed alignment from Alignment to BasicAlignment
+		BasicAlignment a2 = (BasicAlignment)(a.clone());
+		
+		//merge the computed alignment with the input alignment
+		a2.ingest(inputAlignment);
+		
+		//implement a similarity threshold
+		a2.cut(THRESHOLD);
+		
+		//a.meet(inputAlignment);
+		a2.render(renderer);
 		writer.flush();
 		writer.close();
 
