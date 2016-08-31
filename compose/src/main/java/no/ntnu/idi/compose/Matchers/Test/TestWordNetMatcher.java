@@ -18,20 +18,20 @@ import org.semanticweb.owl.align.Evaluator;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
-import no.ntnu.idi.compose.Matchers.SemanticMatchers.WordNetMatcher;
+import no.ntnu.idi.compose.Matchers.WordNetAlignment;
 
 public class TestWordNetMatcher {
 
 	public static void main(String[] args) throws AlignmentException, IOException {
 
-		WordNetMatcher matcher = new WordNetMatcher();
+		WordNetAlignment matcher = new WordNetAlignment();
 
 		//Threshold for similarity score for which correspondences should be considered
 		double threshold = 0.2;
 		
 
-		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/BIBO.owl");
-		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/Biblio_2015.rdf");
+		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/Test1.owl");
+		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/Test2.owl");
 
 		URI onto1 = ontoFile1.toURI();
 		URI onto2 = ontoFile2.toURI();
@@ -47,16 +47,16 @@ public class TestWordNetMatcher {
 		//Storing the alignment as RDF
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(
-						new FileWriter("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/new_alignment.rdf")), true); 
+						new FileWriter("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/wordnet.rdf")), true); 
 		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-		matcher.cut(threshold);
+		//matcher.cut(threshold);
 		matcher.render(renderer);
 		writer.flush();
 		writer.close();
 
 		//Evaluate the alignment against a reference alignment
 		AlignmentParser aparser = new AlignmentParser(0);
-		Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/OAEI_Biblio2BIBO_ReferenceAlignment.rdf").toURI());
+		Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/OAEI_Biblio2BIBO_ReferenceAlignment.rdf").toURI());
 		Properties p = new Properties();
 
 		Evaluator evaluator = new PRecEvaluator(referenceAlignment, matcher);

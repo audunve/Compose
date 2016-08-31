@@ -9,8 +9,8 @@ public class TestRitaWN {
 	RiWordNet wn = new RiWordNet("/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-3.0/dict");
 	
 	//note that all "lemmas" must be lowercased
-	String w1 = "person";
-	String w2 = "human";
+	String w1 = "boat";
+	String w2 = "ship";
 	String[] synonyms = null;
 	
 	//"n" is for the part-of-speech (POS)

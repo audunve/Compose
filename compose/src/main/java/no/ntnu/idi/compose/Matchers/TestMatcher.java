@@ -26,32 +26,31 @@ import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
 
-
 public class TestMatcher {
 
 	public static void main(String[] args) throws AlignmentException, IOException {
 
 		//Threshold for similarity score for which correspondences should be considered
-		final double THRESHOLD = 0.2;
-		final String MATCHER = "NGRAM_WITH_ALIGNMENT";
+		final double THRESHOLD = 0.8;
+		final String MATCHER = "WUPALMER";
 
+		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
+		File outputFile = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/output_alignment_biblio-bibo_wupalmer.rdf");
 
-		//File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Music/MusicOntology/MusicOntology.owl");
-		//File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Music/MusicBrainz/MusicBrainz.owl");
-		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Conference.owl");
-		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Ekaw.owl");
-		//File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
-		//File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
-
+		//The source and target ontologies converted to URIs
 		URI onto1 = ontoFile1.toURI();
 		URI onto2 = ontoFile2.toURI();
+
 		//Parameters defining the (string) matching method to be applied
 		Properties params = new Properties();
 
 		AlignmentProcess a = null;
 
 		AlignmentParser inputParser = new AlignmentParser(0);
-		Alignment inputAlignment = inputParser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/Conference-Ekaw/input_alignment.rdf").toURI());
+
+		//An optional input alignment
+		//Alignment inputAlignment = inputParser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/output_alignment_biblio-bibo_edit.rdf").toURI());
 
 		switch(MATCHER) {
 
@@ -60,9 +59,17 @@ public class TestMatcher {
 			a = new StringDistAlignment();
 			params.setProperty("stringFunction", "smoaDistance");
 			a.init ( onto1, onto2 );
-
 			a.align((Alignment)null, params );
 			break;
+
+/*			//Smoa distance with input alignment
+		case "SMOA_WITH_ALIGNMENT": 
+			a = new StringDistAlignment();
+			params.setProperty("stringFunction", "smoaDistance");
+			a.init ( onto1, onto2 );
+			a.align(inputAlignment, params );
+			break;*/
+
 
 			//N-gram distance
 		case "NGRAM":
@@ -72,13 +79,13 @@ public class TestMatcher {
 			a.align( (Alignment)null, params );
 			break;
 
-			//N-gram distance with input alignment
+/*			//N-gram distance with input alignment
 		case "NGRAM_WITH_ALIGNMENT":
 			a = new StringDistAlignment();
 			params.setProperty("stringFunction", "ngramDistance");
 			a.init ( onto1, onto2 );
 			a.align( inputAlignment, params );
-			break;
+			break;*/
 
 			//Jaro-Winkler 
 		case "JARO-WINKLER":
@@ -124,6 +131,14 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 			break;
+			
+		case "WUPALMER":
+			a = new WS4JAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
+			break;
 
 		case "COMPOUND":
 			a = new CompoundAlignment();
@@ -138,31 +153,35 @@ public class TestMatcher {
 		//Storing the alignment as RDF
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(
-						new FileWriter("/Users/audunvennesland/Documents/PhD/Development/Experiments/Conference-Ekaw/output_alignment_joined.rdf")), true); 
+						new FileWriter(outputFile)), true); 
 		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-		
+
 		//to manipulate the alignments we using the BasicAlignment, not the Alignment
 		//clone the computed alignment from Alignment to BasicAlignment
 		BasicAlignment a2 = (BasicAlignment)(a.clone());
-		
-		//merge the computed alignment with the input alignment
-		a2.ingest(inputAlignment);
-		
+
+/*		//merge the computed alignment with the input alignment
+		a2.ingest(inputAlignment);*/
+
 		//implement a similarity threshold
 		a2.cut(THRESHOLD);
-		
-		//a.meet(inputAlignment);
+
+		//implement the join() method that joins an already computed alignment with this new alignment
+		//a2.join(inputAlignment);
+		//onto1.getURI() != align.getOntology1URI()
+
+
 		a2.render(renderer);
 		writer.flush();
 		writer.close();
 
 		//Evaluate the alignment against a reference alignment
 		AlignmentParser aparser = new AlignmentParser(0);
-		//Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OEAIBIBLIO2BIBO/OAEI_Biblio2BIBO_ReferenceAlignment.rdf").toURI());
-		Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/reference-alignment/conference-ekaw.rdf").toURI());
+		Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/OAEI_Biblio2BIBO_ReferenceAlignment.rdf").toURI());
+		//Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/reference-alignment/conference-ekaw.rdf").toURI());
 		Properties p = new Properties();
 
-		Evaluator evaluator = new PRecEvaluator(referenceAlignment, a);
+		Evaluator evaluator = new PRecEvaluator(referenceAlignment, a2);
 		evaluator.eval(p);
 		System.out.println("------------------------------");
 		System.out.println("Evaluation scores:");

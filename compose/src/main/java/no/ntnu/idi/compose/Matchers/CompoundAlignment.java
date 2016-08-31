@@ -83,8 +83,8 @@ public class CompoundAlignment extends ObjectAlignment implements AlignmentProce
 	}
 	
 	public static void main(String[] args) {
-		String s1 = "Vehicle";
-		String s2 = "RoadVehicle";
+		String s1 = "RoadVehicle";
+		String s2 = "Vehicle";
 		
 		if (isCompound(s1,s2) == true) {
 			System.out.println(s1 + " is subsumed by " + s2);

@@ -25,9 +25,11 @@ public class WordNetAlignment extends ObjectAlignment implements AlignmentProces
 			// Match classes
 			for ( Object cl2: ontology2().getClasses() ){
 				for ( Object cl1: ontology1().getClasses() ){
+					
 					// add mapping into alignment object 
 					addAlignCell(cl1,cl2, "=", wordNetMatch(cl1,cl2));  
 				}
+				
 			}
 
 		} catch (Exception e) { e.printStackTrace(); }
@@ -56,54 +58,35 @@ public class WordNetAlignment extends ObjectAlignment implements AlignmentProces
 	 * @param o2
 	 * @return
 	 * @throws AlignmentException
+	 * @throws OntowrapException 
 	 */
-	public double wordNetMatch(Object o1, Object o2) throws AlignmentException {
+	public double wordNetMatch(Object o1, Object o2) throws AlignmentException, OntowrapException {
 
 		double distance = 0;
 		double finalDistance = 0;
 		
-		try {
-			//get the objects (entities)
-			String s1 = ontology1().getEntityName(o1);
-			String s2 = ontology2().getEntityName(o2);
 
+			//get the objects (entities)
+			String s1 = ontology1().getEntityName(o1).toLowerCase();
+			String s2 = ontology2().getEntityName(o2).toLowerCase();
+			
+			if (containedInWordNet(s1) == true && containedInWordNet(s2) == true) {
 
 				//...measure their distance
 				 distance = database.getDistance(s1, s2, "n");
+				 
+				 //printing the ontology objects and their measured distance
+				 System.out.println(s1 + " - " + s2 + " with measure: " + distance);
 
-
-		} catch ( OntowrapException owex ) {
-			throw new AlignmentException( "Error getting entity name", owex );
-		}
 		
-		if (distance != 1.0 && distance > 0.4) {
-			finalDistance = distance;
+		if (distance != 1.0) {
+			finalDistance = 1-distance;
 		} else {
 			finalDistance = 0;
 			
 		}
+			}
 		return finalDistance;
 	}
-
-
-	public static void main(String[] args) {
-		//Test if the words are contained in WordNet
-		String s1 = "human";
-		String s2 = "person";
-
-		if (containedInWordNet(s1) == true && containedInWordNet(s2) == true) {
-			System.out.println(s1 + " and " + s2 + " are contained in WordNet");
-		} else {
-			System.out.println("Both words are not contained in WordNet");
-		}
-		
-		System.out.println("The distance between " + s1 + " and " + s2 + " is: " + database.getDistance(s1,s2,"n"));
-
-
-
-
-
-	}
-
 
 }
