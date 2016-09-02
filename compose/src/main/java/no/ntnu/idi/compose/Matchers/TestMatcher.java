@@ -32,11 +32,11 @@ public class TestMatcher {
 
 		//Threshold for similarity score for which correspondences should be considered
 		final double THRESHOLD = 0.8;
-		final String MATCHER = "WUPALMER";
+		final String MATCHER = "ISUB";
 
 		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
 		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
-		File outputFile = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/output_alignment_biblio-bibo_wupalmer.rdf");
+		File outputFile = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/output_alignment_biblio-bibo_isub.rdf");
 
 		//The source and target ontologies converted to URIs
 		URI onto1 = ontoFile1.toURI();
@@ -104,7 +104,6 @@ public class TestMatcher {
 			a.align((Alignment)null, params);
 			break;
 
-
 			//Hamming distance matcher
 		case "HAMMING":
 			a = new StringDistAlignment();
@@ -114,7 +113,6 @@ public class TestMatcher {
 			a.align((Alignment)null, params);
 			break;
 
-
 			//Substring distance matcher
 		case "SUBSTRING":
 			a = new StringDistAlignment();
@@ -122,6 +120,14 @@ public class TestMatcher {
 			params = new Properties();
 			params.setProperty("stringFunction", "subStringDistance");
 			a.align((Alignment)null, params);
+			break;
+			
+		case "ISUB":
+			a = new ISubAlignment();
+			a.init(onto1, onto2);
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
 			break;
 
 		case "WORDNET":

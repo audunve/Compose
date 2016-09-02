@@ -103,6 +103,7 @@ public class OWLLoader {
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
 
 		int numIndividuals = onto.getIndividualsInSignature().size();
+		
 
 		manager.removeOntology(onto);
 
