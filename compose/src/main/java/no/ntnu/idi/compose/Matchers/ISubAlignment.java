@@ -15,7 +15,6 @@ public class ISubAlignment extends ObjectAlignment implements AlignmentProcess {
 	
 	static ISub isubMatcher = new ISub();
 
-	@Override
 	public void align(Alignment alignment, Properties param) throws AlignmentException {
 		
 		try {

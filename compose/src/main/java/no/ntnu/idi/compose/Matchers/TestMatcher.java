@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 //Alignment API classes
@@ -18,6 +19,7 @@ import org.semanticweb.owl.align.Evaluator;
 
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
+import fr.inrialpes.exmo.align.impl.method.NameAndPropertyAlignment;
 import no.ntnu.idi.compose.Matchers.CompoundAlignment;
 import no.ntnu.idi.compose.Matchers.EditDistNameAlignment;
 import no.ntnu.idi.compose.Matchers.StringDistAlignment;
@@ -28,19 +30,12 @@ import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
 public class TestMatcher {
 
-	public static void main(String[] args) throws AlignmentException, IOException {
+	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
 
 		//Threshold for similarity score for which correspondences should be considered
-		final double THRESHOLD = 0.8;
-		final String MATCHER = "ISUB";
+		final double THRESHOLD = 0.4;
+		final String MATCHER = "STRUCTURALALIGNMENT";
 
-		File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
-		File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/BIBO.owl");
-		File outputFile = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/output_alignment_biblio-bibo_isub.rdf");
-
-		//The source and target ontologies converted to URIs
-		URI onto1 = ontoFile1.toURI();
-		URI onto2 = ontoFile2.toURI();
 
 		//Parameters defining the (string) matching method to be applied
 		Properties params = new Properties();
@@ -58,7 +53,7 @@ public class TestMatcher {
 		case "SMOA": 
 			a = new StringDistAlignment();
 			params.setProperty("stringFunction", "smoaDistance");
-			a.init ( onto1, onto2 );
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 			a.align((Alignment)null, params );
 			break;
 
@@ -75,7 +70,7 @@ public class TestMatcher {
 		case "NGRAM":
 			a = new StringDistAlignment();
 			params.setProperty("stringFunction", "ngramDistance");
-			a.init ( onto1, onto2 );
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 			a.align( (Alignment)null, params );
 			break;
 
@@ -90,7 +85,7 @@ public class TestMatcher {
 			//Jaro-Winkler 
 		case "JARO-WINKLER":
 			a = new StringDistAlignment();
-			a.init(onto1, onto2);
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 			params = new Properties();
 			params.setProperty("stringFunction", "jaroWinklerMeasure");
 			a.align((Alignment)null, params);
@@ -99,7 +94,7 @@ public class TestMatcher {
 			//Edit (Levenshtein) distance
 		case "EDIT":
 			a = new EditDistNameAlignment();
-			a.init(onto1, onto2);
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 			params = new Properties();
 			a.align((Alignment)null, params);
 			break;
@@ -107,7 +102,7 @@ public class TestMatcher {
 			//Hamming distance matcher
 		case "HAMMING":
 			a = new StringDistAlignment();
-			a.init(onto1, onto2);
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 			params = new Properties();
 			params.setProperty("stringFunction", "hammingDistance");
 			a.align((Alignment)null, params);
@@ -116,7 +111,7 @@ public class TestMatcher {
 			//Substring distance matcher
 		case "SUBSTRING":
 			a = new StringDistAlignment();
-			a.init(onto1, onto2);
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 			params = new Properties();
 			params.setProperty("stringFunction", "subStringDistance");
 			a.align((Alignment)null, params);
@@ -124,7 +119,7 @@ public class TestMatcher {
 			
 		case "ISUB":
 			a = new ISubAlignment();
-			a.init(onto1, onto2);
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
@@ -132,7 +127,7 @@ public class TestMatcher {
 
 		case "WORDNET":
 			a = new WordNetAlignment();
-			a.init(onto1, onto2);
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
@@ -140,7 +135,7 @@ public class TestMatcher {
 			
 		case "WUPALMER":
 			a = new WS4JAlignment();
-			a.init(onto1, onto2);
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
@@ -148,7 +143,23 @@ public class TestMatcher {
 
 		case "COMPOUND":
 			a = new CompoundAlignment();
-			a.init(onto1, onto2);
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
+			break;
+			
+		case "NAME_AND_PROPERTY":
+			a = new NameAndPropertyAlignment();
+	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
+			break;
+			
+		case "STRUCTURALALIGNMENT":
+			a = new StructuralAlignment();
+	    	a.init( new URI("file:examples/rdf/TestTransport1.owl"), new URI("file:examples/rdf/TestTransport2.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
@@ -157,6 +168,7 @@ public class TestMatcher {
 		}
 
 		//Storing the alignment as RDF
+		File outputFile = new File("./examples/rdf/output.rdf");
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(
 						new FileWriter(outputFile)), true); 
@@ -183,7 +195,8 @@ public class TestMatcher {
 
 		//Evaluate the alignment against a reference alignment
 		AlignmentParser aparser = new AlignmentParser(0);
-		Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/OAEI_Biblio2BIBO_ReferenceAlignment.rdf").toURI());
+
+		Alignment referenceAlignment = aparser.parse(new URI("file:examples/rdf/ReferenceAlignmentBIBLIO_BIBO.rdf"));
 		//Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/reference-alignment/conference-ekaw.rdf").toURI());
 		Properties p = new Properties();
 

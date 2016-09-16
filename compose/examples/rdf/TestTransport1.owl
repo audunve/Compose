@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#"
+     xml:base="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#hasDriver -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#hasDriver">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#hasDriver"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#hasDriver"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Person"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#RoadTransportMeans"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#ElectricCar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#ElectricCar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#HydrogenCar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#HydrogenCar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#MaritimeTransportMeans -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#MaritimeTransportMeans">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#PetrolCar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#PetrolCar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#RoadTransportMeans -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#RoadTransportMeans">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Tanker -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Tanker">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#MaritimeTransportMeans"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
