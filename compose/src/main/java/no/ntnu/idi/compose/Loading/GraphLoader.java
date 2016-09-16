@@ -55,7 +55,7 @@ public class GraphLoader {
                 new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 
         
-		Multimap<OWLClass, OWLClass> multimap = OWLLoader.getClassesAndSubClasses(ontoFile);
+		Multimap<String, String> multimap = OWLLoader.getClassesAndSubClassesToString(ontoFile);
 		Collection c = multimap.entries();
 		int numClassEntries = c.size();
 		//test
@@ -65,7 +65,7 @@ public class GraphLoader {
 		Set keys = multimap.keySet();
 		Iterator keyIterator = keys.iterator();
 		while(keyIterator.hasNext()) {
-			OWLClass key = (OWLClass) keyIterator.next();
+			String key = keyIterator.next().toString();
 			//test
 			//System.out.println("Adding " + key + " as vertex in the graph");
 			g.addVertex(key.toString());
@@ -78,14 +78,14 @@ public class GraphLoader {
        Iterator keyIterator2 = keySet.iterator();
        //for every key get the value associated with it and put the key + value pair as edge in the graph
        while(keyIterator2.hasNext()) {
-    	   OWLClass key = (OWLClass) keyIterator2.next();
-    	   Collection<OWLClass> valueSet = multimap.get(key);
+    	   String key = (String) keyIterator2.next();
+    	   Collection<String> valueSet = multimap.get(key);
     	   //need to iterate through the value set and put each value along with corresponding key
     	   Iterator iter = valueSet.iterator();
     	   while(iter.hasNext()) {
     	   
-    	   OWLClass value = (OWLClass) iter.next();
-    	   if (!value.toString().equals("owl:Nothing")) {
+    	   String value = iter.next().toString();
+    	   if (!value.toString().equals("Nothing")) {
     		 //test
     		   //System.out.println("Adding " + key + " and " + value + " as edge in the graph");
     	   g.addEdge(key.toString(), value.toString());
@@ -99,14 +99,14 @@ public class GraphLoader {
 	//Driver method
 	public static void main(String[] args) throws OWLOntologyCreationException {
 		
-		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
+		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport2.owl");
 		
 		DirectedGraph<String, DefaultEdge> owlGraph = createOWLGraph(file1);
 		
 		//Finding the shortest path between two vertices (classes)
 		FloydWarshallShortestPaths path = new FloydWarshallShortestPaths(owlGraph);
-		String classA = "<http://xmlns.com/foaf/0.1/Document>";
-		String classB = "<http://purl.org/ontology/bibo/LegalCaseDocument>";
+		String classA = "Thing";
+		String classB = "Vehicle";
 		double FWSDistance = path.shortestDistance(classA,classB);
 		System.out.println("The distance is: " + FWSDistance);
 		
@@ -126,6 +126,12 @@ public class GraphLoader {
 		
 		while(edgeItr.hasNext()) {
 			System.out.println(edgeItr.next());
+		}
+		
+		System.out.println("Printing all vertices: ");
+		Iterator iter = owlGraph.vertexSet().iterator();
+		while(iter.hasNext()) {
+			System.out.println(iter.next());
 		}
 		
 	}

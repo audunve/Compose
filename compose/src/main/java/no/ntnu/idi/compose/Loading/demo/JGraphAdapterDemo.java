@@ -44,7 +44,7 @@ public class JGraphAdapterDemo extends JApplet {
         // create a JGraphT graph
         ListenableGraph g = new ListenableDirectedGraph( DefaultEdge.class );
         
-        File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
+        File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport2.owl");
 		//GraphLoader gl = new GraphLoader();
 		try {
 			
@@ -64,11 +64,11 @@ public class JGraphAdapterDemo extends JApplet {
 		}
 
 
-        // position vertices nicely within JGraph component
+/*        // position vertices nicely within JGraph component
         positionVertexAt( "v1", 130, 40 );
         positionVertexAt( "v2", 60, 200 );
         positionVertexAt( "v3", 310, 230 );
-        positionVertexAt( "v4", 380, 70 );
+        positionVertexAt( "v4", 380, 70 );*/
 
     }
 

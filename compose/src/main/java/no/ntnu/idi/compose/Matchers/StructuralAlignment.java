@@ -4,12 +4,12 @@ import java.io.File;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
-
+import java.util.Set;
 
 import org.ivml.alimo.ISub;
 import org.jgrapht.DirectedGraph;
@@ -66,17 +66,35 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 			String s1 = ontology1().getEntityName(o1);
 
 			String s2 = ontology2().getEntityName(o2);
-			double simThreshold = 0.6;
+			double simThreshold = 0.8;
 			//test
-			System.out.println("Matching " + s1 + " and " + s2);
+			//System.out.println("Matching " + s1 + " and " + s2);
 			
 			//for now I am using static references to the ontology files as I know these are the ontologies to be matched...
 			//but need to find a more generic way of doing this (look at NameAndPropertyAlignment.java)
+			//File f1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/Biblio_2015.rdf");
+			//File f2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/BIBO.owl");
 			File f1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport1.owl");
 			File f2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport2.owl");
 			
 			DirectedGraph<String, DefaultEdge> owlGraphBiblio = GraphLoader.createOWLGraph(f1);
 			DirectedGraph<String, DefaultEdge> owlGraphBIBO = GraphLoader.createOWLGraph(f2);
+			
+			//test
+			//printing all vertices of the graphs
+			//Set<String> ontology1Graph = owlGraphBiblio.vertexSet();
+			//Set<String> ontology2Graph = owlGraphBiblio.vertexSet();
+			
+			/*System.out.println("Ontology 1 contains the following vertices");
+			Iterator iter1 = ontology1Graph.iterator();
+			while (iter1.hasNext()) {
+				System.out.println(iter1.next().toString());
+			}
+			System.out.println("Ontology 2 contains the following vertices");
+			Iterator iter2 = ontology2Graph.iterator();
+			while (iter2.hasNext()) {
+				System.out.println(iter2.next().toString());
+			}*/
 			
 			//test
 			//System.out.println("The TestTransport1 graph contains " + owlGraphBiblio.vertexSet().size() + " vertices, and " + owlGraphBiblio.edgeSet().size() + " edges");
@@ -88,18 +106,18 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 			FloydWarshallShortestPaths<String, DefaultEdge> path2 = new FloydWarshallShortestPaths<String, DefaultEdge>(owlGraphBIBO);
 			double distanceC1ToRoot = 0;
 			double distanceC2ToRoot = 0;
-			String root = "<owl:Thing>";
+			String root = "Thing";
 			
 			if (owlGraphBiblio.containsVertex(s1)) {
-				distanceC1ToRoot = path1.shortestDistance(s1, root);
+				distanceC1ToRoot = path1.shortestDistance(root, s1);
 				//test
-				System.out.println("The ontology contains " + s1);
+				//System.out.println("The ontology contains " + s1);
 			}
 			
 			if (owlGraphBIBO.containsVertex(s2)) {
-				distanceC2ToRoot = path2.shortestDistance(s2, root);
+				distanceC2ToRoot = path2.shortestDistance(root, s2);
 				//test
-				System.out.println("The ontology contains " + s2);
+				//System.out.println("The ontology contains " + s2);
 			}
 			
 			//find the ancestors of the two classes
@@ -107,12 +125,16 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 			List<String> ancestors2 = new ArrayList<String>();
 			
 			if (owlGraphBiblio.containsVertex(s1)) {
-				ancestors1 = path1.getShortestPathAsVertexList(s1, root);		
+				ancestors1 = path1.getShortestPathAsVertexList(root, s1);	
 			}
+			//need to remove the vertex in question from the list so that this vertex is not considered in the following processing?
+			//ancestors1.remove(s1);
 			
 			if (owlGraphBiblio.containsVertex(s2)) {
-				ancestors2 = path2.getShortestPathAsVertexList(s2, root);		
+				ancestors2 = path2.getShortestPathAsVertexList(root, s2);		
 			}
+			//need to remove the vertex in question from the list so that this vertex is not considered in the following processing?
+			//ancestors2.remove(s2);
 			
 			//match the ancestors and if the similarity is above 0.9 add the pair of ancestors to a map where...
 			//...ancestor of O1 is key and ancestor of O2 is value
@@ -125,12 +147,15 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 			//TO-DO: Should limit the ancestors to the parent class? Otherwise, if we try all combinations all the way up to the root (owl:Thing) eventually the... 
 			//...root itself is compared and the similarity will be 1 (and highly unrealistic)! However, in such a case this metric will also be 0 since the depth of...
 			//...the root is 0!
+
 			for (Object i : ancestors1) {
 				for (Object j : ancestors2) {
 					iSubSimScore = iSub.score(i.toString(), j.toString());
-					//if the similarity between the ancestors is equal to or above 0.9 these to ancestors are kept
+					//if the similarity between the ancestors is equal to or above the defined threshold these two ancestors are kept
 					if(iSubSimScore >= simThreshold) {
 						matchingMap.put(i.toString(), j.toString());
+						//test
+						System.out.println(i.toString() + " and " + j.toString() + " are similar above the threshold");
 					}				
 				}
 			}
@@ -142,9 +167,17 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 			
 			//loop through the matchingMap containing key-value pairs of ancestors from O1 and O2 being similar over the given threshold
 			for (Entry<Object, Object> entry : matchingMap.entrySet()) {
-				avgAncestorDistanceToRoot = (path1.shortestDistance(entry.getKey().toString(), root) + path2.shortestDistance(entry.getValue().toString(), root)) / 2;
-				currentStructProx = (2 * avgAncestorDistanceToRoot) / distanceC1ToRoot + distanceC2ToRoot;
+				
+				avgAncestorDistanceToRoot = (path1.shortestDistance(root,entry.getKey().toString()) + path2.shortestDistance(root,entry.getValue().toString())) / 2;
+				//test
+				System.out.println("The average distance to root for " + entry.getKey().toString() + " and " + entry.getValue() + " is " + avgAncestorDistanceToRoot);
+				currentStructProx = (2 * avgAncestorDistanceToRoot) / (distanceC1ToRoot + distanceC2ToRoot);
+				//test
+				System.out.println("The distance from " + s1 + " to " + root + " is " + distanceC1ToRoot);
+				System.out.println("The distance from " + s2 + " to " + root + " is " + distanceC2ToRoot);
 				if (currentStructProx > structProx) {
+					//test
+					System.out.println("Current struct prox is " + currentStructProx);
 					structProx = currentStructProx;
 				}
 
