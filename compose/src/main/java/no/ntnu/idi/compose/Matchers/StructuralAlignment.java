@@ -13,6 +13,8 @@ import java.util.Set;
 
 import org.ivml.alimo.ISub;
 import org.jgrapht.DirectedGraph;
+import org.jgrapht.Graphs;
+import org.jgrapht.alg.DirectedNeighborIndex;
 import org.jgrapht.alg.FloydWarshallShortestPaths;
 import org.jgrapht.graph.DefaultEdge;
 import org.semanticweb.owl.align.Alignment;
@@ -44,7 +46,7 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 					for ( Object cl1: ontology1().getClasses() ){
 				
 						// add mapping into alignment object 
-						addAlignCell(cl1,cl2, "=", commonSuperClass(cl1,cl2));  
+						addAlignCell(cl1,cl2, "=", commonSubClassesSim(cl1,cl2));  
 					}				
 				}
 
@@ -61,10 +63,9 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 		 * @throws OntowrapException
 		 * @throws OWLOntologyCreationException 
 		 */
-		public double commonSuperClass(Object o1, Object o2) throws AlignmentException, OntowrapException, OWLOntologyCreationException {
+		public double commonSuperClassSim(Object o1, Object o2) throws AlignmentException, OntowrapException, OWLOntologyCreationException {
 			//get the objects (entities)
 			String s1 = ontology1().getEntityName(o1);
-
 			String s2 = ontology2().getEntityName(o2);
 			double simThreshold = 0.8;
 			//test
@@ -170,6 +171,7 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 				
 				avgAncestorDistanceToRoot = (path1.shortestDistance(root,entry.getKey().toString()) + path2.shortestDistance(root,entry.getValue().toString())) / 2;
 				//test
+
 				System.out.println("The average distance to root for " + entry.getKey().toString() + " and " + entry.getValue() + " is " + avgAncestorDistanceToRoot);
 				currentStructProx = (2 * avgAncestorDistanceToRoot) / (distanceC1ToRoot + distanceC2ToRoot);
 				//test
@@ -194,15 +196,47 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 		 * @return
 		 * @throws AlignmentException
 		 * @throws OntowrapException
+		 * @throws OWLOntologyCreationException 
 		 */
-		public double commonSubClasses(Object o1, Object o2) throws AlignmentException, OntowrapException {
+		public double commonSubClassesSim(Object o1, Object o2) throws AlignmentException, OntowrapException, OWLOntologyCreationException {
 			//get the objects (entities)
-			String s1 = ontology1().getEntityName(o1).toLowerCase();
-			String s2 = ontology2().getEntityName(o2).toLowerCase();
+			String s1 = ontology1().getEntityName(o1);
+			String s2 = ontology2().getEntityName(o2);
+			double simThreshold = 0.8;
+			ISub iSub = new ISub();
 			
-			//to be computed
-			double s = 0;
-			return s;
+			File f1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport1.owl");
+			File f2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport2.owl");
+			
+			DirectedGraph<String, DefaultEdge> owlGraphBiblio = GraphLoader.createOWLGraph(f1);
+			DirectedGraph<String, DefaultEdge> owlGraphBIBO = GraphLoader.createOWLGraph(f2);
+		
+			DirectedNeighborIndex<String, DefaultEdge> indexOfOntology1 = new DirectedNeighborIndex(owlGraphBiblio);
+			DirectedNeighborIndex<String, DefaultEdge> indexOfOntology2 = new DirectedNeighborIndex(owlGraphBIBO);
+			
+			//find the sub-classes of the two parameter classes
+			List<String> subClasses1 = indexOfOntology1.successorListOf(s1);
+			List<String> subClasses2 = indexOfOntology2.successorListOf(s2);
+			
+			double currentSim = 0;
+			double finalSim = 0;
+			
+			//test
+			System.out.println("Trying " + s1 + " and " + s2 + " ...");
+			//match the sub-classes associated with s1 and s2
+			//at the moment the max score from the sub-class matching of each parameter class s1 and s2 is computed, not an aggregate similarity from all sub-classes
+			for (String i : subClasses1) {
+				for (String j : subClasses2) {
+					currentSim = iSub.score(i, j);
+					//test
+					System.out.println("The similarity score of " + i + " and " + j + " is " + currentSim);
+					if (currentSim > finalSim) {
+						finalSim = currentSim;
+					}
+				}
+			}
+
+			return finalSim;
 		}
 		
 		/**
