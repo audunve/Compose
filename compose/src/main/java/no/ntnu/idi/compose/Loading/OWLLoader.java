@@ -181,6 +181,17 @@ public class OWLLoader {
 
 		return numClasses;
 	}
+	
+	public Set<OWLObjectProperty> getProperties(File ontoFile) throws OWLOntologyCreationException {
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		
+		Set<OWLObjectProperty> props = onto.getObjectPropertiesInSignature();
+		
+		return props;
+		
+	}
 
 	/**
 	 * 

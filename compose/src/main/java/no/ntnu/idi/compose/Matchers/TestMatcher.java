@@ -20,7 +20,7 @@ import org.semanticweb.owl.align.Evaluator;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.method.NameAndPropertyAlignment;
-import no.ntnu.idi.compose.Matchers.CompoundAlignment;
+import no.ntnu.idi.compose.Matchers.SubsumptionAlignment;
 import no.ntnu.idi.compose.Matchers.EditDistNameAlignment;
 import no.ntnu.idi.compose.Matchers.StringDistAlignment;
 import no.ntnu.idi.compose.Matchers.WordNetAlignment;
@@ -34,7 +34,7 @@ public class TestMatcher {
 
 		//Threshold for similarity score for which correspondences should be considered
 		final double THRESHOLD = 0.8;
-		final String MATCHER = "STRUCTURALALIGNMENT";
+		final String MATCHER = "SUBSUMPTION";
 
 
 		//Parameters defining the (string) matching method to be applied
@@ -141,9 +141,9 @@ public class TestMatcher {
 			a.align((Alignment)null, params);	
 			break;
 
-		case "COMPOUND":
-			a = new CompoundAlignment();
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
+		case "SUBSUMPTION":
+			a = new SubsumptionAlignment();
+			a.init( new URI("file:examples/rdf/TestTransport1.owl"), new URI("file:examples/rdf/TestTransport2.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
@@ -165,7 +165,6 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 			break;
-
 		}
 
 		//Storing the alignment as RDF

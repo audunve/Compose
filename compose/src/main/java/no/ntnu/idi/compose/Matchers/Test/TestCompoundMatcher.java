@@ -1,7 +1,5 @@
 package no.ntnu.idi.compose.Matchers.Test;
 
-
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -18,14 +16,14 @@ import org.semanticweb.owl.align.Evaluator;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
-import no.ntnu.idi.compose.Matchers.CompoundAlignment;
+import no.ntnu.idi.compose.Matchers.SubsumptionAlignment;
 
 
 public class TestCompoundMatcher {
 
 	public static void main(String[] args) throws AlignmentException, IOException {
 
-		CompoundAlignment matcher = new CompoundAlignment();
+		SubsumptionAlignment matcher = new SubsumptionAlignment();
 
 		//Treshold for similarity score for which correspondences should be considered
 		double threshold = 0.6;

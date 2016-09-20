@@ -36,6 +36,8 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 		static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		static OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
 		
+		final double THRESHOLD = 0.8;
+		
 		/**
 		 * The align() method is imported from the Alignment API and is modified to use the structural methods declared in this class
 		 */
@@ -46,7 +48,7 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 					for ( Object cl1: ontology1().getClasses() ){
 				
 						// add mapping into alignment object 
-						addAlignCell(cl1,cl2, "=", commonSubClassesSim(cl1,cl2));  
+						addAlignCell(cl1,cl2, "=", commonSubClassSim(cl1,cl2));  
 					}				
 				}
 
@@ -67,7 +69,7 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 			//get the objects (entities)
 			String s1 = ontology1().getEntityName(o1);
 			String s2 = ontology2().getEntityName(o2);
-			double simThreshold = 0.8;
+			//double simThreshold = 0.6;
 			//test
 			//System.out.println("Matching " + s1 + " and " + s2);
 			
@@ -152,11 +154,13 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 			for (Object i : ancestors1) {
 				for (Object j : ancestors2) {
 					iSubSimScore = iSub.score(i.toString(), j.toString());
+					System.out.println("The commonSuperClassSim similarity score between " + i.toString() + " and " + j.toString() + " is " + iSubSimScore);
 					//if the similarity between the ancestors is equal to or above the defined threshold these two ancestors are kept
-					if(iSubSimScore >= simThreshold) {
+					if(iSubSimScore >= THRESHOLD) {
 						matchingMap.put(i.toString(), j.toString());
+						
 						//test
-						System.out.println(i.toString() + " and " + j.toString() + " are similar above the threshold");
+						//System.out.println(i.toString() + " and " + j.toString() + " are similar above the threshold");
 					}				
 				}
 			}
@@ -198,17 +202,17 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 		 * @throws OntowrapException
 		 * @throws OWLOntologyCreationException 
 		 */
-		public double commonSubClassesSim(Object o1, Object o2) throws AlignmentException, OntowrapException, OWLOntologyCreationException {
+		public double commonSubClassSim(Object o1, Object o2) throws AlignmentException, OntowrapException, OWLOntologyCreationException {
 			//get the objects (entities)
 			String s1 = ontology1().getEntityName(o1);
 			String s2 = ontology2().getEntityName(o2);
-			double simThreshold = 0.8;
+			//double simThreshold = 0.6;
 			ISub iSub = new ISub();
 			
 			File f1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport1.owl");
 			File f2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport2.owl");
 			
-			DirectedGraph<String, DefaultEdge> owlGraphBiblio = GraphLoader.createOWLGraph(f1);
+			DirectedGraph<String, DefaultEdge> owlGraphBiblio = GraphLoader.createOWLGraph(f1);			
 			DirectedGraph<String, DefaultEdge> owlGraphBIBO = GraphLoader.createOWLGraph(f2);
 		
 			DirectedNeighborIndex<String, DefaultEdge> indexOfOntology1 = new DirectedNeighborIndex(owlGraphBiblio);
@@ -238,6 +242,29 @@ public class StructuralAlignment extends ObjectAlignment implements AlignmentPro
 
 			return finalSim;
 		}
+		/**
+		 * This method combines the commonSuperClassSim with the commonSubClassSim and averages their score into a combined neighborhood similarity score
+		 * @param o1
+		 * @param o2
+		 * @return double neighborhoodSim
+		 * @throws AlignmentException
+		 * @throws OntowrapException
+		 * @throws OWLOntologyCreationException
+		 */
+		public double neighborhoodSim(Object o1, Object o2) throws AlignmentException, OntowrapException, OWLOntologyCreationException {
+			//get the objects (entities)
+			String s1 = ontology1().getEntityName(o1);
+			String s2 = ontology2().getEntityName(o2);
+			double simThreshold = 0.8;
+			ISub iSub = new ISub();
+			
+			double computeSuperClassSim = commonSuperClassSim(o1,o2);
+			double computeSubClassSim = commonSubClassSim(o1,o2);
+
+			double neighborhoodSim = (computeSuperClassSim + computeSubClassSim)/2;
+			return neighborhoodSim;
+		}
+		
 		
 		/**
 		 * Matches the domain and range classes of similar properties

@@ -149,11 +149,11 @@ public class GraphLoader {
 	//Driver method
 	public static void main(String[] args) throws OWLOntologyCreationException {
 		
-		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport2.owl");
+		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport1.owl");
 		
 		DirectedGraph<String, DefaultEdge> owlGraph = createOWLGraph(file1);
 		
-		Set<DefaultEdge> setOfEdges = owlGraph.edgesOf("Thing");
+/*		Set<DefaultEdge> setOfEdges = owlGraph.edgesOf("Thing");
 		
 		Iterator iter = setOfEdges.iterator();
 		System.out.println("Printing all edges of Thing");
@@ -166,11 +166,11 @@ public class GraphLoader {
 		String classA = "Thing";
 		String classB = "Vehicle";
 		double FWSDistance = path.shortestDistance(classA,classB);
-		System.out.println("The distance is: " + FWSDistance);
+		System.out.println("The distance is: " + FWSDistance);*/
 		
 
 		DirectedNeighborIndex<String, DefaultEdge> index = new DirectedNeighborIndex(owlGraph);
-		List<String> predecessors = index.predecessorListOf("Vehicle");
+		List<String> predecessors = index.predecessorListOf("Hydrogen");
 		System.out.println("The predecessors of Vehicle");
 		for (String i : predecessors) {
 			System.out.println(i);
