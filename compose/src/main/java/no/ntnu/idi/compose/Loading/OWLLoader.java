@@ -9,6 +9,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
@@ -75,6 +78,24 @@ public class OWLLoader {
 		return ontologyFormat;
 	}
 	
+/*	public static String getSuperClass(Object o1, File ontoFile) throws OWLOntologyCreationException{
+
+
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		
+		OWLReasoner reasoner = reasonerFactory.createReasoner(onto);
+
+		String superClass = null;
+		
+		Set classes = onto.getClassesInSignature();
+		
+		manager.removeOntology(onto);
+
+		return superClass;
+	}*/
+	
 /*	*//**
 	 * Method that retrieves all classes and corresponding sub-classes from an ontology and puts them in a multimap where the classes are key and their subclasses are values
 	 * Note that this method parses the OWL classes to a string representation, which is problematic when there are duplicate classes (e.g. from other imported ontologies)
@@ -99,6 +120,7 @@ public class OWLLoader {
 			for (int i = 0; i < classList.size(); i++) {
 				OWLClass currentClass = classList.get(i);
 				NodeSet<OWLClass> n = reasoner.getSubClasses((OWLClassExpression) currentClass, true);
+				NodeSet<OWLClass> o = reasoner.getSuperClasses(currentClass, true);
 				Set<OWLClass> s = n.getFlattened();
 				for (OWLClass j : s) {
 					classesAndSubClasses.put(currentClass.getIRI().getFragment(), j.getIRI().getFragment());
@@ -110,6 +132,65 @@ public class OWLLoader {
 			return classesAndSubClasses;
 			
 		}
+		
+		public static Map<String, String> getClassesAndSuperClasses (File ontoFile) throws OWLOntologyCreationException {
+			
+			OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+			OWLReasoner reasoner = reasonerFactory.createReasoner(onto);
+			Set<OWLClass> cls = onto.getClassesInSignature();
+			Map<String, String> classesAndSuperClasses = new HashMap();
+			ArrayList<OWLClass> classList = new ArrayList<OWLClass>();
+			
+			for (OWLClass i : cls) {
+				classList.add(i);
+			}
+			
+			//Iterate through the arraylist and for each class get the subclasses belonging to it
+			//Transform from OWLClass to String to simplify further processing...
+			for (int i = 0; i < classList.size(); i++) {
+				OWLClass currentClass = classList.get(i);
+				NodeSet<OWLClass> n = reasoner.getSuperClasses(currentClass, true);
+				Set<OWLClass> s = n.getFlattened();
+				for (OWLClass j : s) {
+					classesAndSuperClasses.put(currentClass.getIRI().getFragment(), j.getIRI().getFragment());
+				}
+			}
+
+			manager.removeOntology(onto);
+			
+			return classesAndSuperClasses;
+			
+		}
+		
+public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) throws OWLOntologyCreationException {
+			
+			//OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+			OWLReasoner reasoner = reasonerFactory.createReasoner(o);
+			Set<OWLClass> cls = o.getClassesInSignature();
+			Map<String, String> classesAndSuperClasses = new HashMap();
+			ArrayList<OWLClass> classList = new ArrayList<OWLClass>();
+			
+			for (OWLClass i : cls) {
+				classList.add(i);
+			}
+			
+			//Iterate through the arraylist and for each class get the subclasses belonging to it
+			//Transform from OWLClass to String to simplify further processing...
+			for (int i = 0; i < classList.size(); i++) {
+				OWLClass currentClass = classList.get(i);
+				NodeSet<OWLClass> n = reasoner.getSuperClasses(currentClass, true);
+				Set<OWLClass> s = n.getFlattened();
+				for (OWLClass j : s) {
+					classesAndSuperClasses.put(currentClass.getIRI().getFragment(), j.getIRI().getFragment());
+				}
+			}
+
+			manager.removeOntology(o);
+			
+			return classesAndSuperClasses;
+			
+		}
+		
 	
 	public static Multimap<OWLClass,OWLClass> getClassesAndSubClasses(File ontoFile) throws OWLOntologyCreationException {
 		
@@ -158,6 +239,19 @@ public class OWLLoader {
 			NodeSet<OWLClass> subClasses;
 			OWLReasoner reasoner = reasonerFactory.createReasoner(onto);
 			subClasses = reasoner.getSubClasses(cls, true);
+			
+			manager.removeOntology(onto);
+			
+			return subClasses;
+		}
+		
+		public static NodeSet<OWLClass> getSuperClasses(OWLClass cls, File ontoFile) throws OWLOntologyCreationException {
+			
+			OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+			
+			NodeSet<OWLClass> subClasses;
+			OWLReasoner reasoner = reasonerFactory.createReasoner(onto);
+			subClasses = reasoner.getSuperClasses(cls, true);
 			
 			manager.removeOntology(onto);
 			
@@ -288,7 +382,7 @@ public class OWLLoader {
 		return countClassesWithIndividuals;
 	}
 
-	public static int getNumClassesWithComments(File ontoFile) throws OWLOntologyCreationException {
+	public static int getNumClassesWithoutComments(File ontoFile) throws OWLOntologyCreationException {
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
@@ -418,6 +512,61 @@ public class OWLLoader {
 		
 		return wordNetCoverage;	
 	}
+	
+	public static boolean isCompound(String a) {
+		boolean test = false;
+
+		String[] compounds = a.split("(?<=.)(?=\\p{Lu})");
+
+			if (compounds.length > 1) {
+				test = true;
+			}
+
+		return test;
+	}
+	
+	public static String replaceUnderscore (String input) {
+		String newString = null;
+		Pattern p = Pattern.compile( "_([a-zA-Z])" );
+		Matcher m = p.matcher(input);
+		StringBuffer sb = new StringBuffer();
+		while (m.find()) {
+			m.appendReplacement(sb, m.group(1).toUpperCase());
+		}
+		
+		m.appendTail(sb);
+		newString = sb.toString();
+		
+		return newString;
+	}
+	
+	public static double getNumCompounds(File ontoFile) throws OWLOntologyCreationException {
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		
+		Iterator<OWLClass> itr = onto.getClassesInSignature().iterator();
+		
+		String thisClass;
+		
+		int numClasses = onto.getClassesInSignature().size();
+		
+		int counter = 0;
+		
+		while(itr.hasNext()) {
+			thisClass = replaceUnderscore(itr.next().getIRI().getFragment());
+			System.out.println("Testing " + thisClass.toString());
+			if (isCompound(thisClass) == true) {
+				counter++;			
+				System.out.println("Now the counter is " + counter);
+			}		
+		}
+		
+		//double numCompounds = (counter / numClasses) * 100;
+		double numCompounds = ((double)counter/(double)numClasses);
+		
+		return numCompounds;	
+	}
 
 
 
@@ -432,47 +581,17 @@ public class OWLLoader {
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(file1);
-		
+
+		Map<String, String> m = getClassesAndSuperClasses(onto1);
+		Set classes = m.keySet();
+		Iterator itr = classes.iterator();
+		System.out.println("Printing the superclasses\n");
+		while (itr.hasNext()) {
+			System.out.println("The superclass of " + itr.next() + " is " + m.get(itr.next()));
+		}
 		
 		manager.removeOntology(onto1);
 		
-		Multimap map = getClassesAndSubClasses(file1);
-		Collection coll = map.entries();
-		
-		System.out.println("This is the content of the multimap");
-		for (Object o : coll)
-		    System.out.println(o);
-		
-
-		//Get annotations at ontology level
-		/*Iterator<OWLAnnotationProperty> annotations = onto1.getAnnotationPropertiesInSignature().iterator();
-		while (annotations.hasNext()) {
-			System.out.println(annotations.next().toString());
-		}*/
-
-		//Iterator<OWLClass> itr = onto1.getClassesInSignature().iterator();
-
-		//System.out.println("Number of classes in this ontology is: " + getNumClasses(file2));
-		//System.out.println("Number of object properties in these two ontologies are: " + getNumObjectProperties(file1, file2));
-		//System.out.println("Number of individuals in BIBO are: " + getNumIndividuals(file2));
-
-		//System.out.println("Number of axioms for BIBO: " + getNumAxioms(file1));
-		//System.out.println("Number of axioms for BibTex: " + getNumAxioms(file2));
-
-		//System.out.println("Number of subclasses in Schema.org are: " + getNumSubClasses(file3));
-
-		//System.out.println("Schema.org contains " + containsIndividuals(file3) + " classes holding individuals" );
-		
-		//System.out.println("Schema.org contains " + getNumClassesWithComments(file3) + " classes holding comments or labels" );
-		//System.out.println("Schema.org contains " + containsObjectPropertyCommentsOrLabels(file3) + " object properties holding comments or labels" );
-		//System.out.println("Schema.org contains " + containsDataPropertyCommentsOrLabels(file3) + " data properties holding comments or labels" );
-		//System.out.println("The WordNet Coverage (WC) of Schema.org is " + getWordNetCoverage(file3));
-
-
-
-
-
-
 
 	}
 

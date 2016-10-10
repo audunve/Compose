@@ -146,68 +146,6 @@ public class GraphLoader {
         return g;
     }
 	
-	//Driver method
-	public static void main(String[] args) throws OWLOntologyCreationException {
-		
-		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport1.owl");
-		
-		DirectedGraph<String, DefaultEdge> owlGraph = createOWLGraph(file1);
-		
-/*		Set<DefaultEdge> setOfEdges = owlGraph.edgesOf("Thing");
-		
-		Iterator iter = setOfEdges.iterator();
-		System.out.println("Printing all edges of Thing");
-		while(iter.hasNext()) {
-			System.out.println(iter.next());
-		}
-		
-		//Finding the shortest path between two vertices (classes)
-		FloydWarshallShortestPaths path = new FloydWarshallShortestPaths(owlGraph);
-		String classA = "Thing";
-		String classB = "Vehicle";
-		double FWSDistance = path.shortestDistance(classA,classB);
-		System.out.println("The distance is: " + FWSDistance);*/
-		
-
-		DirectedNeighborIndex<String, DefaultEdge> index = new DirectedNeighborIndex(owlGraph);
-		List<String> predecessors = index.predecessorListOf("Hydrogen");
-		System.out.println("The predecessors of Vehicle");
-		for (String i : predecessors) {
-			System.out.println(i);
-		}
-		
-		List<String> successors = index.successorListOf("Vehicle");
-		System.out.println("The successors of Vehicle");
-		for (String i : successors) {
-			System.out.println(i);
-		}
-		
-		
-		
-		
-		//public DepthFirstIterator(Graph<V,E> g)
-		System.out.println("Depth First Search through the directed graph:\n");
-		GraphIterator<String, DefaultEdge> iterator = 
-		new DepthFirstIterator<String, DefaultEdge>(owlGraph);
-		while (iterator.hasNext()) {
-		System.out.println( iterator.next() );
-		}
-		
-		//System.out.println(owlGraph.toString());
-		
-		Set edges = owlGraph.edgeSet();
-		Iterator edgeItr = edges.iterator();
-		
-		while(edgeItr.hasNext()) {
-			System.out.println(edgeItr.next());
-		}
-		
-		/*System.out.println("Printing all vertices: ");
-		Iterator iter = owlGraph.vertexSet().iterator();
-		while(iter.hasNext()) {
-			System.out.println(iter.next());
-		}*/
-		
-	}
+	
 
 }

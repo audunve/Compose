@@ -42,11 +42,13 @@ public class OntologyProcessor {
 	/**
 	 * Average Depth (AD): The average depth (D) of the classes in an ontology as a
 	 * mean of the depth of over all classes. AD = D(Ci) / |C|
+	 * ? Would a strategy be to measure the edges from each class to the root (Thing) and divide this from num classes in the ontology ?
 	 * 
 	 * @param onto1
 	 * @param onto2
 	 */
 	public double computeAverageDepth(File ontoFile1, File ontoFile2){
+		
 		return 0;
 	}
 
@@ -105,6 +107,14 @@ public class OntologyProcessor {
 
 		return (double)(numSubClassesOnto1 + numSubClassesOnto2) / (double)(numClassesOnto1 + numClassesOnto2);
 	}
+	
+	public static double computeInheritanceRichness(File ontoFile1) throws OWLOntologyCreationException{
+		
+		int numSubClassesOnto1 = OWLLoader.getNumSubClasses(ontoFile1);
+		int numClassesOnto1 = OWLLoader.getNumClasses(ontoFile1);
+
+		return (double)(numSubClassesOnto1) / (double)(numClassesOnto1);
+	}
 
 	/**
 	 * Null label and comment (N): The percentage of concepts with no comment nor label
@@ -117,9 +127,18 @@ public class OntologyProcessor {
 	 */
 	public static double computeNullLabelOrComment(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
 		
-		int numClassesWithoutComments = OWLLoader.getNumClassesWithComments(ontoFile1) + OWLLoader.getNumClassesWithComments(ontoFile2);
+		int numClassesWithoutComments = OWLLoader.getNumClassesWithoutComments(ontoFile1) + OWLLoader.getNumClassesWithoutComments(ontoFile2);
 		int numClassesWithoutLabels = OWLLoader.getNumClassesWithoutLabels(ontoFile1) + OWLLoader.getNumClassesWithoutLabels(ontoFile2);
 		int numClasses = OWLLoader.getNumClasses(ontoFile1) + OWLLoader.getNumClasses(ontoFile2);
+		
+		return (((double)numClassesWithoutComments / (double)numClasses) + ((double)numClassesWithoutLabels / (double)numClasses)) / 2;
+	}
+	
+	public static double computeNullLabelOrComment(File ontoFile1) throws OWLOntologyCreationException{
+		
+		int numClassesWithoutComments = OWLLoader.getNumClassesWithoutComments(ontoFile1);
+		int numClassesWithoutLabels = OWLLoader.getNumClassesWithoutLabels(ontoFile1);
+		int numClasses = OWLLoader.getNumClasses(ontoFile1);
 		
 		return (((double)numClassesWithoutComments / (double)numClasses) + ((double)numClassesWithoutLabels / (double)numClasses)) / 2;
 	}
@@ -139,6 +158,14 @@ public class OntologyProcessor {
 		
 		return  (double)numObjectProperties / ((double)numSubClasses + (double)numObjectProperties);
 	}
+	
+	public static double computeRelationshipRichness(File ontoFile1) throws OWLOntologyCreationException{
+		
+		int numSubClasses = OWLLoader.getNumSubClasses(ontoFile1);
+		int numObjectProperties = OWLLoader.getNumObjectProperties(ontoFile1);
+		
+		return  (double)numObjectProperties / ((double)numSubClasses + (double)numObjectProperties);
+	}
 
 	/**
 	 * WordNet Coverage (WC): The percentage of terms with label or local name present
@@ -151,6 +178,13 @@ public class OntologyProcessor {
 	public static double computeWordNetCoverage(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
 		
 		double WC = (OWLLoader.getWordNetCoverage(ontoFile1) + OWLLoader.getWordNetCoverage(ontoFile2)) / 2;
+		
+		return WC;
+	}
+	
+	public static double computeWordNetCoverage(File ontoFile1) throws OWLOntologyCreationException{
+		
+		double WC = OWLLoader.getWordNetCoverage(ontoFile1);
 		
 		return WC;
 	}
@@ -176,20 +210,29 @@ public class OntologyProcessor {
 	
 	public static void main(String[] args) throws OWLOntologyCreationException, URISyntaxException, OntowrapException {
 		
-		File onto1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
-		File onto2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		File onto1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Conference.owl");
+		File onto2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/ekaw.owl");
+		
 
-		System.out.println("The Average Population (AP) of BIBO and BibTex is: " + computeAveragePopulation(onto1, onto2));
+		System.out.println("The Inheritance Richness (IR) of " + onto1.getName() + " is: " + computeInheritanceRichness(onto1));
+		System.out.println("The Inheritance Richness (IR) of " + onto2.getName() + " is: " + computeInheritanceRichness(onto2));
+		System.out.println("The Inheritance Richness (IR) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeInheritanceRichness(onto1, onto2));
 		
-		System.out.println("The Class Richness (CR) of BIBO and BibTex is: " + computeClassRichness(onto1));
+		System.out.println("The NullLabelOrComment (N) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeNullLabelOrComment(onto1, onto2) + " (" + computeNullLabelOrComment(onto1, onto2)*100 + " percent)");
+		System.out.println("The NullLabelOrComment (N) of " + onto1.getName() + " is: " + computeNullLabelOrComment(onto1));
+		System.out.println("The NullLabelOrComment (N) of " + onto2.getName() + " is: " + computeNullLabelOrComment(onto2));
 		
-		System.out.println("The Inheritance Richness (IR) of BIBO and BibTex is: " + computeInheritanceRichness(onto1, onto2));
+		System.out.println("The Relationship Richness (RR) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeRelationshipRichness(onto1, onto2));
+		System.out.println("The Relationship Richness (RR) of " + onto1.getName() + " is: " + computeRelationshipRichness(onto1));
+		System.out.println("The Relationship Richness (RR) of " + onto2.getName() + " is: " + computeRelationshipRichness(onto2));
 		
-		System.out.println("The Relationship Richness (RR) of BIBO and BibTex is: " + computeRelationshipRichness(onto1, onto2));
+		System.out.println("The WordNet Coverage (WC) of " + onto1.getName() + " is: " + computeWordNetCoverage(onto1));
+		System.out.println("The WordNet Coverage (WC) of " + onto2.getName() + " is: " + computeWordNetCoverage(onto2));
+		System.out.println("The WordNet Coverage (WC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeWordNetCoverage(onto1, onto2) + " (" + computeWordNetCoverage(onto1, onto2)*100 + " percent)");
 		
-		System.out.println("The WordNet Coverage (WC) of BIBO and BibTex is: " + computeWordNetCoverage(onto1, onto2) + " (" + computeWordNetCoverage(onto1, onto2)*100 + " percent)");
-		
-		System.out.println("The NullLabelOrComment (N) of BIBO and BibTex is: " + computeNullLabelOrComment(onto1, onto2) + " (" + computeNullLabelOrComment(onto1, onto2)*100 + " percent)");
+		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " is: " + OWLLoader.getNumCompounds(onto1));
+		System.out.println("The Num Compounds (NC) of " + onto2.getName() + " is: " + OWLLoader.getNumCompounds(onto2));
+		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + ((OWLLoader.getNumCompounds(onto1) + OWLLoader.getNumCompounds(onto2))) / 2);
 		
 		
 	}

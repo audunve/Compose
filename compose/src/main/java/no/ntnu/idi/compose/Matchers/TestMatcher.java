@@ -20,7 +20,7 @@ import org.semanticweb.owl.align.Evaluator;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.method.NameAndPropertyAlignment;
-import no.ntnu.idi.compose.Matchers.SubsumptionAlignment;
+import no.ntnu.idi.compose.Matchers.CompoundAlignment;
 import no.ntnu.idi.compose.Matchers.EditDistNameAlignment;
 import no.ntnu.idi.compose.Matchers.StringDistAlignment;
 import no.ntnu.idi.compose.Matchers.WordNetAlignment;
@@ -34,7 +34,7 @@ public class TestMatcher {
 
 		//Threshold for similarity score for which correspondences should be considered
 		final double THRESHOLD = 0.8;
-		final String MATCHER = "SUBSUMPTION";
+		final String MATCHER = "STRUCTURALALIGNMENT";
 
 
 		//Parameters defining the (string) matching method to be applied
@@ -48,92 +48,16 @@ public class TestMatcher {
 		//Alignment inputAlignment = inputParser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/output_alignment_biblio-bibo_edit.rdf").toURI());
 
 		switch(MATCHER) {
-
-		//Smoa distance
-		case "SMOA": 
-			a = new StringDistAlignment();
-			params.setProperty("stringFunction", "smoaDistance");
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
-			a.align((Alignment)null, params );
-			break;
-
-/*			//Smoa distance with input alignment
-		case "SMOA_WITH_ALIGNMENT": 
-			a = new StringDistAlignment();
-			params.setProperty("stringFunction", "smoaDistance");
-			a.init ( onto1, onto2 );
-			a.align(inputAlignment, params );
-			break;*/
-
-
-			//N-gram distance
-		case "NGRAM":
-			a = new StringDistAlignment();
-			params.setProperty("stringFunction", "ngramDistance");
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
-			a.align( (Alignment)null, params );
-			break;
-
-/*			//N-gram distance with input alignment
-		case "NGRAM_WITH_ALIGNMENT":
-			a = new StringDistAlignment();
-			params.setProperty("stringFunction", "ngramDistance");
-			a.init ( onto1, onto2 );
-			a.align( inputAlignment, params );
-			break;*/
-
-			//Jaro-Winkler 
-		case "JARO-WINKLER":
-			a = new StringDistAlignment();
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
-			params = new Properties();
-			params.setProperty("stringFunction", "jaroWinklerMeasure");
-			a.align((Alignment)null, params);
-			break;
-
-			//Edit (Levenshtein) distance
-		case "EDIT":
-			a = new EditDistNameAlignment();
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
-			params = new Properties();
-			a.align((Alignment)null, params);
-			break;
-
-			//Hamming distance matcher
-		case "HAMMING":
-			a = new StringDistAlignment();
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
-			params = new Properties();
-			params.setProperty("stringFunction", "hammingDistance");
-			a.align((Alignment)null, params);
-			break;
-
-			//Substring distance matcher
-		case "SUBSTRING":
-			a = new StringDistAlignment();
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
-			params = new Properties();
-			params.setProperty("stringFunction", "subStringDistance");
-			a.align((Alignment)null, params);
-			break;
-			
+	
 		case "ISUB":
 			a = new ISubAlignment();
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-			break;
-
-		case "WORDNET":
-			a = new WordNetAlignment();
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
+	    	a.init( new URI("file:examples/rdf/Conference.owl"), new URI("file:examples/rdf/ekaw.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 			break;
 			
-		case "WUPALMER":
+		case "WORDNET":
 			a = new WS4JAlignment();
 	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 			params = new Properties();
@@ -141,25 +65,30 @@ public class TestMatcher {
 			a.align((Alignment)null, params);	
 			break;
 
-		case "SUBSUMPTION":
-			a = new SubsumptionAlignment();
-			a.init( new URI("file:examples/rdf/TestTransport1.owl"), new URI("file:examples/rdf/TestTransport2.owl"));
+		case "COMPOUND":
+			a = new CompoundAlignment();
+			//a.init( new URI("file:examples/rdf/TestTransport1.owl"), new URI("file:examples/rdf/TestTransport2.owl"));
+			//a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
+			a.init( new URI("file:examples/rdf/Conference.owl"), new URI("file:examples/rdf/ekaw.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 			break;
 			
-		case "NAME_AND_PROPERTY":
-			a = new NameAndPropertyAlignment();
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
+		case "ISSUBCLASS":
+			a = new SubClassAlignment();
+			//a.init( new URI("file:examples/rdf/TestTransport1.owl"), new URI("file:examples/rdf/TestTransport2.owl"));
+			a.init( new URI("file:examples/rdf/Conference.owl"), new URI("file:examples/rdf/ekaw.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 			break;
+			
 			
 		case "STRUCTURALALIGNMENT":
 			a = new StructuralAlignment();
 	    	//a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
+	    	//a.init( new URI("file:examples/rdf/Conference.owl"), new URI("file:examples/rdf/ekaw.owl"));
 	    	a.init( new URI("file:examples/rdf/TestTransport1.owl"), new URI("file:examples/rdf/TestTransport2.owl"));
 			params = new Properties();
 			params.setProperty("", "");
@@ -196,7 +125,7 @@ public class TestMatcher {
 		//Evaluate the alignment against a reference alignment
 		AlignmentParser aparser = new AlignmentParser(0);
 
-		Alignment referenceAlignment = aparser.parse(new URI("file:examples/rdf/ReferenceAlignmentBIBLIO_BIBO.rdf"));
+		Alignment referenceAlignment = aparser.parse(new URI("file:examples/rdf/conference-ekaw_subsumption.rdf"));
 		//Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/reference-alignment/conference-ekaw.rdf").toURI());
 		Properties p = new Properties();
 

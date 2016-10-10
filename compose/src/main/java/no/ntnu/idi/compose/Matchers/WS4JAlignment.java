@@ -37,6 +37,7 @@ public class WS4JAlignment extends ObjectAlignment implements AlignmentProcess {
 	 */
 	public void align( Alignment alignment, Properties param ) throws AlignmentException {
 		try {
+			//for matching properties use the ontologyX.getProperties() method instead...
 			// Match classes
 			for ( Object cl2: ontology2().getClasses() ){
 				for ( Object cl1: ontology1().getClasses() ){
