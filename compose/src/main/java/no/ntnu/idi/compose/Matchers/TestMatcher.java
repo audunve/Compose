@@ -19,11 +19,7 @@ import org.semanticweb.owl.align.Evaluator;
 
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
-import fr.inrialpes.exmo.align.impl.method.NameAndPropertyAlignment;
 import no.ntnu.idi.compose.Matchers.CompoundAlignment;
-import no.ntnu.idi.compose.Matchers.EditDistNameAlignment;
-import no.ntnu.idi.compose.Matchers.StringDistAlignment;
-import no.ntnu.idi.compose.Matchers.WordNetAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
@@ -34,7 +30,7 @@ public class TestMatcher {
 
 		//Threshold for similarity score for which correspondences should be considered
 		final double THRESHOLD = 0.8;
-		final String MATCHER = "STRUCTURALALIGNMENT";
+		final String MATCHER = "ISUB";
 
 
 		//Parameters defining the (string) matching method to be applied
@@ -125,7 +121,7 @@ public class TestMatcher {
 		//Evaluate the alignment against a reference alignment
 		AlignmentParser aparser = new AlignmentParser(0);
 
-		Alignment referenceAlignment = aparser.parse(new URI("file:examples/rdf/conference-ekaw_subsumption.rdf"));
+		Alignment referenceAlignment = aparser.parse(new URI("file:examples/rdf/conference-ekaw_classes.rdf"));
 		//Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/reference-alignment/conference-ekaw.rdf").toURI());
 		Properties p = new Properties();
 

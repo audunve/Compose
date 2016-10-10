@@ -24,7 +24,6 @@ import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.ontowrap.HeavyLoadedOntology;
 import fr.inrialpes.exmo.ontowrap.OntologyFactory;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
-import no.ntnu.idi.compose.Loading.GraphLoader;
 import no.ntnu.idi.compose.Loading.OWLLoader;
 
 import com.google.common.collect.ArrayListMultimap;
@@ -33,12 +32,6 @@ import com.google.common.collect.Multimap;
 
 public class CompoundAlignment extends ObjectAlignment implements AlignmentProcess {
 	
-	GraphLoader graphLoader = new GraphLoader();
-	private HeavyLoadedOntology<Object> honto1 = null;
-    private HeavyLoadedOntology<Object> honto2 = null;
-    
-    
-
 	
 	final double THRESHOLD = 0.9;
 	

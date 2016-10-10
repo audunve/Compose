@@ -1,151 +1,180 @@
 package no.ntnu.idi.compose.Loading;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.jgrapht.*;
-import org.jgrapht.alg.DirectedNeighborIndex;
-import org.jgrapht.alg.FloydWarshallShortestPaths;
-import org.jgrapht.graph.*;
-import org.jgrapht.traverse.DepthFirstIterator;
-import org.jgrapht.traverse.GraphIterator;
+import org.neo4j.graphalgo.GraphAlgoFactory;
+import org.neo4j.graphalgo.PathFinder;
+import org.neo4j.graphdb.Direction;
+import org.neo4j.graphdb.DynamicLabel;
+import org.neo4j.graphdb.GraphDatabaseService;
+import org.neo4j.graphdb.Label;
+import org.neo4j.graphdb.Node;
+import org.neo4j.graphdb.Path;
+import org.neo4j.graphdb.PathExpanders;
+import org.neo4j.graphdb.RelationshipType;
+import org.neo4j.graphdb.ResourceIterable;
+import org.neo4j.graphdb.ResourceIterator;
+import org.neo4j.graphdb.Transaction;
+import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLAxiomIndex;
-import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.reasoner.Node;
-import org.semanticweb.owlapi.reasoner.NodeSet;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
-import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
-import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
-
-/**
- * @author audunvennesland
- *
- */
 public class GraphLoader {
-	
-	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-	static OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
-	
-	//Constructor
+
 	public GraphLoader() {}
-	
-	
-	
+
 	/**
-	 * 
-	 * @param ontoFile
-	 * @return
+	 * This method creates a Neo4J graph from an input ontology
+	 * @param OWLOntology onto
+	 * @param Label label
+	 * @param GraphDatabaseService db
 	 * @throws OWLOntologyCreationException
 	 */
-	public static DirectedGraph<String, DefaultEdge> createOWLGraph(File ontoFile) throws OWLOntologyCreationException
-    {
-		
-        DirectedGraph<String, DefaultEdge> g =
-                new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
-        
+	public void createOntologyGraph(OWLOntology onto, Label label, GraphDatabaseService db) throws OWLOntologyCreationException {
 
-        
-		Multimap<String, String> multimap = OWLLoader.getClassesAndSubClassesToString(ontoFile);
-		Collection c = multimap.entries();
-		int numClassEntries = c.size();
-		//test
-		//System.out.println("There are: " + numClassEntries + " entries");
+		Map<String, String> superClassMap = OWLLoader.getClassesAndSuperClasses(onto);
+		Set<String> classes = superClassMap.keySet();
+		Iterator<String> itr = classes.iterator();
 
-        //Add vertices from OWL classes
-		Set keys = multimap.keySet();
-		Iterator keyIterator = keys.iterator();
-		while(keyIterator.hasNext()) {
-			String key = keyIterator.next().toString();
-			//test
-			//System.out.println("Adding " + key + " as vertex in the graph");
-			g.addVertex(key.toString());
+		try ( Transaction tx = db.beginTx() )
+		{
+			//creating a node for owl:Thing
+			Node thingNode = db.createNode(label);
+			thingNode.setProperty("classname", "owl:Thing");
+			
+			//create nodes from the ontology, that is, create nodes and give them properties (classname) according to their ontology names
+			while (itr.hasNext()) {
+				Node classNode = db.createNode(label);
+				classNode.setProperty("classname", itr.next().toString());
+			}
+
+			//create isA relationships between classes and their superclasses
+			ResourceIterable<Node> testNode = db.getAllNodes();
+			ResourceIterator<Node> iter = testNode.iterator();
+			
+			//iterate through the nodes of the graph database
+			while(iter.hasNext()) {
+				Node n = iter.next();
+				if (n.hasProperty("classname")) {
+					String thisClassName = n.getProperty("classname").toString();
+					String superClass = null;
+					//check if thisClassName equals any of the keys in superClassMap
+					for (Map.Entry<String, String> entry : superClassMap.entrySet()) {
+						//if this graph node matches a key in the map...
+						if (thisClassName.equals(entry.getKey())) {
+							//get the superclass that belongs to the key in the map
+							superClass = superClassMap.get(entry.getKey());
+							//find the "superclass-node" that matches the map value belonging to this key class
+							Node superClassNode = db.findNode(label, "classname", (Object) superClassMap.get(thisClassName));
+							//create an isA relationship from this graph node to its superclass
+							//if a class does not have any defined superclasses, create an isA relationship to owl:thing
+							if (superClassNode != null) {
+								n.createRelationshipTo(superClassNode, RelTypes.isA);				
+							} else {
+								n.createRelationshipTo(thingNode, RelTypes.isA);			    		
+							}
+						}
+					}
+				}
+			}
+
+			tx.success();
 		}
-		
-        
-       // add edges
-       Set keySet = multimap.keySet();
-       //System.out.println("The size of the set of keys in the multimap is: " + keySet.size());
-       Iterator keyIterator2 = keySet.iterator();
-       //for every key get the value associated with it and put the key + value pair as edge in the graph
-       while(keyIterator2.hasNext()) {
-    	   String key = (String) keyIterator2.next();
-    	   Collection<String> valueSet = multimap.get(key);
-    	   //need to iterate through the value set and put each value along with corresponding key
-    	   Iterator iter = valueSet.iterator();
-    	   while(iter.hasNext()) {
-    	   
-    	   String value = iter.next().toString();
-    	   if (!value.toString().equals("Nothing")) {
-    		 //test
-    		   //System.out.println("Adding " + key + " and " + value + " as edge in the graph");
-    	   g.addEdge(key.toString(), value.toString());
-    	   }
-       }
-       }
 
-        return g;
-    }
+	}
+
+	/**
+	 * This method finds the shortest path between two nodes used as parameters. The path is the full path consisting of nodes and relationships between the classNode..
+	 * ...and the rootNode.
+	 * @param rootNode
+	 * @param classNode
+	 * @param label
+	 * @param rel
+	 * @return Iterable<Path> paths
+	 */
+	public Iterable<Path> findShortestPathToRoot(Node rootNode, Node classNode, Label label, RelationshipType rel) {
+
+		PathFinder<Path> finder = GraphAlgoFactory.shortestPath(
+				PathExpanders.forType(rel), 15);
+		Iterable<Path> paths = finder.findAllPaths( classNode, rootNode );
+		return paths;
+	}
 	
-	public static UndirectedGraph<String, DefaultEdge> createOWLUndirectedGraph(File ontoFile) throws OWLOntologyCreationException
-    {
-		
-		UndirectedGraph<String, DefaultEdge> g = new SimpleGraph<>(DefaultEdge.class);
-        
-		Multimap<String, String> multimap = OWLLoader.getClassesAndSubClassesToString(ontoFile);
-		Collection c = multimap.entries();
-		int numClassEntries = c.size();
-		//test
-		//System.out.println("There are: " + numClassEntries + " entries");
 
-        //Add vertices from OWL classes
-		Set keys = multimap.keySet();	
-		Iterator keyIterator = keys.iterator();
-		while(keyIterator.hasNext()) {
-			String key = keyIterator.next().toString();
-			//test
-			//System.out.println("Adding " + key + " as vertex in the graph");
-			g.addVertex(key.toString());
+	/**
+	 * Registers a shutdown hook for the Neo4j instance so that it shuts down nicely when the VM exits
+	 * @param graphDb
+	 */
+	private static void registerShutdownHook(final GraphDatabaseService graphDb)
+	{
+		Runtime.getRuntime().addShutdownHook( new Thread()
+		{
+			@Override
+			public void run()
+			{
+				graphDb.shutdown();
+			}
+		} );
+	}
+
+
+	private static enum RelTypes implements RelationshipType
+	{
+		isA
+	}
+	
+	public static void main(String[] args) throws OWLOntologyCreationException {
+		
+		//initialize the database
+		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/Test5");
+		GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
+		registerShutdownHook(db);
+		
+		//get the ontology
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+		File f1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/BIBO.owl");		
+		System.out.println("...Trying to load the ontology...");
+		OWLOntology o1 = manager.loadOntologyFromOntologyDocument(f1);
+
+		String ontologyName = manager.getOntologyDocumentIRI(o1).getFragment();
+		System.out.println("The name of the ontology is " + ontologyName);
+
+		Label label = DynamicLabel.label( ontologyName );
+		
+		GraphLoader loader = new GraphLoader();
+		
+		System.out.println("Transaction finished...");
+
+		loader.createOntologyGraph(o1, label, db);
+		
+		/*try ( Transaction tx = db.beginTx() )
+		{
+			System.out.println("Transaction started...");
+		//find the distance between two nodes
+		Node classNode = db.getNodeById(58);
+		System.out.println("The classNode is " + classNode.getProperty("classname"));
+		Node thingNode = db.getNodeById(0);
+		System.out.println("The thingNode is " + thingNode.getProperty("classname"));
+		
+		System.out.println("Finding the path...");
+		
+		Iterable<Path> path = loader.findShortestPathToRoot(classNode,thingNode,label,RelTypes.isA);
+
+		Iterator<Path> itr = path.iterator();
+		int distance = 1; 
+
+		while (itr.hasNext()) {
+			System.out.println(itr.next().toString());
+			distance++;
 		}
-		
-        
-       // add edges
-       Set keySet = multimap.keySet();
-       //System.out.println("The size of the set of keys in the multimap is: " + keySet.size());
-       Iterator keyIterator2 = keySet.iterator();
-       //for every key get the value associated with it and put the key + value pair as edge in the graph
-       while(keyIterator2.hasNext()) {
-    	   String key = (String) keyIterator2.next();
-    	   Collection<String> valueSet = multimap.get(key);
-    	   //need to iterate through the value set and put each value along with corresponding key
-    	   Iterator iter = valueSet.iterator();
-    	   while(iter.hasNext()) {
-    	   
-    	   String value = iter.next().toString();
-    	   if (!value.toString().equals("Nothing")) {
-    		 //test
-    		   //System.out.println("Adding " + key + " and " + value + " as edge in the graph");
-    	   g.addEdge(key.toString(), value.toString());
-
-    	   }
-       }
-       }
-
-        return g;
-    }
-	
-	
-
+		tx.success();
+		System.out.println("Transaction finished...");
+		System.out.println("The distance is " + distance);
+		}*/
+	}
 }

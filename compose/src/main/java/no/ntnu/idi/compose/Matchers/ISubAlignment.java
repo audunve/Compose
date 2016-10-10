@@ -9,7 +9,7 @@ import org.semanticweb.owl.align.AlignmentProcess;
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
 
-import org.ivml.alimo.ISub;
+import no.ntnu.idi.compose.algorithms.ISub;
 
 public class ISubAlignment extends ObjectAlignment implements AlignmentProcess {
 	
