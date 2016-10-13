@@ -65,6 +65,17 @@ public class GraphProcessor {
 		}
 		return testNode;	
 	}
+/*	
+	public String getNodeName(Node n) {
+
+		String nodeName = null;
+		
+		try ( Transaction tx = db.beginTx() ) {
+		nodeName = db.findNode(label, key, value);
+		tx.success();
+		}
+		return testNode;	
+	}*/
 
 	public Traverser getChildNodesTraverser(GraphDatabaseService db, Node classNode) {
 
@@ -285,7 +296,7 @@ public ArrayList<Object> getAllParentNodes(GraphDatabaseService db, Node classNo
 		System.out.println("The distance from " + documentNode.toString() + " to owl:Thing is " + distance);
 		
 		//computing structProx between 
-
+		
 		
 	}
 

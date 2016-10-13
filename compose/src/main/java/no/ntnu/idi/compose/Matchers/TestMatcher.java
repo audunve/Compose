@@ -30,7 +30,7 @@ public class TestMatcher {
 
 		//Threshold for similarity score for which correspondences should be considered
 		final double THRESHOLD = 0.8;
-		final String MATCHER = "ISUB";
+		final String MATCHER = "GRAPHALIGNMENT";
 
 
 		//Parameters defining the (string) matching method to be applied
@@ -81,8 +81,8 @@ public class TestMatcher {
 			break;
 			
 			
-		case "STRUCTURALALIGNMENT":
-			a = new StructuralAlignment();
+		case "GRAPHALIGNMENT":
+			a = new GraphAlignment();
 	    	//a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
 	    	//a.init( new URI("file:examples/rdf/Conference.owl"), new URI("file:examples/rdf/ekaw.owl"));
 	    	a.init( new URI("file:examples/rdf/TestTransport1.owl"), new URI("file:examples/rdf/TestTransport2.owl"));
