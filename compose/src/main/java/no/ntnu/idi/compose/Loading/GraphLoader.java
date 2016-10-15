@@ -25,8 +25,14 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
 public class GraphLoader {
+	
+	GraphDatabaseService db;
 
-	public GraphLoader() {}
+	public GraphLoader(GraphDatabaseService db) {
+		
+		this.db = db;
+		
+	}
 
 	/**
 	 * This method creates a Neo4J graph from an input ontology
@@ -35,7 +41,7 @@ public class GraphLoader {
 	 * @param GraphDatabaseService db
 	 * @throws OWLOntologyCreationException
 	 */
-	public void createOntologyGraph(OWLOntology onto, Label label, GraphDatabaseService db) throws OWLOntologyCreationException {
+	public void createOntologyGraph(OWLOntology onto, Label label) throws OWLOntologyCreationException {
 
 		Map<String, String> superClassMap = OWLLoader.getClassesAndSuperClasses(onto);
 		Set<String> classes = superClassMap.keySet();
@@ -131,7 +137,7 @@ public class GraphLoader {
 	public static void main(String[] args) throws OWLOntologyCreationException {
 		
 		//initialize the database
-		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/Test5");
+		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/MatchingDB");
 		GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 		registerShutdownHook(db);
 		
@@ -146,11 +152,11 @@ public class GraphLoader {
 
 		Label label = DynamicLabel.label( ontologyName );
 		
-		GraphLoader loader = new GraphLoader();
+		GraphLoader loader = new GraphLoader(db);
 		
-		System.out.println("Transaction finished...");
+		System.out.println("Trying to create a graph...");
 
-		loader.createOntologyGraph(o1, label, db);
+		loader.createOntologyGraph(o1, label);
 		
 		/*try ( Transaction tx = db.beginTx() )
 		{
