@@ -78,7 +78,7 @@ public class GraphLoader {
 							//find the "superclass-node" that matches the map value belonging to this key class
 							Node superClassNode = db.findNode(label, "classname", (Object) superClassMap.get(thisClassName));
 							//create an isA relationship from this graph node to its superclass
-							//if a class does not have any defined superclasses, create an isA relationship to owl:thing
+							//if a class does not have any defined super-classes, create an isA relationship to owl:thing
 							if (superClassNode != null) {
 								n.createRelationshipTo(superClassNode, RelTypes.isA);				
 							} else {
@@ -88,6 +88,14 @@ public class GraphLoader {
 					}
 				}
 			}
+			
+			//create the individuals
+			
+			//create the object property relations
+			
+			//create the datatype properties
+			
+			
 
 			tx.success();
 		}
@@ -134,10 +142,10 @@ public class GraphLoader {
 		isA
 	}
 	
-	public static void main(String[] args) throws OWLOntologyCreationException {
+	/*public static void main(String[] args) throws OWLOntologyCreationException {
 		
 		//initialize the database
-		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/MatchingDB");
+		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/Biblio2BIBO");
 		GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 		registerShutdownHook(db);
 		
@@ -158,29 +166,5 @@ public class GraphLoader {
 
 		loader.createOntologyGraph(o1, label);
 		
-		/*try ( Transaction tx = db.beginTx() )
-		{
-			System.out.println("Transaction started...");
-		//find the distance between two nodes
-		Node classNode = db.getNodeById(58);
-		System.out.println("The classNode is " + classNode.getProperty("classname"));
-		Node thingNode = db.getNodeById(0);
-		System.out.println("The thingNode is " + thingNode.getProperty("classname"));
-		
-		System.out.println("Finding the path...");
-		
-		Iterable<Path> path = loader.findShortestPathToRoot(classNode,thingNode,label,RelTypes.isA);
-
-		Iterator<Path> itr = path.iterator();
-		int distance = 1; 
-
-		while (itr.hasNext()) {
-			System.out.println(itr.next().toString());
-			distance++;
-		}
-		tx.success();
-		System.out.println("Transaction finished...");
-		System.out.println("The distance is " + distance);
-		}*/
-	}
+	}*/
 }

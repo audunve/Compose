@@ -234,73 +234,18 @@ public ArrayList<Object> getAllParentNodes(Node classNode, Label label) {
 		return distanceToRoot;
 	}
 
-	/**
-	 * StructProx = ((2 * avgLCSDistanceToRoot) / distanceC1ToRoot + distanceC2ToRoot)
-	 * @return
-	 *//*
-	public double computeStructProx(GraphDatabaseService db, Label label, Node classNode1, Node classNode2) {
-		
-		int class1DistanceToRoot = findDistanceToRoot(classNode1);
-		int class2DistanceToRoot = findDistanceToRoot(classNode2);
-		
-		//find the list of ancestors of node 1
-		ArrayList<Object> parentNodes1 = getAllParentNodes(classNode1);
-		//find the list of ancestors of node 2
-		ArrayList<Object> parentNodes2 = getAllParentNodes(classNode2);
-		
-		//match ancestors and if the similarity is above a threshold find their structProx
-		//map to keep the pair of ancestors matching above the threshold
-		Map<String,String> matchingMap = new HashMap<String,String>();
-		
-		double iSubSimScore = 0;
-		double threshold = 0.8;
 
-		for (Object i : parentNodes1) {
-			for (Object j : parentNodes2) {
-				iSubSimScore = iSubMatcher.score(i.toString(), j.toString());
-				//if the similarity between the ancestors is equal to or above the defined threshold these two ancestors are kept
-				if (iSubSimScore >= threshold) {
-					System.out.println("Putting " + i.toString() + " and " + j.toString() + " in the matching map");
-					matchingMap.put(i.toString(), j.toString());
-				}				
-			}
-		}
-
-		//iterate through the map of ancestors and compute the average distance to the root for the pair of ancestors and compute the structProx value
-		double structProx = 0;
-		double currentStructProx = 0;
-		double avgAncestorDistanceToRoot = 0;
-		
-		//loop through the matchingMap containing key-value pairs of ancestors from O1 and O2 being similar over the given threshold
-		for (Entry<String, String> entry : matchingMap.entrySet()) {
-			
-//			avgAncestorDistanceToRoot = (path1.shortestDistance(root,entry.getKey().toString()) + path2.shortestDistance(root,entry.getValue().toString())) / 2;
-			Node ancestorX = getNode(entry.getKey());
-			Node ancestorY = getNode(entry.getValue());
-			
-			avgAncestorDistanceToRoot = (findDistanceToRoot(ancestorX) + findDistanceToRoot(ancestorY)) / 2;
-			
-			currentStructProx = (2 * avgAncestorDistanceToRoot) / (class1DistanceToRoot + class2DistanceToRoot);
-
-			if (currentStructProx > structProx) {
-				structProx = currentStructProx;
-			}
-
-		}
-
-		return structProx;
-	}*/
 	
 	public static void main(String[] args) throws OWLOntologyCreationException {
 		
-		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/MatchingDB");
+		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/CONFERENCE2EKAW");
 		GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
-		//registerShutdownHook(db);
+		registerShutdownHook(db);
 		
 		//get the two ontology files
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		File f1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport1.owl");		
-		File f2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransport2.owl");
+		File f1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/Conference2Ekaw/conference/Conference.owl");		
+		File f2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/Conference2Ekaw/conference/ekaw.owl");
 		
 		String key = "classname";
 		
@@ -312,13 +257,13 @@ public ArrayList<Object> getAllParentNodes(Node classNode, Label label) {
 		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(f1);
 		OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(f2);
 
-		/*System.out.println("...Trying to create a graph for each of the two ontologies...");
+		System.out.println("...Trying to create a graph for each of the two ontologies...");
 		//create a graph for each ontology file
 		GraphLoader gl = new GraphLoader(db);
 		gl.createOntologyGraph(onto1, labelOnto1);
-		gl.createOntologyGraph(onto2, labelOnto2);*/
+		gl.createOntologyGraph(onto2, labelOnto2);
 		
-		//testing some operations on ontology graph 1
+		/*//testing some operations on ontology graph 1
 		GraphProcessor gp1 = new GraphProcessor(db, labelOnto1, key);
 		GraphProcessor gp2 = new GraphProcessor(db, labelOnto2, key);
 		
@@ -368,7 +313,7 @@ public ArrayList<Object> getAllParentNodes(Node classNode, Label label) {
 				iSubSimScore = iSubMatcher.score(onto1Parents.get(i).toString(), onto2Parents.get(j).toString());
 				System.out.println("The score between " + onto1Parents.get(i).toString() + " and " + onto2Parents.get(j).toString() + " is " + iSubSimScore);
 			}
-		}
+		}*/
 		
 		
 	}

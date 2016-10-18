@@ -24,9 +24,11 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDocumentFormat;
+import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLNamedObject;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -78,23 +80,6 @@ public class OWLLoader {
 		return ontologyFormat;
 	}
 	
-/*	public static String getSuperClass(Object o1, File ontoFile) throws OWLOntologyCreationException{
-
-
-		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-
-		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
-		
-		OWLReasoner reasoner = reasonerFactory.createReasoner(onto);
-
-		String superClass = null;
-		
-		Set classes = onto.getClassesInSignature();
-		
-		manager.removeOntology(onto);
-
-		return superClass;
-	}*/
 	
 /*	*//**
 	 * Method that retrieves all classes and corresponding sub-classes from an ontology and puts them in a multimap where the classes are key and their subclasses are values
@@ -167,7 +152,7 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 			//OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
 			OWLReasoner reasoner = reasonerFactory.createReasoner(o);
 			Set<OWLClass> cls = o.getClassesInSignature();
-			Map<String, String> classesAndSuperClasses = new HashMap();
+			Map<String, String> classesAndSuperClasses = new HashMap<String, String>();
 			ArrayList<OWLClass> classList = new ArrayList<OWLClass>();
 			
 			for (OWLClass i : cls) {
@@ -276,12 +261,22 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		return numClasses;
 	}
 	
-	public Set<OWLObjectProperty> getProperties(File ontoFile) throws OWLOntologyCreationException {
+	public static Set<OWLObjectProperty> getProperties(File ontoFile) throws OWLOntologyCreationException {
 		
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
-		
+		OWLReasoner reasoner = reasonerFactory.createReasoner(onto);
+
 		Set<OWLObjectProperty> props = onto.getObjectPropertiesInSignature();
+
+		return props;	
+	}
+	
+	public Set<OWLObjectProperty> getObjectProperties(OWLClass c) {
+		
+		Set<OWLObjectProperty> props = c.getObjectPropertiesInSignature();
+		
+//		Map<OWLClass, OWLObjectProperty> classesAndProperties = new HashMap<OWLClass, OWLObjectProperty>();
 		
 		return props;
 		
@@ -581,15 +576,42 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(file1);
+		
+		
 
-		Map<String, String> m = getClassesAndSuperClasses(onto1);
-		Set classes = m.keySet();
-		Iterator itr = classes.iterator();
+		/*Map<String, String> m = getClassesAndSuperClasses(onto1);
+		Set<String> classes = m.keySet();
+		Iterator<String> itr = classes.iterator();
 		System.out.println("Printing the superclasses\n");
 		while (itr.hasNext()) {
 			System.out.println("The superclass of " + itr.next() + " is " + m.get(itr.next()));
+		}*/
+		
+		/*Set<OWLClass> classes = onto1.getClassesInSignature();
+		Map<OWLClass, Set<OWLObjectProperty>> classesAndObjectProperties = new HashMap<OWLClass, Set<OWLObjectProperty>>();
+		
+		Iterator<OWLClass> itr = classes.iterator();
+		System.out.println("Printing object properties of each class");
+		while (itr.hasNext()) {
+			OWLClass thisClass = itr.next();
+			Set<OWLObjectProperty> props = thisClass.getObjectPropertiesInSignature();
+			classesAndObjectProperties.put(thisClass, props);
 		}
 		
+		for (Map.Entry<OWLClass, Set<OWLObjectProperty>> entry : classesAndObjectProperties.entrySet()) {
+			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue().size());
+		}*/
+		
+
+		
+       Set<OWLObjectProperty> props = getProperties(file1);
+       Iterator<OWLObjectProperty> propsItr = props.iterator();
+       
+       while(propsItr.hasNext()) {
+    	   OWLObjectProperty prop = propsItr.next();
+    	   System.out.println(prop);
+       }
+       
 		manager.removeOntology(onto1);
 		
 
