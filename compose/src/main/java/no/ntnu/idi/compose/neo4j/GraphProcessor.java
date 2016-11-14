@@ -315,6 +315,9 @@ public ArrayList<Object> getAllParentNodes(Node classNode, Label label) {
 			}
 		}*/
 		
+		//find the average depth of an ontology by counting the edges between each class to the root and average these across all classes of an ontology
+		
+		
 		
 	}
 

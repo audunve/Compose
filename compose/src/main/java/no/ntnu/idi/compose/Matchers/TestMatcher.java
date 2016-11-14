@@ -71,15 +71,6 @@ public class TestMatcher {
 			a.align((Alignment)null, params);	
 			break;
 			
-		case "ISSUBCLASS":
-			a = new SubClassAlignment();
-			//a.init( new URI("file:examples/rdf/TestTransport1.owl"), new URI("file:examples/rdf/TestTransport2.owl"));
-			a.init( new URI("file:examples/rdf/Conference.owl"), new URI("file:examples/rdf/ekaw.owl"));
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-			break;
-			
 			
 		case "GRAPHALIGNMENT":
 			a = new GraphAlignment();

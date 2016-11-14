@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
+	 xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' 
+	 xmlns:xsd='http://www.w3.org/2001/XMLSchema#' 
+	 alignmentSource='AgreementMakerLight'>
+
+<Alignment>
+	<xml>yes</xml>
+	<level>0</level>
+	<type>11</type>
+	<onto1>http://oaei.ontologymatching.org/tests/101/onto.rdf</onto1>
+	<onto2>http://purl.org/ontology/bibo/</onto2>
+	<uri1>http://oaei.ontologymatching.org/tests/101/onto.rdf</uri1>
+	<uri2>http://purl.org/ontology/bibo/</uri2>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#editor"/>
+			<entity2 rdf:resource="http://purl.org/dc/terms/contributor"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#directors"/>
+			<entity2 rdf:resource="http://purl.org/dc/terms/contributor"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#book"/>
+			<entity2 rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#collection"/>
+			<entity2 rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#journal"/>
+			<entity2 rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#proceedings"/>
+			<entity2 rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#note"/>
+			<entity2 rdf:resource="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&gt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#note"/>
+			<entity2 rdf:resource="http://www.w3.org/2004/02/skos/core#changeNote"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&gt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#note"/>
+			<entity2 rdf:resource="http://www.w3.org/2004/02/skos/core#editorialNote"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&gt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#numberOrVolume"/>
+			<entity2 rdf:resource="http://prismstandard.org/namespaces/1.2/basic/issue"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&gt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#numberOrVolume"/>
+			<entity2 rdf:resource="http://prismstandard.org/namespaces/1.2/basic/volume"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&gt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://oaei.ontologymatching.org/tests/101/onto.rdf#numberOrVolume"/>
+			<entity2 rdf:resource="http://purl.org/ontology/bibo/number"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&gt;</relation>
+		</Cell>
+	</map>
+</Alignment>
+</rdf:RDF>

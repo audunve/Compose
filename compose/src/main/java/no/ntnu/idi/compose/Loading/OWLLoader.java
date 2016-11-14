@@ -562,56 +562,42 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		
 		return numCompounds;	
 	}
+	
+	public static Set<OWLNamedIndividual> getInstances(OWLClass inputClass) {
+		
+		
+		
+		Set<OWLNamedIndividual> instances = inputClass.getIndividualsInSignature();
 
-
+		return instances;
+		
+	}
 
 	//test method
 	public static void main(String[] args) throws OWLOntologyCreationException {
 
 		//import the owl files
 		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
-		File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
-		File file3 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Schema.org/schema.rdf");
+		//File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		//File file3 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Schema.org/schema.rdf");
 		
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(file1);
 		
-		
-
-		/*Map<String, String> m = getClassesAndSuperClasses(onto1);
-		Set<String> classes = m.keySet();
-		Iterator<String> itr = classes.iterator();
-		System.out.println("Printing the superclasses\n");
-		while (itr.hasNext()) {
-			System.out.println("The superclass of " + itr.next() + " is " + m.get(itr.next()));
-		}*/
-		
-		/*Set<OWLClass> classes = onto1.getClassesInSignature();
-		Map<OWLClass, Set<OWLObjectProperty>> classesAndObjectProperties = new HashMap<OWLClass, Set<OWLObjectProperty>>();
-		
-		Iterator<OWLClass> itr = classes.iterator();
-		System.out.println("Printing object properties of each class");
-		while (itr.hasNext()) {
-			OWLClass thisClass = itr.next();
-			Set<OWLObjectProperty> props = thisClass.getObjectPropertiesInSignature();
-			classesAndObjectProperties.put(thisClass, props);
+		Set<OWLClass> classes = onto1.getClassesInSignature();
+		System.out.println("There are " + classes.size() + " classes in this ontology");
+		Iterator<OWLClass> clsItr = classes.iterator();
+		while (clsItr.hasNext()) {
+			OWLClass thisClass = clsItr.next();
+			Set<OWLNamedIndividual> instances = getInstances(thisClass);
+			System.out.println("Instances associated with " + thisClass.toString() + ":" + instances.size());
+			Iterator instanceItr = instances.iterator();
+			while(instanceItr.hasNext()) {
+				System.out.println(instanceItr.next());
+			}
 		}
-		
-		for (Map.Entry<OWLClass, Set<OWLObjectProperty>> entry : classesAndObjectProperties.entrySet()) {
-			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue().size());
-		}*/
-		
 
-		
-       Set<OWLObjectProperty> props = getProperties(file1);
-       Iterator<OWLObjectProperty> propsItr = props.iterator();
-       
-       while(propsItr.hasNext()) {
-    	   OWLObjectProperty prop = propsItr.next();
-    	   System.out.println(prop);
-       }
-       
 		manager.removeOntology(onto1);
 		
 
