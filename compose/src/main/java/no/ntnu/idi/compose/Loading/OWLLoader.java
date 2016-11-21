@@ -12,8 +12,10 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
@@ -241,6 +243,48 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 			manager.removeOntology(onto);
 			
 			return subClasses;
+		}
+		
+		
+		/**
+		 * Get all instances associated with a class  in an ontology
+		 * @param owlClass
+		 * @param ontology
+		 * @return
+		 */
+		@SuppressWarnings("deprecation")
+		public static ArrayList<String> getInstances(String owlClass, OWLOntology ontology) {
+			ArrayList<String> instanceList = new ArrayList<String>();
+			
+			OWLReasonerFactory reasonerFactory = new PelletReasonerFactory();
+		    OWLReasoner reasoner = reasonerFactory.createNonBufferingReasoner(ontology);
+		    
+		    for (OWLClass c : ontology.getClassesInSignature()) {
+
+				if (c.getIRI().getFragment().equals(owlClass)) {
+					//Test
+					//System.out.println("Found the class " + owlClass);
+					
+					NodeSet<OWLNamedIndividual> instanceSet = reasoner.getInstances(c, false);
+					Iterator itr = instanceSet.iterator();
+					if (!itr.hasNext()) {
+						//Test
+						//System.out.println("There are no instances associated with " + c.getIRI().getFragment());
+						break;
+					} else {
+					
+					
+
+					for (OWLNamedIndividual i : instanceSet.getFlattened()) {
+						//Test
+						//System.out.println("Adding " + i.getIRI().getFragment() + " to the list");
+						instanceList.add(i.getIRI().getFragment());
+					}
+					}
+				}
+		    }
+			
+			return instanceList;
 		}
 
 
@@ -577,25 +621,40 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 	public static void main(String[] args) throws OWLOntologyCreationException {
 
 		//import the owl files
-		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Cultural Heritage/BIBO/BIBO.owl");
-		//File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
-		//File file3 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Schema.org/schema.rdf");
+		//File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/DBPedia/dbpedia_2014.owl");
+		File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		//File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Schema.org/schema.rdf");
 		
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
-		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(file1);
+		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile);
 		
 		Set<OWLClass> classes = onto1.getClassesInSignature();
 		System.out.println("There are " + classes.size() + " classes in this ontology");
 		Iterator<OWLClass> clsItr = classes.iterator();
-		while (clsItr.hasNext()) {
-			OWLClass thisClass = clsItr.next();
-			Set<OWLNamedIndividual> instances = getInstances(thisClass);
-			System.out.println("Instances associated with " + thisClass.toString() + ":" + instances.size());
-			Iterator instanceItr = instances.iterator();
-			while(instanceItr.hasNext()) {
-				System.out.println(instanceItr.next());
+		
+		/*while(clsItr.hasNext()) {
+			System.out.println(clsItr.next().getIRI());
+		}*/
+		//public static void getInstances (String owlClass, OWLOntology ontology) {
+		
+		//Make a string representation of the OWLClasses
+		ArrayList<String> clsString = new ArrayList<String> ();
+		while(clsItr.hasNext()) {
+			clsString.add(clsItr.next().getIRI().getFragment());
+		}
+		
+		for (int i = 0; i < clsString.size(); i++) {
+			System.out.println("\nInstances associated with " + clsString.get(i));
+			ArrayList instanceList = new ArrayList();
+			instanceList = getInstances(clsString.get(i), onto1);
+			for (int j = 0; j < instanceList.size(); j++) {
+				System.out.println(instanceList.get(j));
 			}
+			
+			//getInstances(clsString.get(i), onto1);
+			
+
 		}
 
 		manager.removeOntology(onto1);

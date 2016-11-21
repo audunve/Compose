@@ -42,6 +42,8 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 	static OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
 
+	//File f1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/Biblio_2015.rdf");		
+	//File f2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/BIBO.owl");
 	File f1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/Conference2Ekaw/conference/Conference.owl");		
 	File f2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/Conference2Ekaw/conference/ekaw.owl");
 
@@ -49,6 +51,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 
 	//assumes that the ontology graphs in the database is created
 	//create the graph database
+	//File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/BIBLIO2BIBO");
 	File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/CONFERENCE2EKAW");
 	GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 
@@ -73,7 +76,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 
 					// add mapping into alignment object 
 
-					addAlignCell(cl1,cl2, "=", matchSubClasses(cl1,cl2));  
+					addAlignCell(cl1,cl2, "=", matchNeighborhood(cl1,cl2));  
 				}
 
 			}
@@ -268,7 +271,21 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 		return distanceToRoot;
 	}
 
-
+/**
+ * This method computes the structural proximity of two input classes. 
+ * (1) First it finds the input classes in the corresponding graphs, and measures their distance to root (owl:Thing), 
+ * (2) then it retrieves the list of parent nodes to these two input classes,
+ * (3) then it matches the parent nodes of the corresponding input classes,
+ * (4) if the similarity of parent nodes is above the threshold, the distance to root for these parent nodes is counted,
+ * (5) finally, the structural proximity is computed as:
+ * (2 * avgAncestorDistanceToRoot) / (distanceC1ToRoot + distanceC2ToRoot)
+ * @param o1
+ * @param o2
+ * @return
+ * @throws OWLOntologyCreationException
+ * @throws OntowrapException
+ * @throws IOException
+ */
 	public double computeStructProx(Object o1, Object o2) throws OWLOntologyCreationException, OntowrapException, IOException {
 
 		registerShutdownHook(db);		

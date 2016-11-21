@@ -18,7 +18,10 @@ import org.jgrapht.graph.DefaultEdge;
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.ontowrap.HeavyLoadedOntology;
@@ -34,95 +37,73 @@ public class InstanceAlignment extends ObjectAlignment implements AlignmentProce
 	
 	
 	final double THRESHOLD = 0.9;
+	static ISub isubMatcher = new ISub();
 	
 	public InstanceAlignment() {
 	}
 	
 	
 
-	public void align( Alignment alignment, Properties param ) throws AlignmentException {
+public void align(Alignment alignment, Properties param) throws AlignmentException {
+		
 		try {
 			// Match classes
 			for ( Object cl2: ontology2().getClasses() ){
 				for ( Object cl1: ontology1().getClasses() ){
-					// add mapping into alignment object 
-					addAlignCell(cl1,cl2, findCompoundRelation(cl1,cl2), compoundMatch(cl1,cl2));  
-					}
-				}
 			
+					// add mapping into alignment object 
+					addAlignCell(cl1,cl2, "=", instanceMatch(cl1,cl2));  
+				}
+				
+			}
+
 		} catch (Exception e) { e.printStackTrace(); }
 	}
 	
+	public double instanceMatch(Object o1, Object o2) throws OntowrapException, OWLOntologyCreationException {
 
-	
-	
-	public double compoundMatch(Object o1, Object o2) throws AlignmentException {
-		try {
-			String s1 = ontology1().getEntityName(o1);
-			String s2 = ontology2().getEntityName(o2);
-			if (s1 == null || s2 == null) return 0.;
-			
-			if (isCompound(s1,s2) && !s1.equals(s2)) { 
-				return 1.0;
-			} else if (isCompound(s2,s1) && !s2.equals(s1)) { 
-				return 1.0;
-			}
-			else { 
-				return 0.;
-			}
-		} catch ( OntowrapException owex ) {
-			throw new AlignmentException( "Error getting entity name", owex );
-		}
-	}
-	
-	public String findCompoundRelation(Object o1, Object o2) throws AlignmentException {
-		try {
-			String s1 = ontology1().getEntityName(o1);
-			String s2 = ontology2().getEntityName(o2);
-			if (s1 == null || s2 == null) return "0.";
-			
-			String isA = "&lt;";
-			String hasA = "&gt;";
-			
-			if (isCompound(s1,s2) && !s1.equals(s2)) { 
-				return isA;
-			} else if (isCompound(s2,s1) && !s2.equals(s1)) { 
-				return hasA;
-			}
-			else { 
-				return "0";
-			}
-		} catch ( OntowrapException owex ) {
-			throw new AlignmentException( "Error getting entity name", owex );
-		}
-	}
-
-	public static boolean isCompound(String a, String b) {
-		boolean test = false;
-
-		String[] compounds = a.split("(?<=.)(?=\\p{Lu})");
-
-		for (int i = 0; i < compounds.length; i++) {
-			if (b.equals(compounds[i])) {
-				test = true;
-			}
-		}
-
-		return test;
-	}
-	
-	
-	
-	public static void main(String[] args) {
-		String s1 = "RoadVehicle";
-		String s2 = "Vehicle";
+		//get the objects (entities)
+/*		String s1 = ontology1().getEntityName(o1).toLowerCase();
+		String s2 = ontology2().getEntityName(o2).toLowerCase();*/
 		
-		if (isCompound(s1,s2) == true) {
-			System.out.println(s1 + " is subsumed by " + s2);
+		String s1 = ontology1().getEntityName(o1);
+		String s2 = ontology2().getEntityName(o2);
+		
+		System.out.println("This operation will match " + s1 + " with " + s2);
+		
+		//get the ontologies (currently static)
+		File file1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransportWithInstances1.owl");
+		File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/TestOntologiesTransport/TestTransportWithInstances2.owl");
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(file1);
+		OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(file2);
+		
+		//get the instances associated with the two objects
+		ArrayList<String> instanceListO1 = OWLLoader.getInstances(s1, onto1);
+		System.out.println("There are " + instanceListO1.size() + " associated with " + s1);
+		ArrayList<String> instanceListO2 = OWLLoader.getInstances(s2, onto2);
+		System.out.println("There are " + instanceListO2.size() + " associated with " + s2);
+		
+		double measure = 0; 
+		double currentMeasure = 0;
+		
+		for (int i = 0; i < instanceListO1.size(); i++) {
+			for (int j = 0; j < instanceListO2.size(); j++) {
+				System.out.println("Matching " + instanceListO1.get(i) + " with " + instanceListO2.get(j));
+				currentMeasure = isubMatcher.score(instanceListO1.get(i), instanceListO2.get(j));
+				if (currentMeasure > measure) {
+					measure = currentMeasure;
+				}
+			}
 		}
-		else {
-			System.out.println(s1 + " is not subsumed by " + s2);
-		}
+
+		manager.removeOntology(onto1);
+		manager.removeOntology(onto2);
+		
+		return measure;
+		
 	}
-}
+		
+	}
 

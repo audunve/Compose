@@ -29,8 +29,8 @@ public class TestMatcher {
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
 
 		//Threshold for similarity score for which correspondences should be considered
-		final double THRESHOLD = 0.6;
-		final String MATCHER = "GRAPHALIGNMENT";
+		final double THRESHOLD = 0.8;
+		final String MATCHER = "ISUB";
 
 
 		//Parameters defining the (string) matching method to be applied
@@ -47,7 +47,17 @@ public class TestMatcher {
 	
 		case "ISUB":
 			a = new ISubAlignment();
-	    	a.init( new URI("file:examples/rdf/Conference.owl"), new URI("file:examples/rdf/ekaw.owl"));
+			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
+	    	a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
+			break;
+			
+		case "EDIT":
+			a = new EditDistNameAlignment();
+			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
+	    	a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
@@ -55,7 +65,8 @@ public class TestMatcher {
 			
 		case "WORDNET":
 			a = new WS4JAlignment();
-	    	a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
+			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
+	    	a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
@@ -63,9 +74,8 @@ public class TestMatcher {
 
 		case "COMPOUND":
 			a = new CompoundAlignment();
-			//a.init( new URI("file:examples/rdf/TestTransport1.owl"), new URI("file:examples/rdf/TestTransport2.owl"));
-			//a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
-			a.init( new URI("file:examples/rdf/Conference.owl"), new URI("file:examples/rdf/ekaw.owl"));
+			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
+	    	a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
@@ -74,9 +84,18 @@ public class TestMatcher {
 			
 		case "GRAPHALIGNMENT":
 			a = new GraphAlignment();
-	    	//a.init( new URI("file:examples/rdf/Biblio_2015.rdf"), new URI("file:examples/rdf/BIBO.owl"));
-	    	a.init( new URI("file:examples/rdf/Conference.owl"), new URI("file:examples/rdf/ekaw.owl"));
-	    	//a.init( new URI("file:examples/rdf/TestTransport1.owl"), new URI("file:examples/rdf/TestTransport2.owl"));
+			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
+	    	a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
+			break;
+			
+		case "INSTANCEALIGNMENT":
+			a = new InstanceAlignment();
+			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
+	    	//a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
+	    	a.init( new URI("file:files/ontologies/Test/TestTransportWithInstances1.owl"), new URI("file:files/ontologies/Test/TestTransportWithInstances2.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
@@ -84,7 +103,8 @@ public class TestMatcher {
 		}
 
 		//Storing the alignment as RDF
-		File outputFile = new File("./examples/rdf/output.rdf");
+		File outputFile = new File("./files/alignments/output_Conference2Ekaw_EditDistAlignment.rdf");
+		//File outputFile = new File("./files/alignments/output_Conference2Ekaw_Semantic-Compound_ClassSubsumption.rdf");
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(
 						new FileWriter(outputFile)), true); 
@@ -94,16 +114,8 @@ public class TestMatcher {
 		//clone the computed alignment from Alignment to BasicAlignment
 		BasicAlignment a2 = (BasicAlignment)(a.clone());
 
-/*		//merge the computed alignment with the input alignment
-		a2.ingest(inputAlignment);*/
-
 		//implement a similarity threshold
 		a2.cut(THRESHOLD);
-
-		//implement the join() method that joins an already computed alignment with this new alignment
-		//a2.join(inputAlignment);
-		//onto1.getURI() != align.getOntology1URI()
-
 
 		a2.render(renderer);
 		writer.flush();
@@ -112,8 +124,8 @@ public class TestMatcher {
 		//Evaluate the alignment against a reference alignment
 		AlignmentParser aparser = new AlignmentParser(0);
 
-		Alignment referenceAlignment = aparser.parse(new URI("file:examples/rdf/conference-ekaw_classes.rdf"));
-		//Alignment referenceAlignment = aparser.parse(new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/reference-alignment/conference-ekaw.rdf").toURI());
+		//Alignment referenceAlignment = aparser.parse(new URI("file:files/referenceAlignments/OAEI_Biblio2BIBO_ReferenceAlignment_Class_SubsumptionOnly.rdf"));
+		Alignment referenceAlignment = aparser.parse(new URI("file:files/referenceAlignments/conference-ekaw_ReferenceAlignment_Class_EquivalenceOnly.rdf"));
 		Properties p = new Properties();
 
 		Evaluator evaluator = new PRecEvaluator(referenceAlignment, a2);
@@ -121,9 +133,9 @@ public class TestMatcher {
 		System.out.println("------------------------------");
 		System.out.println("Evaluation scores:");
 		System.out.println("------------------------------");
-		System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
 		System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
 		System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
+		System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
 
 
 	}

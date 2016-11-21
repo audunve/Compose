@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <alext:method>no.ntnu.idi.compose.Matchers.InstanceAlignment#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199">
+      <location>file:files/ontologies/Test/TestTransportWithInstances1.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200">
+      <location>file:files/ontologies/Test/TestTransportWithInstances2.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#ElectricCar'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Electric'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#ElectricCar'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Car'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#ElectricCar'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Conveyance'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#ElectricCar'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Vehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Human'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8411764705882353</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Car'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Electric'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Petrol'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9142857142857144</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Vehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Conveyance'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#TransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Hydrogen'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.88</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#PetrolCar'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Vehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9142857142857144</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#PetrolCar'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Car'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9142857142857144</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#PetrolCar'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Petrol'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9142857142857144</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#PetrolCar'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Human'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8411764705882353</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#PetrolCar'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Conveyance'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9142857142857144</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#RoadTransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Petrol'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9142857142857144</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#RoadTransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Hydrogen'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.88</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#RoadTransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Human'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8411764705882353</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#RoadTransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Conveyance'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#RoadTransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Vehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#RoadTransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Car'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#RoadTransportMeans'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Electric'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Person'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Petrol'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8223577235772357</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Person'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Car'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8223577235772357</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Person'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Conveyance'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8223577235772357</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Person'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Vehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8223577235772357</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Person'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Human'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Car'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Hydrogen'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.88</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Vehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Conveyance'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Human'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8411764705882353</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Electric'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-199#Car'/>
+      <entity2 rdf:resource='http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#Petrol'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9142857142857144</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>
