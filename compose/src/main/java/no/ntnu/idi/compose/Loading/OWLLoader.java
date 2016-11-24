@@ -594,10 +594,12 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		
 		while(itr.hasNext()) {
 			thisClass = replaceUnderscore(itr.next().getIRI().getFragment());
-			System.out.println("Testing " + thisClass.toString());
+			//Test
+			//System.out.println("Testing " + thisClass.toString());
 			if (isCompound(thisClass) == true) {
 				counter++;			
-				System.out.println("Now the counter is " + counter);
+				//Test
+				//System.out.println("Now the counter is " + counter);
 			}		
 		}
 		

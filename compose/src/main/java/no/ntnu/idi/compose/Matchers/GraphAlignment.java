@@ -37,22 +37,19 @@ import no.ntnu.idi.compose.algorithms.ISub;
 @SuppressWarnings("deprecation")
 public class GraphAlignment extends ObjectAlignment implements AlignmentProcess {
 
-	final double THRESHOLD = 0.6;
+	final double THRESHOLD = 0.8;
 
 	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 	static OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
 
-	//File f1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/Biblio_2015.rdf");		
-	//File f2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/BIBO.owl");
-	File f1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/Conference2Ekaw/conference/Conference.owl");		
-	File f2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/Conference2Ekaw/conference/ekaw.owl");
+	File f1 = new File("./files/OAEI-16-conference/conference/iasted.owl");		
+	File f2 = new File("./files/OAEI-16-conference/conference/sigkdd.owl");
 
 	ISub iSubMatcher = new ISub();
 
 	//assumes that the ontology graphs in the database is created
-	//create the graph database
-	//File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/BIBLIO2BIBO");
-	File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/CONFERENCE2EKAW");
+	//initialise the graph database
+	File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/OAEI-Conference-16");
 	GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 
 	String key = "classname";
@@ -61,7 +58,10 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 	Label labelOnto1 = DynamicLabel.label( f1.toPath().getFileName().toString());
 	Label labelOnto2 = DynamicLabel.label( f2.toPath().getFileName().toString());
 
-
+/*	GraphAlignment(File inputFile1, File inputFile2) {
+		f1 = inputFile1;
+		f2 = inputFile2;
+	}*/
 
 	/**
 	 * The align() method is imported from the Alignment API and is modified to use the wordNetMatch method declared in this class
@@ -76,7 +76,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 
 					// add mapping into alignment object 
 
-					addAlignCell(cl1,cl2, "=", matchNeighborhood(cl1,cl2));  
+					addAlignCell(cl1,cl2, "=", matchSubClasses(cl1,cl2));  
 				}
 
 			}
@@ -114,7 +114,6 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 			testNode = db.findNode(label, key, value);
 			tx.success();
 		}
-		//registerShutdownHook(db);
 		return testNode;	
 	}
 
@@ -126,7 +125,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 			value = n.getProperty(key).toString();
 			tx.success();
 		}
-		//registerShutdownHook(db);
+
 		return value;	
 	}
 
@@ -138,7 +137,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 			id = n.getId();
 			tx.success();		
 		}
-		//registerShutdownHook(db);
+
 		return id;	
 	}
 
@@ -152,7 +151,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 			tx.success();
 		}
 
-		//registerShutdownHook(db);
+
 		return td.traverse(classNode);
 	}
 
@@ -173,7 +172,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 
 			tx.success();
 		}
-		//registerShutdownHook(db);
+
 		return childNodeList;
 	}
 
@@ -191,7 +190,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 
 			tx.success();
 		}
-		//registerShutdownHook(db);
+
 		return td.traverse(classNode);
 	}
 
@@ -212,7 +211,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 
 			tx.success();
 		}
-		//registerShutdownHook(db);
+
 		return parentNodeList;
 	}
 
@@ -235,7 +234,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 
 			tx.success();
 		}
-		//registerShutdownHook(db);
+
 		return parentNodeList;
 	}
 
@@ -264,8 +263,6 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 			tx.success();
 		}
 
-		//registerShutdownHook(db);
-
 		int distanceToRoot = parentNodeMap.size();
 
 		return distanceToRoot;
@@ -286,7 +283,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
  * @throws OntowrapException
  * @throws IOException
  */
-	public double computeStructProx(Object o1, Object o2) throws OWLOntologyCreationException, OntowrapException, IOException {
+	public double matchSuperClasses(Object o1, Object o2) throws OWLOntologyCreationException, OntowrapException, IOException {
 
 		registerShutdownHook(db);		
 
@@ -404,7 +401,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 		
 		System.out.println("Matching " + o1.toString() + " and " + o2.toString());
 		
-		double structProx = computeStructProx(o1, o2);
+		double structProx = matchSuperClasses(o1, o2);
 		
 		System.out.println("The structProx of " + o1.toString() + " and " + o2.toString() + " is " + structProx);
 		

@@ -89,11 +89,11 @@ public class GraphLoader {
 				}
 			}
 			
-			//create the individuals
+			//TO-DO:create the individuals
 			
-			//create the object property relations
+			//TO-DO:create the object property relations
 			
-			//create the datatype properties
+			//TO-DO:create the datatype properties
 			
 			
 
@@ -142,16 +142,16 @@ public class GraphLoader {
 		isA
 	}
 	
-	/*public static void main(String[] args) throws OWLOntologyCreationException {
+	public static void main(String[] args) throws OWLOntologyCreationException {
 		
-		//initialize the database
-		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/Biblio2BIBO");
+		//create the database
+		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/OAEI-Conference-16");
 		GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 		registerShutdownHook(db);
 		
 		//get the ontology
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		File f1 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/BIBO.owl");		
+		File f1 = new File("./files/OAEI-16-conference/conference/sigkdd.owl");		
 		System.out.println("...Trying to load the ontology...");
 		OWLOntology o1 = manager.loadOntologyFromOntologyDocument(f1);
 
@@ -166,5 +166,7 @@ public class GraphLoader {
 
 		loader.createOntologyGraph(o1, label);
 		
-	}*/
+		System.out.println("Graph created successfully!");
+		
+	}
 }

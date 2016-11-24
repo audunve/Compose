@@ -60,6 +60,25 @@ public class OntologyProcessor {
 	 * @param onto2
 	 * @throws OWLOntologyCreationException 
 	 */
+	public static double computeAveragePopulation(File ontoFile) throws OWLOntologyCreationException {
+
+		int classesOnto = OWLLoader.getNumClasses(ontoFile);
+		
+		int individualsOnto = OWLLoader.getNumIndividuals(ontoFile);
+		
+		double averagePopulation = ((double)individualsOnto / ((double)classesOnto));
+		
+		return averagePopulation;
+	}
+	
+	/**
+	 * Average Population (AP): Indicates the average distribution of instances across
+	 * all classes. AP = |I| / |C|.
+	 * 
+	 * @param onto1
+	 * @param onto2
+	 * @throws OWLOntologyCreationException 
+	 */
 	public static double computeAveragePopulation(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException {
 
 		int classesOnto1 = OWLLoader.getNumClasses(ontoFile1);

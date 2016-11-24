@@ -113,15 +113,19 @@ public class CompoundAlignment extends ObjectAlignment implements AlignmentProce
 	
 	
 	public static void main(String[] args) {
-		String s1 = "RoadVehicle";
-		String s2 = "Vehicle";
+		String[] onto1 = {"Short Paper", "LongPaper", "Academic_Paper", "Short_Article"};
+		String[] onto2 = {"Paper", "Article"};
 		
-		if (isCompound(s1,s2) == true) {
-			System.out.println(s1 + " is subsumed by " + s2);
+		for (int i = 0; i < onto1.length; i++) {
+			for (int j = 0; j < onto2.length; j++) {
+				if (isCompound(onto1[i], onto2[j])) {
+					System.out.println(onto1[i] + " < " + onto2[j]);
+				} else {
+					System.out.println(onto1[i] + " is not subsumed by " + onto2[j]);
+				}
+			}
 		}
-		else {
-			System.out.println(s1 + " is not subsumed by " + s2);
-		}
+
 	}
 }
 

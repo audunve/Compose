@@ -33,18 +33,18 @@ public class ISubAlignment extends ObjectAlignment implements AlignmentProcess {
 	
 	public double iSubScore(Object o1, Object o2) throws OntowrapException {
 		
-		System.out.println("Printing the names of the ontologies...");
-		String onto1 = ontology1().getURI().getPath();
+		//System.out.println("Printing the names of the ontologies...");
+		String onto1 = ontology1().getURI().toString();
 		String onto2 = ontology2().getURI().toString();
-		System.out.println("The name of ontology 1 is: " + onto1);
-		System.out.println("The name of ontology 2 is: " + onto2);
+		//System.out.println("The name of ontology 1 is: " + onto1);
+		//System.out.println("The name of ontology 2 is: " + onto2);
 		
 		
 		//get the objects (entities)
 		String s1 = ontology1().getEntityName(o1).toLowerCase();
 		String s2 = ontology2().getEntityName(o2).toLowerCase();
 		
-		System.out.println("Matching " + s1 + " and " + s2);
+		//System.out.println("Matching " + s1 + " and " + s2);
 		double measure = isubMatcher.score(s1, s2);
 		
 		return measure;

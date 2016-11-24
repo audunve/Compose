@@ -17,9 +17,13 @@ import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Evaluator;
 
+import fr.inrialpes.exmo.align.cli.GroupEval;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
+import no.ntnu.idi.compose.Loading.OWLLoader;
 import no.ntnu.idi.compose.Matchers.CompoundAlignment;
+import no.ntnu.idi.compose.Processing.OntologyProcessor;
+import no.ntnu.idi.compose.misc.StringProcessor;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
@@ -28,10 +32,17 @@ public class TestMatcher {
 
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
 
-		//Threshold for similarity score for which correspondences should be considered
-		final double THRESHOLD = 0.8;
-		final String MATCHER = "ISUB";
 
+		//input parameters for each matching operation
+		final String MATCHER = "COMPOUND";
+		final double THRESHOLD = 0.8;
+		File outputAlignment = null;
+		final File ontologyDir = new File("./files/OAEI-16-conference/ontologies");
+		File[] filesInDir = null;
+		final String prefix = "file:";
+		//URI refAlignment = null;
+
+		
 
 		//Parameters defining the (string) matching method to be applied
 		Properties params = new Properties();
@@ -40,55 +51,220 @@ public class TestMatcher {
 
 		AlignmentParser inputParser = new AlignmentParser(0);
 
-		//An optional input alignment
-		//Alignment inputAlignment = inputParser.parse(new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/output_alignment_biblio-bibo_edit.rdf").toURI());
-
 		switch(MATCHER) {
+
 	
 		case "ISUB":
 			a = new ISubAlignment();
-			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
-	    	a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
+
+			filesInDir = ontologyDir.listFiles();
+
+			for (int i = 0; i < filesInDir.length; i++) {
+				for (int j = i+1; j < filesInDir.length; j++) {
+				if (filesInDir[i].isFile() && filesInDir[j].isFile() && i!=j) {
+					System.out.println("Matching " + filesInDir[i] + " and " + filesInDir[j] );
+					a.init( new URI(prefix.concat(filesInDir[i].toString().substring(2))), new URI(prefix.concat(filesInDir[j].toString().substring(2))));
+					params = new Properties();
+					params.setProperty("", "");
+					a.align((Alignment)null, params);	
+
+					//create folder for easier evaluation process
+					String alignmentFileName = "./files/OAEI-16-conference/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
+							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/ISub.rdf";
+					
+					outputAlignment = new File(alignmentFileName);
+					
+					PrintWriter writer = new PrintWriter(
+							new BufferedWriter(
+									new FileWriter(outputAlignment)), true); 
+					AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+					//to manipulate the alignments we using the BasicAlignment, not the Alignment
+					//clone the computed alignment from Alignment to BasicAlignment
+					BasicAlignment a2 = (BasicAlignment)(a.clone());
+
+					//implement the similarity threshold
+					a2.cut(THRESHOLD);
+
+					a2.render(renderer);
+					writer.flush();
+					writer.close();
+
+
+				}
+				}
+			}
+			
+			System.out.println("Matching completed!");
 			break;
 			
 		case "EDIT":
 			a = new EditDistNameAlignment();
-			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
-	    	a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
+
+			filesInDir = ontologyDir.listFiles();
+
+			for (int i = 0; i < filesInDir.length; i++) {
+				for (int j = i+1; j < filesInDir.length; j++) {
+				if (filesInDir[i].isFile() && filesInDir[j].isFile() && i!=j) {
+					System.out.println("Matching " + filesInDir[i] + " and " + filesInDir[j] );
+					a.init( new URI(prefix.concat(filesInDir[i].toString().substring(2))), new URI(prefix.concat(filesInDir[j].toString().substring(2))));
+					params = new Properties();
+					params.setProperty("", "");
+					a.align((Alignment)null, params);	
+
+					//create folder for easier evaluation process
+					String alignmentFileName = "./files/OAEI-16-conference/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
+							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Edit.rdf";
+					
+					outputAlignment = new File(alignmentFileName);
+					
+					PrintWriter writer = new PrintWriter(
+							new BufferedWriter(
+									new FileWriter(outputAlignment)), true); 
+					AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+					//to manipulate the alignments we using the BasicAlignment, not the Alignment
+					//clone the computed alignment from Alignment to BasicAlignment
+					BasicAlignment a2 = (BasicAlignment)(a.clone());
+
+					//implement the similarity threshold
+					a2.cut(THRESHOLD);
+
+					a2.render(renderer);
+					writer.flush();
+					writer.close();
+
+
+				}
+				}
+			}
+			
+			System.out.println("Matching completed!");
 			break;
 			
 		case "WORDNET":
 			a = new WS4JAlignment();
-			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
-	    	a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
+
+			filesInDir = ontologyDir.listFiles();
+
+			for (int i = 0; i < filesInDir.length; i++) {
+				for (int j = i+1; j < filesInDir.length; j++) {
+				if (filesInDir[i].isFile() && filesInDir[j].isFile() && i!=j) {
+					System.out.println("Matching " + filesInDir[i] + " and " + filesInDir[j] );
+					a.init( new URI(prefix.concat(filesInDir[i].toString().substring(2))), new URI(prefix.concat(filesInDir[j].toString().substring(2))));
+					params = new Properties();
+					params.setProperty("", "");
+					a.align((Alignment)null, params);	
+
+					//create folder for easier evaluation process
+					String alignmentFileName = "./files/OAEI-16-conference/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
+							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/WordNet.rdf";
+					
+					outputAlignment = new File(alignmentFileName);
+					
+					PrintWriter writer = new PrintWriter(
+							new BufferedWriter(
+									new FileWriter(outputAlignment)), true); 
+					AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+					//to manipulate the alignments we using the BasicAlignment, not the Alignment
+					//clone the computed alignment from Alignment to BasicAlignment
+					BasicAlignment a2 = (BasicAlignment)(a.clone());
+
+					//implement the similarity threshold
+					a2.cut(THRESHOLD);
+
+					a2.render(renderer);
+					writer.flush();
+					writer.close();
+
+
+				}
+				}
+			}
+			
+			System.out.println("Matching completed!");
 			break;
 
 		case "COMPOUND":
 			a = new CompoundAlignment();
-			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
-	    	a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
+			
+			
+			filesInDir = ontologyDir.listFiles();
+
+			for (int i = 0; i < filesInDir.length; i++) {
+				for (int j = i+1; j < filesInDir.length; j++) {
+				if (filesInDir[i].isFile() && filesInDir[j].isFile() && i!=j) {
+					System.out.println("Matching " + filesInDir[i] + " and " + filesInDir[j] );
+					a.init( new URI(prefix.concat(filesInDir[i].toString().substring(2))), new URI(prefix.concat(filesInDir[j].toString().substring(2))));
+					params = new Properties();
+					params.setProperty("", "");
+					a.align((Alignment)null, params);	
+
+					//create folder for easier evaluation process
+					String alignmentFileName = "./files/OAEI-16-conference/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
+							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Compound.rdf";
+					
+					outputAlignment = new File(alignmentFileName);
+					
+					PrintWriter writer = new PrintWriter(
+							new BufferedWriter(
+									new FileWriter(outputAlignment)), true); 
+					AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+					//to manipulate the alignments we using the BasicAlignment, not the Alignment
+					//clone the computed alignment from Alignment to BasicAlignment
+					BasicAlignment a2 = (BasicAlignment)(a.clone());
+
+					//implement the similarity threshold
+					a2.cut(THRESHOLD);
+
+					a2.render(renderer);
+					writer.flush();
+					writer.close();
+
+
+				}
+				}
+			}
+			
+			System.out.println("Matching completed!");
 			break;
 			
 			
 		case "GRAPHALIGNMENT":
+			
+//			File f1 = new File("./files/OAEI-16-conference/conference/iasted.owl");		
+//			File f2 = new File("./files/OAEI-16-conference/conference/sigkdd.owl");
+
 			a = new GraphAlignment();
-			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
-	    	a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
+
+	    	a.init( new URI("file:files/OAEI-16-conference/conference/iasted.owl"), new URI("file:files/OAEI-16-conference/conference/sigkdd.owl"));
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
+			
+			String alignmentFileName = "./files/OAEI-16-conference/alignments/Graph-Sub/Graph-Sub-iasted-sigkdd.rdf";
+			outputAlignment = new File(alignmentFileName);
+			
+			PrintWriter writer = new PrintWriter(
+					new BufferedWriter(
+							new FileWriter(outputAlignment)), true); 
+			AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+			//to manipulate the alignments we using the BasicAlignment, not the Alignment
+			//clone the computed alignment from Alignment to BasicAlignment
+			BasicAlignment a2 = (BasicAlignment)(a.clone());
+
+			//implement the similarity threshold
+			a2.cut(THRESHOLD);
+
+			a2.render(renderer);
+			writer.flush();
+			writer.close();
+			
+			System.out.println("Matching completed!");
+			
 			break;
 			
 		case "INSTANCEALIGNMENT":
@@ -102,40 +278,6 @@ public class TestMatcher {
 			break;
 		}
 
-		//Storing the alignment as RDF
-		File outputFile = new File("./files/alignments/output_Conference2Ekaw_EditDistAlignment.rdf");
-		//File outputFile = new File("./files/alignments/output_Conference2Ekaw_Semantic-Compound_ClassSubsumption.rdf");
-		PrintWriter writer = new PrintWriter(
-				new BufferedWriter(
-						new FileWriter(outputFile)), true); 
-		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-
-		//to manipulate the alignments we using the BasicAlignment, not the Alignment
-		//clone the computed alignment from Alignment to BasicAlignment
-		BasicAlignment a2 = (BasicAlignment)(a.clone());
-
-		//implement a similarity threshold
-		a2.cut(THRESHOLD);
-
-		a2.render(renderer);
-		writer.flush();
-		writer.close();
-
-		//Evaluate the alignment against a reference alignment
-		AlignmentParser aparser = new AlignmentParser(0);
-
-		//Alignment referenceAlignment = aparser.parse(new URI("file:files/referenceAlignments/OAEI_Biblio2BIBO_ReferenceAlignment_Class_SubsumptionOnly.rdf"));
-		Alignment referenceAlignment = aparser.parse(new URI("file:files/referenceAlignments/conference-ekaw_ReferenceAlignment_Class_EquivalenceOnly.rdf"));
-		Properties p = new Properties();
-
-		Evaluator evaluator = new PRecEvaluator(referenceAlignment, a2);
-		evaluator.eval(p);
-		System.out.println("------------------------------");
-		System.out.println("Evaluation scores:");
-		System.out.println("------------------------------");
-		System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
-		System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
-		System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
 
 
 	}

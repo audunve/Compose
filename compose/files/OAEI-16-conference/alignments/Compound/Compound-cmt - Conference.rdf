@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <alext:method>no.ntnu.idi.compose.Matchers.CompoundAlignment#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://cmt">
+      <location>file:files/OAEI-16-conference/conference/cmt.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://conference">
+      <location>file:files/OAEI-16-conference/conference/Conference.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#Meta-Review'/>
+      <entity2 rdf:resource='http://conference#Review'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#AssociatedChair'/>
+      <entity2 rdf:resource='http://conference#Chair'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#ExternalReviewer'/>
+      <entity2 rdf:resource='http://conference#Reviewer'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#ProgramCommitteeMember'/>
+      <entity2 rdf:resource='http://conference#Committee'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#ConferenceMember'/>
+      <entity2 rdf:resource='http://conference#Conference'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#PaperFullVersion'/>
+      <entity2 rdf:resource='http://conference#Paper'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#ConferenceChair'/>
+      <entity2 rdf:resource='http://conference#Chair'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#ConferenceChair'/>
+      <entity2 rdf:resource='http://conference#Conference'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#ProgramCommitteeChair'/>
+      <entity2 rdf:resource='http://conference#Committee'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#ProgramCommitteeChair'/>
+      <entity2 rdf:resource='http://conference#Chair'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#Meta-Reviewer'/>
+      <entity2 rdf:resource='http://conference#Reviewer'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#PaperAbstract'/>
+      <entity2 rdf:resource='http://conference#Abstract'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#PaperAbstract'/>
+      <entity2 rdf:resource='http://conference#Paper'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#AuthorNotReviewer'/>
+      <entity2 rdf:resource='http://conference#Reviewer'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://cmt#ProgramCommittee'/>
+      <entity2 rdf:resource='http://conference#Committee'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>
