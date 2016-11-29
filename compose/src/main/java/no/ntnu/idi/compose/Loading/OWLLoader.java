@@ -622,22 +622,22 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 	//test method
 	public static void main(String[] args) throws OWLOntologyCreationException {
 
-		//import the owl files
+		/*//import the owl files
 		//File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/DBPedia/dbpedia_2014.owl");
-		File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		File file2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
 		//File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Schema.org/schema.rdf");
 		
 
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
-		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile);
+		//OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile);
 		
 		Set<OWLClass> classes = onto1.getClassesInSignature();
 		System.out.println("There are " + classes.size() + " classes in this ontology");
 		Iterator<OWLClass> clsItr = classes.iterator();
 		
-		/*while(clsItr.hasNext()) {
+		while(clsItr.hasNext()) {
 			System.out.println(clsItr.next().getIRI());
-		}*/
+		}
 		//public static void getInstances (String owlClass, OWLOntology ontology) {
 		
 		//Make a string representation of the OWLClasses
@@ -659,8 +659,28 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 
 		}
 
-		manager.removeOntology(onto1);
+		manager.removeOntology(onto1);*/
+		final File ontologyDir = new File("./files/OAEI-16-conference/ontologies");
+		File[] filesInDir = null;
+		filesInDir = ontologyDir.listFiles();
 		
+		for (int i = 0; i < filesInDir.length; i++) {
+			System.out.println("-------------------------");
+			System.out.println("Printing statistics for " + filesInDir[i].getPath().toString());
+			System.out.println("Number of classes: " + OWLLoader.getNumClasses(filesInDir[i]));
+			System.out.println("Number of sub-classes: " + OWLLoader.getNumSubClasses(filesInDir[i]));
+			System.out.println("Number of object properties: " + OWLLoader.getNumObjectProperties(filesInDir[i]));
+			System.out.println("-------------------------");
+		}
+		
+		File file2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/BIBO.owl");
+		//File file3 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		System.out.println("-------------------------");
+		System.out.println("Printing statistics for " + file2.getPath().toString());
+		System.out.println("Number of classes: " + OWLLoader.getNumClasses(file2));
+		System.out.println("Number of sub-classes: " + OWLLoader.getNumSubClasses(file2));
+		System.out.println("Number of object properties: " + OWLLoader.getNumObjectProperties(file2));
+		System.out.println("-------------------------");
 
 	}
 

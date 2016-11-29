@@ -10,6 +10,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Properties;
 
+import org.neo4j.graphdb.GraphDatabaseService;
+import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 //Alignment API classes
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
@@ -34,15 +36,13 @@ public class TestMatcher {
 
 
 		//input parameters for each matching operation
-		final String MATCHER = "COMPOUND";
-		final double THRESHOLD = 0.8;
+		final String MATCHER = "ANNOTATIONS";
+		final double THRESHOLD = 0.1;
 		File outputAlignment = null;
 		final File ontologyDir = new File("./files/OAEI-16-conference/ontologies");
 		File[] filesInDir = null;
 		final String prefix = "file:";
-		//URI refAlignment = null;
 
-		
 
 		//Parameters defining the (string) matching method to be applied
 		Properties params = new Properties();
@@ -68,7 +68,7 @@ public class TestMatcher {
 					params.setProperty("", "");
 					a.align((Alignment)null, params);	
 
-					//create folder for easier evaluation process
+					//put output alignment in appropriate folder
 					String alignmentFileName = "./files/OAEI-16-conference/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
 							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/ISub.rdf";
 					
@@ -79,7 +79,7 @@ public class TestMatcher {
 									new FileWriter(outputAlignment)), true); 
 					AlignmentVisitor renderer = new RDFRendererVisitor(writer);
 
-					//to manipulate the alignments we using the BasicAlignment, not the Alignment
+					//to manipulate the alignments we are using the BasicAlignment, not the Alignment
 					//clone the computed alignment from Alignment to BasicAlignment
 					BasicAlignment a2 = (BasicAlignment)(a.clone());
 
@@ -98,6 +98,7 @@ public class TestMatcher {
 			System.out.println("Matching completed!");
 			break;
 			
+		
 		case "EDIT":
 			a = new EditDistNameAlignment();
 
@@ -112,7 +113,7 @@ public class TestMatcher {
 					params.setProperty("", "");
 					a.align((Alignment)null, params);	
 
-					//create folder for easier evaluation process
+					//put output alignment in appropriate folder
 					String alignmentFileName = "./files/OAEI-16-conference/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
 							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Edit.rdf";
 					
@@ -123,7 +124,7 @@ public class TestMatcher {
 									new FileWriter(outputAlignment)), true); 
 					AlignmentVisitor renderer = new RDFRendererVisitor(writer);
 
-					//to manipulate the alignments we using the BasicAlignment, not the Alignment
+					//to manipulate the alignments we are using the BasicAlignment, not the Alignment
 					//clone the computed alignment from Alignment to BasicAlignment
 					BasicAlignment a2 = (BasicAlignment)(a.clone());
 
@@ -142,6 +143,7 @@ public class TestMatcher {
 			System.out.println("Matching completed!");
 			break;
 			
+		
 		case "WORDNET":
 			a = new WS4JAlignment();
 
@@ -156,7 +158,7 @@ public class TestMatcher {
 					params.setProperty("", "");
 					a.align((Alignment)null, params);	
 
-					//create folder for easier evaluation process
+					//put output alignment in appropriate folder
 					String alignmentFileName = "./files/OAEI-16-conference/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
 							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/WordNet.rdf";
 					
@@ -167,7 +169,7 @@ public class TestMatcher {
 									new FileWriter(outputAlignment)), true); 
 					AlignmentVisitor renderer = new RDFRendererVisitor(writer);
 
-					//to manipulate the alignments we using the BasicAlignment, not the Alignment
+					//to manipulate the alignments we are using the BasicAlignment, not the Alignment
 					//clone the computed alignment from Alignment to BasicAlignment
 					BasicAlignment a2 = (BasicAlignment)(a.clone());
 
@@ -186,10 +188,10 @@ public class TestMatcher {
 			System.out.println("Matching completed!");
 			break;
 
+		
 		case "COMPOUND":
 			a = new CompoundAlignment();
-			
-			
+
 			filesInDir = ontologyDir.listFiles();
 
 			for (int i = 0; i < filesInDir.length; i++) {
@@ -201,10 +203,9 @@ public class TestMatcher {
 					params.setProperty("", "");
 					a.align((Alignment)null, params);	
 
-					//create folder for easier evaluation process
+					//put output alignment in appropriate folder
 					String alignmentFileName = "./files/OAEI-16-conference/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
-							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Compound.rdf";
-					
+							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Compound.rdf";				
 					outputAlignment = new File(alignmentFileName);
 					
 					PrintWriter writer = new PrintWriter(
@@ -212,7 +213,7 @@ public class TestMatcher {
 									new FileWriter(outputAlignment)), true); 
 					AlignmentVisitor renderer = new RDFRendererVisitor(writer);
 
-					//to manipulate the alignments we using the BasicAlignment, not the Alignment
+					//to manipulate the alignments we are using the BasicAlignment, not the Alignment
 					//clone the computed alignment from Alignment to BasicAlignment
 					BasicAlignment a2 = (BasicAlignment)(a.clone());
 
@@ -233,53 +234,119 @@ public class TestMatcher {
 			
 			
 		case "GRAPHALIGNMENT":
+
+			File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/OAEI-Conference-16");
+			GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
+			registerShutdownHook(db);
+			filesInDir = ontologyDir.listFiles();
 			
-//			File f1 = new File("./files/OAEI-16-conference/conference/iasted.owl");		
-//			File f2 = new File("./files/OAEI-16-conference/conference/sigkdd.owl");
+			for (int i = 0; i < filesInDir.length; i++) {
+				for (int j = i+1; j < filesInDir.length; j++) {
+				if (filesInDir[i].isFile() && filesInDir[j].isFile() && i!=j) {
+					
+					//need to provide the ontology file names as parameters to GraphAlignment.java
+					String ontologyParameter1 = StringProcessor.stripPath(filesInDir[i].toString());
+					String ontologyParameter2 = StringProcessor.stripPath(filesInDir[j].toString());
+					System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to GraphAlignment.java");
+					a = new GraphAlignment(ontologyParameter1,ontologyParameter2, db);
+					
+					System.out.println("Matching " + filesInDir[i] + " and " + filesInDir[j] );
+					a.init( new URI(prefix.concat(filesInDir[i].toString().substring(2))), new URI(prefix.concat(filesInDir[j].toString().substring(2))));
+					params = new Properties();
+					params.setProperty("", "");
+					a.align((Alignment)null, params);	
 
-			a = new GraphAlignment();
+					//put output alignment in appropriate folder
+					String alignmentFileName = "./files/OAEI-16-conference/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
+							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Graph-Super.rdf";				
+					outputAlignment = new File(alignmentFileName);
+					
+					PrintWriter writer = new PrintWriter(
+							new BufferedWriter(
+									new FileWriter(outputAlignment)), true); 
+					AlignmentVisitor renderer = new RDFRendererVisitor(writer);
 
-	    	a.init( new URI("file:files/OAEI-16-conference/conference/iasted.owl"), new URI("file:files/OAEI-16-conference/conference/sigkdd.owl"));
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-			
-			String alignmentFileName = "./files/OAEI-16-conference/alignments/Graph-Sub/Graph-Sub-iasted-sigkdd.rdf";
-			outputAlignment = new File(alignmentFileName);
-			
-			PrintWriter writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(outputAlignment)), true); 
-			AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+					//to manipulate the alignments we are using the BasicAlignment, not the Alignment
+					//clone the computed alignment from Alignment to BasicAlignment
+					BasicAlignment a2 = (BasicAlignment)(a.clone());
 
-			//to manipulate the alignments we using the BasicAlignment, not the Alignment
-			//clone the computed alignment from Alignment to BasicAlignment
-			BasicAlignment a2 = (BasicAlignment)(a.clone());
+					//implement the similarity threshold
+					a2.cut(THRESHOLD);
 
-			//implement the similarity threshold
-			a2.cut(THRESHOLD);
-
-			a2.render(renderer);
-			writer.flush();
-			writer.close();
+					a2.render(renderer);
+					writer.flush();
+					writer.close();
+				}
+				}
+			}
 			
 			System.out.println("Matching completed!");
+			break;
+
 			
+			
+		case "ANNOTATIONS":
+			a = new AnnotationsAlignment();
+
+			filesInDir = ontologyDir.listFiles();
+
+			for (int i = 0; i < filesInDir.length; i++) {
+				for (int j = i+1; j < filesInDir.length; j++) {
+				if (filesInDir[i].isFile() && filesInDir[j].isFile() && i!=j) {
+					System.out.println("Matching " + filesInDir[i] + " and " + filesInDir[j] );
+					a.init( new URI(prefix.concat(filesInDir[i].toString().substring(2))), new URI(prefix.concat(filesInDir[j].toString().substring(2))));
+					params = new Properties();
+					params.setProperty("", "");
+					a.align((Alignment)null, params);	
+
+					//put output alignment in appropriate folder
+					String alignmentFileName = "./files/OAEI-16-conference/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
+							"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Annotations.rdf";				
+					outputAlignment = new File(alignmentFileName);
+					
+					PrintWriter writer = new PrintWriter(
+							new BufferedWriter(
+									new FileWriter(outputAlignment)), true); 
+					AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+					//to manipulate the alignments we are using the BasicAlignment, not the Alignment
+					//clone the computed alignment from Alignment to BasicAlignment
+					BasicAlignment a2 = (BasicAlignment)(a.clone());
+
+					//implement the similarity threshold
+					a2.cut(THRESHOLD);
+
+					a2.render(renderer);
+					writer.flush();
+					writer.close();
+
+
+				}
+				}
+			}
+			
+			System.out.println("Matching completed!");
 			break;
 			
-		case "INSTANCEALIGNMENT":
-			a = new InstanceAlignment();
-			//a.init( new URI("file:files/ontologies/Biblio_2015.rdf"), new URI("file:files/ontologies/BIBO.owl"));
-	    	//a.init( new URI("file:files/ontologies/Conference.owl"), new URI("file:files/ontologies/ekaw.owl"));
-	    	a.init( new URI("file:files/ontologies/Test/TestTransportWithInstances1.owl"), new URI("file:files/ontologies/Test/TestTransportWithInstances2.owl"));
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-			break;
+			
 		}
 
 
 
 	}
+	
+	private static void registerShutdownHook(final GraphDatabaseService db)
+	{
+		Runtime.getRuntime().addShutdownHook( new Thread()
+		{
+			@Override
+			public void run()
+			{
+				db.shutdown();
+
+			}
+		} );
+	}
+
 }
 
