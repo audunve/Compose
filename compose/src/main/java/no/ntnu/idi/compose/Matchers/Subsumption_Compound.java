@@ -30,12 +30,12 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
 
-public class CompoundAlignment extends ObjectAlignment implements AlignmentProcess {
+public class Subsumption_Compound extends ObjectAlignment implements AlignmentProcess {
 	
 	
 	final double THRESHOLD = 0.9;
 	
-	public CompoundAlignment() {
+	public Subsumption_Compound() {
 	}
 	
 	

@@ -32,7 +32,14 @@ public class StringProcessor {
 
 		String trimmedPath = fileName.substring(fileName.lastIndexOf("/") + 1);
 		String owl = ".owl";
-		String stripped = trimmedPath.substring(0, trimmedPath.indexOf(owl));
+		String rdf = ".rdf";
+		String stripped = null;
+		
+		if (fileName.endsWith(".owl")) {
+		stripped = trimmedPath.substring(0, trimmedPath.indexOf(owl));
+		} else {
+			stripped = trimmedPath.substring(0, trimmedPath.indexOf(rdf));
+		}
 
 		return stripped;
 	}
@@ -46,6 +53,30 @@ public class StringProcessor {
 		String trimmedPath = fileName.substring(fileName.lastIndexOf("/") + 1);
 		return trimmedPath;
 
+	}
+	
+	public static String stripOPPrefix(String propertyName) {
+
+
+		String has = "has";
+		String is = "is";
+		String is_a_ = "is_a_";
+		String has_a_ = "has_a_";
+		String stripped = null;
+		
+		if (propertyName.startsWith(has_a_)) {
+		stripped = propertyName.replaceFirst(has_a_, "");
+		} else if (propertyName.startsWith(is_a_)) {
+		stripped = propertyName.replaceFirst(is_a_, "");
+		} else if (propertyName.startsWith(is)) {
+			stripped = propertyName.replaceFirst(is, "");
+		} else if (propertyName.startsWith(has)) {
+			stripped = propertyName.replaceFirst(has, "");
+		} else {
+			stripped = propertyName;
+		}
+
+		return stripped;
 	}
 
 	/**
@@ -167,6 +198,9 @@ public class StringProcessor {
 
 		String text2 = "";
 		String[] splitText2 = sp.split(text2);
+		
+		String text3 = "has_a_Review";
+		System.out.println(stripOPPrefix(text3));
 		
 
 

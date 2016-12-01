@@ -70,7 +70,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 
 					// add mapping into alignment object 
 
-					addAlignCell(cl1,cl2, "=", matchSuperClasses(cl1,cl2));  
+					addAlignCell(cl1,cl2, "=", matchSubClasses(cl1,cl2));  
 				}
 
 			}

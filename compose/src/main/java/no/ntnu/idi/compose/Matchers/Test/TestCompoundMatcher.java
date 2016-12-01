@@ -16,14 +16,14 @@ import org.semanticweb.owl.align.Evaluator;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
-import no.ntnu.idi.compose.Matchers.CompoundAlignment;
+import no.ntnu.idi.compose.Matchers.Subsumption_Compound;
 
 
 public class TestCompoundMatcher {
 
 	public static void main(String[] args) throws AlignmentException, IOException {
 
-		CompoundAlignment matcher = new CompoundAlignment();
+		Subsumption_Compound matcher = new Subsumption_Compound();
 
 		//Treshold for similarity score for which correspondences should be considered
 		double threshold = 0.6;

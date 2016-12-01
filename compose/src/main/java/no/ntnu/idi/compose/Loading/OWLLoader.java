@@ -42,6 +42,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
 import no.ntnu.idi.compose.WordNet.WordNetLexicon;
+import no.ntnu.idi.compose.misc.StringProcessor;
 
 
 /**
@@ -533,21 +534,39 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
 		Iterator<OWLClass> itr = onto.getClassesInSignature().iterator();
+		Iterator<OWLObjectProperty> itrOP = onto.getObjectPropertiesInSignature().iterator();
 		
 		String thisClass;
+		String thisOP;
 		
 		int numClasses = onto.getClassesInSignature().size();
+		int numOPs = onto.getObjectPropertiesInSignature().size();
 		
-		int counter = 0;
+		int classCounter = 0;
+		int OPCounter = 0;
 		
 		while(itr.hasNext()) {
 			thisClass = itr.next().getIRI().getFragment();
 			if (WordNetLexicon.containedInWordNet(thisClass) == true) {
-				counter++;			
+				classCounter++;			
 			}		
 		}
 		
-		double wordNetCoverage = (double)counter / (double)numClasses;
+		while (itrOP.hasNext()) {
+			thisOP = StringProcessor.stripOPPrefix(itrOP.next().getIRI().getFragment());
+			System.out.println("Trying to find " + thisOP + " in WordNet");
+			if (WordNetLexicon.containedInWordNet(thisOP) == true) {
+				System.out.println(thisOP + " is in WordNet");	
+				
+			OPCounter++;
+			}
+			
+		}
+
+		double wordNetClassCoverage = ((double)classCounter / (double)numClasses);
+		double wordNetOPCoverage = ((double)OPCounter / (double)numOPs);
+		
+		double wordNetCoverage = (wordNetClassCoverage + wordNetOPCoverage) / 2;
 		
 		return wordNetCoverage;	
 	}
@@ -579,7 +598,7 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		return newString;
 	}
 	
-	public static double getNumCompounds(File ontoFile) throws OWLOntologyCreationException {
+	public static double getNumClassCompounds(File ontoFile) throws OWLOntologyCreationException {
 		
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
@@ -609,6 +628,36 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		return numCompounds;	
 	}
 	
+public static double getNumPropertyCompounds(File ontoFile) throws OWLOntologyCreationException {
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		
+		Iterator<OWLObjectProperty> itr = onto.getObjectPropertiesInSignature().iterator();
+		
+		String thisOP;
+
+		int numOPs = onto.getObjectPropertiesInSignature().size();
+		
+		int counter = 0;
+		
+		while(itr.hasNext()) {
+			thisOP = replaceUnderscore(itr.next().getIRI().getFragment());
+			//Test
+			//System.out.println("Testing " + thisClass.toString());
+			if (isCompound(thisOP) == true) {
+				counter++;			
+				//Test
+				//System.out.println("Now the counter is " + counter);
+			}		
+		}
+		
+		//double numCompounds = (counter / numClasses) * 100;
+		double numCompounds = ((double)counter/(double)numOPs);
+		
+		return numCompounds;	
+	}
+	
 	public static Set<OWLNamedIndividual> getInstances(OWLClass inputClass) {
 		
 		
@@ -617,6 +666,33 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 
 		return instances;
 		
+	}
+	
+/*private static Set<OWLEntity> getDomain(OWLEntity e, OWLOntology ont) {
+		
+		Set<OWLEntity> neighbors = new HashSet<>();
+		
+		if (e.isOWLObjectProperty()) {
+			Set<OWLClassExpression> temp = e.asOWLObjectProperty().getDomains(ont);
+			for (OWLClassExpression t: temp) {
+				if (t.isAnonymous()) {
+					Set<OWLClass> components = t.getClassesInSignature();
+					for (OWLClass component: components) {
+						neighbors.add(component);
+					}
+				} else {
+					neighbors.add(t.asOWLClass());
+				}
+			}
+		}*/
+	
+	public static NodeSet<OWLClass> getDomain(OWLOntology onto, OWLObjectProperty prop) {
+		
+		//NodeSet<OWLClass> n = reasoner.getSubClasses((OWLClassExpression) currentClass, true);
+		OWLReasoner reasoner = reasonerFactory.createReasoner(onto);
+		NodeSet<OWLClass> domainClass = reasoner.getObjectPropertyDomains(prop, true);
+		return domainClass;
+	
 	}
 
 	//test method
@@ -681,6 +757,22 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		System.out.println("Number of sub-classes: " + OWLLoader.getNumSubClasses(file2));
 		System.out.println("Number of object properties: " + OWLLoader.getNumObjectProperties(file2));
 		System.out.println("-------------------------");
+		
+		double WNC = getWordNetCoverage(file2);
+		System.out.println("The WordNet Coverage for BIBO is " + WNC);
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(file2);
+		Set<OWLObjectProperty> objectPropertySet = onto.getObjectPropertiesInSignature();
+		Iterator<OWLObjectProperty> itr = objectPropertySet.iterator();
+		
+		NodeSet<OWLClass> domainClass = null;
+		while (itr.hasNext()) {
+			domainClass = OWLLoader.getDomain(onto, itr.next());
+			
+		}
+		
+
 
 	}
 

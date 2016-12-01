@@ -80,8 +80,6 @@ public class AnnotationsAlignment extends ObjectAlignment implements AlignmentPr
 				System.out.println("\n");
 			}
 
-			//System.out.println("The Jaccard score for [" + processedStringS1 + "] and [" + processedStringS2 + "] is " + score);
-			//System.out.println("(intersection / union => " + intersection + " / " + union + ")");
 
 		} else {
 			score = 0;

@@ -249,9 +249,9 @@ public class OntologyProcessor {
 		System.out.println("The WordNet Coverage (WC) of " + onto2.getName() + " is: " + computeWordNetCoverage(onto2));
 		System.out.println("The WordNet Coverage (WC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeWordNetCoverage(onto1, onto2) + " (" + computeWordNetCoverage(onto1, onto2)*100 + " percent)");
 		
-		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " is: " + OWLLoader.getNumCompounds(onto1));
-		System.out.println("The Num Compounds (NC) of " + onto2.getName() + " is: " + OWLLoader.getNumCompounds(onto2));
-		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + ((OWLLoader.getNumCompounds(onto1) + OWLLoader.getNumCompounds(onto2))) / 2);
+		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " is: " + OWLLoader.getNumClassCompounds(onto1));
+		System.out.println("The Num Compounds (NC) of " + onto2.getName() + " is: " + OWLLoader.getNumClassCompounds(onto2));
+		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + ((OWLLoader.getNumClassCompounds(onto1) + OWLLoader.getNumClassCompounds(onto2))) / 2);
 		
 		
 	}

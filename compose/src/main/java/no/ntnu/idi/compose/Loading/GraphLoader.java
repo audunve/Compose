@@ -145,13 +145,13 @@ public class GraphLoader {
 	public static void main(String[] args) throws OWLOntologyCreationException {
 		
 		//create the database
-		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/OAEI-Conference-16");
+		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/Experiment_eswc17");
 		GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 		registerShutdownHook(db);
 		
 		//get the ontology
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		File f1 = new File("./files/OAEI-16-conference/conference/sigkdd.owl");		
+		File f1 = new File("./files/experiment_eswc17/ontologies/ekaw.owl");		
 		System.out.println("...Trying to load the ontology...");
 		OWLOntology o1 = manager.loadOntologyFromOntologyDocument(f1);
 
