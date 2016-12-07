@@ -1,9 +1,7 @@
 package no.ntnu.idi.compose.Loading;
 
 import java.io.File;
-import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -12,35 +10,37 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
-
-
+import org.apache.jena.ext.com.google.common.collect.ArrayListMultimap;
+import org.apache.jena.ext.com.google.common.collect.Multimap;
+import org.semanticweb.owl.align.Alignment;
+import org.semanticweb.owl.align.AlignmentException;
+import org.semanticweb.owl.align.Cell;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLAnnotationProperty;
-import org.semanticweb.owlapi.model.OWLAxiomIndex;
+import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataProperty;
-import org.semanticweb.owlapi.model.OWLDocumentFormat;
+import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
+import org.semanticweb.owlapi.model.OWLDataPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
-import org.semanticweb.owlapi.model.OWLNamedObject;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
-import org.semanticweb.owlapi.model.OWLObjectPropertyExpression;
+import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
+import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
-import org.semanticweb.owlapi.reasoner.Node;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
+import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
+
+import fr.inrialpes.exmo.align.impl.URIAlignment;
 import no.ntnu.idi.compose.WordNet.WordNetLexicon;
 import no.ntnu.idi.compose.misc.StringProcessor;
 
@@ -53,7 +53,7 @@ import no.ntnu.idi.compose.misc.StringProcessor;
 public class OWLLoader {
 
 
-	private static OWLAxiomIndex ontology;
+	//private static OWLAxiomIndex ontology;
 	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 	static OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
 
@@ -66,7 +66,7 @@ public class OWLLoader {
 	 * @param ontoFile
 	 * @throws OWLOntologyCreationException 
 	 */
-	public static String getOntologyFormat(File ontoFile) throws OWLOntologyCreationException{
+/*	public static String getOntologyFormat(File ontoFile) throws OWLOntologyCreationException{
 
 		//TO-DO: Currently throws a java.lang.NoSuchMethodError, so needs to be fixed.
 
@@ -81,7 +81,7 @@ public class OWLLoader {
 		manager.removeOntology(onto);
 
 		return ontologyFormat;
-	}
+	}*/
 	
 	
 /*	*//**
@@ -317,13 +317,21 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		return props;	
 	}
 	
-	public Set<OWLObjectProperty> getObjectProperties(OWLClass c) {
+	public static ArrayList<String> getObjectProperties(OWLOntology onto, OWLClass c) {
+
 		
+		ArrayList<String> propsList = new ArrayList<String>();
 		Set<OWLObjectProperty> props = c.getObjectPropertiesInSignature();
-		
-//		Map<OWLClass, OWLObjectProperty> classesAndProperties = new HashMap<OWLClass, OWLObjectProperty>();
-		
-		return props;
+		System.out.println("Number of properties for " + c.getIRI().getFragment() + " is " + props.size());
+		Iterator<OWLObjectProperty> itr = props.iterator();
+		OWLObjectProperty thisOP = null;
+		while(itr.hasNext()){
+			thisOP = itr.next();
+			System.out.println("Adding  " + thisOP + " to the list");
+			propsList.add(thisOP.getIRI().getFragment());
+		}
+		System.out.println("The size of propsList is " + propsList.size());
+		return propsList;
 		
 	}
 
@@ -668,7 +676,7 @@ public static double getNumPropertyCompounds(File ontoFile) throws OWLOntologyCr
 		
 	}
 	
-/*private static Set<OWLEntity> getDomain(OWLEntity e, OWLOntology ont) {
+public static Set<OWLEntity> getDomain(OWLEntity e, OWLOntology ont) {
 		
 		Set<OWLEntity> neighbors = new HashSet<>();
 		
@@ -684,16 +692,66 @@ public static double getNumPropertyCompounds(File ontoFile) throws OWLOntologyCr
 					neighbors.add(t.asOWLClass());
 				}
 			}
-		}*/
-	
-	public static NodeSet<OWLClass> getDomain(OWLOntology onto, OWLObjectProperty prop) {
+		}
 		
-		//NodeSet<OWLClass> n = reasoner.getSubClasses((OWLClassExpression) currentClass, true);
-		OWLReasoner reasoner = reasonerFactory.createReasoner(onto);
-		NodeSet<OWLClass> domainClass = reasoner.getObjectPropertyDomains(prop, true);
-		return domainClass;
-	
+		if (e.isOWLDataProperty()) {
+			Set<OWLClassExpression> temp = e.asOWLDataProperty().getDomains(ont);
+			for (OWLClassExpression t: temp) {
+				if (t.isAnonymous()) {
+					Set<OWLClass> components = t.getClassesInSignature();
+					for (OWLClass component: components) {
+						neighbors.add(component);
+					}
+				} else {
+					neighbors.add(t.asOWLClass());
+				}
+			}
+		}
+		
+		if (e.isOWLAnnotationProperty()) {
+			
+			Set<OWLAxiom> axioms = ont.getAxioms();
+			for (OWLAxiom axiom: axioms) {
+				
+				String axiomS = axiom.toString();
+				if (axiomS.contains(e.toString()) && axiomS.contains("Domain")) {
+					
+					if (axiomS.contains("<") && axiomS.contains(">")) {
+						String domain = axiomS.substring(axiomS.lastIndexOf("<") + 1, 
+								axiomS.lastIndexOf(">"));
+						neighbors.addAll(ont.getEntitiesInSignature(IRI.create(domain)));
+					}
+				}
+			}
+		}
+		
+		return neighbors;
 	}
+
+private static int getNumDomainAxioms(File ontoFile) throws OWLOntologyCreationException {
+
+	OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+	int numDomainClasses = onto.getAxiomCount(AxiomType.OBJECT_PROPERTY_DOMAIN);
+	
+	manager.removeOntology(onto);
+	
+	return numDomainClasses;
+
+}
+
+private static int getNumRangeAxioms(File ontoFile) throws OWLOntologyCreationException {
+
+	OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+	int numDomainClasses = onto.getAxiomCount(AxiomType.OBJECT_PROPERTY_RANGE);
+	
+	manager.removeOntology(onto);
+	
+	return numDomainClasses;
+
+}
+
+
+	
 
 	//test method
 	public static void main(String[] args) throws OWLOntologyCreationException {
@@ -746,32 +804,53 @@ public static double getNumPropertyCompounds(File ontoFile) throws OWLOntologyCr
 			System.out.println("Number of classes: " + OWLLoader.getNumClasses(filesInDir[i]));
 			System.out.println("Number of sub-classes: " + OWLLoader.getNumSubClasses(filesInDir[i]));
 			System.out.println("Number of object properties: " + OWLLoader.getNumObjectProperties(filesInDir[i]));
+			//System.out.println("All object properties: ");
+			
 			System.out.println("-------------------------");
 		}
 		
-		File file2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/BIBO.owl");
-		//File file3 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		//File file2 = new File("/Users/audunvennesland/Documents/PhD/Development/Experiments/OAEIBIBLIO2BIBO/BIBO.owl");
+		File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		/*System.out.println("-------------------------");
+		System.out.println("Printing statistics for " + ontoFile.getPath().toString());
+		System.out.println("Number of classes: " + OWLLoader.getNumClasses(ontoFile));
+		System.out.println("Number of sub-classes: " + OWLLoader.getNumSubClasses(ontoFile));
+		System.out.println("Number of object properties: " + OWLLoader.getNumObjectProperties(ontoFile));
 		System.out.println("-------------------------");
-		System.out.println("Printing statistics for " + file2.getPath().toString());
-		System.out.println("Number of classes: " + OWLLoader.getNumClasses(file2));
-		System.out.println("Number of sub-classes: " + OWLLoader.getNumSubClasses(file2));
-		System.out.println("Number of object properties: " + OWLLoader.getNumObjectProperties(file2));
-		System.out.println("-------------------------");
 		
-		double WNC = getWordNetCoverage(file2);
-		System.out.println("The WordNet Coverage for BIBO is " + WNC);
+		double WNC = getWordNetCoverage(ontoFile);
+		System.out.println("The WordNet Coverage for BIBO is " + WNC);*/
 		
-		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
-		OWLOntology onto = manager.loadOntologyFromOntologyDocument(file2);
-		Set<OWLObjectProperty> objectPropertySet = onto.getObjectPropertiesInSignature();
-		Iterator<OWLObjectProperty> itr = objectPropertySet.iterator();
 		
-		NodeSet<OWLClass> domainClass = null;
+	/*	OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+
+		
+		//ArrayList<String> getObjectProperties(OWLClass c)
+		
+		ArrayList<String> propsList = new ArrayList<String>();
+		
+		Set<OWLClass> classSet = onto.getClassesInSignature();
+		Iterator<OWLClass> itr = classSet.iterator();
+		System.out.println("Printing properties");
 		while (itr.hasNext()) {
-			domainClass = OWLLoader.getDomain(onto, itr.next());
-			
-		}
+			OWLClass thisClass = itr.next();
+			propsList.addAll(getObjectProperties(onto,thisClass));
+			}
 		
+		for (int i = 0; i < propsList.size(); i++) {
+			System.out.println(propsList.get(i));
+			
+		}*/
+		
+		int domains = getNumDomainAxioms(ontoFile);
+		int ranges = getNumRangeAxioms(ontoFile);
+		int objectProperties = getNumObjectProperties(ontoFile);
+		
+		System.out.println("Number of object properties: " + objectProperties);
+		System.out.println("Number of domain classes: " + domains);
+		System.out.println("Number of range classes: " + ranges);
+
 
 
 	}

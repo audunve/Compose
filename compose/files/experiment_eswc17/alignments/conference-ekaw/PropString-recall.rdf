@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <onto1>
+    <Ontology rdf:about="null">
+      <location>null</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="null">
+      <location>null</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ekaw#authorOf'/>
+      <entity2 rdf:resource='http://conference#contributes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6339429751102287</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ekaw#hasPart'/>
+      <entity2 rdf:resource='http://conference#has_parts'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.3197889583993346</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ekaw#reviewOfPaper'/>
+      <entity2 rdf:resource='http://conference#reviews'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5461399315743201</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ekaw#locationOf'/>
+      <entity2 rdf:resource='http://conference#has_a_location'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.29566578946978417</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ekaw#writtenBy'/>
+      <entity2 rdf:resource='http://conference#has_authors'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6339429751102287</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ekaw#publisherOf'/>
+      <entity2 rdf:resource='http://conference#has_a_publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.29566578946978417</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ekaw#hasReview'/>
+      <entity2 rdf:resource='http://conference#has_a_review'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.642925511805189</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

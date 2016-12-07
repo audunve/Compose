@@ -3,18 +3,9 @@ package no.ntnu.idi.compose.Matchers;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 import java.util.Properties;
-import java.util.Set;
 
 import org.ivml.alimo.ISub;
-import org.jgrapht.DirectedGraph;
-import org.jgrapht.alg.DirectedNeighborIndex;
-import org.jgrapht.graph.DefaultEdge;
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
@@ -24,13 +15,8 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
-import fr.inrialpes.exmo.ontowrap.HeavyLoadedOntology;
-import fr.inrialpes.exmo.ontowrap.OntologyFactory;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
 import no.ntnu.idi.compose.Loading.OWLLoader;
-
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
 
 
 public class InstanceAlignment extends ObjectAlignment implements AlignmentProcess {

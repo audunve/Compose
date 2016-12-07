@@ -25,10 +25,10 @@ public static void main(String[] args) throws OWLOntologyCreationException, URIS
 			
 			//System.out.println(file);
 			System.out.println("The Inheritance Richness (IR) of " + file.getName() + " is:  " + OntologyProcessor.computeInheritanceRichness(file));
-			System.out.println("The NullLabelOrComment (N) of " + file.getName() + " is:  " + OntologyProcessor.computeNullLabelOrComment(file));
+			System.out.println("The Annotation Coverage (AC) of " + file.getName() + " is:  " + OntologyProcessor.computeNullLabelOrComment(file));
 			System.out.println("The Relationship Richness (RR) of " + file.getName() + " is:  " + OntologyProcessor.computeRelationshipRichness(file));
 			System.out.println("The WordNet Coverage (WC) of " + file.getName() + " is:  " + OntologyProcessor.computeWordNetCoverage(file));
-			System.out.println("The Num Class Compounds (NCC) of " + file.getName() + " is:  " + OWLLoader.getNumClassCompounds(file));
+			System.out.println("The Num Class Compounds (CNC) of " + file.getName() + " is:  " + OWLLoader.getNumClassCompounds(file));
 			System.out.println("The Num Property Compounds (NPC) of " + file.getName() + " is:  " + OWLLoader.getNumPropertyCompounds(file));
 			System.out.println("The Class Richness (CR) of " + file.getName() + " is:  " + OntologyProcessor.computeClassRichness(file));
 			System.out.println("The Average Population (OP) of " + file.getName() + " is:  " + OntologyProcessor.computeAveragePopulation(file));

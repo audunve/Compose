@@ -28,7 +28,8 @@ public class StringUtils {
 			return label;
 		}
 		
-    	Set<OWLAnnotationProperty> labels = e.getAnnotationPropertiesInSignature();
+    	Set<OWLAnnotation> labels = e.getAnnotations(ontology);
+    			//.getAnnotationPropertiesInSignature();
     	
         if (labels != null && labels.size() > 0) {
     		label = ((OWLAnnotation) labels.toArray()[0]).getValue().toString();
