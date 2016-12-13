@@ -1,7 +1,10 @@
 package no.ntnu.idi.compose.Matchers;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +26,8 @@ import org.neo4j.graphdb.traversal.Traverser;
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
+import org.semanticweb.owl.align.AlignmentVisitor;
+import org.semanticweb.owl.align.Cell;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -30,23 +35,28 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
+import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
+import fr.inrialpes.exmo.align.impl.URIAlignment;
+import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
+import fr.inrialpes.exmo.align.parser.AlignmentParser;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
+import no.ntnu.idi.compose.Preprocess.Preprocessor;
 import no.ntnu.idi.compose.algorithms.ISub;
 
 @SuppressWarnings("deprecation")
 public class GraphAlignment extends ObjectAlignment implements AlignmentProcess {
 
-	final double THRESHOLD = 0.8;
+	final static double THRESHOLD = 0.4;
 
-	Label labelOnto1;
-	Label labelOnto2;
+	static Label labelOnto1;
+	static Label labelOnto2;
 
-	GraphDatabaseService db;
+	static GraphDatabaseService db;
 
 	ISub iSubMatcher = new ISub();
 
-	String key = "classname";
+	static String key = "classname";
 
 
 	//constructor that receives the labels (ontology file names) from TestMatcher.java
@@ -70,12 +80,57 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 
 					// add mapping into alignment object 
 
-					addAlignCell(cl1,cl2, "=", matchSubClasses(cl1,cl2));  
+					addAlignCell(cl1,cl2, "=", matchSuperClasses(cl1,cl2));  
 				}
 
 			}
 
 		} catch (Exception e) { e.printStackTrace(); }
+	}
+	
+	public static Alignment matchAlignment(Alignment inputAlignment) throws AlignmentException, OWLOntologyCreationException, OntowrapException, IOException {
+		
+		System.out.println("Running structural alignment!");
+
+		Alignment refinedAlignment = new URIAlignment();
+		double score = 0;
+		double threshold = 0.6;
+		
+		//match the objects (need to preprocess to remove URI) in every cell of the alignment
+		for (Cell c : inputAlignment) {
+			score = matchSubClasses(Preprocessor.getString(c.getObject1().toString()), Preprocessor.getString(c.getObject2().toString()));
+			System.out.println("Matching " + Preprocessor.getString(c.getObject1().toString()) + " and " + Preprocessor.getString(c.getObject2().toString()) + " with a score of " + score);
+			if (score > threshold) {
+				refinedAlignment.addAlignCell(c.getObject1(), c.getObject2(), "=", increaseCellStrength(score));
+			} else {
+				refinedAlignment.addAlignCell(c.getObject1(), c.getObject2(), "=", reduceCellStrength(score));
+				continue;
+			}
+		}
+
+		return refinedAlignment;
+	}
+	
+	public static double increaseCellStrength(double inputStrength) {
+
+		double newStrength = inputStrength + (inputStrength * 0.10);
+
+		if (newStrength > 1.0) {
+			newStrength = 1.0;
+		}
+
+		return newStrength;
+	}
+	
+	public static double reduceCellStrength(double inputStrength) {
+
+		double newStrength = inputStrength - (inputStrength * 0.10);
+
+		if (newStrength > 1.0) {
+			newStrength = 1.0;
+		}
+
+		return newStrength;
 	}
 
 	private static void registerShutdownHook(final GraphDatabaseService db)
@@ -102,7 +157,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 	 * @return
 	 */
 
-	public Node getNode(String value, Label label) {
+	public static Node getNode(String value, Label label) {
 		Node testNode = null;
 
 		try ( Transaction tx = db.beginTx() ) {
@@ -143,7 +198,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 		return id;	
 	}
 
-	public Traverser getChildNodesTraverser(Node classNode) {
+	public static Traverser getChildNodesTraverser(Node classNode) {
 
 		TraversalDescription td = null;
 		try ( Transaction tx = db.beginTx() ) {
@@ -158,7 +213,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 		return td.traverse(classNode);
 	}
 
-	public ArrayList<Object> getClosestChildNodesAsList(Node classNode, Label label) {
+	public static ArrayList<Object> getClosestChildNodesAsList(Node classNode, Label label) {
 
 		ArrayList<Object> childNodeList= new ArrayList<Object>();
 		Traverser childNodesTraverser = null;
@@ -181,7 +236,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 	}
 
 
-	public Traverser getParentNodeTraverser (Node classNode) {
+	public static Traverser getParentNodeTraverser (Node classNode) {
 
 		TraversalDescription td = null;
 
@@ -221,7 +276,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 		return parentNodeList;
 	}
 
-	public ArrayList<Object> getAllParentNodes(Node classNode, Label label) {
+	public static ArrayList<Object> getAllParentNodes(Node classNode, Label label) {
 
 		ArrayList<Object> parentNodeList= new ArrayList<Object>();
 		Traverser parentNodeTraverser = null;
@@ -254,7 +309,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 	 * @param classNode
 	 * @return
 	 */
-	public int findDistanceToRoot(Node classNode) {
+	public static int findDistanceToRoot(Node classNode) {
 
 		Traverser parentNodeTraverser = null;
 		Map<Object, Object> parentNodeMap = new HashMap<>();
@@ -402,22 +457,129 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 		return distance;
 
 	}
+	
+	public static double matchSuperClasses(String s1, String s2) throws OWLOntologyCreationException, OntowrapException, IOException {
+
+
+		//get the s1 node from ontology 1
+		Node s1Node = getNode(s1, labelOnto1);
+
+		//get the s2 node from ontology 2
+		Node s2Node = getNode(s2, labelOnto2);
+
+		//get the parent nodes of a class from ontology 1
+		ArrayList onto1Parents = getAllParentNodes(s1Node, labelOnto1);
+		for (int i = 0; i < onto1Parents.size(); i++) {
+		}
+
+		//get the parent nodes of a class from ontology 2
+		ArrayList onto2Parents = getAllParentNodes(s2Node,labelOnto2);
+		for (int i = 0; i < onto2Parents.size(); i++) {
+		}
+
+		//find distance from s1 node to owl:Thing
+		int distanceC1ToRoot = findDistanceToRoot(s1Node);
+
+		//find distance from s2 to owl:Thing
+		int distanceC2ToRoot = findDistanceToRoot(s2Node);
+
+		double iSubSimScore = 0;
+		ISub iSubMatcher = new ISub();
+
+		//map to keep the pair of ancestors matching above the threshold
+		Map<Object,Object> matchingMap = new HashMap<Object,Object>();
+
+		//matching the parentnodes
+		for (int i = 0; i < onto1Parents.size(); i++) {
+			for (int j = 0; j < onto2Parents.size(); j++) {
+				iSubSimScore = iSubMatcher.score(onto1Parents.get(i).toString(), onto2Parents.get(j).toString());
+
+				if (iSubSimScore >= THRESHOLD) {
+
+					matchingMap.put(onto1Parents.get(i) , onto2Parents.get(j));
+				}	
+			}
+		}
+
+		double structProx = 0;
+		double currentStructProx = 0;
+		double avgAncestorDistanceToRoot = 0;
+
+
+		//loop through the matchingMap containing key-value pairs of ancestors from O1 and O2 being similar over the given threshold
+		for (Entry<Object, Object> entry : matchingMap.entrySet()) {
+			Node anc1 = getNode(entry.getKey().toString(), labelOnto1);
+			Node anc2 = getNode(entry.getValue().toString(), labelOnto2);
+
+			avgAncestorDistanceToRoot = (findDistanceToRoot(anc1) + findDistanceToRoot(anc2)) / 2;
+
+			currentStructProx = (2 * avgAncestorDistanceToRoot) / (distanceC1ToRoot + distanceC2ToRoot);
+
+			if (currentStructProx > structProx) {
+
+				structProx = currentStructProx;
+			}
+
+		}
+
+		return structProx;
+	}
+	
+	public static double matchSubClasses(String s1, String s2) throws OWLOntologyCreationException, OntowrapException, IOException {
+
+
+		//get the s1 node from ontology 1
+		Node s1Node = getNode(s1, labelOnto1);
+
+		//get the s2 node from ontology 2
+		Node s2Node = getNode(s2, labelOnto2);
+
+		//get the parent nodes of a class from ontology 1
+		ArrayList onto1SubClasses = getClosestChildNodesAsList(s1Node, labelOnto1);
+		for (int i = 0; i < onto1SubClasses.size(); i++) {
+		}
+
+		//get the parent nodes of a class from ontology 2
+		ArrayList onto2SubClasses = getClosestChildNodesAsList(s2Node,labelOnto2);
+		for (int i = 0; i < onto2SubClasses.size(); i++) {
+		}
+
+		double iSubSimScore = 0;
+		ISub iSubMatcher = new ISub();
+		double distance = 0;
+		//match the subclasses of the two nodes
+		//matching the parentnodes
+		for (int i = 0; i < onto1SubClasses.size(); i++) {
+			for (int j = 0; j < onto2SubClasses.size(); j++) {
+				iSubSimScore = iSubMatcher.score(onto1SubClasses.get(i).toString(), onto2SubClasses.get(j).toString());
+				//if any of the subclasses match above the threshold, use the iSub score as the similarity between the two input classes
+				if (iSubSimScore >= THRESHOLD) {
+					distance = iSubSimScore;
+
+				}	
+			}
+		}
+
+		return distance;
+
+	}
+	
 
 	public double matchNeighborhood(Object o1, Object o2) throws OWLOntologyCreationException, OntowrapException, IOException {
 
-		System.out.println("Matching " + o1.toString() + " and " + o2.toString());
+		//System.out.println("Matching " + o1.toString() + " and " + o2.toString());
 
 		double structProx = matchSuperClasses(o1, o2);
 
-		System.out.println("The structProx of " + o1.toString() + " and " + o2.toString() + " is " + structProx);
+		//System.out.println("The structProx of " + o1.toString() + " and " + o2.toString() + " is " + structProx);
 
 		double subClassMatch = matchSubClasses(o1, o2);
 
-		System.out.println("The subclass match of " + o1.toString() + " and " + o2.toString() + " is " + subClassMatch);
+		//System.out.println("The subclass match of " + o1.toString() + " and " + o2.toString() + " is " + subClassMatch);
 
 		double neighborhoodMatch = (structProx + subClassMatch) / 2;
 
-		System.out.println("The neighborhood match of " + o1.toString() + " and " + o2.toString() + " is " + neighborhoodMatch + "\n");
+		//System.out.println("The neighborhood match of " + o1.toString() + " and " + o2.toString() + " is " + neighborhoodMatch + "\n");
 
 
 		if ((structProx + subClassMatch) / 2 > THRESHOLD) {
@@ -427,5 +589,7 @@ public class GraphAlignment extends ObjectAlignment implements AlignmentProcess 
 		}
 
 	}
+	
+	
 
 }

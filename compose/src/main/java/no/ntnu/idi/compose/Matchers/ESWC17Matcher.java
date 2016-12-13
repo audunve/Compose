@@ -24,8 +24,8 @@ import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import no.ntnu.idi.compose.Loading.OWLLoader;
 import no.ntnu.idi.compose.Matchers.Subsumption_Compound;
+import no.ntnu.idi.compose.Preprocess.Preprocessor;
 import no.ntnu.idi.compose.Processing.OntologyProcessor;
-import no.ntnu.idi.compose.misc.StringProcessor;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
@@ -67,8 +67,8 @@ public class ESWC17Matcher {
 						params.setProperty("", "");
 						a.align((Alignment)null, params);	
 
-						String alignmentFileName = "./files/experiment_eswc17/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
-								"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/ClassEq_String.rdf";
+						String alignmentFileName = "./files/experiment_eswc17/alignments/" + Preprocessor.stripOntologyName(filesInDir[i].toString()) + 
+								"-" + Preprocessor.stripOntologyName(filesInDir[j].toString()) + "/ClassEq_String.rdf";
 
 						outputAlignment = new File(alignmentFileName);
 
@@ -105,8 +105,8 @@ public class ESWC17Matcher {
 						params.setProperty("", "");
 						a.align((Alignment)null, params);	
 
-						String alignmentFileName = "./files/experiment_eswc17/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
-								"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/ClassEq_WordNet.rdf";
+						String alignmentFileName = "./files/experiment_eswc17/alignments/" + Preprocessor.stripOntologyName(filesInDir[i].toString()) + 
+								"-" + Preprocessor.stripOntologyName(filesInDir[j].toString()) + "/ClassEq_WordNet.rdf";
 
 						outputAlignment = new File(alignmentFileName);
 
@@ -141,8 +141,8 @@ public class ESWC17Matcher {
 				for (int j = i+1; j < filesInDir.length; j++) {
 					if (filesInDir[i].isFile() && filesInDir[j].isFile() && i!=j) {
 
-						String ontologyParameter1 = StringProcessor.stripPath(filesInDir[i].toString());
-						String ontologyParameter2 = StringProcessor.stripPath(filesInDir[j].toString());
+						String ontologyParameter1 = Preprocessor.stripPath(filesInDir[i].toString());
+						String ontologyParameter2 = Preprocessor.stripPath(filesInDir[j].toString());
 						System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to GraphAlignment.java");
 						a = new GraphAlignment(ontologyParameter1,ontologyParameter2, db);
 						threshold = 0.8;
@@ -153,8 +153,8 @@ public class ESWC17Matcher {
 						params.setProperty("", "");
 						a.align((Alignment)null, params);	
 
-						String alignmentFileName = "./files/experiment_eswc17/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
-								"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/ClassEq_Graph-Sub.rdf";				
+						String alignmentFileName = "./files/experiment_eswc17/alignments/" + Preprocessor.stripOntologyName(filesInDir[i].toString()) + 
+								"-" + Preprocessor.stripOntologyName(filesInDir[j].toString()) + "/ClassEq_Graph-Sub.rdf";				
 						outputAlignment = new File(alignmentFileName);
 
 						PrintWriter writer = new PrintWriter(
@@ -190,8 +190,8 @@ public class ESWC17Matcher {
 						a.align((Alignment)null, params);	
 						threshold = 0.8;
 
-						String alignmentFileName = "./files/experiment_eswc17/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
-								"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Annotations.rdf";				
+						String alignmentFileName = "./files/experiment_eswc17/alignments/" + Preprocessor.stripOntologyName(filesInDir[i].toString()) + 
+								"-" + Preprocessor.stripOntologyName(filesInDir[j].toString()) + "/Annotations.rdf";				
 						outputAlignment = new File(alignmentFileName);
 
 						PrintWriter writer = new PrintWriter(
@@ -227,8 +227,8 @@ public class ESWC17Matcher {
 						params.setProperty("", "");
 						a.align((Alignment)null, params);	
 
-						String alignmentFileName = "./files/experiment_eswc17/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
-								"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Subsumption_Compound.rdf";				
+						String alignmentFileName = "./files/experiment_eswc17/alignments/" + Preprocessor.stripOntologyName(filesInDir[i].toString()) + 
+								"-" + Preprocessor.stripOntologyName(filesInDir[j].toString()) + "/Subsumption_Compound.rdf";				
 						outputAlignment = new File(alignmentFileName);
 
 						PrintWriter writer = new PrintWriter(
@@ -259,8 +259,8 @@ public class ESWC17Matcher {
 			for (int i = 0; i < filesInDir.length; i++) {
 				for (int j = i+1; j < filesInDir.length; j++) {
 					if (filesInDir[i].isFile() && filesInDir[j].isFile() && i!=j) {
-						String ontologyParameter1 = StringProcessor.stripPath(filesInDir[i].toString());
-						String ontologyParameter2 = StringProcessor.stripPath(filesInDir[j].toString());
+						String ontologyParameter1 = Preprocessor.stripPath(filesInDir[i].toString());
+						String ontologyParameter2 = Preprocessor.stripPath(filesInDir[j].toString());
 						System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to Subsumption_SubClass_Alignment.java");
 						a = new Subsumption_SubClasses2Class(ontologyParameter1,ontologyParameter2, db);
 						threshold = 0.8;
@@ -270,8 +270,8 @@ public class ESWC17Matcher {
 						params.setProperty("", "");
 						a.align((Alignment)null, params);	
 
-						String alignmentFileName = "./files/experiment_eswc17/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
-								"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Subsumption_SubClass.rdf";				
+						String alignmentFileName = "./files/experiment_eswc17/alignments/" + Preprocessor.stripOntologyName(filesInDir[i].toString()) + 
+								"-" + Preprocessor.stripOntologyName(filesInDir[j].toString()) + "/Subsumption_SubClass.rdf";				
 						outputAlignment = new File(alignmentFileName);
 
 						PrintWriter writer = new PrintWriter(
@@ -307,8 +307,8 @@ public class ESWC17Matcher {
 						params.setProperty("", "");
 						a.align((Alignment)null, params);	
 
-						String alignmentFileName = "./files/experiment_eswc17/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
-								"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Subsumption_WordNet.rdf";
+						String alignmentFileName = "./files/experiment_eswc17/alignments/" + Preprocessor.stripOntologyName(filesInDir[i].toString()) + 
+								"-" + Preprocessor.stripOntologyName(filesInDir[j].toString()) + "/Subsumption_WordNet.rdf";
 
 						outputAlignment = new File(alignmentFileName);
 
@@ -346,8 +346,8 @@ public class ESWC17Matcher {
 						params.setProperty("", "");
 						a.align((Alignment)null, params);	
 
-						String alignmentFileName = "./files/experiment_eswc17/alignments/" + StringProcessor.stripOntologyName(filesInDir[i].toString()) + 
-								"-" + StringProcessor.stripOntologyName(filesInDir[j].toString()) + "/Edit.rdf";
+						String alignmentFileName = "./files/experiment_eswc17/alignments/" + Preprocessor.stripOntologyName(filesInDir[i].toString()) + 
+								"-" + Preprocessor.stripOntologyName(filesInDir[j].toString()) + "/Edit.rdf";
 
 						outputAlignment = new File(alignmentFileName);
 

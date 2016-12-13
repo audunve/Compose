@@ -11,8 +11,7 @@ import org.semanticweb.owl.align.AlignmentProcess;
 
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
-
-import no.ntnu.idi.compose.misc.StringProcessor;
+import no.ntnu.idi.compose.Preprocess.Preprocessor;
 import fr.inrialpes.exmo.ontosim.string.CommonWords;
 
 
@@ -48,15 +47,15 @@ public class AnnotationsAlignment extends ObjectAlignment implements AlignmentPr
 		Set<String> o1Annotations = ontology1().getEntityAnnotations(o1);
 		Set<String> o2Annotations = ontology2().getEntityAnnotations(o2);
 
-		String processedStringS1 = StringProcessor.tokenize(analyzer,StringProcessor.join(o1Annotations,""));
-		String processedStringS2 = StringProcessor.tokenize(analyzer,StringProcessor.join(o2Annotations,""));
+		String processedStringS1 = Preprocessor.tokenize(analyzer,Preprocessor.join(o1Annotations,""));
+		String processedStringS2 = Preprocessor.tokenize(analyzer,Preprocessor.join(o2Annotations,""));
 		
 		//remove duplicates
-		String deduplicatedStringS1 = StringProcessor.removeDuplicates(processedStringS1);
-		String deduplicatedStringS2 = StringProcessor.removeDuplicates(processedStringS2);
+		String deduplicatedStringS1 = Preprocessor.removeDuplicates(processedStringS1);
+		String deduplicatedStringS2 = Preprocessor.removeDuplicates(processedStringS2);
 
-		String[] s1Array = StringProcessor.split(deduplicatedStringS1);
-		String[] s2Array = StringProcessor.split(deduplicatedStringS2);
+		String[] s1Array = Preprocessor.split(deduplicatedStringS1);
+		String[] s2Array = Preprocessor.split(deduplicatedStringS2);
 
 		double score = 0;
 
@@ -67,7 +66,7 @@ public class AnnotationsAlignment extends ObjectAlignment implements AlignmentPr
 			int intersection = 0;
 			int union = 0;
 
-			similar = StringProcessor.commonWords(s1Array,s2Array);
+			similar = Preprocessor.commonWords(s1Array,s2Array);
 			intersection = similar;
 			total = (s1Array.length + s2Array.length);
 			union = total - similar;
@@ -101,11 +100,11 @@ public class AnnotationsAlignment extends ObjectAlignment implements AlignmentPr
 		String s2 = ontology2().getEntityName(o2).toLowerCase();
 
 		Set<String> o1Annotations = ontology1().getEntityAnnotations(o1);
-		String joinedO1 = StringProcessor.join(o1Annotations, " ");
+		String joinedO1 = Preprocessor.join(o1Annotations, " ");
 		System.out.println("The annotation of " + s1 + " from " + ontology1().getURI().toString() + " is " + joinedO1);
 
 		Set<String> o2Annotations = ontology2().getEntityAnnotations(o2);
-		String joinedO2 = StringProcessor.join(o2Annotations, " ");
+		String joinedO2 = Preprocessor.join(o2Annotations, " ");
 		System.out.println("The annotation of " + s2 + " from " + ontology2().getURI().toString() + " is " + joinedO2);
 
 		double measure = commonWords.getSim(joinedO1, joinedO2);

@@ -207,6 +207,15 @@ public class OntologyProcessor {
 		
 		return WC;
 	}
+	
+	//Number of concepts containing abbrevations in their labels
+	public static double computeAbbreviationAnalysis(File ontoFile) {
+		double abbreviationMetric = 0;
+		
+		
+		
+		return abbreviationMetric;
+	}
 
 	/**
 	 * Using an ontology concept id as key and possible search keywords as value for

@@ -28,8 +28,8 @@ import fr.inrialpes.exmo.align.impl.method.StringDistAlignment;
 import no.ntnu.idi.compose.Loading.OWLLoader;
 import no.ntnu.idi.compose.Matchers.ISubAlignment;
 import no.ntnu.idi.compose.Matchers.Subsumption_Compound;
+import no.ntnu.idi.compose.Preprocess.Preprocessor;
 import no.ntnu.idi.compose.Processing.OntologyProcessor;
-import no.ntnu.idi.compose.misc.StringProcessor;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 

@@ -1,50 +1,17 @@
 package no.ntnu.idi.compose.Evaluate;
 
-
-
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Properties;
 
-import org.neo4j.graphdb.GraphDatabaseService;
-import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
-import org.semanticweb.owl.align.AlignmentProcess;
-import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Cell;
-import org.semanticweb.owl.align.Evaluator;
 
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
-import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
-import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
+import fr.inrialpes.exmo.align.impl.URIAlignment;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
-import no.ntnu.idi.compose.Matchers.GraphAlignment;
 import no.ntnu.idi.compose.Matchers.ISubAlignment;
-import no.ntnu.idi.compose.Matchers.WS4JAlignment;
-import no.ntnu.idi.compose.misc.StringProcessor;
 
-
-/*
-
-Matcher order
-- Random order of the matchers
-- Order decided upon the Ontology Profiling step
-
-Matcher configuration
-- Complete match: All ontology concepts for the two input ontologies are matched by each matcher m, but the correspondences 
-  identified by the previous matcher is given some weight.
-- Partial match: All correspondences in A1 (from m1) are transferred m2 for refinement, whereby m2 only processes these 
-  correspondences.
-- Partial match: Only the correspondences in A1 (from m1) above a certain threshold are transferred to m2, whereby m2 only 
-  processes these correspondences.
-
- */
 
 public class SequentialComposition {
 
@@ -52,223 +19,139 @@ public class SequentialComposition {
 	static File outputAlignment = null;
 
 
-	static Properties params = new Properties();
+	public static Alignment completeMatch(File alignmentFile1, File alignmentFile2, File alignmentFile3) throws AlignmentException {
 
-	AlignmentParser inputParser = new AlignmentParser(0);
+		//BasicAlignment completeMatchAlignment = new BasicAlignment();
+		Alignment completeMatchAlignment = new URIAlignment();
+		//BasicAlignment intermediateAlignment = new BasicAlignment();
+		Alignment intermediateAlignment = new URIAlignment();
 
-	SequentialComposition(){};
+		//load the alignments
+		AlignmentParser parser = new AlignmentParser();
+		BasicAlignment a1 = (BasicAlignment)parser.parse(alignmentFile1.toURI().toString());
+		BasicAlignment a2 = (BasicAlignment)parser.parse(alignmentFile2.toURI().toString());
+		BasicAlignment a3 = (BasicAlignment)parser.parse(alignmentFile3.toURI().toString());
 
-	public static Alignment produceStringMatcherAlignment (URI onto1, URI onto2, String dataset) throws AlignmentException, URISyntaxException, IOException {
-
-		AlignmentProcess matcher = null;
-		matcher = new ISubAlignment();
-		threshold = 0.9;
-		Alignment finalAlignment = null;
-
-		matcher.init( onto1, onto2);
-		params = new Properties();
-		params.setProperty("", "");
-		matcher.align((Alignment)null, params);	
-
-		String alignmentFileName = "./files/experiment_eswc17/alignments/" + dataset + "/StringMatcherAlignment.rdf";
-		outputAlignment = new File(alignmentFileName);
-
-		PrintWriter writer = new PrintWriter(
-				new BufferedWriter(
-						new FileWriter(outputAlignment)), true); 
-		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-
-		finalAlignment = (BasicAlignment)(matcher.clone());
-		finalAlignment.cut(threshold);		
-		finalAlignment.render(renderer);
-		writer.flush();
-		writer.close();
-
-		System.out.println("String-matching completed!");
-		return finalAlignment;
-	}
-
-	public static Alignment produceWordNetMatcherAlignment (URI onto1, URI onto2, String dataset) throws AlignmentException, URISyntaxException, IOException {
-
-		AlignmentProcess matcher = null;
-		matcher = new WS4JAlignment();
-		threshold = 0.8;
-
-		Alignment finalAlignment = null;
-
-		matcher.init(onto1, onto2);
-		params = new Properties();
-		params.setProperty("", "");
-		matcher.align((Alignment)null, params);	
-
-		String alignmentFileName = "./files/experiment_eswc17/alignments/" + dataset + "/WordNetMatcherAlignment.rdf";
-
-		outputAlignment = new File(alignmentFileName);
-
-		PrintWriter writer = new PrintWriter(
-				new BufferedWriter(
-						new FileWriter(outputAlignment)), true); 
-		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-
-		finalAlignment = (BasicAlignment)(matcher.clone());
-		finalAlignment.cut(threshold);		
-		finalAlignment.render(renderer);
-		writer.flush();
-		writer.close();
-
-		System.out.println("WordNet matching completed!");
-		return finalAlignment;
-	}
-
-	public static Alignment produceStructuralMatcherAlignment (URI onto1, URI onto2, String dataset) throws AlignmentException, URISyntaxException, IOException {
-
-		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/Experiment_eswc17");
-		GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
-		registerShutdownHook(db);
-
-		AlignmentProcess matcher = null;
-
-		Alignment finalAlignment = null;
-
-		String ontologyParameter1 = StringProcessor.stripPath(onto1.toString());
-		String ontologyParameter2 = StringProcessor.stripPath(onto2.toString());
-
-		System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to GraphAlignment.java");
-		matcher = new GraphAlignment(ontologyParameter1,ontologyParameter2, db);
-		threshold = 0.8;
-
-		matcher.init(onto1, onto2);
-		params = new Properties();
-		params.setProperty("", "");
-		matcher.align((Alignment)null, params);	
-
-		String alignmentFileName = "./files/experiment_eswc17/alignments/" + dataset + "/StructuralMatcherAlignment.rdf";
-
-		outputAlignment = new File(alignmentFileName);
-
-		PrintWriter writer = new PrintWriter(
-				new BufferedWriter(
-						new FileWriter(outputAlignment)), true); 
-		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-
-		finalAlignment = (BasicAlignment)(matcher.clone());
-		finalAlignment.cut(threshold);		
-		finalAlignment.render(renderer);
-		writer.flush();
-		writer.close();
-
-		System.out.println("Structural matching completed!");
-		return finalAlignment;
-	}
-
-	private static void registerShutdownHook(final GraphDatabaseService db)
-	{
-		Runtime.getRuntime().addShutdownHook( new Thread()
-		{
-			@Override
-			public void run()
-			{
-				db.shutdown();
-
+		//compare correspondences (cells) in a1 and a2. If a cell in a2 already exists in a1, add strength to it.
+		for (Cell cell1 : a1) {
+			for (Cell cell2 : a2) {				
+				//if the cells are equal (contains similar entities)
+				if (cell2.getObject1().equals(cell1.getObject1()) && cell2.getObject2().equals(cell1.getObject2())) {
+					//if the strength in the previous alignment is higher, this cell is added + weight
+					if (cell1.getStrength() >= cell2.getStrength()) {
+						intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), "=", increaseCellStrength(cell1.getStrength()));
+						//if the current cells strength is higher, this cells strength is retained
+					} else if (cell2.getStrength() >= cell1.getStrength()) {
+						intermediateAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), "=", cell2.getStrength());
+					}
+					//if the cells are not equal, we add the cells from both the previous alignment and the current alignment, but give them reduced strength.
+				} else {
+					intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), "=", reduceCellStrength(cell1.getStrength()));
+					intermediateAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), "=", reduceCellStrength(cell2.getStrength()));
+					continue;
+				}
 			}
-		} );
-	}
-
-	public static void main(String[] args) throws AlignmentException, IOException {
-
-		final String scenario = "sequential_complete";
-
-		switch(scenario) {
-
-		case "sequential_complete":
-
-			break;
-
-		case "sequential_partial_1":
-
-			break;
-
-		case "sequential_partial_2":
-
-			break;
-
-
-
-
-
 		}
 
+		//compare correspondences (cells) in the current alignment. If a cell in a3 already exists in the previous alignment, add strength to it. 
+		for (Cell cell2 : intermediateAlignment) {
+			for (Cell cell3 : a3) {
+				//if the cells are equal (contains similar entities)
+				if (cell3.getObject1().equals(cell2.getObject1()) && cell3.getObject2().equals(cell2.getObject2())) {
+					//if the strength in the previous alignment is higher, this cell is added + weight
+					if (cell2.getStrength() >= cell3.getStrength()) {
+						completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), "=", increaseCellStrength(cell2.getStrength()));
+						//if the current cells strength is higher, this is retained
+					} else if (cell3.getStrength() >= cell2.getStrength()) {
+						completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), "=", cell3.getStrength());
+					}
+					//if the cells are not equal, we add the cells from both the previous alignment and the current alignment, but give them reduced strength.
+				} else {
+					completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), "=", reduceCellStrength(cell2.getStrength()));
+					completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), "=", reduceCellStrength(cell3.getStrength()));
+					continue;
+				}
+			}
+		}
+		
+		//TO-DO: should remove duplicates before returning the completed alignment
+
+
+		return completeMatchAlignment;		
 	}
 
-	/*AlignmentParser parser = null;
-		parser = new AlignmentParser(0);
+	public static Alignment partialMatch(File alignmentFile1) throws AlignmentException {
 
-		final String permutation = "string_wn_structure_merged";
+		//load the alignment
+		AlignmentParser parser = new AlignmentParser();
+		BasicAlignment a1 = (BasicAlignment)parser.parse(alignmentFile1.toURI().toString());
+		
+		Properties params = new Properties();
+		params.setProperty("", "");
+		
+		//run a matcher with an already created alignment
 
-		switch(permutation) {
+		Alignment StringAlignment = (Alignment) ISubAlignment.matchAlignment(a1);
 
-		case "string_wn_structure_merged":
-			//importing the alignments
-			Alignment string_alignment = parser.parse("file:files/experiment_eswc17/alignments/biblio-bibo/ISub.rdf");
-			System.out.println("The string alignment contains " + string_alignment.nbCells() + " cells.");
-			Alignment wordNet_alignment = parser.parse("file:files/experiment_eswc17/alignments/biblio-bibo/WordNet.rdf");
-			System.out.println("The wordnet alignment contains " + wordNet_alignment.nbCells() + " cells.");
-			Alignment structure_alignment = parser.parse("file:files/experiment_eswc17/alignments/biblio-bibo/WordNet.rdf");
-			System.out.println("The structural alignment contains " + structure_alignment.nbCells() + " cells.");
+		return StringAlignment;
 
-			//using edit distance as baseline
-			//Alignment baseline_alignment = parser.parse("file:files/experiment_eswc17/alignments/biblio-bibo/Edit.rdf");
+	}
 
-			double threshold = 0.8;
+	public static double increaseCellStrength(double inputStrength) {
 
-			//create a clone of string
-			BasicAlignment string_wordnet = (BasicAlignment)(string_alignment.clone());
-			//ingesting the string and WordNet alignments
-			string_wordnet.ingest(wordNet_alignment);
-			//create a clone of string and wordnet
-			BasicAlignment string_wordnet_structure = (BasicAlignment)(string_wordnet.clone());
-			//ingesting the string, WordNet, structure alignments
-			string_wordnet_structure.ingest(structure_alignment);
+		double newStrength = inputStrength + (inputStrength * 0.10);
 
-			//store the wordnet_string_structure
-			File outputFile = new File("./files/experiment_eswc17/alignments/biblio-bibo/string-wordnet-structure.rdf");
-			PrintWriter writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(outputFile)), true); 
-			AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-
-			//clone the computed alignment from Alignment to BasicAlignment
-			BasicAlignment finalAlignment = (BasicAlignment)(string_wordnet_structure.clone());
-
-			System.out.println("The final alignment contains " + finalAlignment.nbCells() + " cells (before cut)");
-
-			//implement a similarity threshold
-			finalAlignment.cut(threshold);
-
-			System.out.println("The final alignment contains " + finalAlignment.nbCells() + " cells (after cut)");
-
-			finalAlignment.render(renderer);
-			writer.flush();
-			writer.close();
-
-			AlignmentParser aparser = new AlignmentParser(0);
-			Alignment referenceAlignment = aparser.parse(new File("./files/referenceAlignments/OAEI_Biblio2BIBO_ReferenceAlignment_Class_EquivalenceOnly.rdf").toURI());
-
-			Properties p = new Properties();
-
-			Evaluator evaluator = new PRecEvaluator(referenceAlignment, finalAlignment);
-			evaluator.eval(p);
-			System.out.println("------------------------------");
-			System.out.println("Evaluation scores:");
-			System.out.println("------------------------------");
-			System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
-			System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
-			System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
-
+		if (newStrength > 1.0) {
+			newStrength = 1.0;
 		}
+
+		return newStrength;
+	}
+	
+	public static double reduceCellStrength(double inputStrength) {
+
+		double newStrength = inputStrength - (inputStrength * 0.10);
+
+		if (newStrength > 1.0) {
+			newStrength = 1.0;
+		}
+
+		return newStrength;
+	}
+
+	/*public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
+
+		File a1 = new File("./files/experiment_eswc17/alignments/biblio-bibo/a1.rdf");
+		File a2 = new File("./files/experiment_eswc17/alignments/biblio-bibo/a2.rdf");
+		File a3 = new File("./files/experiment_eswc17/alignments/biblio-bibo/a3.rdf");
+
+		BasicAlignment newAlignment = (BasicAlignment) completeMatch(a1, a2, a3);
+
+		//store the new alignment
+		File outputAlignment = new File("./files/experiment_eswc17/alignments/biblio-bibo/a4.rdf");
+
+		PrintWriter writer = new PrintWriter(
+				new BufferedWriter(
+						new FileWriter(outputAlignment)), true); 
+		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+		newAlignment.render(renderer);
+		writer.flush();
+		writer.close();
+		
+		BasicAlignment partialMatchAlignment = (BasicAlignment) partialMatch(outputAlignment);
+		
+		File partialMatchAlignmentFile = new File("./files/experiment_eswc17/alignments/biblio-bibo/a8.rdf");
+		
+		writer = new PrintWriter(
+				new BufferedWriter(
+						new FileWriter(partialMatchAlignmentFile)), true); 
+		renderer = new RDFRendererVisitor(writer);
+
+		partialMatchAlignment.render(renderer);
+		writer.flush();
+		writer.close();
 
 
 	}*/
-
-
 }

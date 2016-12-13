@@ -12,9 +12,6 @@ import java.util.regex.Pattern;
 
 import org.apache.jena.ext.com.google.common.collect.ArrayListMultimap;
 import org.apache.jena.ext.com.google.common.collect.Multimap;
-import org.semanticweb.owl.align.Alignment;
-import org.semanticweb.owl.align.AlignmentException;
-import org.semanticweb.owl.align.Cell;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.IRI;
@@ -23,13 +20,9 @@ import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataProperty;
-import org.semanticweb.owlapi.model.OWLDataPropertyDomainAxiom;
-import org.semanticweb.owlapi.model.OWLDataPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
-import org.semanticweb.owlapi.model.OWLObjectPropertyDomainAxiom;
-import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -40,9 +33,8 @@ import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
 import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
 
-import fr.inrialpes.exmo.align.impl.URIAlignment;
+import no.ntnu.idi.compose.Preprocess.Preprocessor;
 import no.ntnu.idi.compose.WordNet.WordNetLexicon;
-import no.ntnu.idi.compose.misc.StringProcessor;
 
 
 /**
@@ -317,6 +309,39 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		return props;	
 	}
 	
+	//TO-DO: Complete this. Number of concepts containing abbrevations in their labels
+	public static double computeClassAbbreviationAnalysis(File ontoFile) throws OWLOntologyCreationException {
+		double abbreviationMetric = 0;
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		Set<OWLClass> ontoClasses = onto.getClassesInSignature();
+		
+		//if the class name contains a sequence of uppercased letters this is considered an abbreviation
+		String test = "TTuve";
+		
+		
+		
+		return abbreviationMetric;
+	}
+	
+	//Number of concepts containing abbrevations in their labels
+		public static double computeObjectPropertyAbbreviationAnalysis(File ontoFile) {
+			double abbreviationMetric = 0;
+			
+			
+			
+			return abbreviationMetric;
+		}
+		
+		public static double computeDataPropertyAbbreviationAnalysis(File ontoFile) {
+			double abbreviationMetric = 0;
+			
+			
+			
+			return abbreviationMetric;
+		}
+	
 	public static ArrayList<String> getObjectProperties(OWLOntology onto, OWLClass c) {
 
 		
@@ -561,7 +586,7 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		}
 		
 		while (itrOP.hasNext()) {
-			thisOP = StringProcessor.stripOPPrefix(itrOP.next().getIRI().getFragment());
+			thisOP = Preprocessor.stripOPPrefix(itrOP.next().getIRI().getFragment());
 			System.out.println("Trying to find " + thisOP + " in WordNet");
 			if (WordNetLexicon.containedInWordNet(thisOP) == true) {
 				System.out.println(thisOP + " is in WordNet");	

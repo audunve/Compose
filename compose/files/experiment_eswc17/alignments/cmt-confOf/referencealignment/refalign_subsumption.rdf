@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment" 
+	 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<Alignment>
+<xml>yes</xml>
+<level>0</level>
+<type>??</type>
+
+<onto1>
+<Ontology rdf:about="http://cmt">
+  <location>http://nb.vse.cz/~svabo/oaei2010/cmt.owl</location>
+</Ontology>
+</onto1>
+<onto2>
+<Ontology rdf:about="http://confOf">
+  <location>http://nb.vse.cz/~svabo/oaei2010/confOf.owl</location>
+</Ontology>
+</onto2>
+<!--Class Subsumption-->
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://cmt#Conference"/>
+			<entity2 rdf:resource="http://confOf#Working_event"/>
+			<measure rdf:datatype="xsd:float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://cmt#Paper"/>
+			<entity2 rdf:resource="http://confOf#Contribution"/>
+			<measure rdf:datatype="xsd:float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://cmt#PaperAbstract"/>
+			<entity2 rdf:resource="http://confOf#Paper"/>
+			<measure rdf:datatype="xsd:float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://cmt#PaperFullVersion"/>
+			<entity2 rdf:resource="http://confOf#Paper"/>
+			<measure rdf:datatype="xsd:float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://cmt#ProgramCommitteeMember"/>
+			<entity2 rdf:resource="http://confOf#Chair_PC"/>
+			<measure rdf:datatype="xsd:float">1.0</measure>
+			<relation>&gt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://cmt#AuthorNotReviewer"/>
+			<entity2 rdf:resource="http://confOf#Author"/>
+			<measure rdf:datatype="xsd:float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://cmt#Co-author"/>
+			<entity2 rdf:resource="http://confOf#Author"/>
+			<measure rdf:datatype="xsd:float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+</Alignment>
+</rdf:RDF>
