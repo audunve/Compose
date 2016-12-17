@@ -8,7 +8,7 @@
   <xml>yes</xml>
   <level>0</level>
   <type>**</type>
-  <alext:method>no.ntnu.idi.compose.Matchers.Property_WordNet#clone</alext:method>
+  <alext:method>no.ntnu.idi.compose.Matchers.StringPropertyAlignment#clone</alext:method>
   <onto1>
     <Ontology rdf:about="http://conference">
       <location>file:/Users/audunvennesland/git/Compose/compose/./files/experiment_eswc17/ontologies/conference.owl</location>
@@ -25,5 +25,29 @@
       </formalism>
     </Ontology>
   </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://conference#has_a_review'/>
+      <entity2 rdf:resource='http://ekaw#hasReviewer'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9442562592047128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://conference#has_a_review'/>
+      <entity2 rdf:resource='http://ekaw#hasReview'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9842105263157894</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://conference#has_parts'/>
+      <entity2 rdf:resource='http://ekaw#hasPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.98</measure>
+    </Cell>
+  </map>
 </Alignment>
 </rdf:RDF>

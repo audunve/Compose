@@ -2,6 +2,7 @@
 <rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
          xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
          xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
          xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
 <Alignment>
   <xml>yes</xml>
@@ -27,42 +28,10 @@
   </map>
   <map>
     <Cell>
-      <entity1 rdf:resource='http://www.w3.org/2000/01/rdf-schema#comment'/>
-      <entity2 rdf:resource='http://www.w3.org/2000/01/rdf-schema#comment'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.3333333333333333</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#writtenBy'/>
-      <entity2 rdf:resource='http://confOf#writtenBy'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.3333333333333333</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#reviewsPerPaper'/>
-      <entity2 rdf:resource='http://confOf#reviewes'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.21868390244525468</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
       <entity1 rdf:resource='http://cmt#name'/>
       <entity2 rdf:resource='http://confOf#hasFirstName'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8144200861535863</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#startReviewerBidding'/>
-      <entity2 rdf:resource='http://confOf#starts_on'/>
-      <relation>=</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.1791832277524146</measure>
     </Cell>
   </map>
   <map>

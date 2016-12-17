@@ -92,7 +92,7 @@ public class ESWC17Matcher {
 
 
 		case "WORDNET":
-			a = new WS4JAlignment();
+			a = new WordNetAlignment();
 			threshold = 0.8;
 			filesInDir = ontologyDir.listFiles();
 

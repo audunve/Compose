@@ -67,27 +67,7 @@ public static Alignment matchAlignment(Alignment inputAlignment) throws Alignmen
 		return refinedAlignment;
 	}
 	
-	public static double increaseCellStrength(double inputStrength) {
-
-		double newStrength = inputStrength + (inputStrength * 0.10);
-
-		if (newStrength > 1.0) {
-			newStrength = 1.0;
-		}
-
-		return newStrength;
-	}
 	
-	public static double reduceCellStrength(double inputStrength) {
-
-		double newStrength = inputStrength - (inputStrength * 0.10);
-
-		if (newStrength > 1.0) {
-			newStrength = 1.0;
-		}
-
-		return newStrength;
-	}
 	
 	private static boolean containedInWordNet(String inputWord) {
 
@@ -118,17 +98,54 @@ public static Alignment matchAlignment(Alignment inputAlignment) throws Alignmen
 
 		double distance = 0;
 		double finalDistance = 0;
+		double score = 0; 
+		double finalScore = 0;
+		double accScore = 0;
+		double correct = 0;
+		double incorrect = 0;
 		
 			//get the objects (entities)
 			//need to split the strings
 			String s1 = Preprocessor.stringTokenize(ontology1().getEntityName(o1),true).toLowerCase();
 			String s2 = Preprocessor.stringTokenize(ontology2().getEntityName(o2),true).toLowerCase();
+			
+			//TO-DO: trying to utilize token-by-token matching in wordnet, but not successful
+			/*ArrayList<String> tokens_1 = Preprocessor.tokenize(s1, true);
+			ArrayList<String> tokens_2 = Preprocessor.tokenize(s2, true);
+			
+			if (tokens_1.size() > 1 && tokens_2.size() > 1) {
+
+				
+				for (String s : tokens_1) {
+					for (String t : tokens_2) {
+						score = (1 - database.getDistance(s, t, "n"));
+						accScore = accScore + score;
+						System.out.println(s + " and " + t + " scores " + score + " and the current score is " + accScore);
+						
+						if (score > 0.8) {
+							correct++;
+							break;
+						} else {
+							incorrect++;
+						}
+					}
+				}
+				
+				double numTokens = tokens_1.size() + tokens_2.size();
+				
+				if (incorrect == 0.0) {
+					incorrect = 10;		
+				}
+				finalScore = accScore / numTokens;
+				distance = finalScore;
+			} else {*/
 
 				//...measure their distance
 				 distance = (1 - database.getDistance(s1, s2, "n"));
 				 
 				 //printing the ontology objects and their measured distance
 				 System.out.println(s1 + " - " + s2 + " with measure: " + distance);
+//			}
 
 		return distance;
 	}
@@ -142,19 +159,27 @@ public static Alignment matchAlignment(Alignment inputAlignment) throws Alignmen
 		return distance;
 	}
 	
-	public static double computeAlignmentWordNetTokenMatch(String s1, String s2) throws AlignmentException, OntowrapException {
+	/*public double computeAlignmentWordNetTokenMatch(Object o1, Object o2) throws AlignmentException, OntowrapException {
+		
+		//need to split the strings
+		String s1 = Preprocessor.stringTokenize(ontology1().getEntityName(o1),true).toLowerCase();
+		String s2 = Preprocessor.stringTokenize(ontology2().getEntityName(o2),true).toLowerCase();
 		
 		ArrayList<String> tokens_1 = Preprocessor.tokenize(s1, true);
 		ArrayList<String> tokens_2 = Preprocessor.tokenize(s2, true);
 		
 		double score = 0; 
 		double finalScore = 0;
+		double accScore = 0;
 		double correct = 0;
 		double incorrect = 0;
 		
 		for (String s : tokens_1) {
 			for (String t : tokens_2) {
-				score =  (1 - database.getDistance(s1, s2, "n"));
+				score = (1 - database.getDistance(s1, s2, "n"));
+				accScore = accScore + score;
+				System.out.println(s + " and " + t + " scores " + score + " and the current score is " + accScore);
+				
 				if (score > 0.8) {
 					correct++;
 					break;
@@ -165,14 +190,37 @@ public static Alignment matchAlignment(Alignment inputAlignment) throws Alignmen
 		}
 		
 		double avgTokens = (tokens_1.size() + tokens_2.size()) / 2;
+		double numTokens = tokens_1.size() + tokens_2.size();
 		
 		if (incorrect == 0.0) {
 			incorrect = 10;		
 		}
-		finalScore = (correct / incorrect) / avgTokens;
+		finalScore = accScore / numTokens;
 	
 
 		return finalScore;
+	}*/
+	
+	public static double increaseCellStrength(double inputStrength) {
+
+		double newStrength = inputStrength + (inputStrength * 0.10);
+
+		if (newStrength > 1.0) {
+			newStrength = 1.0;
+		}
+
+		return newStrength;
+	}
+	
+	public static double reduceCellStrength(double inputStrength) {
+
+		double newStrength = inputStrength - (inputStrength * 0.10);
+
+		if (newStrength > 1.0) {
+			newStrength = 1.0;
+		}
+
+		return newStrength;
 	}
 
 }

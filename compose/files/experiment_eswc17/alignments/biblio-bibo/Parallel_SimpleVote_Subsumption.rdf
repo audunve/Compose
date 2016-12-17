@@ -20,7 +20,31 @@
   </onto2>
   <map>
     <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#Article'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/AcademicArticle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#TechReport'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/Report'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
       <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#Book'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/ReferenceSource'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.925</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#Collection'/>
       <entity2 rdf:resource='http://purl.org/ontology/bibo/Book'/>
       <relation>=</relation>
       <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>

@@ -79,6 +79,67 @@ public class SequentialComposition {
 
 		return completeMatchAlignment;		
 	}
+	
+	public static Alignment nonWeightedCompleteMatch(File alignmentFile1, File alignmentFile2, File alignmentFile3) throws AlignmentException {
+
+		//BasicAlignment completeMatchAlignment = new BasicAlignment();
+		Alignment completeMatchAlignment = new URIAlignment();
+		//BasicAlignment intermediateAlignment = new BasicAlignment();
+		Alignment intermediateAlignment = new URIAlignment();
+
+		//load the alignments
+		AlignmentParser parser = new AlignmentParser();
+		BasicAlignment a1 = (BasicAlignment)parser.parse(alignmentFile1.toURI().toString());
+		BasicAlignment a2 = (BasicAlignment)parser.parse(alignmentFile2.toURI().toString());
+		BasicAlignment a3 = (BasicAlignment)parser.parse(alignmentFile3.toURI().toString());
+
+		//compare correspondences (cells) in a1 and a2. 
+		for (Cell cell1 : a1) {
+			for (Cell cell2 : a2) {				
+				//if the cells are equal (contains similar entities)
+				if (cell2.getObject1().equals(cell1.getObject1()) && cell2.getObject2().equals(cell1.getObject2())) {
+					//if the strength in the previous alignment is higher, this cell is added + weight
+					if (cell1.getStrength() >= cell2.getStrength()) {
+						intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), "=", cell1.getStrength());
+						//if the current cells strength is higher, this cells strength is retained
+					} else if (cell2.getStrength() >= cell1.getStrength()) {
+						intermediateAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), "=", cell2.getStrength());
+					}
+					//if the cells are not equal, we add the cells from both the previous alignment and the current alignment.
+				} else {
+					intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), "=", cell1.getStrength());
+					intermediateAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), "=", cell2.getStrength());
+					continue;
+				}
+			}
+		}
+
+		//compare correspondences (cells) in the current alignment.  
+		for (Cell cell2 : intermediateAlignment) {
+			for (Cell cell3 : a3) {
+				//if the cells are equal (contains similar entities)
+				if (cell3.getObject1().equals(cell2.getObject1()) && cell3.getObject2().equals(cell2.getObject2())) {
+					//if the strength in the previous alignment is higher, this cell is added + weight
+					if (cell2.getStrength() >= cell3.getStrength()) {
+						completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), "=", cell2.getStrength());
+						//if the current cells strength is higher, this is retained
+					} else if (cell3.getStrength() >= cell2.getStrength()) {
+						completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), "=", cell3.getStrength());
+					}
+					//if the cells are not equal, we add the cells from both the previous alignment and the current alignment.
+				} else {
+					completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), "=", cell2.getStrength());
+					completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), "=", cell3.getStrength());
+					continue;
+				}
+			}
+		}
+		
+		//TO-DO: should remove duplicates before returning the completed alignment
+
+
+		return completeMatchAlignment;		
+	}
 
 	public static Alignment partialMatch(File alignmentFile1) throws AlignmentException {
 
@@ -99,7 +160,7 @@ public class SequentialComposition {
 
 	public static double increaseCellStrength(double inputStrength) {
 
-		double newStrength = inputStrength + (inputStrength * 0.10);
+		double newStrength = inputStrength + (inputStrength * 0.12);
 
 		if (newStrength > 1.0) {
 			newStrength = 1.0;
@@ -110,7 +171,7 @@ public class SequentialComposition {
 	
 	public static double reduceCellStrength(double inputStrength) {
 
-		double newStrength = inputStrength - (inputStrength * 0.10);
+		double newStrength = inputStrength - (inputStrength * 0.12);
 
 		if (newStrength > 1.0) {
 			newStrength = 1.0;

@@ -5,6 +5,7 @@ import java.util.Properties;
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
+import org.semanticweb.owl.align.Cell;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
@@ -17,16 +18,20 @@ import edu.cmu.lti.ws4j.impl.WuPalmer;
 import edu.cmu.lti.ws4j.impl.Resnik;
 import edu.cmu.lti.ws4j.util.WS4JConfiguration;
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
+import fr.inrialpes.exmo.align.impl.URIAlignment;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
 import no.ntnu.idi.compose.Preprocess.Preprocessor;
+import rita.RiWordNet;
 
 public class Property_WordNet extends ObjectAlignment implements AlignmentProcess {
 
 	private static ILexicalDatabase db = new NictWordNet();
-	
+
 	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 	static OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
-	
+
+	static RiWordNet database = new RiWordNet("/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-3.0/dict");
+
 	/**
 	 * The align() method is imported from the Alignment API and is modified to use the wordNetMatch method declared in this class
 	 */
@@ -36,65 +41,98 @@ public class Property_WordNet extends ObjectAlignment implements AlignmentProces
 			// Match classes
 			for ( Object cl2: ontology2().getProperties() ){
 				for ( Object cl1: ontology1().getProperties() ){
-			
+
 					// add mapping into alignment object 
-					addAlignCell(cl1,cl2, "=", computeRESNIK(cl1,cl2));  
+					addAlignCell(cl1,cl2, "=", wordNetMatch(cl1,cl2));  
 				}		
 			}
 
 		} catch (Exception e) { e.printStackTrace(); }
 	}
-	
-	public double computeWUP(Object o1, Object o2) throws AlignmentException, OntowrapException {
-		//get the objects (entities)
-		String s1 = Preprocessor.stripPrefix(ontology1().getEntityName(o1)).toLowerCase();
-		System.out.println("S1 after preprocessing: " + s1);
-		String s2 = Preprocessor.stripPrefix(ontology2().getEntityName(o2)).toLowerCase();
-		System.out.println("S2 after preprocessing: " + s2);
-		
-		WS4JConfiguration.getInstance().setMFS(true);
-		double s = new WuPalmer(db).calcRelatednessOfWords(s1, s2);
-		//need a work-around since some of the wu palmer scores are above 1.0 (not allowed to have a confidence level above 1.0)
-		if (s > 1.0) {
-			s = 1.0;
+
+	//must not just discard the correspondences if they are identified by the previous matcher, but not identified by this matcher
+	public static Alignment matchAlignment(Alignment inputAlignment) throws AlignmentException {
+
+		System.out.println("Running wordnet alignment!");
+
+		Alignment refinedAlignment = new URIAlignment();
+		double score = 0;
+		double threshold = 0.6;
+
+		//match the objects (need to preprocess to remove URI) in every cell of the alignment
+		for (Cell c : inputAlignment) {
+			score = wordNetMatch(Preprocessor.getString(c.getObject1().toString()), Preprocessor.getString(c.getObject2().toString()));
+			if (score > threshold) {
+				refinedAlignment.addAlignCell(c.getObject1(), c.getObject2(), "=", increaseCellStrength(score));
+			} else {
+				refinedAlignment.addAlignCell(c.getObject1(), c.getObject2(), "=", reduceCellStrength(score));
+				continue;
+			}
 		}
-		
-		System.out.println("Matching " + s1 + " and " + s2 + " with a score of " + s);
-		
-		return s;
+		return refinedAlignment;
+	}
+
+	public static double increaseCellStrength(double inputStrength) {
+
+		double newStrength = inputStrength + (inputStrength * 0.10);
+
+		if (newStrength > 1.0) {
+			newStrength = 1.0;
+		}
+
+		return newStrength;
+	}
+
+	public static double reduceCellStrength(double inputStrength) {
+
+		double newStrength = inputStrength - (inputStrength * 0.10);
+
+		if (newStrength > 1.0) {
+			newStrength = 1.0;
+		}
+
+		return newStrength;
+	}
+
+
+	public double wordNetMatch(Object o1, Object o2) throws AlignmentException, OntowrapException {
+
+		double distance = 0;
+
+
+		//get the objects (entities)
+		//need to split the strings
+		String s1 = Preprocessor.stringTokenize(ontology1().getEntityName(o1),true).toLowerCase();
+		String s2 = Preprocessor.stringTokenize(ontology2().getEntityName(o2),true).toLowerCase();
+
+
+		//...measure their distance
+		distance = (1 - database.getDistance(s1, s2, "n"));
+
+		//printing the ontology objects and their measured distance
+		System.out.println(s1 + " - " + s2 + " with measure: " + distance);
+
+		return distance;
 	}
 	
-	public double computeLIN(Object o1, Object o2) throws AlignmentException, OntowrapException {
-		
-		String s1 = Preprocessor.stripPrefix(ontology1().getEntityName(o1)).toLowerCase();
-		System.out.println("S1 after preprocessing: " + s1);
-		String s2 = Preprocessor.stripPrefix(ontology2().getEntityName(o2)).toLowerCase();
-		System.out.println("S2 after preprocessing: " + s2);
-		
-		WS4JConfiguration.getInstance().setMFS(true);
-		double s = new Lin(db).calcRelatednessOfWords(s1, s2);
-		
-		System.out.println("Matching " + s1 + " and " + s2 + " with a score of " + s);
-		
-		return s;
-	}
-	
-public double computeRESNIK(Object o1, Object o2) throws AlignmentException, OntowrapException {
-		
-		String s1 = Preprocessor.stripPrefix(ontology1().getEntityName(o1)).toLowerCase();
-		System.out.println("S1 after preprocessing: " + s1);
-		String s2 = Preprocessor.stripPrefix(ontology2().getEntityName(o2)).toLowerCase();
-		System.out.println("S2 after preprocessing: " + s2);
-		
-		WS4JConfiguration.getInstance().setMFS(true);
-		double s = new Resnik(db).calcRelatednessOfWords(s1, s2);
-		//need a work-around since some of the wu palmer scores are above 1.0 (not allowed to have a confidence level above 1.0)
-				if (s > 1.0) {
-					s = 1.0;
-				}
-		System.out.println("Matching " + s1 + " and " + s2 + " with a score of " + s);
-		
-		return s;
+	public static double wordNetMatch(String inputString1, String inputString2) {
+
+		double distance = 0;
+
+
+		//get the objects (entities)
+		//need to split the strings
+		String s1 = Preprocessor.stringTokenize(inputString1,true).toLowerCase();
+		String s2 = Preprocessor.stringTokenize(inputString2,true).toLowerCase();
+
+
+		//...measure their distance
+		distance = (1 - database.getDistance(s1, s2, "n"));
+
+		//printing the ontology objects and their measured distance
+		System.out.println(s1 + " - " + s2 + " with measure: " + distance);
+
+		return distance;
 	}
 
 }

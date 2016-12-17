@@ -32,12 +32,12 @@ public class TestMatcher {
 
 		//Threshold for similarity score for which correspondences should be considered
 		double threshold;
-		final String MATCHER = "GRAPHALIGNMENT";
+		final String MATCHER = "PROPERTY_STRING";
 		String alignmentFileName = null;
-		String onto1 = "biblio";
-		String onto2 = "bibo";
-		File ontoFile1 = new File("./files/experiment_eswc17/ontologies/biblio.rdf");
-		File ontoFile2 = new File("./files/experiment_eswc17/ontologies/bibo.owl");
+		String onto1 = "cmt";
+		String onto2 = "confOf";
+		File ontoFile1 = new File("./files/experiment_eswc17/ontologies/cmt.owl");
+		File ontoFile2 = new File("./files/experiment_eswc17/ontologies/confOf.owl");
 		File outputAlignment = null;
 		String ontologyParameter1 = null;
 		String ontologyParameter2 = null;
@@ -82,7 +82,7 @@ public class TestMatcher {
 			break;
 
 		case "WORDNET":
-			a = new WS4JAlignment();
+			a = new WordNetAlignment();
 			threshold = 0.9;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -104,35 +104,6 @@ public class TestMatcher {
 			wordNetAlignment.cut(threshold);
 
 			wordNetAlignment.render(renderer);
-			writer.flush();
-			writer.close();
-
-			System.out.println("Matching completed!");
-			break;
-			
-		case "WORDNET2":
-			a = new WordNetAlignment();
-			threshold = 0.9;
-
-			a.init(ontoFile1.toURI(), ontoFile2.toURI());
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/ClassEq_WordNet2.rdf";
-
-			outputAlignment = new File(alignmentFileName);
-
-			writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(outputAlignment)), true); 
-			renderer = new RDFRendererVisitor(writer);
-
-			BasicAlignment wordNet2Alignment = (BasicAlignment)(a.clone());
-
-			wordNet2Alignment.cut(threshold);
-
-			wordNet2Alignment.render(renderer);
 			writer.flush();
 			writer.close();
 
@@ -287,95 +258,9 @@ public class TestMatcher {
 			System.out.println("Matching completed!");
 			break;
 			
-		case "OBJECTPROPERTYALIGNMENT":
-			a = new ObjectPropertyAlignment();
-			threshold = 0.9;
 
-			a.init(ontoFile1.toURI(), ontoFile2.toURI());
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/PropEq_ObjectProperty.rdf";
-
-			outputAlignment = new File(alignmentFileName);
-
-			writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(outputAlignment)), true); 
-			renderer = new RDFRendererVisitor(writer);
-
-			BasicAlignment ObjectPropertyAlignment = (BasicAlignment)(a.clone());
-
-			ObjectPropertyAlignment.cut(threshold);
-
-			ObjectPropertyAlignment.render(renderer);
-			writer.flush();
-			writer.close();
-
-			System.out.println("Matching completed!");
-			break;
-			
-		case "DATAPROPERTYALIGNMENT":
-			a = new DataPropertyAlignment();
-			threshold = 0.9;
-
-			a.init(ontoFile1.toURI(), ontoFile2.toURI());
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/PropEq_DataProperty.rdf";
-
-			outputAlignment = new File(alignmentFileName);
-
-			writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(outputAlignment)), true); 
-			renderer = new RDFRendererVisitor(writer);
-
-			BasicAlignment DataPropertyAlignment = (BasicAlignment)(a.clone());
-
-			DataPropertyAlignment.cut(threshold);
-
-			DataPropertyAlignment.render(renderer);
-			writer.flush();
-			writer.close();
-
-			System.out.println("Matching completed!");
-			break;
-			
 		case "PROPERTY_WORDNET":
 			a = new Property_WordNet();
-			threshold = 0.9;
-
-			a.init(ontoFile1.toURI(), ontoFile2.toURI());
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/PropEq_WordNet.rdf";
-
-			outputAlignment = new File(alignmentFileName);
-
-			writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(outputAlignment)), true); 
-			renderer = new RDFRendererVisitor(writer);
-
-			BasicAlignment PropertyWordNetAlignment = (BasicAlignment)(a.clone());
-
-			PropertyWordNetAlignment.cut(threshold);
-
-			PropertyWordNetAlignment.render(renderer);
-			writer.flush();
-			writer.close();
-
-			System.out.println("Matching completed!");
-			break;
-			
-		case "PROPERTY_WORDNET2":
-			a = new Property_WordNet2();
 			threshold = 0.6;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -403,7 +288,7 @@ public class TestMatcher {
 			System.out.println("Matching completed!");
 			break;
 			
-		case "PROPERTYALIGNMENT":
+		case "PROPERTY_STRING":
 			a = new StringPropertyAlignment();
 			threshold = 0.8;
 
@@ -412,7 +297,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/PropEq_StringPropertyAlignment.rdf";
+			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/PropEq_String.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 

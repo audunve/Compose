@@ -176,20 +176,27 @@ public static double computePath(String s1, String s2)  {
 	
 	public static void main(String[] args) {
 		
-		String s1 = "regular author";
-		String s2 = "paper author";
+		String c1 = "Regular_author";
+		String c2 = "Paper_Author";
+		
+		String s1 = Preprocessor.stringTokenize(c1, true).toLowerCase();
+		String s2 = Preprocessor.stringTokenize(c2,true).toLowerCase();
 		
 		ArrayList<String> tokens_1 = Preprocessor.tokenize(s1, true);
 		ArrayList<String> tokens_2 = Preprocessor.tokenize(s2, true);
 		
 		double score = 0; 
 		double finalScore = 0;
+		double accScore = 0;
 		double correct = 0;
 		double incorrect = 0;
 		
 		for (String s : tokens_1) {
 			for (String t : tokens_2) {
 				score = computeResnik(s,t);
+				accScore = accScore + score;
+				System.out.println(s + " and " + t + " scores " + score + " and the current score is " + accScore);
+				
 				if (score > 0.8) {
 					correct++;
 					break;
@@ -200,11 +207,14 @@ public static double computePath(String s1, String s2)  {
 		}
 		
 		double avgTokens = (tokens_1.size() + tokens_2.size()) / 2;
+		double numTokens = tokens_1.size() + tokens_2.size();
 		
 		if (incorrect == 0.0) {
 			incorrect = 10;		
 		}
-		finalScore = (correct / incorrect) / avgTokens;
+		finalScore = accScore / numTokens;
+		//finalScore = (correct / incorrect) / avgTokens;
+		System.out.println(finalScore);
 	}
 
 }
