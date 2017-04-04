@@ -19,11 +19,22 @@ import fr.inrialpes.exmo.align.parser.AlignmentParser;
 import no.ntnu.idi.compose.matchers.ClassEq_String_Matcher;
 
 
-
+/**
+ * This class computes an alignment from a hybrid composition. That is, it takes as input a set of alignments computed from each involved matcher independently 
+ * and then merge their results based on the ingest() method from the Alignment API. The ingest() method puts all the correspondences from the input alignments together. 
+ * @author audunvennesland
+ * 2. feb. 2017
+ */
 public class HybridComposition {
 
-
-	//the alignments are merged using the ingest() method from the Alignment API
+	/**
+	 * The alignments are merged using the ingest() method from the Alignment API
+	 * @param alignmentFile1 the first input alignment
+	 * @param alignmentFile2 the second input alignment
+	 * @param alignmentFile3 the third input alignment
+	 * @return completeMatchAlignment as a merged alignment from the input alignments
+	 * @throws AlignmentException Base class for all Alignment Exceptions
+	 */
 		public static Alignment merge(File alignmentFile1, File alignmentFile2, File alignmentFile3) throws AlignmentException {
 
 			//load the alignments
@@ -31,9 +42,6 @@ public class HybridComposition {
 			BasicAlignment a1 = (BasicAlignment)parser.parse(alignmentFile1.toURI().toString());
 			BasicAlignment a2 = (BasicAlignment)parser.parse(alignmentFile2.toURI().toString());
 			BasicAlignment a3 = (BasicAlignment)parser.parse(alignmentFile3.toURI().toString());
-
-			//BasicAlignment ingestISubAndSmoaAlignment = (BasicAlignment)(basicISubAlignment.clone());
-			//ingestISubAndSmoaAlignment.ingest(basicSmoaAlignment);
 
 			BasicAlignment a1_a2_merged = (BasicAlignment)(a1.clone());
 			a1_a2_merged.ingest(a2);
@@ -46,44 +54,24 @@ public class HybridComposition {
 			return completeMatchAlignment;		
 		}
 
-	/*public static Alignment partialMatch(File alignmentFile1) throws AlignmentException {
 
-		//load the alignment
-		AlignmentParser parser = new AlignmentParser();
-		BasicAlignment a1 = (BasicAlignment)parser.parse(alignmentFile1.toURI().toString());
-		
-		Properties params = new Properties();
-		params.setProperty("", "");
-		
-		//run a matcher with an already created alignment
-
-		BasicAlignment StringAlignment = ClassEq_String_Matcher.matchAlignment(a1);
-
-		return StringAlignment;
-
-	}*/
-
-	public static double increaseCellStrength(double inputStrength) {
-
-		double newStrength = inputStrength + (inputStrength * 0.10);
-
-		if (newStrength > 1.0) {
-			newStrength = 1.0;
-		}
-
-		return newStrength;
-	}
-
+	/**
+	 * Test method
+	 * @param args
+	 * @throws AlignmentException
+	 * @throws IOException
+	 * @throws URISyntaxException
+	 */
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
 
-		File a1 = new File("./files/experiment_eswc17/alignments/biblio-bibo/a1.rdf");
-		File a2 = new File("./files/experiment_eswc17/alignments/biblio-bibo/a2.rdf");
-		File a3 = new File("./files/experiment_eswc17/alignments/biblio-bibo/a3.rdf");
+		File a1 = new File("./files/experiment_eswc17/alignments/conference-ekaw/conference-ekaw-alignment-aml.rdf");
+		File a2 = new File("./files/experiment_eswc17/alignments/conference-ekaw/conference-ekaw-alignment-logmap.rdf");
+		File a3 = new File("./files/experiment_eswc17/alignments/conference-ekaw/conference-ekaw-alignment-compose.rdf");
 
 		BasicAlignment newAlignment = (BasicAlignment) merge(a1, a2, a3);
 
 		//store the new alignment
-		File outputAlignment = new File("./files/experiment_eswc17/alignments/biblio-bibo/a4.rdf");
+		File outputAlignment = new File("./files/experiment_eswc17/alignments/conference-ekaw/a4.rdf");
 
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(
@@ -94,19 +82,17 @@ public class HybridComposition {
 		writer.flush();
 		writer.close();
 		
-		//BasicAlignment partialMatchAlignment = (BasicAlignment) partialMatch(outputAlignment);
 		
-		File partialMatchAlignmentFile = new File("./files/experiment_eswc17/alignments/biblio-bibo/a8.rdf");
+		File partialMatchAlignmentFile = new File("./files/experiment_eswc17/alignments/conference-ekaw/a8.rdf");
 		
 		writer = new PrintWriter(
 				new BufferedWriter(
 						new FileWriter(partialMatchAlignmentFile)), true); 
 		renderer = new RDFRendererVisitor(writer);
 
-		//partialMatchAlignment.render(renderer);
 		writer.flush();
 		writer.close();
 
-
+		System.out.println("Aggregation completed!");
 	}
 }

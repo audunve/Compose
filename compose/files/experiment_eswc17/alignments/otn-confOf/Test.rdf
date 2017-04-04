@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <alext:method>no.ntnu.idi.compose.matchers.ClassEq_Structural_Matcher#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://www.pms.ifi.uni-muenchen.de/OTN">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/experiment_eswc17/ontologies/otn.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://confOf">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/experiment_eswc17/ontologies/confOf.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railway_Station'/>
+      <entity2 rdf:resource='http://confOf#Science_Worker'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Airport'/>
+      <entity2 rdf:resource='http://confOf#Science_Worker'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bus_Station'/>
+      <entity2 rdf:resource='http://confOf#Science_Worker'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

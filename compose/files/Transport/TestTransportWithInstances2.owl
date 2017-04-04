@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200">
+    <Prefix name="" IRI="http://www.semanticweb.org/audunvennesland/ontologies/2016/8/untitled-ontology-200#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Car"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Conveyance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Electric"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Human"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hydrogen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaritimeTransportMeans"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Petrol"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SmallTanker"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Vehicle"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDriver"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Audi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Audun"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Gabriel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Jesper"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Nissan"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Seat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tesla"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tone"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Toyota"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Volvo"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Car"/>
+        <Class IRI="#Vehicle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Conveyance"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Electric"/>
+        <Class IRI="#Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hydrogen"/>
+        <Class IRI="#Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MaritimeTransportMeans"/>
+        <Class IRI="#Conveyance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Petrol"/>
+        <Class IRI="#Car"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SmallTanker"/>
+        <Class IRI="#MaritimeTransportMeans"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Vehicle"/>
+        <Class IRI="#Conveyance"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#Human"/>
+        <NamedIndividual IRI="#Audi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Petrol"/>
+        <NamedIndividual IRI="#Audi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Human"/>
+        <NamedIndividual IRI="#Audun"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Human"/>
+        <NamedIndividual IRI="#Gabriel"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Human"/>
+        <NamedIndividual IRI="#Jesper"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Electric"/>
+        <NamedIndividual IRI="#Nissan"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Electric"/>
+        <NamedIndividual IRI="#Tesla"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Hydrogen"/>
+        <NamedIndividual IRI="#Toyota"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Petrol"/>
+        <NamedIndividual IRI="#Volvo"/>
+    </ClassAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDriver"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasDriver"/>
+            <Class IRI="#Conveyance"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDriver"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasDriver"/>
+            <Class IRI="#Human"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Conveyance</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A transport means used for transporting goods or humans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Human</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A human being</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MaritimeTransportMeans</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A transport means or conveyance used for transporting passengers or goods at sea</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

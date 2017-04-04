@@ -40,12 +40,18 @@ public class TestMatcher {
 
 		//Threshold for similarity score for which correspondences should be considered
 		double threshold;
-		final String MATCHER = "PROPERTY_STRING";
+		final String MATCHER = "SUBSUMPTION_COMPOUND";
 		String alignmentFileName = null;
-		String onto1 = "cmt";
-		String onto2 = "confOf";
-		File ontoFile1 = new File("./files/experiment_eswc17/ontologies/cmt.owl");
-		File ontoFile2 = new File("./files/experiment_eswc17/ontologies/confOf.owl");
+		//String onto1 = "km4c";
+		//String onto2 = "otn";
+		String onto1 = "TestTransportWithInstances1";
+		String onto2 = "TestTransportWithInstances2";
+		//File ontoFile1 = new File("./files/ntnu-lyon-paper/ontologies/km4c.owl");
+		//File ontoFile2 = new File("./files/ntnu-lyon-paper/ontologies/otn.owl");
+		//File ontoFile1 = new File("./files/experiment_eswc17/ontologies/km4c.owl");
+		//File ontoFile2 = new File("./files/experiment_eswc17/ontologies/otn.owl");
+		File ontoFile1 = new File("./files/ontologies/Test/TestTransportWithInstances1.owl");
+		File ontoFile2 = new File("./files/ontologies/Test/TestTransportWithInstances2.owl");
 		File outputAlignment = null;
 		String ontologyParameter1 = null;
 		String ontologyParameter2 = null;
@@ -69,7 +75,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/ClassEq_String.rdf";
+			alignmentFileName = "./files/Transport/" + onto1 + "-" + onto2 + "/ClassEq_String.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -98,7 +104,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/ClassEq_WordNet1.rdf";
+			alignmentFileName = "./files/Transport/" + onto1 + "-" + onto2 + "/ClassEq_WordNet.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -120,10 +126,11 @@ public class TestMatcher {
 
 		case "GRAPHALIGNMENT":
 
-			File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/Experiment_eswc17");
+			//File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/ntnu-lyon");
+			//File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/Experiment_eswc17");
+			File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/ntnu-lyon-paper");
 			GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 			registerShutdownHook(db);
-
 
 			ontologyParameter1 = Preprocessor.stripPath(ontoFile1.toString());
 			ontologyParameter2 = Preprocessor.stripPath(ontoFile2.toString());
@@ -136,8 +143,9 @@ public class TestMatcher {
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
-
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/Test.rdf";			
+			
+			alignmentFileName = "./files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/ClassEq_Graph.rdf";
+			//alignmentFileName = "./files/ntnu-lyon-paper/alignments/test/" + onto1 + "-" + onto2 + "/GraphAlignment.rdf";			
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -151,20 +159,6 @@ public class TestMatcher {
 			structuralAlignment.cut(threshold);
 
 			structuralAlignment.render(renderer);
-			
-			AlignmentParser aparser = new AlignmentParser(0);
-			Alignment referenceAlignment = aparser.parse(new URI("file:files/referenceAlignments/OAEI_Biblio2BIBO_ReferenceAlignment_Class_EquivalenceOnly.rdf"));
-			Properties p = new Properties();
-			
-			//ISub
-			Evaluator iSubEvaluator = new PRecEvaluator(referenceAlignment, structuralAlignment);
-			iSubEvaluator.eval(p);
-			System.out.println("------------------------------");
-			System.out.println("Evaluation scores for isub:");
-			System.out.println("------------------------------");
-			System.out.println("F-measure: " + iSubEvaluator.getResults().getProperty("fmeasure").toString());
-			System.out.println("Precision: " + iSubEvaluator.getResults().getProperty("precision").toString());
-			System.out.println("Recall: " + iSubEvaluator.getResults().getProperty("recall").toString());
 			
 			writer.flush();
 			writer.close();
@@ -181,7 +175,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/Subsumption_String_Matcher.rdf";			
+			alignmentFileName = "./files/Transport/" + onto1 + "-" + onto2 + "/Subsumption_Compoound.rdf";			
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -217,7 +211,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/Subsumption_SubClass.rdf";				
+			alignmentFileName = "../files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/Subsumption_SubClass.rdf";				
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -246,7 +240,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/Subsumption_WordNet_Matcher.rdf";
+			alignmentFileName = "././files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/Subsumption_WordNet_Matcher.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -276,7 +270,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/PropEq_WordNet2.rdf";
+			alignmentFileName = "./files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/PropEq_WordNet2.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -305,7 +299,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/experiment_eswc17/alignments/" + onto1 + "-" + onto2 + "/PropEq_String.rdf";
+			alignmentFileName = "./files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/PropEq_String.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 

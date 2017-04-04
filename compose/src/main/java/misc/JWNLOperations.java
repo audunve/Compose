@@ -38,6 +38,7 @@ public class JWNLOperations
 	    IndexWord indexWord = dictionary.lookupIndexWord(pos, inputWord);
 	    
 		Synset[] synsets = indexWord.getSenses();
+		
 
 		return synsets;
 	}
@@ -118,7 +119,7 @@ public class JWNLOperations
     	}
     	
     	File wdDomains = new File("./files/WDDomains/wn-domains-3.2-20070223");
-    	readWDDomains(wdDomains);
+    	//readWDDomains(wdDomains);
 
 }
 }

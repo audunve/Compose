@@ -13,6 +13,7 @@ public class TestRitaWN {
 	String w2 = "film";
 	String[] synonyms = null;
 	
+	
 	//"n" is for the part-of-speech (POS)
 	float distance = wn.getDistance(w1, w2, "n");	
 	System.out.println("The distance between " + w1 + " and " + w2 + " is: " + distance);

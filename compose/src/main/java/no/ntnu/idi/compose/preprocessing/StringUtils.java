@@ -2,8 +2,11 @@ package no.ntnu.idi.compose.preprocessing;
 
 public class StringUtils {
 
-	
-	//could get all the bigrams from the string and check if some of them are in all uppercase
+	/**
+	 * Checks if an input string is an abbreviation (by checking if there are two consecutive uppercased letters in the string)
+	 * @param s input string
+	 * @return boolean stating whether the input string represents an abbreviation
+	 */
 	public static boolean isAbbreviation(String s) {
 		
 		boolean isAbbreviation = false;
@@ -28,10 +31,13 @@ public class StringUtils {
 		        
 		        
 		        
-	
+	/**
+	 * Test method
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
-		String test = "Chair_PC";
+		String test = "Chair_TT";
 		
 		System.out.println("Is " + test + " an abbreviation? Answer: " + isAbbreviation(test));
 	}

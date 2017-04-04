@@ -1,0 +1,2541 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <alext:method>no.ntnu.idi.compose.matchers.ClassEq_String_Matcher#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://www.pms.ifi.uni-muenchen.de/OTN">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/ntnu-lyon-paper/ontologies/otn.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://purl.org/td/transportdisruption">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/ntnu-lyon-paper/ontologies/TransportDisruption.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Wetland'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Plan'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6907600596125186</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Wetland'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WetAndIcyRoad'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.814308093994778</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Wetland'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Landslips'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6174911660777385</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Wetland'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Wet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.86</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Stop_Point'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WinterStorm'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7113475177304964</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadClosure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.86</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadMarkingWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8263157894736842</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadWideningWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8200000000000001</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#LongLoad'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6619718309859155</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#NewRoadworksLayout'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6818181818181819</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyRoadsideTelephoneFailure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6081081081081081</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadOperatorCheckPoint'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7923076923076924</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#GunfireOnRoadway'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#DamagedRoadSurface'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6818181818181819</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#UnlitVehicleOnTheRoad'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.66</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ProhibitedVehicleOnTheRoadway'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6212121212121212</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WetAndIcyRoad'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7352941176470589</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SweepingOfRoad'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7222222222222222</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadWorks'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8846153846153846</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RollingRoadBlock'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.76</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleOffRoad'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7222222222222222</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyRoadsideTelephoneFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6142857142857143</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadCleared'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.86</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SlushOnRoad'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7666666666666666</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SlipperyRoad'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadSurfaceMelting'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8090909090909091</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadOrCarriagewayOrLaneManagement'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7648648648648648</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Conditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8058608058608059</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SpeedRestriction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6111111111111112</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AdverseInfrastructureConditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7135705345968175</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#MudOnInfrastructure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6282768777614138</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#InfrastructureConstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7075892857142857</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#OilOnInfrastructure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6282768777614138</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WinterConditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6111111111111112</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#InfrastructureSurfaceInPoorCondition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6381766381766382</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.730618176105569</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7845868152274837</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ConstructionWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8846774193548387</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#JuridicalReconstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7368160190325139</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CollisionWithObstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6306825938566554</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AssetDestruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6716793381037567</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleObstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6414664457332229</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#GeneralObstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6414664457332229</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Artifical_Non-Agricultural_Vegetated_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AgriculturalShow'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6555232558139534</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Island'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Landslips'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.661624649859944</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Island'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Plan'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7264705882352941</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Tourist_Attraction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#StationaryTraffic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6957240727616347</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Airport_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.600990099009901</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Shopping'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7369718309859155</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Shopping'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#GardeningOrFlowerShow'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6092403017241379</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Shopping'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ShowJumping'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8786549707602339</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SeriousAccident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8478260869565217</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvolvingMassTransitVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8116279069767443</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvolvingHeavyLorries'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8297297297297297</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ChemicalSpillageAccident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TerroristIncident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6495394736842105</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#MultivehicleAccident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7857142857142857</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SecurityIncident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6619718309859155</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvolvingTrain'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.86</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FuelSpillageAccident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7857142857142857</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvolvingHazardousMaterials'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8116279069767443</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvestigationWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8454545454545455</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvolvingMopeds'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8548387096774194</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvolvingObject'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8548387096774194</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Accident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvolvingMotorcycles'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8333333333333333</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvolvingRadioactiveMaterial'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8090909090909091</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#OilSpillageAccident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7962962962962963</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvolvingBicycles'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8454545454545455</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AccidentInvolvingBuses'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.86</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SpillageAccident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8333333333333333</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_And_Rail_Network_And_Associated_Land'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadMarkingWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6067729275130156</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_And_Rail_Network_And_Associated_Land'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadWorks'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.762442671357668</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bare_Rock'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BlockadeOrBarrier'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6755394736842105</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Roadside_Diner'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadWorks'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6056551043892816</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Roadside_Diner'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadWideningWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7015154842960685</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Tourism'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Tournament'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6996670366259712</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Exhibition_Or_Conference_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Conditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6319099635882158</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Exhibition_Or_Conference_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Exhibition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8578947368421053</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Free_Port'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FreezingFog'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6547471620227039</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Free_Port'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SweepingOfRoad'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6907600596125186</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Free_Port'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FreezingRain'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6414285714285715</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Department_Store'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WinterStorm'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6591895037562163</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Department_Store'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#MajorEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6072566371681416</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportCancellation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8944288711707931</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportDiversion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8942758704061895</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportDelay'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8552482715273413</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6277599723879493</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8552482715273413</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TransportOfVip'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.622386889652083</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_and_Ferry_Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadClosure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7132840549102428</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7307692307692308</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ski_Lift_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#StateOccasion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6540229885057471</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Car_Dealership'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#GardeningOrFlowerShow'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6039279090779399</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Buildings'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6890591480232915</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Buildings'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FallingIce'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6072566371681416</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Buildings'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicDisturbance'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6067643391521197</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Transport_Company'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportCancellation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6024560987185572</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Transport_Company'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TransportOfVip'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7886638830897703</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Transport_Company'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6161335187760779</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Transport_Company'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportDelay'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6161335187760779</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Theft'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6226114649681529</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BadWeather'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9117647058823529</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WeatherRelatedConditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8354838709677419</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Camping'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RampMeteringInOperation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6420190995907231</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Camping'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ShowJumping'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6882255389718077</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railways'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Rain'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7369718309859155</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railways'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Hail'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6619718309859155</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railways'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#JackknifedRailwayVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6694460556844548</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ForestFire'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.925</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#NormalWinterConditionsForPedestrians'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6428571428571428</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Enclosed_Traffic_Area_Boundry'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Dry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.603448275862069</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6477732793522267</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6618421052631579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Natural_Grassland'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AgriculturalShow'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6111111111111112</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Edge'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WeakBridge'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6181318681318682</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Other'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BadWeather'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6978593272171254</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Other'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Theft'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7065420560747664</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_Surface'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadClosure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8120136273982428</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_Surface'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadWorks'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6310151187904968</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_Surface'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SurfaceWater'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7153798545567074</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_Surface'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#DamagedRoadSurface'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8793103448275862</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_Surface'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadSurfaceMelting'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9275862068965517</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_Surface'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ResurfacingWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6082899172540607</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Point'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportCancellation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.824822695035461</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Point'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8846774193548387</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Point'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.645895569223045</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Point'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TransportOfVip'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6536396464886439</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Point'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportDelay'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8846774193548387</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport_Point'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportDiversion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8468531468531468</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#StateOccasion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6487488415199258</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceCheckPoint'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6433528070675406</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Pollution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8111256300168005</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceInvestigation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.865968026183283</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.663675342259666</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#DemolitionWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.629948914431673</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#OzonePollution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.629948914431673</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceSpeedChecksInOperation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8495000955231484</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6875</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Community_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CommercialEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6842064264849075</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Food_And_Housing'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Flooding'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7134873323397913</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Transfer_Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ConvoyService'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.613169897377423</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Transfer_Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666666666666</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Call_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyServices'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7029030330720838</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Call_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7161335187760779</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Call_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CivilEmergency'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6536396464886439</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Temperature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TemperatureFalling'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9275862068965517</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Temperature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TemporaryTrafficLightsFailure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6580394121576486</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Transfer_Point'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TransportOfVip'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6018087855297157</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BicycleRace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.600990099009901</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RaceMeeting'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.600990099009901</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#InfrastructureSurfaceInPoorCondition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BoatRace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6619718309859155</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FreezingOfWetInfrastructureSurface'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6447368421052632</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SurfaceWater'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#DamagedRoadSurface'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6818181818181819</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadSurfaceMelting'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6818181818181819</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll_Location'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#OzonePollution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6513062409288823</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll_Location'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Collision'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6895604395604396</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll_Location'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Pollution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7767722473604827</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll_Location'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CarPoolLaneInOperation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6178444532175287</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Government_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TrafficElementEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6282768777614138</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Government_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6578947368421053</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Parking'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadMarkingWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7230583985550872</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Parking'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6552884615384615</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Industrial_Or_Commercial_Unit'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CommercialEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6296167247386759</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Prohibited_Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ProhibitedVehicleOnTheRoadway'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6576810176125245</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Vehicle_Repair_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleStuck'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6766703176341731</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Vehicle_Repair_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleWeighing'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6270932069510269</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Vehicle_Repair_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleRecovery'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7226114649681529</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Vehicle_Repair_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleSpunAround'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6030574361214238</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Vehicle_Repair_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleOffRoad'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6414285714285715</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Vehicle_Repair_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleOnFire'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6577835554111147</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Vehicle_Repair_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleRepair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9294117647058824</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Marina'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6861111111111111</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Marina'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Marathon'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6310810810810811</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Marina'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7272727272727273</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Airport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AirRaid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6237885462555066</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Airport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6907600596125186</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Airport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AirShow'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6237885462555066</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Average_Vehicle_Speed'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleStorageInOperation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6637191270636407</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Average_Vehicle_Speed'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HighSpeedEmergencyVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6637191270636407</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Average_Vehicle_Speed'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleRecovery'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.702280912364946</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Average_Vehicle_Speed'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#OverheightVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6664703572830781</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Average_Vehicle_Speed'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#OverturnedVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6664703572830781</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Average_Vehicle_Speed'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#DamagedVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.723384285331188</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Average_Vehicle_Speed'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SlowVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6066173882435762</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Average_Vehicle_Speed'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleStuck'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6493688639551192</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Average_Vehicle_Speed'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleSpunAround'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6123537508602891</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Winery'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VeryStrongGustsOfWind'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7222222222222222</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Mine_Dump_And_Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6120056497175141</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Mine_Dump_And_Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ConstructionWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6989415623136553</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Mine_Dump_And_Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AdverseInfrastructureConditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6635560520855825</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Mine_Dump_And_Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6688148943788041</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Mine_Dump_And_Construction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Conditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6384748086875747</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Shopping_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ShowJumping'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7418333333333333</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Shopping_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.661704834605598</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Traffic_Jam_Sensitivity'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TrafficHeld'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6987996688741722</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Traffic_Jam_Sensitivity'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6092403017241379</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Mineral_Extraction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#OperatorAction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6991001124859393</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Mineral_Extraction_Site'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#GeneralObstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.626232741617357</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Address_Area_Boundry_Element'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Dry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6071428571428571</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Historical_Monument'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TerroristIncident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6255639097744361</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Pollution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6381766381766382</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8333333333333333</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AutomatedTollSystemFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6428571428571428</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AutomatedTollSystemFailure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6333333333333333</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesOpen'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8411764705882353</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFailure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8200000000000001</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Collision'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6381766381766382</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railway_Element'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Rain'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.661704834605598</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railway_Element'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Derailment'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8517657992565055</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_Element'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadOrCarriagewayOrLaneManagement'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7501319914205576</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_Element'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TrafficElementEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6066173882435762</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_Element'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadSurfaceMelting'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7215092005566723</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_Element'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#RoadWorks'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6310151187904968</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Caravan_Sites'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#JackknifedCaravan'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6058044730346324</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Special_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HeightRestrictionInOperation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6085334198572356</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Special_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AssetDestruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6414664457332229</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Special_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WeightRestrictionInOperation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6085334198572356</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Special_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6888551084086727</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Special_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#JuridicalReconstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7000903342366757</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Special_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SpeedRestriction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9191513246519982</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Tourist_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6875</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bus_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#StationaryTraffic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6595252167060677</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bus_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6111111111111112</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bus_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#StateOccasion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7999333666500084</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest_and_Semi-Natural_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ForestFire'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6415668202764977</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Medical_Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.692454387090859</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Medical_Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyServices'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9278724878724879</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Medical_Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6153846153846154</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Medical_Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CivilEmergency'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.622386889652083</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Flooding'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6111111111111112</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#IceBuildUp'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6706349206349207</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Phone'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicDisturbance'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6692435027313359</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Phone'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.645895569223045</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Phone'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportDiversion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6225686813186814</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Phone'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportDelay'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.645895569223045</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Phone'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7463755756438684</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Phone'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportCancellation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6089618951838194</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Blocked_Passage'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PackedSnow'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7044573643410853</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyServices'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7916666666666667</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ConvoyService'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.85</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Theft'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6976114649681529</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ExtremeHeat'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8888888888888888</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Petrol_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#StateOccasion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6487488415199258</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9159999999999999</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HighSpeedEmergencyVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7647058823529411</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CivilEmergency'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8913043478260869</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyRoadsideTelephoneFailure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8285714285714285</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyServices'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9076923076923077</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyRoadsideTelephoneFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.835</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Direction_of_Traffic_Flow'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TrafficBeingManuallyDirected'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6369146608315098</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Direction_of_Traffic_Flow'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#StationaryTraffic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6806999306999306</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Direction_of_Traffic_Flow'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SlowTraffic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7733273327332734</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Direction_of_Traffic_Flow'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Contraflow'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6064745508982036</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Vehicle_Lane'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CivilEmergency'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6536396464886439</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Vehicle_Lane'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyServices'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7029030330720838</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Vehicle_Lane'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HighSpeedEmergencyVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8102839257768835</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Vehicle_Lane'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#EmergencyVehicle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9666666666666667</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Speed_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HeightRestrictionInOperation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6436436436436437</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Speed_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WeightRestrictionInOperation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6436436436436437</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Speed_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SpeedRestriction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Speed_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7165090622537431</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Speed_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AssetDestruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6716793381037567</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Speed_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ConstructionWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6111111111111112</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Agricultural_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CulturalEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6662129461584997</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Agricultural_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AgriculturalShow'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8846774193548387</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SingleAlternateLineTraffic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6333333333333333</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FallingIce'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6181318681318682</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ferry_Connection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Conditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6879754601226994</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ferry_Connection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WeatherRelatedConditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6470352564102564</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ferry_Connection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ConstructionWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6274675012036591</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Golf_Course'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#GolfTournament'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7877906976744187</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportCancellation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9142857142857144</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicDisturbance'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6067643391521197</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportDelay'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9571428571428571</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TransportOfVip'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7258853681267474</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportDiversion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9307692307692308</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6890591480232915</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9571428571428571</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Timetable'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VariableMessageSignFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6255631673146949</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Timetable'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VariableMessageSignFailure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6113805970149254</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Sports_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SportsMeeting'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6956949152542373</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Sports_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PublicTransportEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6380597014925373</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railway_Element_Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Derailment'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7466018123667377</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railway_Element_Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Rain'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6182099890630697</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Motoring_Organisation_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.603448275862069</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Relationship'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WeatherRelatedConditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6619718309859155</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railway_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Rain'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.661704834605598</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railway_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#StateOccasion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.629948914431673</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AdverseInfrastructureConditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6735442953690448</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ConstructionWork'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8596813725490197</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#GeneralObstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6111111111111112</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AssetDestruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6414664457332229</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleObstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6111111111111112</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Conditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7852331606217616</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#InfrastructureSurfaceInPoorCondition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6002710027100271</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7010368663594471</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#JuridicalReconstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7000903342366757</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#InfrastructureConstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.670388091440723</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CollisionWithObstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6025096525096525</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Construction_Status'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7559970014992503</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#First_Aid_Post'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FirstAid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.94</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WinterConditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.755639097744361</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#VehicleInspectionCheckPoint'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6381766381766382</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#InternationalSportsMeeting'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7509035464196974</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#WinterStorm'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.633318544809228</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Node'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ModerateFog'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.600990099009901</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Place_Of_Worship'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Plan'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.661704834605598</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Enclosed_Traffic_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TrafficHeld'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6066173882435762</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Enclosed_Traffic_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SlowTraffic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6066173882435762</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Artificial_Surface'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SurfaceWater'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6058044730346324</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

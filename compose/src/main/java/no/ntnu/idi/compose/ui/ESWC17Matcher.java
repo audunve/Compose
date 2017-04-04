@@ -34,7 +34,11 @@ import no.ntnu.idi.compose.profiling.OntologyProcessor;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
-
+/**
+ * This matching UI processes all ontologies in a specified folder and creates an alignment according to a specified matcher
+ * @author audunvennesland
+ * 2. feb. 2017
+ */
 public class ESWC17Matcher {
 
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {

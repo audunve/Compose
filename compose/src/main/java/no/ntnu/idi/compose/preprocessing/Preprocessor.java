@@ -352,9 +352,22 @@ public class Preprocessor {
 		System.out.println(onto1);
 		
 		System.out.println(onto2);
+
+	}
+	
+	public static String replaceUnderscore (String input) {
+		String newString = null;
+		Pattern p = Pattern.compile( "_([a-zA-Z])" );
+		Matcher m = p.matcher(input);
+		StringBuffer sb = new StringBuffer();
+		while (m.find()) {
+			m.appendReplacement(sb, m.group(1).toUpperCase());
+		}
 		
+		m.appendTail(sb);
+		newString = sb.toString();
 		
-		
+		return newString;
 	}
 
 }

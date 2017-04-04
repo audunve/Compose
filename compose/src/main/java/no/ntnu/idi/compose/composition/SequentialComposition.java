@@ -19,7 +19,18 @@ public class SequentialComposition {
 	static File outputAlignment = null;
 
 
-	public static Alignment completeMatch(File alignmentFile1, File alignmentFile2, File alignmentFile3) throws AlignmentException {
+	/**
+	 * Returns an alignment where correspondences that are identified both by the previous matcher and the current matcher. 
+	 * If the correspondence is new, that is, identified only by the current matcher, or if the correspondence is only identified by the previous matcher(s) 
+	 * and not the current one, the correspondence is added to the alignment with equally reduced weight. 
+	 * The weighting scheme applied in this study is to add (or reduce) 12 percent to the confidence of the correspondence. 
+	 * @param alignmentFile1 the first input alignment
+	 * @param alignmentFile2 the second input alignment
+	 * @param alignmentFile3 the third input alignment
+	 * @return an alignment with weighted correspondences
+	 * @throws AlignmentException
+	 */
+	public static Alignment weightedSequentialComposition(File alignmentFile1, File alignmentFile2, File alignmentFile3) throws AlignmentException {
 
 		//BasicAlignment completeMatchAlignment = new BasicAlignment();
 		Alignment completeMatchAlignment = new URIAlignment();
@@ -80,6 +91,15 @@ public class SequentialComposition {
 		return completeMatchAlignment;		
 	}
 	
+	/**
+	 * Returns an alignment produced by processing the input alignments in sequence, comparing if alignments contain equal correspondences and keeping the highest strength (confidence)
+	 * If there are new correspondences discovered while processing each alignment they are all maintained in the final alignment. 
+	 * @param alignmentFile1
+	 * @param alignmentFile2
+	 * @param alignmentFile3
+	 * @return
+	 * @throws AlignmentException
+	 */
 	public static Alignment nonWeightedCompleteMatch(File alignmentFile1, File alignmentFile2, File alignmentFile3) throws AlignmentException {
 
 		//BasicAlignment completeMatchAlignment = new BasicAlignment();
@@ -98,7 +118,7 @@ public class SequentialComposition {
 			for (Cell cell2 : a2) {				
 				//if the cells are equal (contains similar entities)
 				if (cell2.getObject1().equals(cell1.getObject1()) && cell2.getObject2().equals(cell1.getObject2())) {
-					//if the strength in the previous alignment is higher, this cell is added + weight
+					//if the strength in the previous alignment is higher, this cell is added 
 					if (cell1.getStrength() >= cell2.getStrength()) {
 						intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), "=", cell1.getStrength());
 						//if the current cells strength is higher, this cells strength is retained
@@ -119,7 +139,7 @@ public class SequentialComposition {
 			for (Cell cell3 : a3) {
 				//if the cells are equal (contains similar entities)
 				if (cell3.getObject1().equals(cell2.getObject1()) && cell3.getObject2().equals(cell2.getObject2())) {
-					//if the strength in the previous alignment is higher, this cell is added + weight
+					//if the strength in the previous alignment is higher, this cell is added
 					if (cell2.getStrength() >= cell3.getStrength()) {
 						completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), "=", cell2.getStrength());
 						//if the current cells strength is higher, this is retained
@@ -136,28 +156,15 @@ public class SequentialComposition {
 		}
 		
 		//TO-DO: should remove duplicates before returning the completed alignment
-
-
 		return completeMatchAlignment;		
 	}
 
-	public static Alignment partialMatch(File alignmentFile1) throws AlignmentException {
 
-		//load the alignment
-		AlignmentParser parser = new AlignmentParser();
-		BasicAlignment a1 = (BasicAlignment)parser.parse(alignmentFile1.toURI().toString());
-		
-		Properties params = new Properties();
-		params.setProperty("", "");
-		
-		//run a matcher with an already created alignment
-
-		Alignment StringAlignment = (Alignment) ClassEq_String_Matcher.matchAlignment(a1);
-
-		return StringAlignment;
-
-	}
-
+	/**
+	 * Increases an input value by 12 percent
+	 * @param inputStrength the strength/confidence for a correspondence to be increased
+	 * @return a value 12 percent higher than its input value
+	 */
 	public static double increaseCellStrength(double inputStrength) {
 
 		double newStrength = inputStrength + (inputStrength * 0.12);
@@ -169,6 +176,11 @@ public class SequentialComposition {
 		return newStrength;
 	}
 	
+	/**
+	 * Decreases an input value by 12 percent
+	 * @param inputStrength the strength/confidence for a correspondence to be decreased
+	 * @return a value 12 percent lower than its input value
+	 */
 	public static double reduceCellStrength(double inputStrength) {
 
 		double newStrength = inputStrength - (inputStrength * 0.12);

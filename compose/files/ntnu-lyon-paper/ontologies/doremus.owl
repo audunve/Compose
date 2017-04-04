@@ -1,0 +1,4431 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://data.doremus.org/ontology#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://data.doremus.org/ontology#">
+    <Prefix name="" IRI="http://www.semanticweb.org/owl/owlapi/turtle#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="mus" IRI="http://data.doremus.org/ontology#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="ecrm" IRI="http://erlangen-crm.org/current/"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="vann" IRI="http://purl.org/vocab/vann/"/>
+    <Prefix name="efrbroo" IRI="http://erlangen-crm.org/efrbroo/"/>
+    <Import>http://erlangen-crm.org/efrbroo/</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="vann:preferredNamespaceUri"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://data.doremus.org/ontology#</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="vann:preferredNamespacePrefix"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">mus</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">DOREMUS is an extension of the FRBRoo model for describing the music.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">v0.1</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="M10_Catalogue_Name"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M11_Catalogue_Number"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M12_Opus_Number"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M13_Opus_Subnumber"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M14_Medium_Of_Performance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M15_Dedication_Statement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M16_Maintenance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M17_Controlled_Access_Point_Creator"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M18_Controlled_Access_Point_Denomination"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M19_Style"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M1_Catalogue_Statement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M20_Music_Group_Formation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M21_Description_Tag"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M22_Mode"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M23_Casting_Detail"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M24_Track"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M25_Foreseen_Activity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M26_Foreseen_Performance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M27_Foreseen_Individual_Performance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M28_Individual_Performance"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M29_Editing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M2_Opus_Statement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M30_Tessitura"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M31_Actor_Function"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M32_Actor_Responsibility"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M33_Set_of_Characters"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M34_Award_Assignment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M35_Representative_Publication_Assignment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M36_Award"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M37_Scale"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M38_Rhythmic_Pattern"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M39_Derivation_Type_Assignment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M3_Order_Number"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M40_Context"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M41_Metronome_Indication"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M42_Performed_Expression_Creation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M43_Performed_Expression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M44_Performed_Work"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M45_Descriptive_Expression_Assignment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M46_Set_of_Tracks"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M47_WoO_Number"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M4_Key"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M5_Genre_or_Form"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M6_Casting"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M7_Linguistic_Appellation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M8_Tempo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="M9_Derivation_Type"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="efrbroo:F38_Character"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="efrbroo:F50_Controlled_Access_Point"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="CLR25_should_perform"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="CLR25i_should_be_performed_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U10_has_order_number"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U10i_is_order_number_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U11_has_key"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U11i_is_key_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U12_has_genre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U12i_is_genre_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U13_has_casting"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U13i_is_casting_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U14_has_tempo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U14i_is_tempo_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U16_has_catalogue_statement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U16_is_catalogue_statement_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U16i_is_catalogue_statement_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U17_has_opus_statement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U17i_is_opus_statement_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U18_has_rhythmic_pattern"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U18i_is_rhythmic_pattern_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U19_has_style"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U19i_is_style_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U1_used_medium_of_performance"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U1i_medium_of_performance_was_used_in"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U20_has_music_group_formation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U20i_is_music_group_formation_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U21_has_tag"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U21i_is_tag_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U22_has_mode"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U22i_is_mode_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U23_has_casting_detail"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U23i_is_casting_detail_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U24_has_award"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U24i_is_award_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U25_has_scale"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U25i_is_scale_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U26_has_maintained"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U26i_was_maintained_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U27_performed_character"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U27i_character_was_performed_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U28_has_tessitura"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U28i_is_tessitura_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U29_edited"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U29i_was_edited_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U2_foresees_use_of_medium_of_performance_of_type"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U2i_is_foreseen_type_of_medium_of_performance_in"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U31_had_function_of_type"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U31i_was_function_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U32_had_responsibility_of_type"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U32i_was_responsibility_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U33_has_set_of_characters"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U33i_is_set_of_characters_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U34_foresees_character"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U34i_is_foreseen_character_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U35_foresees_function_of_type"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U35i_is_foreseen_function_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U36_foresees_responsibility_of_type"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U36i_is_foreseen_responsibility_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U37_foresees_performing_character"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U37i_is_foreseen_character_in"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U38_has_descriptive_expression"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U38i_is_descriptive_expression_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U39_has_tuned"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U39i_was_tuned_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U3_foresees_specific_medium_of_performance"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U3i_is_foreseen_specific_medium_of_performance_in"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U40_has_catalogue_name"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U40i_is_catalogue_name_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U41_has_catalogue_number"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U41i_is_catalogue_number_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U42_has_opus_number"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U42i_is_opus_number_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U43_has_opus_subnumber"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U43i_is_opus_subnumber_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U44_has_dedication_statement"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U44i_is_dedication_statement_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U45_has_metronome_indication"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U45i_is_metronome_indication_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U46_occurred_in_context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U46i_was_context_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U47_has_derivation_type"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U47i_is_derivation_type_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U49_created_for_actor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U49i_actor_motivated"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U4_had_princeps_publication"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U4i_was_princeps_publication_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U51_is_partial_or_full_recording_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U51i_has_partial_or_full_recording"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U52_has_context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U52i_is_context_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U53_has_duration"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U53i_is_duration_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U54_is_performed_expression_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U54i_has_performed_expression"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U55_incorporates_performed_expression"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U55i_performed_expression_is_incorporated_in"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U56_occurred_in_historical_context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U56i_was_historical_context_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U57_occurred_in_religious_context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U57i_was_religious_context_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U58_has_full_published_recording"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U58i_is_full_published_recording_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U59_has_partial_published_recording"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U59i_is_partial_published_recording_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U5_had_premiere"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U5i_was_premiere_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U60_occurred_in_cultural_context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U60i_was_cultural_context_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U61_occurred_in_geographical_context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U61i_was_geographical_context_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U62_has_form"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U62i_is_form_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U63_has_religious_context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U63i_is_religious_context_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U64_has_cultural_context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U64i_is_cultural_context_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U65_has_geographical_context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U65i_is_geographical_context_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U66_has_historical_context"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U66i_is_historical_context_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U67_has_subtitle"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U67i_is_subtitle_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U68_has_variant_title"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U68i_is_variant_title_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U69_has_WoO_number"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U69i_is_WoO_number_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U6_foresees_actor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U6i_is_foreseen_actor_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U70_has_title"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U70i_is_title_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U71_has_uniform_music_title"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U71i_is_uniform_music_title_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U7_foresees_place_at"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U7i_is_foreseen_place_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U8_foresees_time_span"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="U8i_is_foreseen_time_span_of"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="U15_has_history"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="U30_foresees_quantity_of_mop"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="U48_foresees_quantity_of_actors"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="U72_has_title_note"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="U9_has_quantity"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="M10_Catalogue_Name"/>
+        <Class abbreviatedIRI="ecrm:E90_Symbolic_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M11_Catalogue_Number"/>
+        <Class abbreviatedIRI="ecrm:E90_Symbolic_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M12_Opus_Number"/>
+        <Class abbreviatedIRI="ecrm:E90_Symbolic_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M13_Opus_Subnumber"/>
+        <Class abbreviatedIRI="ecrm:E90_Symbolic_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M14_Medium_Of_Performance"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M15_Dedication_Statement"/>
+        <Class abbreviatedIRI="ecrm:E33_Linguistic_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M16_Maintenance"/>
+        <Class abbreviatedIRI="ecrm:E11_Modification"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M17_Controlled_Access_Point_Creator"/>
+        <Class abbreviatedIRI="efrbroo:F50_Controlled_Access_Point"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M18_Controlled_Access_Point_Denomination"/>
+        <Class abbreviatedIRI="efrbroo:F50_Controlled_Access_Point"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M19_Style"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M1_Catalogue_Statement"/>
+        <Class abbreviatedIRI="ecrm:E41_Appellation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M20_Music_Group_Formation"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M21_Description_Tag"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M22_Mode"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M23_Casting_Detail"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M24_Track"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M25_Foreseen_Activity"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M26_Foreseen_Performance"/>
+        <Class IRI="M25_Foreseen_Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M27_Foreseen_Individual_Performance"/>
+        <Class IRI="M26_Foreseen_Performance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M28_Individual_Performance"/>
+        <Class abbreviatedIRI="efrbroo:F31_Performance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M29_Editing"/>
+        <Class abbreviatedIRI="efrbroo:F28_Expression_Creation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M2_Opus_Statement"/>
+        <Class abbreviatedIRI="ecrm:E41_Appellation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M30_Tessitura"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M31_Actor_Function"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M32_Actor_Responsibility"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M33_Set_of_Characters"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M34_Award_Assignment"/>
+        <Class abbreviatedIRI="ecrm:E13_Attribute_Assignment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M35_Representative_Publication_Assignment"/>
+        <Class abbreviatedIRI="ecrm:E13_Attribute_Assignment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M36_Award"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M37_Scale"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M38_Rhythmic_Pattern"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M39_Derivation_Type_Assignment"/>
+        <Class abbreviatedIRI="ecrm:E17_Type_Assignment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M3_Order_Number"/>
+        <Class abbreviatedIRI="ecrm:E41_Appellation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M40_Context"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M41_Metronome_Indication"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M42_Performed_Expression_Creation"/>
+        <Class abbreviatedIRI="efrbroo:F28_Expression_Creation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M42_Performed_Expression_Creation"/>
+        <Class abbreviatedIRI="efrbroo:F31_Performance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M43_Performed_Expression"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M44_Performed_Work"/>
+        <Class abbreviatedIRI="efrbroo:F14_Individual_Work"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M45_Descriptive_Expression_Assignment"/>
+        <Class abbreviatedIRI="ecrm:E13_Attribute_Assignment"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M46_Set_of_Tracks"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M47_WoO_Number"/>
+        <Class abbreviatedIRI="ecrm:E90_Symbolic_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M4_Key"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M5_Genre_or_Form"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M6_Casting"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M7_Linguistic_Appellation"/>
+        <Class abbreviatedIRI="ecrm:E33_Linguistic_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M7_Linguistic_Appellation"/>
+        <Class abbreviatedIRI="ecrm:E41_Appellation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M8_Tempo"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="M9_Derivation_Type"/>
+        <Class abbreviatedIRI="ecrm:E55_Type"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="efrbroo:F38_Character"/>
+        <Class abbreviatedIRI="ecrm:E28_Conceptual_Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="efrbroo:F50_Controlled_Access_Point"/>
+        <Class abbreviatedIRI="ecrm:E42_Identifier"/>
+    </SubClassOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U10_has_order_number"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P1_is_identified_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U10i_is_order_number_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P1i_identifies"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U11_has_key"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U11i_is_key_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U12_has_genre"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U12i_is_genre_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U13_has_casting"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U13i_is_casting_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U14_has_tempo"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U14i_is_tempo_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U16_has_catalogue_statement"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P1_is_identified_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U16i_is_catalogue_statement_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P1i_identifies"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U17_has_opus_statement"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P1_is_identified_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U17i_is_opus_statement_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P1i_identifies"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U18_has_rhythmic_pattern"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U18i_is_rhythmic_pattern_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U19_has_style"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U19i_is_style_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U1_used_medium_of_performance"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P125_used_object_of_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U1i_medium_of_performance_was_used_in"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P125i_was_type_of_object_used_in"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U20_has_music_group_formation"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U20i_is_music_group_formation_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U21_has_tag"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U21i_is_tag_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U22_has_mode"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U22i_is_mode_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U23_has_casting_detail"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P69_has_association_with"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U23i_is_casting_detail_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P69i_is_associated_with"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U24_has_award"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U24i_is_award_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U25_has_scale"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U25i_is_scale_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U26_has_maintained"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P31_has_modified"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U26i_was_maintained_by"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P31i_was_modified_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U27_performed_character"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P16_used_specific_object"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U27i_character_was_performed_by"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P16i_was_used_for"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U28_has_tessitura"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U28i_is_tessitura_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U29_edited"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P16_used_specific_object"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U29i_was_edited_by"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P16i_was_used_for"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U2_foresees_use_of_medium_of_performance_of_type"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U2i_is_foreseen_type_of_medium_of_performance_in"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U31_had_function_of_type"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U31i_was_function_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U32_had_responsibility_of_type"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U32i_was_responsibility_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U33_has_set_of_characters"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U33i_is_set_of_characters_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U34_foresees_character"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U34i_is_foreseen_character_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U35_foresees_function_of_type"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U35i_is_foreseen_function_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U36_foresees_responsibility_of_type"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U36i_is_foreseen_responsibility_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U37_foresees_performing_character"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U37i_is_foreseen_character_in"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U38_has_descriptive_expression"/>
+        <ObjectProperty abbreviatedIRI="efrbroo:R3_is_realised_in"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U38i_is_descriptive_expression_of"/>
+        <ObjectProperty abbreviatedIRI="efrbroo:R3i_realises"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U39_has_tuned"/>
+        <ObjectProperty IRI="U26_has_maintained"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U39i_was_tuned_by"/>
+        <ObjectProperty IRI="U26i_was_maintained_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U3_foresees_specific_medium_of_performance"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U3i_is_foreseen_specific_medium_of_performance_in"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U40_has_catalogue_name"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P106_is_composed_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U40i_is_catalogue_name_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P106i_forms_part_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U41_has_catalogue_number"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P106_is_composed_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U41i_is_catalogue_number_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P106i_forms_part_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U42_has_opus_number"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P106_is_composed_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U42i_is_opus_number_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P106i_forms_part_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U43_has_opus_subnumber"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P106_is_composed_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U43i_is_opus_subnumber_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P106i_forms_part_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U44_has_dedication_statement"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U44i_is_dedication_statement_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U45_has_metronome_indication"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U45i_is_metronome_indication_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U46_occurred_in_context"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U46i_was_context_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U47_has_derivation_type"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U47i_is_derivation_type_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U49_created_for_actor"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P15_was_influenced_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U49i_actor_motivated"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P15i_influenced"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U4_had_princeps_publication"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U4i_was_princeps_publication_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U51_is_partial_or_full_recording_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P130_shows_features_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U51i_has_partial_or_full_recording"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P130i_features_are_also_found_on"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U52_has_context"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U52i_is_context_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U53_has_duration"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P43_has_dimension"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U53i_is_duration_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P43i_is_dimension_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U54_is_performed_expression_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P130_shows_features_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U54i_has_performed_expression"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P130i_features_are_also_found_on"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U55_incorporates_performed_expression"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P165_incorporates"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U55i_performed_expression_is_incorporated_in"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P165i_is_incorporated_in"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U56_occurred_in_historical_context"/>
+        <ObjectProperty IRI="U46_occurred_in_context"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U56i_was_historical_context_of"/>
+        <ObjectProperty IRI="U46i_was_context_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U57_occurred_in_religious_context"/>
+        <ObjectProperty IRI="U46_occurred_in_context"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U57i_was_religious_context_of"/>
+        <ObjectProperty IRI="U46i_was_context_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U58_has_full_published_recording"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P130i_features_are_also_found_on"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U58i_is_full_published_recording_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P130_shows_features_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U59_has_partial_published_recording"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P130i_features_are_also_found_on"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U59i_is_partial_published_recording_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P130_shows_features_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U5_had_premiere"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U5i_was_premiere_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U60_occurred_in_cultural_context"/>
+        <ObjectProperty IRI="U46_occurred_in_context"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U60i_was_cultural_context_of"/>
+        <ObjectProperty IRI="U46i_was_context_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U61_occurred_in_geographical_context"/>
+        <ObjectProperty IRI="U46_occurred_in_context"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U61i_was_geographical_context_of"/>
+        <ObjectProperty IRI="U46i_was_context_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U62_has_form"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2_has_type"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U62i_is_form_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P2i_is_type_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U63_has_religious_context"/>
+        <ObjectProperty IRI="U52_has_context"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U63i_is_religious_context_of"/>
+        <ObjectProperty IRI="U52i_is_context_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U64_has_cultural_context"/>
+        <ObjectProperty IRI="U52_has_context"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U64i_is_cultural_context_of"/>
+        <ObjectProperty IRI="U52i_is_context_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U65_has_geographical_context"/>
+        <ObjectProperty IRI="U52_has_context"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U65i_is_geographical_context_of"/>
+        <ObjectProperty IRI="U52i_is_context_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U66_has_historical_context"/>
+        <ObjectProperty IRI="U52_has_context"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U66i_is_historical_context_of"/>
+        <ObjectProperty IRI="U52i_is_context_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U67_has_subtitle"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P102_has_title"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U67i_is_subtitle_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P102i_is_title_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U68_has_variant_title"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P102_has_title"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U68i_is_variant_title_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P102i_is_title_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U69_has_WoO_number"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P106_is_composed_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U69i_is_WoO_number_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P106i_forms_part_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U6_foresees_actor"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U6i_is_foreseen_actor_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U70_has_title"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P102_has_title"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U70i_is_title_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P102i_is_title_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U71_has_uniform_music_title"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P102_has_title"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U71i_is_uniform_music_title_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P102i_is_title_of"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U7_foresees_place_at"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U7i_is_foreseen_place_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U8_foresees_time_span"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67_refers_to"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="U8i_is_foreseen_time_span_of"/>
+        <ObjectProperty abbreviatedIRI="ecrm:P67i_is_referred_to_by"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="CLR25_should_perform"/>
+        <ObjectProperty IRI="CLR25i_should_be_performed_by"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U10_has_order_number"/>
+        <ObjectProperty IRI="U10i_is_order_number_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U11_has_key"/>
+        <ObjectProperty IRI="U11i_is_key_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U12_has_genre"/>
+        <ObjectProperty IRI="U12i_is_genre_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U13_has_casting"/>
+        <ObjectProperty IRI="U13i_is_casting_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U14_has_tempo"/>
+        <ObjectProperty IRI="U14i_is_tempo_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U16_has_catalogue_statement"/>
+        <ObjectProperty IRI="U16_is_catalogue_statement_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U17_has_opus_statement"/>
+        <ObjectProperty IRI="U17i_is_opus_statement_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U18_has_rhythmic_pattern"/>
+        <ObjectProperty IRI="U18i_is_rhythmic_pattern_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U19_has_style"/>
+        <ObjectProperty IRI="U19i_is_style_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U1_used_medium_of_performance"/>
+        <ObjectProperty IRI="U1i_medium_of_performance_was_used_in"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U20_has_music_group_formation"/>
+        <ObjectProperty IRI="U20i_is_music_group_formation_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U21_has_tag"/>
+        <ObjectProperty IRI="U21i_is_tag_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U22_has_mode"/>
+        <ObjectProperty IRI="U22i_is_mode_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U23_has_casting_detail"/>
+        <ObjectProperty IRI="U23i_is_casting_detail_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U24_has_award"/>
+        <ObjectProperty IRI="U24i_is_award_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U25_has_scale"/>
+        <ObjectProperty IRI="U25i_is_scale_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U26_has_maintained"/>
+        <ObjectProperty IRI="U26i_was_maintained_by"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U27_performed_character"/>
+        <ObjectProperty IRI="U27i_character_was_performed_by"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U28_has_tessitura"/>
+        <ObjectProperty IRI="U28i_is_tessitura_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U29_edited"/>
+        <ObjectProperty IRI="U29i_was_edited_by"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U2_foresees_use_of_medium_of_performance_of_type"/>
+        <ObjectProperty IRI="U2i_is_foreseen_type_of_medium_of_performance_in"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U31_had_function_of_type"/>
+        <ObjectProperty IRI="U31i_was_function_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U32_had_responsibility_of_type"/>
+        <ObjectProperty IRI="U32i_was_responsibility_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U33_has_set_of_characters"/>
+        <ObjectProperty IRI="U33i_is_set_of_characters_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U34_foresees_character"/>
+        <ObjectProperty IRI="U34i_is_foreseen_character_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U35_foresees_function_of_type"/>
+        <ObjectProperty IRI="U35i_is_foreseen_function_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U36_foresees_responsibility_of_type"/>
+        <ObjectProperty IRI="U36i_is_foreseen_responsibility_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U37_foresees_performing_character"/>
+        <ObjectProperty IRI="U37i_is_foreseen_character_in"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U38_has_descriptive_expression"/>
+        <ObjectProperty IRI="U38i_is_descriptive_expression_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U39_has_tuned"/>
+        <ObjectProperty IRI="U39i_was_tuned_by"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U3_foresees_specific_medium_of_performance"/>
+        <ObjectProperty IRI="U3i_is_foreseen_specific_medium_of_performance_in"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U40_has_catalogue_name"/>
+        <ObjectProperty IRI="U40i_is_catalogue_name_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U41_has_catalogue_number"/>
+        <ObjectProperty IRI="U41i_is_catalogue_number_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U42_has_opus_number"/>
+        <ObjectProperty IRI="U42i_is_opus_number_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U43_has_opus_subnumber"/>
+        <ObjectProperty IRI="U43i_is_opus_subnumber_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U44_has_dedication_statement"/>
+        <ObjectProperty IRI="U44i_is_dedication_statement_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U45_has_metronome_indication"/>
+        <ObjectProperty IRI="U45i_is_metronome_indication_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U46_occurred_in_context"/>
+        <ObjectProperty IRI="U46i_was_context_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U47_has_derivation_type"/>
+        <ObjectProperty IRI="U47i_is_derivation_type_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U49_created_for_actor"/>
+        <ObjectProperty IRI="U49i_actor_motivated"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U4_had_princeps_publication"/>
+        <ObjectProperty IRI="U4i_was_princeps_publication_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U51_is_partial_or_full_recording_of"/>
+        <ObjectProperty IRI="U51i_has_partial_or_full_recording"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U52_has_context"/>
+        <ObjectProperty IRI="U52i_is_context_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U53_has_duration"/>
+        <ObjectProperty IRI="U53i_is_duration_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U54_is_performed_expression_of"/>
+        <ObjectProperty IRI="U54i_has_performed_expression"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U55_incorporates_performed_expression"/>
+        <ObjectProperty IRI="U55i_performed_expression_is_incorporated_in"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U56_occurred_in_historical_context"/>
+        <ObjectProperty IRI="U56i_was_historical_context_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U57_occurred_in_religious_context"/>
+        <ObjectProperty IRI="U57i_was_religious_context_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U58_has_full_published_recording"/>
+        <ObjectProperty IRI="U58i_is_full_published_recording_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U59_has_partial_published_recording"/>
+        <ObjectProperty IRI="U59i_is_partial_published_recording_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U5_had_premiere"/>
+        <ObjectProperty IRI="U5i_was_premiere_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U60_occurred_in_cultural_context"/>
+        <ObjectProperty IRI="U60i_was_cultural_context_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U61_occurred_in_geographical_context"/>
+        <ObjectProperty IRI="U61i_was_geographical_context_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U62_has_form"/>
+        <ObjectProperty IRI="U62i_is_form_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U63_has_religious_context"/>
+        <ObjectProperty IRI="U63i_is_religious_context_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U64_has_cultural_context"/>
+        <ObjectProperty IRI="U64i_is_cultural_context_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U65_has_geographical_context"/>
+        <ObjectProperty IRI="U65i_is_geographical_context_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U66_has_historical_context"/>
+        <ObjectProperty IRI="U66i_is_historical_context_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U67_has_subtitle"/>
+        <ObjectProperty IRI="U67i_is_subtitle_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U68_has_variant_title"/>
+        <ObjectProperty IRI="U68i_is_variant_title_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U69_has_WoO_number"/>
+        <ObjectProperty IRI="U69i_is_WoO_number_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U6_foresees_actor"/>
+        <ObjectProperty IRI="U6i_is_foreseen_actor_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U70_has_title"/>
+        <ObjectProperty IRI="U70i_is_title_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U71_has_uniform_music_title"/>
+        <ObjectProperty IRI="U71i_is_uniform_music_title_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U7_foresees_place_at"/>
+        <ObjectProperty IRI="U7i_is_foreseen_place_of"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="U8_foresees_time_span"/>
+        <ObjectProperty IRI="U8i_is_foreseen_time_span_of"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="CLR25_should_perform"/>
+        <Class IRI="M26_Foreseen_Performance"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U10_has_order_number"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U11_has_key"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U12_has_genre"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U13_has_casting"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U14_has_tempo"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U16_has_catalogue_statement"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U17_has_opus_statement"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U18_has_rhythmic_pattern"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U19_has_style"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U1_used_medium_of_performance"/>
+        <Class IRI="M28_Individual_Performance"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U20_has_music_group_formation"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U21_has_tag"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U22_has_mode"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U23_has_casting_detail"/>
+        <Class IRI="M6_Casting"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U24_has_award"/>
+        <Class abbreviatedIRI="ecrm:E77_Persistent_Item"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U25_has_scale"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U26_has_maintained"/>
+        <Class IRI="M16_Maintenance"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U27_performed_character"/>
+        <Class IRI="M28_Individual_Performance"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U28_has_tessitura"/>
+        <Class abbreviatedIRI="efrbroo:F38_Character"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U29_edited"/>
+        <Class IRI="M29_Editing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U2_foresees_use_of_medium_of_performance_of_type"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U31_had_function_of_type"/>
+        <Class abbreviatedIRI="ecrm:E7_Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U32_had_responsibility_of_type"/>
+        <Class abbreviatedIRI="ecrm:E7_Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U33_has_set_of_characters"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U34_foresees_character"/>
+        <Class IRI="M33_Set_of_Characters"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U35_foresees_function_of_type"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U36_foresees_responsibility_of_type"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U37_foresees_performing_character"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U38_has_descriptive_expression"/>
+        <Class abbreviatedIRI="efrbroo:F15_Complex_Work"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U39_has_tuned"/>
+        <Class IRI="M16_Maintenance"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U3_foresees_specific_medium_of_performance"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U40_has_catalogue_name"/>
+        <Class IRI="M1_Catalogue_Statement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U41_has_catalogue_number"/>
+        <Class IRI="M1_Catalogue_Statement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U42_has_opus_number"/>
+        <Class IRI="M2_Opus_Statement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U43_has_opus_subnumber"/>
+        <Class IRI="M2_Opus_Statement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U44_has_dedication_statement"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U45_has_metronome_indication"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U46_occurred_in_context"/>
+        <Class abbreviatedIRI="ecrm:E7_Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U47_has_derivation_type"/>
+        <Class abbreviatedIRI="ecrm:E89_Propositional_Object"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U49_created_for_actor"/>
+        <Class abbreviatedIRI="efrbroo:F28_Expression_Creation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U4_had_princeps_publication"/>
+        <Class abbreviatedIRI="ecrm:E89_Propositional_Object"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U51_is_partial_or_full_recording_of"/>
+        <Class IRI="M24_Track"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U52_has_context"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U53_has_duration"/>
+        <Class abbreviatedIRI="efrbroo:F2_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U54_is_performed_expression_of"/>
+        <Class IRI="M43_Performed_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U55_incorporates_performed_expression"/>
+        <Class abbreviatedIRI="efrbroo:F24_Publication_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U56_occurred_in_historical_context"/>
+        <Class abbreviatedIRI="ecrm:E7_Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U57_occurred_in_religious_context"/>
+        <Class abbreviatedIRI="ecrm:E7_Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U58_has_full_published_recording"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U59_has_partial_published_recording"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U5_had_premiere"/>
+        <Class abbreviatedIRI="ecrm:E89_Propositional_Object"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U60_occurred_in_cultural_context"/>
+        <Class abbreviatedIRI="ecrm:E7_Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U61_occurred_in_geographical_context"/>
+        <Class abbreviatedIRI="ecrm:E7_Activity"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U62_has_form"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U63_has_religious_context"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U64_has_cultural_context"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U65_has_geographical_context"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U66_has_historical_context"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U67_has_subtitle"/>
+        <Class abbreviatedIRI="ecrm:E71_Man-Made_Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U68_has_variant_title"/>
+        <Class abbreviatedIRI="ecrm:E71_Man-Made_Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U69_has_WoO_number"/>
+        <Class IRI="M2_Opus_Statement"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U6_foresees_actor"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U70_has_title"/>
+        <Class abbreviatedIRI="ecrm:E89_Propositional_Object"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U71_has_uniform_music_title"/>
+        <Class abbreviatedIRI="ecrm:E89_Propositional_Object"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U7_foresees_place_at"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="U8_foresees_time_span"/>
+        <Class abbreviatedIRI="ecrm:E29_Design_or_Procedure"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="CLR25_should_perform"/>
+        <Class abbreviatedIRI="efrbroo:F25_Performance_Plan"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U10_has_order_number"/>
+        <Class IRI="M3_Order_Number"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U11_has_key"/>
+        <Class IRI="M4_Key"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U12_has_genre"/>
+        <Class IRI="M5_Genre_or_Form"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U13_has_casting"/>
+        <Class IRI="M6_Casting"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U14_has_tempo"/>
+        <Class IRI="M8_Tempo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U16_has_catalogue_statement"/>
+        <Class IRI="M1_Catalogue_Statement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U17_has_opus_statement"/>
+        <Class IRI="M2_Opus_Statement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U18_has_rhythmic_pattern"/>
+        <Class IRI="M38_Rhythmic_Pattern"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U19_has_style"/>
+        <Class IRI="M19_Style"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U1_used_medium_of_performance"/>
+        <Class IRI="M14_Medium_Of_Performance"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U20_has_music_group_formation"/>
+        <Class IRI="M20_Music_Group_Formation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U21_has_tag"/>
+        <Class IRI="M21_Description_Tag"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U22_has_mode"/>
+        <Class IRI="M22_Mode"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U23_has_casting_detail"/>
+        <Class IRI="M23_Casting_Detail"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U24_has_award"/>
+        <Class IRI="M36_Award"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U25_has_scale"/>
+        <Class IRI="M37_Scale"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U26_has_maintained"/>
+        <Class abbreviatedIRI="ecrm:E24_Physical_Man-Made_Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U27_performed_character"/>
+        <Class abbreviatedIRI="efrbroo:F38_Character"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U28_has_tessitura"/>
+        <Class IRI="M30_Tessitura"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U29_edited"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U2_foresees_use_of_medium_of_performance_of_type"/>
+        <Class IRI="M14_Medium_Of_Performance"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U31_had_function_of_type"/>
+        <Class IRI="M31_Actor_Function"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U32_had_responsibility_of_type"/>
+        <Class IRI="M32_Actor_Responsibility"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U33_has_set_of_characters"/>
+        <Class IRI="M33_Set_of_Characters"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U34_foresees_character"/>
+        <Class abbreviatedIRI="efrbroo:F38_Character"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U35_foresees_function_of_type"/>
+        <Class IRI="M31_Actor_Function"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U36_foresees_responsibility_of_type"/>
+        <Class IRI="M32_Actor_Responsibility"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U37_foresees_performing_character"/>
+        <Class abbreviatedIRI="efrbroo:F38_Character"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U38_has_descriptive_expression"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U39_has_tuned"/>
+        <Class abbreviatedIRI="ecrm:E22_Man-Made_Object"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U3_foresees_specific_medium_of_performance"/>
+        <Class abbreviatedIRI="ecrm:E22_Man-Made_Object"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U40_has_catalogue_name"/>
+        <Class IRI="M10_Catalogue_Name"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U41_has_catalogue_number"/>
+        <Class IRI="M11_Catalogue_Number"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U42_has_opus_number"/>
+        <Class IRI="M12_Opus_Number"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U43_has_opus_subnumber"/>
+        <Class IRI="M13_Opus_Subnumber"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U44_has_dedication_statement"/>
+        <Class IRI="M15_Dedication_Statement"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U45_has_metronome_indication"/>
+        <Class IRI="M41_Metronome_Indication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U46_occurred_in_context"/>
+        <Class IRI="M40_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U47_has_derivation_type"/>
+        <Class IRI="M9_Derivation_Type"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U49_created_for_actor"/>
+        <Class abbreviatedIRI="ecrm:E39_Actor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U4_had_princeps_publication"/>
+        <Class abbreviatedIRI="efrbroo:F30_Publication_Event"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U51_is_partial_or_full_recording_of"/>
+        <Class IRI="M43_Performed_Expression"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U52_has_context"/>
+        <Class IRI="M40_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U53_has_duration"/>
+        <Class abbreviatedIRI="ecrm:E54_Dimension"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U54_is_performed_expression_of"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U55_incorporates_performed_expression"/>
+        <Class IRI="M43_Performed_Expression"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U56_occurred_in_historical_context"/>
+        <Class IRI="M40_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U57_occurred_in_religious_context"/>
+        <Class IRI="M40_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U58_has_full_published_recording"/>
+        <Class abbreviatedIRI="efrbroo:F24_Publication_Expression"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U59_has_partial_published_recording"/>
+        <Class abbreviatedIRI="efrbroo:F24_Publication_Expression"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U5_had_premiere"/>
+        <Class abbreviatedIRI="efrbroo:F31_Performance"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U60_occurred_in_cultural_context"/>
+        <Class IRI="M40_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U61_occurred_in_geographical_context"/>
+        <Class IRI="M40_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U62_has_form"/>
+        <Class IRI="M5_Genre_or_Form"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U63_has_religious_context"/>
+        <Class IRI="M40_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U64_has_cultural_context"/>
+        <Class IRI="M40_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U65_has_geographical_context"/>
+        <Class IRI="M40_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U66_has_historical_context"/>
+        <Class IRI="M40_Context"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U67_has_subtitle"/>
+        <Class abbreviatedIRI="ecrm:E35_Title"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U68_has_variant_title"/>
+        <Class abbreviatedIRI="ecrm:E35_Title"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U69_has_WoO_number"/>
+        <Class IRI="M47_WoO_Number"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U6_foresees_actor"/>
+        <Class abbreviatedIRI="ecrm:E39_Actor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U70_has_title"/>
+        <Class abbreviatedIRI="ecrm:E35_Title"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U71_has_uniform_music_title"/>
+        <Class abbreviatedIRI="ecrm:E35_Title"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U7_foresees_place_at"/>
+        <Class abbreviatedIRI="ecrm:E53_Place"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="U8_foresees_time_span"/>
+        <Class abbreviatedIRI="ecrm:E52_Time-Span"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="U15_has_history"/>
+        <DataProperty abbreviatedIRI="ecrm:P3_has_note"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="U72_has_title_note"/>
+        <DataProperty abbreviatedIRI="ecrm:P3_has_note"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="U15_has_history"/>
+        <Class abbreviatedIRI="efrbroo:F22_Self-Contained_Expression"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="U30_foresees_quantity_of_mop"/>
+        <Class IRI="M23_Casting_Detail"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="U48_foresees_quantity_of_actors"/>
+        <Class IRI="M23_Casting_Detail"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="U72_has_title_note"/>
+        <Class abbreviatedIRI="ecrm:E89_Propositional_Object"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="U9_has_quantity"/>
+        <Class abbreviatedIRI="ecrm:E77_Persistent_Item"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="U30_foresees_quantity_of_mop"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="U48_foresees_quantity_of_actors"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="U9_has_quantity"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>CLR25_should_perform</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>CLR25_should_perform</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">CLR25 should perform</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>CLR25i_should_be_performed_by</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>CLR25i_should_be_performed_by</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">CLR25i should be performed by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M10_Catalogue_Name</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M10_Catalogue_Name</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M10 Catalogue Name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M10_Catalogue_Name</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M10 Nom de catalogue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M11_Catalogue_Number</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M11_Catalogue_Number</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M11 Catalogue Number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M11_Catalogue_Number</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M11 Numéro de catalogue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M12_Opus_Number</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M12_Opus_Number</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M12 Numéro d&apos;opus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M12_Opus_Number</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M12 Opus Number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M13_Opus_Subnumber</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M13_Opus_Subnumber</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M13 Opus Subnumber</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M13_Opus_Subnumber</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M13 Sous-numéro d&apos;opus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M14_Medium_Of_Performance</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M14_Medium_Of_Performance</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M14 Distribution instrumentale ou vocale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M14_Medium_Of_Performance</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M14 Medium Of Performance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M15_Dedication_Statement</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M15_Dedication_Statement</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M15 Dedication Statement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M15_Dedication_Statement</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M15 Mention de dédicace</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M16_Maintenance</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M16_Maintenance</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M16 Maintenance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M16_Maintenance</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M16 Maintenance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M17_Controlled_Access_Point_Creator</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Examples:
+…explosante-fixe… (F22) P1 is identified by F50 Controlled Access Point R8 consists of M17 Controlled Access Point Creator { Boulez, Pierre (1925, …) } and R8 consists of M18 Controlled Access Point Denomination R8 consists of F12 Nomen { …explosante-fixe… }</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M17_Controlled_Access_Point_Creator</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Scope note:
+Sous-classe de F50 Controlled Access Point, cette classe en reprend les caractéristiques, limitées au « créateur » de l’œuvre.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M17_Controlled_Access_Point_Creator</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M17_Controlled_Access_Point_Creator</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M17 Controlled Access Point Creator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M17_Controlled_Access_Point_Creator</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M17 Point d&apos;accès contrôlé créateur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M18_Controlled_Access_Point_Denomination</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Examples:
+…explosante-fixe… (F22) P1 is identified by F50 Controlled Access Point R8 consists of M17 Controlled Access Point Creator { Boulez, Pierre (1925, …) } and R8 consists of M18 Controlled Access Point Denomination R8 consists of F12 Nomen { …explosante-fixe… }</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M18_Controlled_Access_Point_Denomination</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Scope note:
+Sous-classe de F50 Controlled Access Point, cette classe en reprend les caractéristiques, limitées à la « dénomination » de l’œuvre. La dénomination peut être un titre significatif (« Le Sacre du Printemps »), ou un titre composé (« Sonates. Piano. Opus 27 no 2. Do dièse mineur.”)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M18_Controlled_Access_Point_Denomination</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M18_Controlled_Access_Point_Denomination</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M18 Controlled Access Point Denomination</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M18_Controlled_Access_Point_Denomination</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M18 Point d&apos;accès contrôlé dénomination</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M19_Style</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M19_Style</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M19 Style</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M19_Style</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M19 Style</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M1_Catalogue_Statement</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Exemples :
+La cantate Ich habe genug de JS Bach [BWV 82] (F22) est identifiée par  (M1 Catalogue p3 has note E62 String) BWV 82
+La cantate Ich habe genug de JS Bach [BWV 82] (F22) est identifiée par  (M1 Catalogue p106 is composed of M10 Catalogue Name) BWV et (M1 Catalogue p106 is composed of Catalogue Number) 82.
+Komm, Gott Schöpfer, heiliger Geist. No 1 de JS Bach [BWV deest] (F22) est identifiée par (M1 Catalogue p3 has note E62 String) BWV deest.
+Duncan Gray [WoO 156, no 2] de Beethoven (F22) est identifiée par (M1 Catalogue p106 is composed of M10 Catalogue Name) WoO et (M1 Catalogue p106 is composed of Catalogue Number) 156, no 2.
+La Sonate pour Clavier en Ut majeur de Wilhelm Friedemann Bach identifiée BR A1 par le catalogue Bach Repertorium  et identifiée F200 par le catalogue Fasch (F22) : est identifiée par (M1 Catalogue p106 is composed of M10 Catalogue Name) BR et (M1 Catalogue p106 is composed of Catalogue Number) A1, et est identifiée par (M1 Catalogue p106 is composed of M10 Catalogue Name) F et (M1 Catalogue p106 is composed of Catalogue Number) 200.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M1_Catalogue_Statement</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Scope Note:
+Cette classe permet de décrire, lorsqu’elles existent, les références de catalogue de l’œuvre musicale. Par catalogue, on comprend tous les catalogues thématiques à proprement parler (donc à l’exclusion des numéros d’opus) ainsi que les classifications spécifiques telles que WoO ou Anh.
+Selon le niveau de granularité initial, elle est décrite par une simple chaîne de caractères, ou par les objets symboliques M10 Catalogue Name et M11 Catalogue Number qui la composent. La classe M10 Catalogue Name peut-être documentée via la propriété p70i is documented in.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M1_Catalogue_Statement</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M1_Catalogue_Statement</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M1 Catalogue Statement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M1_Catalogue_Statement</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M1 Mention de catalogue</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M20_Music_Group_Formation</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M20_Music_Group_Formation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M20 Music Group Formation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M20_Music_Group_Formation</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M20 Type de formation musicale ou vocale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M21_Description_Tag</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M21_Description_Tag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M21 Description Tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M22_Mode</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M22_Mode</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M22 Mode</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M22_Mode</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M22 Mode</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M23_Casting_Detail</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Examples:
+La Sonate pour piano opus 27, no 2 de Beethoven (F22) U13 has intended casting M6 Intended Casting U23 has casting detail M23 Casting Detail U1 has intended medium of performance M35 Cast Medium of Performance U39 has medium of performance M14 Medium of Performance { piano } and P90 has value { 1 }.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M23_Casting_Detail</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Scope note:
+Cette classe décrit un détail de la distribution prévue par le compositeur, par exemple une sonate pour violon et piano est décrite par deux « composantes » M23 qui sont le violon et le piano. Elle est donc obligatoirement associée à la classe M6 Intended Casting dont elle détaille les composantes. Ces composantes comprennent notamment le ou les medium of performance prévus par le compositeur, l’éventuel rôle soliste du medium of performance, le personnage interprété (par exemple dans un opéra), la tessiture précise.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M23_Casting_Detail</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M23_Casting_Detail</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M23 Casting Detail</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M23_Casting_Detail</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M23 Détail de la distribution</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M24_Track</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M24_Track</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M24 Piste</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M24_Track</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M24 Track</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M25_Foreseen_Activity</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M25_Foreseen_Activity</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M25 Activité prévisionnelle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M25_Foreseen_Activity</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M25 Foreseen Activity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M26_Foreseen_Performance</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M26_Foreseen_Performance</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M26 Foreseen Performance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M26_Foreseen_Performance</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M26 Performance prévisionnelle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M27_Foreseen_Individual_Performance</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M27_Foreseen_Individual_Performance</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M27 Foreseen Individual Performance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M27_Foreseen_Individual_Performance</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M27 Performance individuelle prévisionnelle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M28_Individual_Performance</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M28_Individual_Performance</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M28 Individual Performance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M28_Individual_Performance</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M28 Performance individuelle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M29_Editing</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M29_Editing</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M29 Editing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M29_Editing</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M29 Post-production</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M2_Opus_Statement</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M2_Opus_Statement</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M2 Mention d&apos;opus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M2_Opus_Statement</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M2 Opus Statement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M30_Tessitura</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M30_Tessitura</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M30 Tessitura</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M30_Tessitura</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M30 Tessiture</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M31_Actor_Function</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M31_Actor_Function</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M31 Actor&apos;s Function</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M31_Actor_Function</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M31 Fonction de l&apos;agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M32_Actor_Responsibility</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M32_Actor_Responsibility</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M32 Actor&apos;s Responsibility</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M32_Actor_Responsibility</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M32 Responsabilité de l&apos;agent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M33_Set_of_Characters</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M33_Set_of_Characters</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M33 Ensemble de personnages</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M33_Set_of_Characters</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M33 Set of Characters</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M34_Award_Assignment</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M34_Award_Assignment</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M34 Attribution de récompense</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M34_Award_Assignment</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M34 Award Assignment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M35_Representative_Publication_Assignment</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M35_Representative_Publication_Assignment</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M35 Attribution d&apos;Expression publicationnelle représentative</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M35_Representative_Publication_Assignment</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M35 Representative Publication Assignment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M36_Award</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M36_Award</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M36 Award</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M36_Award</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M36 Récompense</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M37_Scale</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M37_Scale</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M37 Gamme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M37_Scale</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M37 Scale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M38_Rhythmic_Pattern</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M38_Rhythmic_Pattern</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M38 Figure Rythmique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M38_Rhythmic_Pattern</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M38 Rhythmic Pattern</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M39_Derivation_Type_Assignment</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M39_Derivation_Type_Assignment</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M39 Attribution de type de dérivation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M39_Derivation_Type_Assignment</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M39 Derivation Type Assignment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M3_Order_Number</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M3_Order_Number</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M3 Numéro d&apos;ordre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M3_Order_Number</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M3 Order Number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M40_Context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M40_Context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M40 Context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M40_Context</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M40 Contexte</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M41_Metronome_Indication</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M41_Metronome_Indication</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M41 Indication Métronomique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M41_Metronome_Indication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M41 Metronome Indication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M42_Performed_Expression_Creation</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M42_Performed_Expression_Creation</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M42 Création d&apos;Expression interprétée</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M42_Performed_Expression_Creation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M42 Performed Expression Creation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M43_Performed_Expression</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M43_Performed_Expression</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M43 Expression interprétée</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M43_Performed_Expression</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M43 Performed Expression</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M44_Performed_Work</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M44_Performed_Work</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M44 Oeuvre interprétée</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M44_Performed_Work</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M44 Performed Work</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M45_Descriptive_Expression_Assignment</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M45_Descriptive_Expression_Assignment</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M45 Attribution d&apos;Expression Descriptive</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M45_Descriptive_Expression_Assignment</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M45 Descriptive Expression Assignment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M46_Set_of_Tracks</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Scope Note : ensemble des pistes constituant un enregistrement publié.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M46_Set_of_Tracks</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M46_Set_of_Tracks</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M46 Ensemble de Pistes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M46_Set_of_Tracks</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M46 Set of Tracks</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M47_WoO_Number</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M47_WoO_Number</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M47 Numéro de WoO</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M47_WoO_Number</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M47 WoO Number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M4_Key</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Examples:
+Le Concerto pour piano et orchestre en si bémol majeur No 2, Op. 19 de Beethoven (F22) a pour tonalité (M4 Key) « Si bémol majeur ».</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M4_Key</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Scope note:
+Cette classe décrit la tonalité de l’œuvre.
+Les tonalités sont souvent listées sous forme de référentiels multilingues, c’est pourquoi la classe M4 Key est liée à la classe M7 Linguistic Appellation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M4_Key</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M4_Key</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M4 Key</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M4_Key</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M4 Tonalité</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M5_Genre_or_Form</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M5_Genre_or_Form</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M5 Genre or Form</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M5_Genre_or_Form</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M5 Genre ou Forme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M6_Casting</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Scope note:
+Cette classe permet de décrire les « medium of performance » d’une œuvre, c’est-à-dire les instruments, machines, exécutants autres que musiciens (danseurs, acteurs, récitants,…) pour lesquels l’œuvre a été composée. Elle décrit donc l’intention du compositeur. M6 Casting est une « classe chapeau » qui représente la globalité de la distribution instrumentale et/ou vocale. Le détail de cette distribution est décrit via la classe M23 Casting Detail.
+Dans le cas de versions alternatives, on donnera deux M6 Casting différents pour la même expression.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M6_Casting</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M6_Casting</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M6 Casting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M6_Casting</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M6 Distribution vocale ou instrumentale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M7_Linguistic_Appellation</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">Scope note:
+Cette classe permet de décrire une appellation et ses composantes linguistiques. Elle comprend donc les appellations originales et les traductions de ces appellations.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M7_Linguistic_Appellation</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M7_Linguistic_Appellation</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M7 Appellation linguistique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M7_Linguistic_Appellation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M7 Linguistic Appellation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M8_Tempo</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M8_Tempo</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M8 Tempo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M8_Tempo</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M8 Tempo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>M9_Derivation_Type</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Scope note:
+
+Examples:</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>M9_Derivation_Type</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M9_Derivation_Type</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">M9 Derivation Type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>M9_Derivation_Type</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">M9 Type de dérivation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U10_has_order_number</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U10_has_order_number</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U10 has order number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U10i_is_order_number_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U10i_is_order_number_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U10i is order number of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U11_has_key</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U11_has_key</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U11 has key</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U11i_is_key_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U11i_is_key_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U11i is key of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U12_has_genre</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U12_has_genre</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U12 has genre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U12i_is_genre_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U12i_is_genre_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U12i is genre of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U13_has_casting</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U13_has_casting</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U13 has casting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U13i_is_casting_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U13i_is_casting_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U13i is casting of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U14_has_tempo</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U14_has_tempo</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U14 has tempo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U14i_is_tempo_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U14i_is_tempo_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U14i is tempo of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U15_has_history</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U15_has_history</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U15 has history</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U16_has_catalogue_statement</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U16_has_catalogue_statement</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U16 has catalogue statement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U16i_is_catalogue_statement_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U16i_is_catalogue_statement_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U16i is catalogue statement of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U17_has_opus_statement</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U17_has_opus_statement</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U17 has opus statement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U17i_is_opus_statement_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U17i_is_opus_statement_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U17i is opus statement of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U18_has_rhythmic_pattern</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U18_has_rhythmic_pattern</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U18 has rhythmic pattern</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U18i_is_rhythmic_pattern_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U18i_is_rhythmic_pattern_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U18i is rhythmic pattern of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U19_has_style</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U19_has_style</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U19 has style</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U19i_is_style_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U19i_is_style_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U19i is style of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U1_used_medium_of_performance</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U1_used_medium_of_performance</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U1 used medium of performance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U1i_medium_of_performance_was_used_in</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U1i_medium_of_performance_was_used_in</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U1i medium of performance was used in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U20_has_music_group_formation</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U20_has_music_group_formation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U20 has music group formation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U20i_is_music_group_formation_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U20i_is_music_group_formation_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U20i is music group formation of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U21_has_tag</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U21_has_tag</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U21 has tag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U21i_is_tag_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U21i_is_tag_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U21i is tag of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U22_has_mode</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U22_has_mode</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U22 has mode</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U22i_is_mode_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U22i_is_mode_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U22i is mode of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U23_has_casting_detail</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U23_has_casting_detail</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U23 has casting detail</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U23i_is_casting_detail_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U23i_is_casting_detail_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U23i is casting detail of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U24_has_award</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U24_has_award</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U24 has award</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U24i_is_award_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U24i_is_award_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U24i is award of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U25_has_scale</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U25_has_scale</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U25 has scale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U25i_is_scale_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U25i_is_scale_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U25i is scale of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U26_has_maintained</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U26_has_maintained</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U26 has maintained</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U26i_was_maintained_by</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U26i_was_maintained_by</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U26i was maintained by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U27_performed_character</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U27_performed_character</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U27 performed character</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U27i_character_was_performed_by</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U27i_character_was_performed_by</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U27i character was performed by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>U28_has_tessitura</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">scope note: this property allows for describing the tessitura of a character, as can be drawn from the score.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U28_has_tessitura</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U28_has_tessitura</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U28 has tessitura</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U28i_is_tessitura_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U28i_is_tessitura_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U28i is tessitura of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U29_edited</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U29_edited</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U29 edited</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U29i_was_edited_by</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U29i_was_edited_by</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U29i was edited by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U2_foresees_use_of_medium_of_performance_of_type</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U2_foresees_use_of_medium_of_performance_of_type</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U2 foresees use of medium of performance of type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U2i_is_foreseen_type_of_medium_of_performance_in</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U2i_is_foreseen_type_of_medium_of_performance_in</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U2i is foreseen type of medium of performance in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U30_foresees_quantity_of_mop</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U30_foresees_quantity_of_mop</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U30 foresees quantity of mop</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U31_had_function_of_type</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U31_had_function_of_type</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U31 had function of type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U31i_was_function_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U31i_was_function_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U31i was function of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U32_had_responsibility_of_type</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U32_had_responsibility_of_type</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U32 had responsibility of type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U32i_was_responsibility_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U32i_was_responsibility_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U32i was responsibility of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U33_has_set_of_characters</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U33_has_set_of_characters</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U33 has set of characters</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U33i_is_set_of_characters_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U33i_is_set_of_characters_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U33i is set of characters of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U34_foresees_character</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U34_foresees_character</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U34 foresees character</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U34i_is_foreseen_character_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U34i_is_foreseen_character_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U34i is foreseen character of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U35_foresees_function_of_type</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U35_foresees_function_of_type</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U35 foresees function of type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U35i_is_foreseen_function_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U35i_is_foreseen_function_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U35i is foreseen function of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U36_foresees_responsibility_of_type</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U36_foresees_responsibility_of_type</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U36 foresees responsibility of type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U36i_is_foreseen_responsibility_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U36i_is_foreseen_responsibility_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U36i is foreseen responsibility of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U37_foresees_performing_character</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U37_foresees_performing_character</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U37 foresees performing character</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U37i_is_foreseen_character_in</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U37i_is_foreseen_character_in</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U37i is foreseen character in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U38_has_descriptive_expression</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U38_has_descriptive_expression</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">U38 a pour expression descriptive</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U38_has_descriptive_expression</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U38 has descriptive expression</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U38i_is_descriptive_expression_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U38i_is_descriptive_expression_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U38i is descriptive expression of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U39_has_tuned</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U39_has_tuned</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U39 has tuned</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U39i_was_tuned_by</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U39i_was_tuned_by</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U39i was tuned by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U3_foresees_specific_medium_of_performance</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U3_foresees_specific_medium_of_performance</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U3 forees specific medium of performance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U3i_is_foreseen_specific_medium_of_performance_in</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U3i_is_foreseen_specific_medium_of_performance_in</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U3i is foreseen specific medium of performance in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U40_has_catalogue_name</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U40_has_catalogue_name</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U40 has catalogue name</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U40i_is_catalogue_name_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U40i_is_catalogue_name_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U40i is catalogue name of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U41_has_catalogue_number</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U41_has_catalogue_number</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U41 has catalogue number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U41i_is_catalogue_number_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U41i_is_catalogue_number_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U41i is catalogue number of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U42_has_opus_number</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U42_has_opus_number</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U42 has opus number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U42i_is_opus_number_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U42i_is_opus_number_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U42i is opus number of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U43_has_opus_subnumber</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U43_has_opus_subnumber</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U43 has opus subnumber</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U43i_is_opus_subnumber_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U43i_is_opus_subnumber_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U43i is opus subnumber of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U44_has_dedication_statement</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U44_has_dedication_statement</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U44 has dedication statement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U44i_is_dedication_statement_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U44i_is_dedication_statement_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U44i is dedication statement of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U45_has_metronome_indication</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U45_has_metronome_indication</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">U45 a pour indication métronomique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U45_has_metronome_indication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U45 has metronome indication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U45i_is_metronome_indication_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U45i_is_metronome_indication_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U45i is metronome indication of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U46_occurred_in_context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U46_occurred_in_context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U46 occurred in context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U46i_was_context_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U46i_was_context_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U46i was context of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U47_has_derivation_type</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U47_has_derivation_type</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U47 has derivation type</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U47i_is_derivation_type_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U47i_is_derivation_type_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U47i is derivation type of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U48_foresees_quantity_of_actors</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U48_foresees_quantity_of_actors</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U48 foresees quantity of actors</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>U49_created_for_actor</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">personne ou groupe pour lequel l&apos;Expression a été créée.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U49_created_for_actor</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U49_created_for_actor</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U49 created for actor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U49i_actor_motivated</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U49i_actor_motivated</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U49i actor motivated</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U4_had_princeps_publication</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U4_had_princeps_publication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U4 had princeps publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U4i_was_princeps_publication_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U4i_was_princeps_publication_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U4i was princeps publication of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U51_is_partial_or_full_recording_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U51_is_partial_or_full_recording_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U51 is partial or full recording of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U51i_has_partial_or_full_recording</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U51i_has_partial_or_full_recording</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U51i has partial or full recording</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U52_has_context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U52_has_context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U52 has context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U52i_is_context_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U52i_is_context_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U52i is context of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U53_has_duration</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U53_has_duration</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U53 has duration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U53i_is_duration_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U53i_is_duration_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U53i is duration of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U54_is_performed_expression_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U54_is_performed_expression_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U54 is performed expression of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U54i_has_performed_expression</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U54i_has_performed_expression</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U54i has performed expression</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U55_incorporates_performed_expression</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U55_incorporates_performed_expression</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U55 incorporates performed expression</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U55i_performed_expression_is_incorporated_in</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U55i_performed_expression_is_incorporated_in</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U55i performed expression is incorporated in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U56_occurred_in_historical_context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U56_occurred_in_historical_context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U56 occurred in historical context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U56i_was_historical_context_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U56i_was_historical_context_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U56i was historical context of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U57_occurred_in_religious_context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U57_occurred_in_religious_context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U57 occurred in religious context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U57i_was_religious_context_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U57i_was_religious_context_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U57i was religious context of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U58_has_full_published_recording</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U58_has_full_published_recording</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U58 has full published recording</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U58i_is_full_published_recording_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U58i_is_full_published_recording_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U58i is full published recording of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U59_has_partial_published_recording</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U59_has_partial_published_recording</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U59 has partial published recording</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U59i_is_partial_published_recording_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U59i_is_partial_published_recording_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U59i is partial published recording of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U5_had_premiere</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U5_had_premiere</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U5 had premiere</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U5i_was_premiere_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U5i_was_premiere_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U5i was premiere of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U60_occurred_in_cultural_context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U60_occurred_in_cultural_context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U60 occurred in cultural context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U60i_was_cultural_context_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U60i_was_cultural_context_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U60i was cultural context of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U61_occurred_in_geographical_context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U61_occurred_in_geographical_context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U61 occurred in geographical context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U61i_was_geographical_context_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U61i_was_geographical_context_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U61i was geographical context of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U62_has_form</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U62_has_form</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U62 has form</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U62i_is_form_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U62i_is_form_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U62i is form of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U63_has_religious_context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U63_has_religious_context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U63 has religious context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U63i_is_religious_context_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U63i_is_religious_context_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U63i is religious context of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U64_has_cultural_context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U64_has_cultural_context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U64 has cultural context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U64i_is_cultural_context_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U64i_is_cultural_context_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U64i is cultural context of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U65_has_geographical_context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U65_has_geographical_context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U65 has geographical context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U65i_is_geographical_context_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U65i_is_geographical_context_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U65i is geographical context of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U66_has_historical_context</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U66_has_historical_context</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U66 has historical context</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U66i_is_historical_context_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U66i_is_historical_context_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U66i is historical context of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U67_has_subtitle</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U67_has_subtitle</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">U67 a pour sous-titre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U67_has_subtitle</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U67 has subtitle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U67i_is_subtitle_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U67i_is_subtitle_of</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">U67i est sous-titre de</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U67i_is_subtitle_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U67i is subtitle of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U68_has_variant_title</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U68_has_variant_title</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">U68 a pour variante de titre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U68_has_variant_title</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U68 has variant title</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U68i_is_variant_title_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U68i_is_variant_title_of</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">U68i est variante de titre de</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U68i_is_variant_title_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U68i is variant title of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U69_has_WoO_number</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U69_has_WoO_number</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">U69 a pour numéro de WoO</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U69_has_WoO_number</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U69 has WoO number</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U69i_is_WoO_number_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U69i_is_WoO_number_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U69i is WoO number of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U6_foresees_actor</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U6_foresees_actor</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U6 foresees actor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U6i_is_foreseen_actor_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U6i_is_foreseen_actor_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U6i is foreseen actor of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U70_has_title</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U70_has_title</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">U70 a pour titre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U70_has_title</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U70 has title</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U70i_is_title_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U70i_is_title_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U70i is title of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U71_has_uniform_music_title</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U71_has_uniform_music_title</IRI>
+        <Literal xml:lang="fr" datatypeIRI="&rdf;PlainLiteral">U71 a pour titre uniforme musical</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U71_has_uniform_music_title</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U71 has uniform music title</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U71i_is_uniform_music_title_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U71i_is_uniform_music_title_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U71i is uniform music title of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U72_has_title_note</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U72_has_title_note</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U72 has title note</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U7_foresees_place_at</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U7_foresees_place_at</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U7 foresees place at</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U7i_is_foreseen_place_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U7i_is_foreseen_place_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U7i is foreseen place of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U8_foresees_time_span</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U8_foresees_time_span</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U8 foresees time-span</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U8i_is_foreseen_time_span_of</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U8i_is_foreseen_time_span_of</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U8i is foreseen time-span of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>U9_has_quantity</IRI>
+        <IRI></IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>U9_has_quantity</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">U9 has quantity</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -83,11 +83,14 @@ public class PropString extends URIAlignment implements AlignmentProcess {
 	@Override
 	public void align(Alignment arg0, Properties arg1) throws AlignmentException {
 
+		//get the URIs of the two ontologies
 		URI url1 = getOntology1URI();
 		URI url2 = getOntology2URI();
 
 		try {
+			//get a computed alignment using the align() method
 			Alignment alignment = align(url1, url2);
+			
 			for (Cell cell: alignment) {
 				addCell(cell);
 			}

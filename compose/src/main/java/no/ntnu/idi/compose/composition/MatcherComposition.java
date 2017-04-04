@@ -30,12 +30,17 @@ import no.ntnu.idi.compose.matchers.PropEq_WordNet_Matcher;
 import no.ntnu.idi.compose.matchers.ClassEq_WordNet_Matcher;
 import no.ntnu.idi.compose.preprocessing.Preprocessor;
 
+/**
+ * Runs the different matcher compositions (
+ * @author audunvennesland
+ * 2. feb. 2017
+ */
 public class MatcherComposition {
 
 
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException, OntowrapException, OWLOntologyCreationException {
 
-		final String composition = "Hybrid_Merge_Subsumption";
+		final String composition = "Sequential_CompleteMatch_ClassEq";
 		String experiment = "biblio-bibo";
 		double threshold = 0;
 		File inputFile  = null;
@@ -68,7 +73,7 @@ public class MatcherComposition {
 		ClassEq_WordNet_Matcher wordNetMatcher = new ClassEq_WordNet_Matcher();
 		//the graph-based matcher needs parameters (preprocessed names of the ontology files and a pointer to the Neo4J database)
 		ClassEq_Structural_Matcher structuralMatcher = new ClassEq_Structural_Matcher(ontologyParameter1,ontologyParameter2, db);
-		
+
 
 		ParallelComposition par = new ParallelComposition();
 		HybridComposition hyb = new HybridComposition();
@@ -86,7 +91,7 @@ public class MatcherComposition {
 			File a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_WordNet.rdf");
 			File a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_Structural.rdf");
 
-			Alignment seqCompAlignment_classEq = SequentialComposition.completeMatch(a1, a3, a2);
+			Alignment seqCompAlignment_classEq = SequentialComposition.weightedSequentialComposition(a1, a3, a2);
 			Alignment referenceAlignment_classEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_classEq.rdf"));
 
 			//store the alignment
@@ -113,12 +118,11 @@ public class MatcherComposition {
 			System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
 			System.out.println("------------------------------");
 
-
 			writer.flush();
 			writer.close();
 
 			break;
-			
+
 		case "Sequential_NonWeightedCompleteMatch_ClassEq":
 
 			threshold = 0.9;
@@ -160,7 +164,7 @@ public class MatcherComposition {
 			writer.close();
 
 			break;
-			
+
 		case "Sequential_NonWeightedCompleteMatch_PropEq":
 
 			threshold = 0.6;
@@ -212,7 +216,7 @@ public class MatcherComposition {
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropEq_WordNet.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropString-recall.rdf");
 
-			Alignment seqCompAlignment_propEq = SequentialComposition.completeMatch(a3, a2, a1);
+			Alignment seqCompAlignment_propEq = SequentialComposition.weightedSequentialComposition(a3, a2, a1);
 			Alignment referenceAlignment_propEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_propEq.rdf"));
 
 			//store the alignment
@@ -253,7 +257,7 @@ public class MatcherComposition {
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
 
-			Alignment seqCompAlignment_subsumption = SequentialComposition.completeMatch(a3, a2, a1);
+			Alignment seqCompAlignment_subsumption = SequentialComposition.weightedSequentialComposition(a3, a2, a1);
 			Alignment referenceAlignment_subsumption = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_subsumption.rdf"));
 
 			//store the alignment
@@ -346,60 +350,16 @@ public class MatcherComposition {
 
 			break;
 
-			
 
-		/*case "Parallel_CompleteMatch_ClassEq":
-			//import the alignment files
-			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_String.rdf");
-			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_WordNet2.rdf");
-			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_Structural.rdf");
-			
-			//set the threshold
-			threshold = 0.9;
-			
-			Alignment Hybrid_CompleteMatch_ClassEq = ParallelComposition.completeMatchEqual(a1, a2, a3);
-			Alignment referenceAlignment_Hybrid_CompleteMatch_ClassEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_classEq.rdf"));
-
-			//store the alignment
-			File Hybrid_CompleteMatch_ClassEq_AlignmentFile = new File("./files/experiment_eswc17/alignments/" + experiment + "/Parallel_CompleteMatch_ClassEq.rdf");
-
-			writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(Hybrid_CompleteMatch_ClassEq_AlignmentFile)), true); 
-			AlignmentVisitor Hybrid_CompleteMatch_ClassEq_renderer = new RDFRendererVisitor(writer);
-
-			Hybrid_CompleteMatch_ClassEq.cut(threshold);
-
-			Hybrid_CompleteMatch_ClassEq.render(Hybrid_CompleteMatch_ClassEq_renderer);
-
-
-			System.out.println("Matching completed!");
-
-			evaluator = new PRecEvaluator(referenceAlignment_Hybrid_CompleteMatch_ClassEq, Hybrid_CompleteMatch_ClassEq);
-			p = new Properties();
-			evaluator.eval(p);
-			System.out.println("------------------------------");
-			System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
-			System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
-			System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
-			System.out.println("------------------------------");
-
-
-			writer.flush();
-			writer.close();
-			
-
-			break;*/
-			
 		case "Parallel_SimpleVote_ClassEq":
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_String.rdf");
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_WordNet2.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_Structural.rdf");
-			
+
 			//set the threshold
 			threshold = 0.9;
-			
+
 			Alignment Parallel_SimpleVote_ClassEqAlignment = ParallelComposition.simpleVote(a1, a2, a3);
 			Alignment referenceAlignment_Parallel_SimpleVote_ClassEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_classEq.rdf"));
 
@@ -430,19 +390,19 @@ public class MatcherComposition {
 
 			writer.flush();
 			writer.close();
-			
+
 
 			break;
-			
+
 		case "Parallel_SimpleVote_PropEq":
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropEq_String.rdf");
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropEq_WordNet2.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropString-recall.rdf");
-			
+
 			//set the threshold
 			threshold = 0.6;
-			
+
 			Alignment Parallel_SimpleVote_PropEqAlignment = ParallelComposition.simpleVote(a3, a1, a2);
 			Alignment referenceAlignment_Parallel_SimpleVote_PropEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_propEq.rdf"));
 
@@ -473,19 +433,19 @@ public class MatcherComposition {
 
 			writer.flush();
 			writer.close();
-			
+
 
 			break;
-			
+
 		case "Parallel_SimpleVote_Subsumption":
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_String_Matcher.rdf");
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
-			
+
 			//set the threshold
 			threshold = 0.9;
-			
+
 			Alignment Parallel_SimpleVote_SubsumptionAlignment = ParallelComposition.simpleVote(a1, a2, a3);
 			Alignment referenceAlignment_Parallel_SimpleVote_Subsumption = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_Subsumption.rdf"));
 
@@ -516,106 +476,20 @@ public class MatcherComposition {
 
 			writer.flush();
 			writer.close();
-			
+
 
 			break;
-			
-		/*case "Parallel_CompleteMatch_PropEq":
-			//import the alignment files
-			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropEq_String.rdf");
-			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropEq_WordNet.rdf");
-			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropString-recall.rdf");
-			
-			//set the threshold
-			threshold = 0.3;
-			
-			Alignment Parallel_CompleteMatch_PropEq = ParallelComposition.completeMatchEqual(a2, a3, a1);
-			Alignment referenceAlignment_Parallel_CompleteMatch_PropEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_propEq.rdf"));
-
-			//store the alignment
-			File Parallel_CompleteMatch_PropEq_AlignmentFile = new File("./files/experiment_eswc17/alignments/" + experiment + "/Parallel_CompleteMatch_PropEq.rdf");
-
-			writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(Parallel_CompleteMatch_PropEq_AlignmentFile)), true); 
-			AlignmentVisitor Hybrid_CompleteMatch_PropEq_renderer = new RDFRendererVisitor(writer);
-
-			Parallel_CompleteMatch_PropEq.cut(threshold);
-
-			Parallel_CompleteMatch_PropEq.render(Hybrid_CompleteMatch_PropEq_renderer);
 
 
-			System.out.println("Matching completed!");
-
-			evaluator = new PRecEvaluator(referenceAlignment_Parallel_CompleteMatch_PropEq, Parallel_CompleteMatch_PropEq);
-			p = new Properties();
-			evaluator.eval(p);
-			System.out.println("------------------------------");
-			System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
-			System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
-			System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
-			System.out.println("------------------------------");
-
-
-			writer.flush();
-			writer.close();
-			
-
-			break;*/
-			
-			
-			
-		/*case "Parallel_CompleteMatch_ClassSubsumption":
-			//import the alignment files
-			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_String_Matcher.rdf");
-			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
-			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
-			
-			//set the threshold
-			threshold = 0.9;
-			
-			Alignment Parallel_CompleteMatch_Subsumption = ParallelComposition.completeMatchEqual(a1, a2, a3);
-			Alignment referenceAlignment_Parallel_CompleteMatch_Subsumption = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_subsumption.rdf"));
-
-			//store the alignment
-			File Parallel_CompleteMatch_Subsumption_AlignmentFile = new File("./files/experiment_eswc17/alignments/" + experiment + "/Parallel_CompleteMatch_ClassSubsumption.rdf");
-
-			writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(Parallel_CompleteMatch_Subsumption_AlignmentFile)), true); 
-			AlignmentVisitor Parallel_CompleteMatch_Subsumption_renderer = new RDFRendererVisitor(writer);
-
-			Parallel_CompleteMatch_Subsumption.cut(threshold);
-
-			Parallel_CompleteMatch_Subsumption.render(Parallel_CompleteMatch_Subsumption_renderer);
-
-			System.out.println("Matching completed!");
-
-			evaluator = new PRecEvaluator(referenceAlignment_Parallel_CompleteMatch_Subsumption, Parallel_CompleteMatch_Subsumption);
-			p = new Properties();
-			evaluator.eval(p);
-			System.out.println("------------------------------");
-			System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
-			System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
-			System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
-			System.out.println("------------------------------");
-
-
-			writer.flush();
-			writer.close();
-			
-
-			break;*/
-			
 		case "Parallel_CompleteMatch_WithPriority_ClassEq":
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_String.rdf");
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_WordNet2.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_Structural.rdf");
-			
+
 			//set the threshold
 			threshold = 0.9;
-			
+
 			Alignment Parallel_CompleteMatch_WithPriority_ClassEqAlignment = ParallelComposition.completeMatchWithPriority(a3, a2, a3);
 			Alignment referenceAlignment_Parallel_CompleteMatch_WithPriority_ClassEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_classEq.rdf"));
 
@@ -646,19 +520,19 @@ public class MatcherComposition {
 
 			writer.flush();
 			writer.close();
-			
+
 
 			break;
-			
+
 		case "Parallel_CompleteMatch_WithPriority_PropEq":
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropEq_String.rdf");
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropEq_WordNet2.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropString-recall.rdf");
-			
+
 			//set the threshold
 			threshold = 0.6;
-			
+
 			Alignment Parallel_CompleteMatch_WithPriority_PropEqAlignment = ParallelComposition.completeMatchWithPriority(a3, a1, a2);
 			Alignment referenceAlignment_Parallel_CompleteMatch_WithPriority_PropEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_propEq.rdf"));
 
@@ -690,16 +564,16 @@ public class MatcherComposition {
 			writer.close();
 
 			break;
-			
+
 		case "Parallel_CompleteMatch_WithPriority_Subsumption":
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_String_Matcher.rdf");
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
-			
+
 			//set the threshold
 			threshold = 0.9;
-			
+
 			Alignment Parallel_CompleteMatch_WithPriority_SubsumptionAlignment = ParallelComposition.completeMatchWithPriority(a3, a1, a2);
 			Alignment referenceAlignment_Parallel_CompleteMatch_WithPriority_Subsumption = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_subsumption.rdf"));
 
@@ -730,22 +604,20 @@ public class MatcherComposition {
 
 			writer.flush();
 			writer.close();
-			
+
 
 			break;
-			
-		
 
 		case "Hybrid_Merge_ClassEq":
-			
+
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_String.rdf");
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_WordNet2.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_Structural.rdf");
-			
+
 			//set the threshold
 			threshold = 0.9;
-			
+
 			Alignment Hybrid_Merge_ClassEq = HybridComposition.merge(a1, a2, a3);
 			Alignment referenceAlignment_Hybrid_Merge_ClassEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_classEq.rdf"));
 
@@ -778,17 +650,17 @@ public class MatcherComposition {
 			writer.close();
 
 			break;
-			
-case "Hybrid_Merge_PropEq":
-			
+
+		case "Hybrid_Merge_PropEq":
+
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropEq_String.rdf");
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropEq_WordNet2.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropString-recall.rdf");
-			
+
 			//set the threshold
 			threshold = 0.9;
-			
+
 			Alignment Hybrid_Merge_PropEq = HybridComposition.merge(a2, a1, a3);
 			Alignment referenceAlignment_Hybrid_Merge_PropEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_PropEq.rdf"));
 
@@ -821,49 +693,49 @@ case "Hybrid_Merge_PropEq":
 			writer.close();
 
 			break;
-			
-case "Hybrid_Merge_Subsumption":
-	
-	//import the alignment files
-	a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_String_Matcher.rdf");
-	a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
-	a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
-	
-	//set the threshold
-	threshold = 0.9;
-	
-	Alignment Hybrid_Merge_Subsumption = HybridComposition.merge(a1, a2, a3);
-	Alignment referenceAlignment_Hybrid_Merge_Subsumption = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_Subsumption.rdf"));
 
-	//store the alignment
-	File Hybrid_Merge_Subsumption_AlignmentFile = new File("./files/experiment_eswc17/alignments/" + experiment + "/Hybrid_Merge_Subsumption.rdf");
+		case "Hybrid_Merge_Subsumption":
 
-	writer = new PrintWriter(
-			new BufferedWriter(
-					new FileWriter(Hybrid_Merge_Subsumption_AlignmentFile)), true); 
-	AlignmentVisitor Hybrid_Merge_Subsumption_renderer = new RDFRendererVisitor(writer);
+			//import the alignment files
+			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_String_Matcher.rdf");
+			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
+			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
 
-	Hybrid_Merge_Subsumption.cut(threshold);
+			//set the threshold
+			threshold = 0.9;
 
-	Hybrid_Merge_Subsumption.render(Hybrid_Merge_Subsumption_renderer);
+			Alignment Hybrid_Merge_Subsumption = HybridComposition.merge(a1, a2, a3);
+			Alignment referenceAlignment_Hybrid_Merge_Subsumption = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_Subsumption.rdf"));
 
+			//store the alignment
+			File Hybrid_Merge_Subsumption_AlignmentFile = new File("./files/experiment_eswc17/alignments/" + experiment + "/Hybrid_Merge_Subsumption.rdf");
 
-	System.out.println("Matching completed!");
+			writer = new PrintWriter(
+					new BufferedWriter(
+							new FileWriter(Hybrid_Merge_Subsumption_AlignmentFile)), true); 
+			AlignmentVisitor Hybrid_Merge_Subsumption_renderer = new RDFRendererVisitor(writer);
 
-	evaluator = new PRecEvaluator(referenceAlignment_Hybrid_Merge_Subsumption, Hybrid_Merge_Subsumption);
-	p = new Properties();
-	evaluator.eval(p);
-	System.out.println("------------------------------");
-	System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
-	System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
-	System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
-	System.out.println("------------------------------");
+			Hybrid_Merge_Subsumption.cut(threshold);
+
+			Hybrid_Merge_Subsumption.render(Hybrid_Merge_Subsumption_renderer);
 
 
-	writer.flush();
-	writer.close();
+			System.out.println("Matching completed!");
 
-	break;
+			evaluator = new PRecEvaluator(referenceAlignment_Hybrid_Merge_Subsumption, Hybrid_Merge_Subsumption);
+			p = new Properties();
+			evaluator.eval(p);
+			System.out.println("------------------------------");
+			System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
+			System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
+			System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
+			System.out.println("------------------------------");
+
+
+			writer.flush();
+			writer.close();
+
+			break;
 
 
 

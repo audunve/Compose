@@ -1,0 +1,3293 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <alext:method>no.ntnu.idi.compose.matchers.ClassEq_WordNet_Matcher#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://www.pms.ifi.uni-muenchen.de/OTN">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/ntnu-lyon-paper/ontologies/otn.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://purl.org/td/transportdisruption">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/ntnu-lyon-paper/ontologies/TransportDisruption.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Restaurant'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Restaurant'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Restaurant'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Wetland'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Wetland'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Hail'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#School'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Crowd'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#School'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#School'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#School'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#School'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#School'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#School'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8333333134651184</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BallGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceInvestigation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Funfair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Survey'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Marathon'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HockeyGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BasketballGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FirstAid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Casino'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Rest_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Rest_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Rest_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Island'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Island'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Hail'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Shopping'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Eclipse'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Derailment'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8888888955116272</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Accident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ForestFire'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Subsidence'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Accident'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Collision'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8999999761581421</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Swimming_Pool'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Travel_Time'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8333333134651184</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Travel_Time'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#City_Hall'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#City_Hall'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#City_Hall'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Free_Port'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Unknown'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Free_Port'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Department_Store'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8999999761581421</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Department_Store'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Department_Store'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FirstAid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BallGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Funfair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Marathon'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HockeyGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceInvestigation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BasketballGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Survey'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Rain'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Conditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BadWeather'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8888888955116272</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fog'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Sleet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Blizzard'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Snowfall'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Frost'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Weather'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Hail'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Roundabout'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Amusement_Park'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Funfair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Pharmacy'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8181818127632141</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Exhibition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Forest'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Hail'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7272727489471436</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Sabotage'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Pollution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Riot'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Junction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Travel_Agency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Library'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Library'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Library'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Library'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Library'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Library'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Library'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Exhibition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Library'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Library'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Survey'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Funfair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BasketballGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Plan'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Marathon'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Normal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceInvestigation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HockeyGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FirstAid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Edge'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BasketballGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Exhibition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7272727489471436</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Riot'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Funfair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7272727489471436</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceInvestigation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HockeyGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Marathon'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8888888955116272</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Survey'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FirstAid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Entertainment'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Temperature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Fire_Brigade'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Crowd'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Fire_Brigade'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Riot'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Face'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Government_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Government_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Government_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Divider'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Divider'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Divider'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Divider'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Marina'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Marina'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Marina'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ferry'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Snowplough'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Museum'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Airport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Winery'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Winery'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Winery'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Shopping_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Shopping_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Shopping_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8999999761581421</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Marathon'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8999999761581421</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Plan'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Funfair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceInvestigation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HockeyGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#AirRaid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Sabotage'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Pollution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.875</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Riot'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FirstAid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8888888955116272</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Survey'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BasketballGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuvre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Accident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ForestFire'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Eclipse'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Subsidence'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Collision'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8333333134651184</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Assault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Pollution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Accident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Riot'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Embassy'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Embassy'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Embassy'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#City_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#City_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Unknown'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Route'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Unknown'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Route'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bank'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bank'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Snowplough'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bank'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Marathon'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Funfair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceInvestigation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FirstAid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8333333134651184</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Survey'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HockeyGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BasketballGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Building'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Crowd'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8333333134651184</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HockeyGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Marathon'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Sabotage'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Survey'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Pollution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Funfair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BasketballGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceInvestigation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FirstAid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Unknown'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8333333134651184</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Riot'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#ForestFire'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Eclipse'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Subsidence'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Accident'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Collision'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Recreation_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Speed_Restriction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SpeedRestriction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Snowfall'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Hail'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Festival'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Frost'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Sleet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Marathon'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Rain'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Blizzard'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Survey'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#FirstAid'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Demonstration'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Assault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fog'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BadWeather'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Plan'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BasketballGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Impossible'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Funfair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Unknown'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Conditions'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#PoliceInvestigation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#HockeyGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Golf_Course'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Zoo'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#ATM'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#ATM'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Relationship'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Riot'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Relationship'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Activity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.800000011920929</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Meteorology'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Survey'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Cinema'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Cinema'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Cinema'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Cinema'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Pollution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Riot'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Plan'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7142857313156128</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Exhibition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Procession'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Attack'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Evacuation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7272727489471436</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Fair'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Parade'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Sabotage'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6363636255264282</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#March'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Convoy'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Intersection'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Strike'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Node'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Node'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Node'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Unknown'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ski_Resort'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.699999988079071</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ski_Resort'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ski_Resort'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Stadium'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8571428656578064</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Stadium'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Stadium'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Place_Of_Worship'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Place_Of_Worship'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Ice'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7777777910232544</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Place_Of_Worship'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Market'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6000000238418579</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Obstruction'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BicycleRace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#CricketMatch'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#BoatRace'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Show'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Tournament'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Plan'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666269302368</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Match'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#SportsMeeting'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#Concert'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.75</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import rita.RiWordNet;
+import rita.wordnet.jwnl.wndata.IndexWord;
 
 public class RiWordNetOperations {
 
@@ -35,6 +36,12 @@ public class RiWordNetOperations {
 		String[] hypernyms = database.getAllHypernyms(inputWord, "n");
 
 		return hypernyms;
+	}
+	
+	public static int[] getSynsetKeys(String inputWord) {
+		//IndexWord ind = new IndexWord(inputWord, "n");
+		int[] synsetKeys = database.getSenseIds(inputWord, "n");
+		return synsetKeys;
 	}
 	
 	public static String[] getSynsets(String inputWord) {
@@ -82,10 +89,18 @@ public class RiWordNetOperations {
 		
 		String inputWord = "publisher";
 		String[] synsets = getHyponyms(inputWord);
+		int[] synsetKeys = getSynsetKeys(inputWord);
 		
 		for (String s : synsets) {
-			System.out.println(s);
+
+			System.out.println(s); 
 		}
+		
+		for (int key : synsetKeys) {
+			System.out.println(key);
+		}
+		
+		
 		
 		
 		//readWDDomains(wdDomains);

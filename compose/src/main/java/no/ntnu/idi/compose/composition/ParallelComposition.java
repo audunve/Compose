@@ -20,15 +20,22 @@ import fr.inrialpes.exmo.align.parser.AlignmentParser;
 import no.ntnu.idi.compose.matchers.ClassEq_String_Matcher;
 
 
-
+/**
+ * This class represents a parallel composition, that is, it compares the set of input alignments, and uses different methods to compute a final alignment. 
+ * @author audunvennesland
+ * 2. feb. 2017
+ */
 public class ParallelComposition {
 
-
-	
-
+	/**
+	 * Returns an alignment produced by including only correspondences that are contained in minimum two of the input alignments
+	 * @param alignmentFile1 the first input alignment
+	 * @param alignmentFile2 the second input alignment
+	 * @param alignmentFile3 the third input alignment
+	 * @return an alignment containing correspondences that are represented by minimum two input alignments
+	 * @throws AlignmentException Base class for all Alignment Exceptions
+	 */
 	public static Alignment simpleVote(File alignmentFile1, File alignmentFile2, File alignmentFile3) throws AlignmentException {
-		
-		
 
 		Alignment finalAlignment = new URIAlignment();
 
@@ -63,8 +70,16 @@ public class ParallelComposition {
 
 	}
 
+	/**
+	 * Returns an alignment where the matchers producing them are given different priority depending on the initial ontology profiling. 
+	 * This priority determines how much weight alignment correspondences from each matcher should have in the final alignment aggregation.
+	 * @param alignmentFile1 the first input alignment
+	 * @param alignmentFile2 the second input alignment
+	 * @param alignmentFile3 the third input alignment
+	 * @return an alignment where correspondences from "prioritized" matchers are preferred
+	 * @throws AlignmentException Base class for all Alignment Exceptions
+	 */
 	public static Alignment completeMatchWithPriority(File alignmentFile1, File alignmentFile2, File alignmentFile3) throws AlignmentException {
-
 
 		//load the alignments
 		AlignmentParser parser = new AlignmentParser();
@@ -130,34 +145,14 @@ public class ParallelComposition {
 		return completeMatchAlignment;		
 	}
 
-	public static Alignment partialMatch(File alignmentFile1) throws AlignmentException {
 
-		//load the alignment
-		AlignmentParser parser = new AlignmentParser();
-		BasicAlignment a1 = (BasicAlignment)parser.parse(alignmentFile1.toURI().toString());
-
-		Properties params = new Properties();
-		params.setProperty("", "");
-
-		//run a matcher with an already created alignment
-
-		Alignment StringAlignment = ClassEq_String_Matcher.matchAlignment(a1);
-
-		return StringAlignment;
-
-	}
-
-	public static double increaseCellStrength(double inputStrength) {
-
-		double newStrength = inputStrength + (inputStrength * 0.10);
-
-		if (newStrength > 1.0) {
-			newStrength = 1.0;
-		}
-
-		return newStrength;
-	}
-
+	/**
+	 * Test method
+	 * @param args
+	 * @throws AlignmentException
+	 * @throws IOException
+	 * @throws URISyntaxException
+	 */
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
 
 		File a1 = new File("./files/experiment_eswc17/alignments/biblio-bibo/a1.rdf");
@@ -178,18 +173,6 @@ public class ParallelComposition {
 		writer.flush();
 		writer.close();
 
-		BasicAlignment partialMatchAlignment = (BasicAlignment) partialMatch(outputAlignment);
-
-		File partialMatchAlignmentFile = new File("./files/experiment_eswc17/alignments/biblio-bibo/a8.rdf");
-
-		writer = new PrintWriter(
-				new BufferedWriter(
-						new FileWriter(partialMatchAlignmentFile)), true); 
-		renderer = new RDFRendererVisitor(writer);
-
-		partialMatchAlignment.render(renderer);
-		writer.flush();
-		writer.close();
 
 
 	}

@@ -1,0 +1,605 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <alext:method>no.ntnu.idi.compose.matchers.ClassEq_Structural_Matcher#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://www.pms.ifi.uni-muenchen.de/OTN">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/ntnu-lyon-paper/ontologies/OTN.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://purl.org/td/transportdisruption">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/ntnu-lyon-paper/ontologies/TransportDisruption.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#City_Hall'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Government_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Line'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Meteorology'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666666666666</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Kindergarten'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Cargo_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Coach_And_Lorry_Parking'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Railway_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Caravan_Sites'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Parking'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Education'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Hospital_Or_Polyclinic'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Rest_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Swimming_Pool'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Tourist_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#City_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ferry_Terminal'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Rent-a-Car_Pickup_Or_Return'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Toll_Location'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Airport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Tourist_Attraction'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Place_Of_Worship'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666666666666</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Tourism'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Phone'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Shopping_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#University_Or_College'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Community_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Business_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Golf_Course'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ferry'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Interchange'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Exhibition_Or_Conference_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Embassy'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Camping'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Department_Store'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Vantage_Point'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ski_Lift_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Buildings'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Frontier_Crossing'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Recreation_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Other'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Sports_Centre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Theatre'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#ATM'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Open_Parking_Area'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Roadside_Diner'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4444444444444444</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Route_Section'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Amusement_Park'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Road_and_Ferry_Feature'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666666666666</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Historical_Monument'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Motoring_Organisation_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Library'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Vehicle_Repair_Facility'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Petrol_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Roundabout'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Police_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bowling_Center'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Call_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#First_Aid_Post'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Cinema'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Post_Office'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bus_Station'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Aggregated_Way'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5714285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Public_Transport'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6666666666666666</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Restaurant'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Emergency_Medical_Service'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Museum'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Ski_Resort'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Winery'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Transport_Company'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.pms.ifi.uni-muenchen.de/OTN#Bank'/>
+      <entity2 rdf:resource='http://purl.org/td/transportdisruption#TollGatesFault'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

@@ -1,0 +1,4694 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY org "http://www.w3.org/ns/org#" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY km4c "http://www.disit.org/km4city/schema#" >
+	<!ENTITY km4cr "http://www.disit.org/km4city/resource#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY otn "http://www.pms.ifi.uni-muenchen.de/OTN#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+	<!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+	<!ENTITY geo "http://www.w3.org/2003/01/geo/wgs84_pos#" >
+	<!ENTITY time "http://www.w3.org/2006/time#" >
+	<!ENTITY dct "http://purl.org/dc/terms/#">
+	<!ENTITY cc "http://creativecommons.org/ns#">
+	<!ENTITY vann "http://purl.org/vocab/vann/#">
+	<!ENTITY schema "http://schema.org/#">
+	<!ENTITY gr "http://purl.org/goodrelations/v1#">
+]>
+
+
+<rdf:RDF xmlns="http://www.disit.org/km4city/schema#"
+     xml:base="http://www.disit.org/km4city/schema"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:km4c="http://www.disit.org/km4city/schema#"
+	 xmlns:km4cr="http://www.disit.org/km4city/resource#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:org="http://www.w3.org/ns/org#"
+     xmlns:otn="http://www.pms.ifi.uni-muenchen.de/OTN#"
+	 xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	 xmlns:time="http://www.w3.org/2006/time#"
+	 xmlns:dct="http://purl.org/dc/terms/#"
+	 xmlns:schema="http://schema.org/#"
+	 xmlns:gr="http://purl.org/goodrelations/v1#"
+	 xmlns:cc="http://creativecommons.org/ns#"
+	 xmlns:vann="http://purl.org/vocab/vann/#"
+	 xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="&skos;prefLabel"/>
+	
+	
+	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <!-- http://www.disit.org/km4city/schema#containsElement -->
+
+    <owl:ObjectProperty rdf:about="&km4c;containsElement">
+        <rdfs:range rdf:resource="&km4c;RoadElement"/>
+        <rdfs:domain rdf:resource="&km4c;Road"/>
+		<owl:inverseOf rdf:resource="&km4c;isPartOfRoad"/>
+		
+		<rdfs:isDefinedBy>
+			<owl:Ontology rdf:about="http://www.disit.org/km4city/schema/">
+				<dct:title xml:lang="en">The DISIT Knowledge Model for City and Mobility</dct:title>
+				<dct:description xml:lang="en">A Knowledge Model to describe a smart city, that interconnect data from infomobility service, Open Data and other source</dct:description>
+				<dct:subject xml:lang="en">Ontology, Semantic SEO, RDFa, Linked Data, RDF, Semantic Web, Smart Recommender Systems, Smart City, Transportation Network, Smart Mobility, Citizens Services, Semantic Model, knowledge model</dct:subject>
+				<vann:preferredNamespacePrefix>km4c</vann:preferredNamespacePrefix>
+				<vann:preferredNamespaceUri>http://www.disit.org/km4city/schema</vann:preferredNamespaceUri>
+				<rdfs:label xml:lang="en">km4city, the Knowledge Model for the City</rdfs:label>
+				<dct:creator xml:lang="en">Nadia Rauch</dct:creator>
+				<dct:creator xml:lang="en">Pierfrancesco Bellini</dct:creator>
+				<dct:creator xml:lang="en">Paolo Nesi</dct:creator>
+				<dct:publisher>DISIT Lab, University of Florence, Italy</dct:publisher>
+				<owl:versionInfo xml:lang="en">V 1.0, Release 2014-09-02</owl:versionInfo>
+				<dct:rights xml:lang="en">The Knowledge Model for the City - km4city - is available under Creative Commons Attribution-ShareAlike 3.0 Unported license</dct:rights>
+				<rdfs:comment xml:lang="en">The Knowledge Model aims at enabling interconnection, storage and the next interrogation of data from many different sources, such as various portals of the Tuscan region (MIIC, Muoversi in Toscana, Osservatorio dei Trasporti), Open Data provoded by individual municipalities (mainly Florence).</rdfs:comment>
+				<dct:contributor xml:lang="en">Municipality of Florence, Tuscany Region</dct:contributor>
+				<foaf:homepage rdf:resource="http://www.disit.org/"/>
+			</owl:Ontology>
+		</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+	
+	
+    <!-- http://www.disit.org/km4city/schema#coincideWith -->
+
+    <owl:ObjectProperty rdf:about="&km4c;coincideWith">
+        <rdfs:range rdf:resource="&km4c;AdministrativeRoad"/>
+        <rdfs:domain rdf:resource="&km4c;Road"/>
+    </owl:ObjectProperty>
+	
+    <!-- http://www.disit.org/km4city/schema#correspondsTo -->
+
+    <owl:ObjectProperty rdf:about="&km4c;correspondsTo">
+        <rdfs:range rdf:resource="&km4c;Road"/>
+        <rdfs:domain rdf:resource="&km4c;AdministrativeRoad"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.disit.org/km4city/schema#managingAuthority -->
+
+    <owl:ObjectProperty rdf:about="&km4c;managingAuthority">
+        <rdfs:range rdf:resource="&km4c;Pa"/>
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.disit.org/km4city/schema#ownerAuthority -->
+
+    <owl:ObjectProperty rdf:about="&km4c;ownerAuthority">
+        <rdfs:range rdf:resource="&km4c;Pa"/>
+        <rdfs:domain rdf:resource="&km4c;AdministrativeRoad"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#inMunicipalityOf -->
+
+    <owl:ObjectProperty rdf:about="&km4c;inMunicipalityOf">
+        <rdfs:range rdf:resource="&km4c;Pa"/>
+        <rdfs:domain rdf:resource="&km4c;Road"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.disit.org/km4city/schema#isPartOfRoad -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isPartOfRoad">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>
+		<rdfs:range rdf:resource="&km4c;Road"/>
+        <owl:inverseOf rdf:resource="&km4c;containsElement"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#formingAdminRoad -->
+
+    <owl:ObjectProperty rdf:about="&km4c;formingAdminRoad">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>
+		<rdfs:range rdf:resource="&km4c;AdministrativeRoad"/>
+        <owl:inverseOf rdf:resource="&km4c;hasRoadElement"/>
+    </owl:ObjectProperty>
+	
+	<!-- http://www.disit.org/km4city/schema#hasRoadElement -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasRoadElement">
+        <rdfs:range rdf:resource="&km4c;RoadElement"/>
+        <rdfs:domain rdf:resource="&km4c;AdministrativeRoad"/>
+		<owl:inverseOf rdf:resource="&km4c;formingAdminRoad"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.disit.org/km4city/schema#isPartOfProvince -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isPartOfProvince">
+        <rdfs:domain rdf:resource="&km4c;Municipality"/>
+        <rdfs:range rdf:resource="&km4c;Province"/>
+		<owl:inverseOf rdf:resource="&km4c;hasMunicipality"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.disit.org/km4city/schema#isPartOfRegion -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isPartOfRegion">
+        <rdfs:domain rdf:resource="&km4c;Province"/>
+        <rdfs:range rdf:resource="&km4c;Region"/>
+		<owl:inverseOf rdf:resource="&km4c;hasProvince"/>
+    </owl:ObjectProperty>
+     
+	
+    <!-- http://www.disit.org/km4city/schema#hasMunicipality -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasMunicipality">
+        <rdfs:range rdf:resource="&km4c;Municipality"/>
+        <rdfs:domain rdf:resource="&km4c;Province"/>
+        <owl:inverseOf rdf:resource="&km4c;isPartOfProvince"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- http://www.disit.org/km4city/schema#hasProvince -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasProvince">
+        <rdfs:range rdf:resource="&km4c;Province"/>
+        <rdfs:domain rdf:resource="&km4c;Region"/>
+        <owl:inverseOf rdf:resource="&km4c;isPartOfRegion"/>
+    </owl:ObjectProperty>
+    
+	
+    <!-- http://www.disit.org/km4city/schema#endsAtNode -->
+
+    <owl:ObjectProperty rdf:about="&km4c;endsAtNode">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>
+        <rdfs:range rdf:resource="&km4c;Node"/>
+    </owl:ObjectProperty>
+	
+
+    <!-- http://www.disit.org/km4city/schema#startsAtNode -->
+
+    <owl:ObjectProperty rdf:about="&km4c;startsAtNode">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>
+        <rdfs:range rdf:resource="&km4c;Node"/>
+    </owl:ObjectProperty>
+
+
+    <!-- http://www.disit.org/km4city/schema#hasStreetNumber -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasStreetNumber">
+        <rdfs:domain rdf:resource="&km4c;Road"/>
+        <rdfs:range rdf:resource="&km4c;StreetNumber"/>
+		<owl:inverseOf rdf:resource="&km4c;belongToRoad"/>
+    </owl:ObjectProperty>	
+	
+	
+    <!-- http://www.disit.org/km4city/schema#belongToRoad -->
+
+    <owl:ObjectProperty rdf:about="&km4c;belongToRoad">
+        <rdfs:domain rdf:resource="&km4c;StreetNumber"/>
+        <rdfs:range rdf:resource="&km4c;Road"/>
+		<owl:inverseOf rdf:resource="&km4c;hasStreetNumber"/>
+    </owl:ObjectProperty>		
+	
+	
+	<!-- http://www.disit.org/km4city/schema#placedInElement -->
+
+    <owl:ObjectProperty rdf:about="&km4c;placedInElement">
+        <rdfs:domain rdf:resource="&km4c;Entry"/>
+        <rdfs:range rdf:resource="&km4c;RoadElement"/>
+    </owl:ObjectProperty>		
+	
+
+	<!-- http://www.disit.org/km4city/schema#isInElement -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isInElement">
+        <rdfs:domain rdf:resource="&km4c;Milestone"/>
+        <rdfs:range rdf:resource="&km4c;RoadElement"/>
+    </owl:ObjectProperty>		
+
+
+    <!-- http://www.disit.org/km4city/schema#hasRule -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasRule">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>
+        <rdfs:range rdf:resource="&km4c;EntryRule"/>
+		<owl:inverseOf rdf:resource="&km4c;accessToElement"/>
+    </owl:ObjectProperty>	
+
+
+    <!-- http://www.disit.org/km4city/schema#accessToElement -->
+
+    <owl:ObjectProperty rdf:about="&km4c;accessToElement">
+        <rdfs:domain rdf:resource="&km4c;EntryRule"/>
+        <rdfs:range rdf:resource="&km4c;RoadElement"/>
+		<owl:inverseOf rdf:resource="&km4c;hasRule"/>
+    </owl:ObjectProperty>		
+
+
+	<!-- http://www.disit.org/km4city/schema#hasManeuver -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasManeuver">
+        <rdfs:domain rdf:resource="&km4c;EntryRule"/>
+        <rdfs:range rdf:resource="&km4c;Maneuver"/>
+    </owl:ObjectProperty>		
+	
+
+	<!-- http://www.disit.org/km4city/schema#concerningNode -->
+
+    <owl:ObjectProperty rdf:about="&km4c;concerningNode">
+        <rdfs:domain rdf:resource="&km4c;Maneuver"/>
+        <rdfs:range rdf:resource="&km4c;Node"/>
+    </owl:ObjectProperty>	
+
+	<!-- http://www.disit.org/km4city/schema#hasFirstElem -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasFirstElem">
+        <rdfs:domain rdf:resource="&km4c;Maneuver"/>
+        <rdfs:range rdf:resource="&km4c;RoadElement"/>
+    </owl:ObjectProperty>	
+
+	<!-- http://www.disit.org/km4city/schema#hasSecondElem -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasSecondElem">
+        <rdfs:domain rdf:resource="&km4c;Maneuver"/>
+        <rdfs:range rdf:resource="&km4c;RoadElement"/>
+    </owl:ObjectProperty>	
+
+
+	<!-- http://www.disit.org/km4city/schema#hasThirdElem -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasThirdElem">
+        <rdfs:domain rdf:resource="&km4c;Maneuver"/>
+        <rdfs:range rdf:resource="&km4c;RoadElement"/>
+    </owl:ObjectProperty>		
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasInternalAccess -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasInternalAccess">
+        <rdfs:domain rdf:resource="&km4c;StreetNumber"/>
+        <rdfs:range rdf:resource="&km4c;Entry"/>
+    </owl:ObjectProperty>		
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasExternalAccess -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasExternalAccess">
+        <rdfs:domain rdf:resource="&km4c;StreetNumber"/>
+        <rdfs:range rdf:resource="&km4c;Entry"/>
+    </owl:ObjectProperty>		
+	
+	<!-- http://www.disit.org/km4city/schema#hasAccess -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasAccess">
+        <rdfs:domain rdf:resource="&km4c;Service"/>
+        <rdfs:range rdf:resource="&km4c;Entry"/>
+    </owl:ObjectProperty>	
+
+
+	<!-- http://www.disit.org/km4city/schema#refersToMunicipality -->
+
+    <owl:ObjectProperty rdf:about="&km4c;refersToMunicipality">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>
+        <rdfs:range rdf:resource="&km4c;Municipality"/>
+		<owl:inverseOf rdf:resource="&km4c;hasWeatherReport"/>
+    </owl:ObjectProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasWeatherReport -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasWeatherReport">
+        <rdfs:domain rdf:resource="&km4c;Municipality"/>
+        <rdfs:range rdf:resource="&km4c;WeatherReport"/>
+		<owl:inverseOf rdf:resource="&km4c;refersToMunicipality"/>
+    </owl:ObjectProperty>	
+
+
+	<!-- http://www.disit.org/km4city/schema#hasPrediction -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasPrediction">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>
+        <rdfs:range rdf:resource="&km4c;WeatherPrediction"/>
+    </owl:ObjectProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#observeCarPark -->
+	
+    <owl:ObjectProperty rdf:about="&km4c;observeCarPark">
+        <rdfs:domain rdf:resource="&km4c;CarParkSensor"/>
+        <rdfs:range rdf:resource="&km4c;TransferService"/>
+		<owl:inverseOf rdf:resource="&km4c;hasCarParkSensor"/>
+    </owl:ObjectProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasCarParkSensor -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasCarParkSensor">
+        <rdfs:domain rdf:resource="&km4c;TransferService"/>
+        <rdfs:range rdf:resource="&km4c;CarParkSensor"/>
+		<owl:inverseOf rdf:resource="&km4c;observeCarPark"/>
+    </owl:ObjectProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasRecord -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasRecord">
+        <rdfs:domain rdf:resource="&km4c;CarParkSensor"/>
+        <rdfs:range rdf:resource="&km4c;SituationRecord"/>
+		<owl:inverseOf rdf:resource="&km4c;relatedToSensor"/>
+    </owl:ObjectProperty>		
+	
+	
+	<!-- http://www.disit.org/km4city/schema#relatedToSensor -->
+
+    <owl:ObjectProperty rdf:about="&km4c;relatedToSensor">
+        <rdfs:domain rdf:resource="&km4c;SituationRecord"/>
+        <rdfs:range rdf:resource="&km4c;CarParkSensor"/>
+		<owl:inverseOf rdf:resource="&km4c;hasRecord"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#formsTable -->
+
+    <owl:ObjectProperty rdf:about="&km4c;formsTable">
+        <rdfs:domain rdf:resource="&km4c;SensorSite"/>
+        <rdfs:range rdf:resource="&km4c;SensorSiteTable"/>
+    </owl:ObjectProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#measuredBySensor -->
+
+    <owl:ObjectProperty rdf:about="&km4c;measuredBySensor">
+        <rdfs:domain rdf:resource="&km4c;Observation"/>
+        <rdfs:range rdf:resource="&km4c;SensorSite"/>
+		<owl:inverseOf rdf:resource="&km4c;hasObservation"/>
+    </owl:ObjectProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasObservation -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasObservation">
+        <rdfs:domain rdf:resource="&km4c;SensorSite"/>
+        <rdfs:range rdf:resource="&km4c;Observation"/>
+		<owl:inverseOf rdf:resource="&km4c;measuredBySensor"/>
+    </owl:ObjectProperty>
+
+
+	<!-- http://www.disit.org/km4city/schema#placedOnRoad -->
+
+    <owl:ObjectProperty rdf:about="&km4c;placedOnRoad">
+        <rdfs:domain rdf:resource="&km4c;SensorSite"/>
+        <rdfs:range rdf:resource="&km4c;Road"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasPublicOffice -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasPublicOffice">
+        <rdfs:domain rdf:resource="&km4c;Pa"/>
+        <rdfs:range rdf:resource="&km4c;GovernmentOffice"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#approvedByPa -->
+
+    <owl:ObjectProperty rdf:about="&km4c;approvedByPa">
+        <rdfs:domain rdf:resource="&km4c;Resolution"/>
+        <rdfs:range rdf:resource="&km4c;Pa"/>
+		<owl:inverseOf rdf:resource="&km4c;hasResolution"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasResolution -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasResolution">
+        <rdfs:domain rdf:resource="&km4c;Pa"/>
+        <rdfs:range rdf:resource="&km4c;Resolution"/>
+		<owl:inverseOf rdf:resource="&km4c;approvedByPa"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasStatistic -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasStatistic">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4c;Pa"/>
+                    <rdf:Description rdf:about="&km4c;Road"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="&km4c;StatisticalData"/>
+    </owl:ObjectProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#finishesAtJunction -->
+
+    <owl:ObjectProperty rdf:about="&km4c;finishesAtJunction">
+        <rdfs:domain rdf:resource="&km4c;RouteLink"/>
+        <rdfs:range rdf:resource="&km4c;RouteJunction"/>
+    </owl:ObjectProperty>
+	
+
+    <!-- http://www.disit.org/km4city/schema#beginsAtJunction -->
+
+    <owl:ObjectProperty rdf:about="&km4c;beginsAtJunction">
+        <rdfs:domain rdf:resource="&km4c;RouteLink"/>
+        <rdfs:range rdf:resource="&km4c;RouteJunction"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#isInRoad -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isInRoad">
+		<rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4c;BusStop"/>
+                    <rdf:Description rdf:about="&km4c;Service"/>
+					<rdf:Description rdf:about="&km4c;TrainStation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="&km4c;Road"/>
+    </owl:ObjectProperty>
+	
+
+	<!-- http://www.disit.org/km4city/schema#isPartOfLot -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isPartOfLot">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4c;BusStop"/>
+                    <rdf:Description rdf:about="&km4c;PublicTransportLine"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="&km4c;Lot"/>
+    </owl:ObjectProperty>		
+	
+	
+	<!-- http://www.disit.org/km4city/schema#startsAtStop -->
+
+    <owl:ObjectProperty rdf:about="&km4c;startsAtStop">
+        <rdfs:domain rdf:resource="&km4c;RouteSection"/>
+        <rdfs:range rdf:resource="&km4c;BusStop"/>
+    </owl:ObjectProperty>
+
+
+	<!-- http://www.disit.org/km4city/schema#endsAtStop -->
+
+    <owl:ObjectProperty rdf:about="&km4c;endsAtStop">
+        <rdfs:domain rdf:resource="&km4c;RouteSection"/>
+        <rdfs:range rdf:resource="&km4c;BusStop"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasRouteLink -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasRouteLink">
+        <rdfs:domain rdf:resource="&km4c;Route"/>
+        <rdfs:range rdf:resource="&km4c;RouteLink"/>
+    </owl:ObjectProperty>
+
+
+	<!-- http://www.disit.org/km4city/schema#hasFirstSection -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasFirstSection">
+        <rdfs:domain rdf:resource="&km4c;Route"/>
+        <rdfs:range rdf:resource="&km4c;RouteSection"/>
+    </owl:ObjectProperty>
+
+
+	<!-- http://www.disit.org/km4city/schema#hasSection -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasSection">
+        <rdfs:domain rdf:resource="&km4c;Route"/>
+        <rdfs:range rdf:resource="&km4c;RouteSection"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasFirstStop -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasFirstStop">
+        <rdfs:domain rdf:resource="&km4c;Route"/>
+        <rdfs:range rdf:resource="&km4c;BusStop"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasRoute -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasRoute">
+        <rdfs:domain rdf:resource="&km4c;PublicTransportLine"/>
+        <rdfs:range rdf:resource="&km4c;Route"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasAVMRecord -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasAVMRecord">
+        <rdfs:domain rdf:resource="&km4c;Ride"/>
+        <rdfs:range rdf:resource="&km4c;AVMRecord"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#scheduledOnLine -->
+
+    <owl:ObjectProperty rdf:about="&km4c;scheduledOnLine">
+        <rdfs:domain rdf:resource="&km4c;Ride"/>
+        <rdfs:range rdf:resource="&km4c;PublicTransportLine"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#on -->
+
+    <owl:ObjectProperty rdf:about="&km4c;onRoute">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4c;Ride"/>
+                    <rdf:Description rdf:about="&km4c;AVMRecord"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="&km4c;Route"/>
+    </owl:ObjectProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#lastStop -->
+
+    <owl:ObjectProperty rdf:about="&km4c;lastStop">
+        <rdfs:domain rdf:resource="&km4c;AVMRecord"/>
+        <rdfs:range rdf:resource="&km4c;BusStop"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#startingJunction -->
+
+    <owl:ObjectProperty rdf:about="&km4c;startingJunction">
+        <rdfs:domain rdf:resource="&km4c;RoadLink"/>
+        <rdfs:range rdf:resource="&km4c;Junction"/>
+    </owl:ObjectProperty>
+
+
+	<!-- http://www.disit.org/km4city/schema#endingJunction -->
+
+    <owl:ObjectProperty rdf:about="&km4c;endingJunction">
+        <rdfs:domain rdf:resource="&km4c;RoadLink"/>
+        <rdfs:range rdf:resource="&km4c;Junction"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasSegment -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasSegment">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>
+        <rdfs:range rdf:resource="&km4c;RoadLink"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#includeForecast -->
+
+    <owl:ObjectProperty rdf:about="&km4c;includeForecast">
+        <rdfs:domain rdf:resource="&km4c;AVMRecord"/>
+        <rdfs:range rdf:resource="&km4c;BusStopForecast"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#atBusStop -->
+
+    <owl:ObjectProperty rdf:about="&km4c;atBusStop">
+        <rdfs:domain rdf:resource="&km4c;BusStopForecast"/>
+        <rdfs:range rdf:resource="&km4c;BusStop"/>
+		<owl:inverseOf rdf:resource="&km4c;hasForecast"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasForecast -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasForecast">
+        <rdfs:domain rdf:resource="&km4c;BusStop"/>
+        <rdfs:range rdf:resource="&km4c;BusStopForecast"/>
+		<owl:inverseOf rdf:resource="&km4c;atBusStop"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#concernLine -->
+
+    <owl:ObjectProperty rdf:about="&km4c;concernLine">
+        <rdfs:domain rdf:resource="&km4c;AVMRecord"/>
+        <rdfs:range rdf:resource="&km4c;PublicTransportLine"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasLastStopTime -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasLastStopTime">
+        <rdfs:domain rdf:resource="&km4c;AVMRecord"/>
+        <rdfs:range rdf:resource="&time;Instant"/>
+		<owl:inverseOf rdf:resource="&km4c;instantAVM"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#instantAVM -->
+
+    <owl:ObjectProperty rdf:about="&km4c;instantAVM">
+	    <rdfs:domain rdf:resource="&time;TemporalEntity"/>
+        <rdfs:range rdf:resource="&km4c;AVMRecord"/>
+		<owl:inverseOf rdf:resource="&km4c;hasLastStopTime"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasExpectedTime -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasExpectedTime">
+        <rdfs:domain rdf:resource="&km4c;BusStopForecast"/>
+        <rdfs:range rdf:resource="&time;Instant"/>
+		<owl:inverseOf rdf:resource="&km4c;instantForecast"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#instantForecast -->
+
+    <owl:ObjectProperty rdf:about="&km4c;instantForecast">
+	    <rdfs:domain rdf:resource="&time;TemporalEntity"/>
+        <rdfs:range rdf:resource="&km4c;BusStopForecast"/>
+		<owl:inverseOf rdf:resource="&km4c;hasExpectedTime"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#measuredTime -->
+
+    <owl:ObjectProperty rdf:about="&km4c;measuredTime">
+        <rdfs:domain rdf:resource="&km4c;Observation"/>
+        <rdfs:range rdf:resource="&time;Instant"/>
+		<owl:inverseOf rdf:resource="&km4c;instantObserv"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#instantObserv -->
+
+    <owl:ObjectProperty rdf:about="&km4c;instantObserv">
+	    <rdfs:domain rdf:resource="&time;TemporalEntity"/>
+        <rdfs:range rdf:resource="&km4c;Observation"/>
+		<owl:inverseOf rdf:resource="&km4c;measuredTime"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#observationTime -->
+
+    <owl:ObjectProperty rdf:about="&km4c;observationTime">
+        <rdfs:domain rdf:resource="&km4c;SituationRecord"/>
+        <rdfs:range rdf:resource="&time;Instant"/>
+		<owl:inverseOf rdf:resource="&km4c;instantParking"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#instantParking -->
+
+    <owl:ObjectProperty rdf:about="&km4c;instantParking">
+	    <rdfs:domain rdf:resource="&time;TemporalEntity"/>
+        <rdfs:range rdf:resource="&km4c;SituationRecord"/>
+		<owl:inverseOf rdf:resource="&km4c;observationTime"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#updateTime -->
+
+    <owl:ObjectProperty rdf:about="&km4c;updateTime">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>
+        <rdfs:range rdf:resource="&time;Instant"/>
+		<owl:inverseOf rdf:resource="&km4c;instantWReport"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#instantWReport -->
+
+    <owl:ObjectProperty rdf:about="&km4c;instantWReport">
+	    <rdfs:domain rdf:resource="&time;TemporalEntity"/>
+        <rdfs:range rdf:resource="&km4c;WeatherReport"/>
+		<owl:inverseOf rdf:resource="&km4c;updateTime"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasServiceCategory -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasServiceCategory">
+		<rdfs:domain rdf:resource="&km4c;Service"/>
+        <rdfs:range rdf:resource="&km4c;ServiceCategory"/>    
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#isInstalledOnRoad -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isInstalledOnRoad">
+		<rdfs:domain rdf:resource="&km4c;HotSpotWiFi"/>
+        <rdfs:range rdf:resource="&km4c;Road"/>    
+    </owl:ObjectProperty>
+
+
+	<!-- http://www.disit.org/km4city/schema#isInstalledOnService -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isInstalledOnService">
+		<rdfs:domain rdf:resource="&km4c;HotSpotWiFi"/>
+        <rdfs:range rdf:resource="&km4c;Service"/>    
+    </owl:ObjectProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#isATicketsRetail -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isATicketsRetail">
+		<rdfs:domain rdf:resource="&km4c;Service"/>
+        <rdfs:range rdf:resource="&km4c;BusTicketsRetail"/>    
+    </owl:ObjectProperty>		
+	
+		
+	<!-- http://www.disit.org/km4city/schema#isAFreshPlace -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isAFreshPlace">
+		<rdfs:domain rdf:resource="&km4c;Service"/>
+        <rdfs:range rdf:resource="&km4c;FreshPlace"/>    
+    </owl:ObjectProperty>		
+	
+	
+	<!-- http://www.disit.org/km4city/schema#installedOnRoad -->
+
+    <owl:ObjectProperty rdf:about="&km4c;installedOnRoad">
+	    <rdfs:domain rdf:resource="&km4c;TrafficGate"/>
+        <rdfs:range rdf:resource="&km4c;Road"/>
+		<owl:inverseOf rdf:resource="&km4c;hasGate"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasGate -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasGate">
+	    <rdfs:domain rdf:resource="&km4c;Road"/>
+        <rdfs:range rdf:resource="&km4c;TrafficGate"/>
+		<owl:inverseOf rdf:resource="&km4c;installedOnRoad"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- ******************** Railway Macroclass ************************* -->
+	
+	
+	<!-- http://www.disit.org/km4city/schema#correspondToJunction -->
+
+    <owl:ObjectProperty rdf:about="&km4c;correspondToJunction">
+		<rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4c;TrainStation"/>
+                    <rdf:Description rdf:about="&km4c;GoodsYard"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="&km4c;RailwayJunction"/>    
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasElement -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasElement">
+        <rdfs:range rdf:resource="&km4c;RailwayElement"/>
+        <rdfs:domain rdf:resource="&km4c;RailwayLine"/>
+		<owl:inverseOf rdf:resource="&km4c;isPartOfLine"/>
+    </owl:ObjectProperty>
+	
+		
+	<!-- http://www.disit.org/km4city/schema#isPartOfLine -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isPartOfLine">
+        <rdfs:domain rdf:resource="&km4c;RailwayElement"/>
+		<rdfs:range rdf:resource="&km4c;RailwayLine"/>
+        <owl:inverseOf rdf:resource="&km4c;hasElement"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#composeDirection -->
+
+    <owl:ObjectProperty rdf:about="&km4c;composeDirection">
+        <rdfs:domain rdf:resource="&km4c;RailwayElement"/>
+		<rdfs:range rdf:resource="&km4c;RailwayDirection"/>
+        <owl:inverseOf rdf:resource="&km4c;consistOfElement"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#composeSection -->
+
+    <owl:ObjectProperty rdf:about="&km4c;composeSection">
+        <rdfs:domain rdf:resource="&km4c;RailwayElement"/>
+		<rdfs:range rdf:resource="&km4c;RailwaySection"/>
+        <owl:inverseOf rdf:resource="&km4c;isComposedByElement"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#isComposedByElement -->
+
+    <owl:ObjectProperty rdf:about="&km4c;isComposedByElement">
+        <rdfs:range rdf:resource="&km4c;RailwayElement"/>
+        <rdfs:domain rdf:resource="&km4c;RailwaySection"/>
+		<owl:inverseOf rdf:resource="&km4c;composeSection"/>
+    </owl:ObjectProperty>
+
+	
+	<!-- http://www.disit.org/km4city/schema#consistOfElement -->
+
+    <owl:ObjectProperty rdf:about="&km4c;consistOfElement">
+        <rdfs:range rdf:resource="&km4c;RailwayElement"/>
+        <rdfs:domain rdf:resource="&km4c;RailwayDirection"/>
+		<owl:inverseOf rdf:resource="&km4c;composeDirection"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#hasTransferService -->
+
+    <owl:ObjectProperty rdf:about="&km4c;hasTransferService">
+        <rdfs:domain rdf:resource="&km4c;TrainStation"/>
+        <rdfs:range rdf:resource="&km4c;TransferService"/>
+    </owl:ObjectProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#endAtJunction -->
+
+    <owl:ObjectProperty rdf:about="&km4c;endAtJunction">
+        <rdfs:domain rdf:resource="&km4c;RailwayElement"/>
+        <rdfs:range rdf:resource="&km4c;RailwayJunction"/>
+    </owl:ObjectProperty>
+	
+
+    <!-- http://www.disit.org/km4city/schema#startAtJunction -->
+
+    <owl:ObjectProperty rdf:about="&km4c;startAtJunction">
+        <rdfs:domain rdf:resource="&km4c;RailwayElement"/>
+        <rdfs:range rdf:resource="&km4c;RailwayJunction"/>
+    </owl:ObjectProperty>
+	
+		
+	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <!-- http://www.disit.org/km4city/schema#atecoCode -->
+
+    <owl:DatatypeProperty rdf:about="&km4c;atecoCode">
+        <rdfs:domain rdf:resource="&km4c;Service"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#email -->
+
+    <owl:DatatypeProperty rdf:about="&km4c;email">
+        <rdfs:domain rdf:resource="&km4c;Service"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#houseNumber -->
+
+    <owl:DatatypeProperty rdf:about="&km4c;houseNumber">
+        <rdfs:domain rdf:resource="&km4c;Service"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>	
+	
+
+    <!-- http://www.disit.org/km4city/schema#roadType -->
+	
+    <owl:DatatypeProperty rdf:about="&km4c;roadType">
+        <rdfs:domain rdf:resource="&km4c;Road"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>  	
+	
+
+    <!-- http://www.disit.org/km4city/schema#name -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;name">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>  
+
+    <!-- http://www.disit.org/km4city/schema#roadName -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;roadName">
+		<rdfs:subPropertyOf rdf:resource="&km4c;name" />
+		<rdfs:domain rdf:resource="&km4c;Road"/>	
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>  	
+	
+    <!-- http://www.disit.org/km4city/schema#adRoadName -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;adRoadName">
+		<rdfs:subPropertyOf rdf:resource="&km4c;name" />
+		<rdfs:domain rdf:resource="&km4c;AdministrativeRoad"/>	
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>  	
+	
+
+    <!-- http://www.disit.org/km4city/schema#extendName -->
+	
+    <owl:DatatypeProperty rdf:about="&km4c;extendName">
+        <rdfs:domain rdf:resource="&km4c;Road"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>  	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#alterCode -->
+	
+    <owl:DatatypeProperty rdf:about="&km4c;alterCode">
+        <rdfs:domain rdf:resource="&km4c;Road"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- http://www.disit.org/km4city/schema#adminClass -->
+	
+    <owl:DatatypeProperty rdf:about="&km4c;adminClass">
+        <rdfs:domain rdf:resource="&km4c;AdministrativeRoad"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>  	
+
+
+    <!-- http://www.disit.org/km4city/schema#elementType -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;elementType">
+       <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4c;RoadElement"/>
+                    <rdf:Description rdf:about="&km4c;RailwayElement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>  
+	
+
+    <!-- http://www.disit.org/km4city/schema#elementClass -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;elementClass">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 	
+	
+
+    <!-- http://www.disit.org/km4city/schema#composition -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;composition">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#elemLocation -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;elemLocation">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4c;RoadElement"/>
+                    <rdf:Description rdf:about="&km4c;RailwayElement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#operatingStatus -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;operatingStatus">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4c;RoadElement"/>
+                    <rdf:Description rdf:about="&km4c;RailwayElement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>		
+        <rdfs:range>
+			<owl:DataRange>
+			    <owl:oneOf>
+				    <rdf:List>
+				        <rdf:first rdf:datatype="&xsd;string">in esercizio</rdf:first>
+					       <rdf:rest>
+						       <rdf:List>
+						           <rdf:first rdf:datatype="&xsd;string">in costruzione</rdf:first>
+									<rdf:rest>
+									<rdf:List>
+										<rdf:first rdf:datatype="&xsd;string">in disuso/dismesso</rdf:first>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+			    </owl:oneOf>
+			</owl:DataRange>
+		</rdfs:range>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#length -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;length">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4c;RoadElement"/>
+                    <rdf:Description rdf:about="&km4c;RailwayElement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#speedLimit -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;speedLimit">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+
+
+	<!-- http://www.disit.org/km4city/schema#width -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;width">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>		
+        <rdfs:range>
+			<owl:DataRange>
+			    <owl:oneOf>
+				    <rdf:List>
+				        <rdf:first rdf:datatype="&xsd;string">minore di 3.5mt</rdf:first>
+					       <rdf:rest>
+						       <rdf:List>
+						           <rdf:first rdf:datatype="&xsd;string">tra 3.5mt e 7mt</rdf:first>
+									<rdf:rest>
+									<rdf:List>
+										<rdf:first rdf:datatype="&xsd;string">maggiore di 7mt</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first rdf:datatype="&xsd;string">non rilevato</rdf:first>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+							</rdf:List>
+						</rdf:rest>
+					</rdf:List>
+			    </owl:oneOf>
+			</owl:DataRange>
+		</rdfs:range>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#trafficDir -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;trafficDir">
+        <rdfs:domain rdf:resource="&km4c;RoadElement"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#nodeType -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;nodeType">
+        <rdfs:domain rdf:resource="&km4c;Node"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#number -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;number">
+        <rdfs:domain rdf:resource="&km4c;StreetNumber"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 	
+
+
+    <!-- http://www.disit.org/km4city/schema#exponent -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;exponent">
+        <rdfs:domain rdf:resource="&km4c;StreetNumber"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 	
+
+
+    <!-- http://www.disit.org/km4city/schema#classCode -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;classCode">
+        <rdfs:domain rdf:resource="&km4c;StreetNumber"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 	
+
+
+    <!-- http://www.disit.org/km4city/schema#extendNumber -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;extendNumber">
+        <rdfs:domain rdf:resource="&km4c;StreetNumber"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+
+
+    <!-- http://www.disit.org/km4city/schema#text -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;text">
+        <rdfs:domain rdf:resource="&km4c;Milestone"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+
+
+    <!-- http://www.disit.org/km4city/schema#entryType -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;entryType">
+        <rdfs:domain rdf:resource="&km4c;Entry"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 	
+	
+
+    <!-- http://www.disit.org/km4city/schema#porteCochere -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;porteCochere">
+        <rdfs:domain rdf:resource="&km4c;Entry"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+	
+    <!-- http://www.disit.org/km4city/schema#maneuverType -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;maneuverType">
+        <rdfs:domain rdf:resource="&km4c;Maneuver"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+
+
+    <!-- http://www.disit.org/km4city/schema#restrictionType -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;restrictionType">
+        <rdfs:domain rdf:resource="&km4c;EntryRule"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#restrictionValue -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;restrictionValue">
+        <rdfs:domain rdf:resource="&km4c;EntryRule"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 		
+
+
+    <!-- http://www.disit.org/km4city/schema#averageSpeed -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;averageSpeed">
+        <rdfs:domain rdf:resource="&km4c;Observation"/>		
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty> 
+
+
+    <!-- http://www.disit.org/km4city/schema#thresholdPerc -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;thresholdPerc">
+        <rdfs:domain rdf:resource="&km4c;Observation"/>		
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#speedPercentile -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;speedPercentile">
+        <rdfs:domain rdf:resource="&km4c;Observation"/>		
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#vehicleFlow -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;vehicleFlow">
+        <rdfs:domain rdf:resource="&km4c;Observation"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#concentration -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;concentration">
+        <rdfs:domain rdf:resource="&km4c;Observation"/>		
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty> 
+	
+	
+    <!-- http://www.disit.org/km4city/schema#occupancy -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;occupancy">
+        <rdfs:domain rdf:resource="&km4c;Observation"/>		
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#averageTime -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;averageTime">
+        <rdfs:domain rdf:resource="&km4c;Observation"/>		
+        <rdfs:range rdf:resource="&xsd;float"/>
+		<rdfs:comment>Tempo medio tra 2 transiti</rdfs:comment>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#averageDistance -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;averageDistance">
+        <rdfs:domain rdf:resource="&km4c;Observation"/>		
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty> 
+	
+	
+    <!-- http://www.disit.org/km4city/schema#timeStamp -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;year">
+        <rdfs:domain rdf:resource="&km4c;Resolution"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#timeStamp -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;timestamp">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+		<rdfs:comment>ANCHE SE VERRA' INSERITO IL COLLEGAMENTO CON INSTANT, QUESTO ATTRIBUTO NON VA CANCELLATO</rdfs:comment>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#lunarPhase -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;lunarPhase">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#sunset -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;sunset">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#sunrise -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;sunrise">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#moonset -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;moonset">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+    <!-- http://www.disit.org/km4city/schema#moonrise -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;moonrise">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+	
+	<!-- http://www.disit.org/km4city/schema#heightHour -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;heightHour">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+	
+	<!-- http://www.disit.org/km4city/schema#sunHeight -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;sunHeight">
+        <rdfs:domain rdf:resource="&km4c;WeatherReport"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+	
+    <!-- http://www.disit.org/km4city/schema#uv -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;uv">
+        <rdfs:domain rdf:resource="&km4c;WeatherPrediction"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#maxTemp -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;maxTemp">
+        <rdfs:domain rdf:resource="&km4c;WeatherPrediction"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#minTemp -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;minTemp">
+        <rdfs:domain rdf:resource="&km4c;WeatherPrediction"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#perTemp -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;perTemp">
+        <rdfs:domain rdf:resource="&km4c;WeatherPrediction"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#recTemp -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;recTemp">
+        <rdfs:domain rdf:resource="&km4c;WeatherPrediction"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#wind -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;wind">
+        <rdfs:domain rdf:resource="&km4c;WeatherPrediction"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#day -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;day">
+        <rdfs:domain rdf:resource="&km4c;WeatherPrediction"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#humidity -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;humidity">
+        <rdfs:domain rdf:resource="&km4c;WeatherPrediction"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#snow -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;snow">
+        <rdfs:domain rdf:resource="&km4c;WeatherPrediction"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#hour -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;hour">
+        <rdfs:domain rdf:resource="&km4c;WeatherPrediction"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#carParkStatus -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;carParkStatus">
+        <rdfs:domain rdf:resource="&km4c;SituationRecord"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#capacity -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;capacity">
+        <rdfs:domain rdf:resource="&km4c;CarParkSensor"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#fillRate -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;fillRate">
+        <rdfs:domain rdf:resource="&km4c;SituationRecord"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#exitRate -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;exitRate">
+        <rdfs:domain rdf:resource="&km4c;SituationRecord"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+	
+
+	<!-- http://www.disit.org/km4city/schema#validityStatus -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;validityStatus">
+        <rdfs:domain rdf:resource="&km4c;SituationRecord"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+	
+
+	<!-- http://www.disit.org/km4city/schema#parkOccupancy -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;parkOccupancy">
+        <rdfs:domain rdf:resource="&km4c;SituationRecord"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+		<rdfs:comment>percentuale di posti occupati</rdfs:comment>
+    </owl:DatatypeProperty>
+	
+
+	<!-- http://www.disit.org/km4city/schema#free -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;free">
+        <rdfs:domain rdf:resource="&km4c;SituationRecord"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+	
+
+	<!-- http://www.disit.org/km4city/schema#occupied -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;occupied">
+        <rdfs:domain rdf:resource="&km4c;SituationRecord"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+		<rdfs:comment>numero di posti occupati</rdfs:comment>
+    </owl:DatatypeProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#value -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;value">
+        <rdfs:domain rdf:resource="&km4c;StatisticalData"/>		
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#routeLength -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;routeLength">
+        <rdfs:domain rdf:resource="&km4c;Route"/>		
+        <rdfs:range rdf:resource="&xsd;float"/>
+		<rdfs:comment>lunghezza percorso</rdfs:comment>
+    </owl:DatatypeProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#distance -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;distance">
+        <rdfs:domain rdf:resource="&km4c;RouteSection"/>		
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty> 
+	
+	
+	<!-- http://www.disit.org/km4city/schema#direction -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;direction">
+        <rdfs:domain rdf:resource="&km4c;Route"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+		<rdfs:comment>direzione percorso</rdfs:comment>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#vehicle -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;vehicle">
+        <rdfs:domain rdf:resource="&km4c;AVMRecord"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+		<rdfs:comment>numero di riconoscimento mezzo per azineda TPL</rdfs:comment>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#lastStopTime -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;lastStopTime">
+        <rdfs:domain rdf:resource="&km4c;AVMRecord"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+		<rdfs:comment>orario in cui il bus ha raggiunto l'ultima fermata DA ELIMINARE QUANDO INSTANT FUNZIONERA' ALLA PERFEZIONE</rdfs:comment>
+    </owl:DatatypeProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#rideState -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;rideState">
+        <rdfs:domain rdf:resource="&km4c;AVMRecord"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+		<rdfs:comment>stato della corsa: anticipo, ritardo, in orario</rdfs:comment>
+    </owl:DatatypeProperty>	
+	
+
+	<!-- http://www.disit.org/km4city/schema#owner -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;owner">
+        <rdfs:domain rdf:resource="&km4c;AVMRecord"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+		<rdfs:comment>sente proprietario del sistema AVM</rdfs:comment>
+    </owl:DatatypeProperty>	
+
+
+	<!-- http://www.disit.org/km4city/schema#managingBy -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;managingBy">
+        <rdfs:domain rdf:resource="&km4c;AVMRecord"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+		<rdfs:comment>ente gestore del sistema AVM</rdfs:comment>
+    </owl:DatatypeProperty>		
+	
+	
+	<!-- http://www.disit.org/km4city/schema#expectedTime -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;expectedTime">
+        <rdfs:domain rdf:resource="&km4c;BusStopForecast"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+		<rdfs:comment>orario in cui e' previsto l'arrivo del bus a quella fermata DA ELIMINARE QUANDO INSTANT FUNZIONERA' ALLA PERFEZIONE</rdfs:comment>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#typeOfResale -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;typeOfResale">
+        <rdfs:domain rdf:resource="&km4c;BusTicketsRetail"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+		<rdfs:comment>Tipologia del negozio che vende anche i biglietti Bus</rdfs:comment>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#typeOfGate -->
+		
+	<owl:DatatypeProperty rdf:about="&km4c;typeOfGate">
+        <rdfs:domain rdf:resource="&km4c;TrafficGate"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+		<rdfs:comment>Tipologia del varco ZTL</rdfs:comment>
+    </owl:DatatypeProperty>		
+
+	
+	
+	<!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat -->
+
+    <owl:DatatypeProperty rdf:about="&geo;lat"/>
+
+	
+	<!-- http://www.w3.org/2003/01/geo/wgs84_pos#long -->
+
+    <owl:DatatypeProperty rdf:about="&geo;long"/>
+
+
+	
+	<!-- ******************** Railway Macroclass ************************* -->	
+	
+    <!-- http://www.disit.org/km4city/schema#supply -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;supply">
+        <rdfs:domain rdf:resource="&km4c;RailwayElement"/>		
+        <rdfs:range>
+			<owl:DataRange>
+			    <owl:oneOf>
+				    <rdf:List>
+				        <rdf:first rdf:datatype="&xsd;string">linea elettrificata</rdf:first>
+					    <rdf:rest>
+						    <rdf:List>
+						        <rdf:first rdf:datatype="&xsd;string">linea non elettrificata</rdf:first>
+						    </rdf:List>
+						</rdf:rest>
+					</rdf:List>
+			    </owl:oneOf>
+			</owl:DataRange>
+		</rdfs:range>
+    </owl:DatatypeProperty> 	
+	
+
+    <!-- http://www.disit.org/km4city/schema#gauge -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;gauge">
+        <rdfs:domain rdf:resource="&km4c;RailwayElement"/>		
+        <rdfs:range>
+			<owl:DataRange>
+			    <owl:oneOf>
+				    <rdf:List>
+				        <rdf:first rdf:datatype="&xsd;string">ridotto</rdf:first>
+					    <rdf:rest>
+						    <rdf:List>
+						        <rdf:first rdf:datatype="&xsd;string">standard</rdf:first>
+						    </rdf:List>
+						</rdf:rest>
+					</rdf:List>
+			    </owl:oneOf>
+			</owl:DataRange>
+		</rdfs:range>
+    </owl:DatatypeProperty> 	
+	
+	
+    <!-- http://www.disit.org/km4city/schema#underpass -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;underpass">
+        <rdfs:domain rdf:resource="&km4c;RailwayElement"/>		
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 	
+	
+	
+    <!-- http://www.disit.org/km4city/schema#numTrack -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;numTrack">
+        <rdfs:domain rdf:resource="&km4c;RailwayElement"/>	
+		<rdfs:comment>numero di binari presenti. se in costruzione o dismesso inserire uno zero</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 
+	
+	
+    <!-- http://www.disit.org/km4city/schema#trackType -->	
+	
+	<owl:DatatypeProperty rdf:about="&km4c;trackType">
+        <rdfs:domain rdf:resource="&km4c;RailwayElement"/>		
+        <rdfs:range>
+			<owl:DataRange>
+			    <owl:oneOf>
+				    <rdf:List>
+				        <rdf:first rdf:datatype="&xsd;string">binario singolo</rdf:first>
+					    <rdf:rest>
+						    <rdf:List>
+						        <rdf:first rdf:datatype="&xsd;string">binario doppio</rdf:first>
+						    </rdf:List>
+						</rdf:rest>
+					</rdf:List>
+			    </owl:oneOf>
+			</owl:DataRange>
+		</rdfs:range>
+    </owl:DatatypeProperty> 	
+	
+	
+    <!-- http://www.disit.org/km4city/schema#combinedTraffic -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;combinedTraffic">
+        <rdfs:domain rdf:resource="&km4c;RailwaySection"/>	
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty> 	
+
+	
+    <!-- http://www.disit.org/km4city/schema#axialMass -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;axialMass">
+        <rdfs:domain rdf:resource="&km4c;RailwaySection"/>	
+        <rdfs:range>
+			<owl:DataRange>
+			    <owl:oneOf>
+				    <rdf:List>
+				        <rdf:first rdf:datatype="&xsd;string">D4 - massa per asse pari a 22.5 t</rdf:first>
+					    <rdf:rest>
+						    <rdf:List>
+						        <rdf:first rdf:datatype="&xsd;string">C3 - massa per asse pari a 20.0 t</rdf:first>
+								<rdf:rest>
+									<rdf:List>
+										<rdf:first rdf:datatype="&xsd;string">B2 - massa per asse pari a 18.0 t</rdf:first>
+										<rdf:rest>
+											<rdf:List>
+												<rdf:first rdf:datatype="&xsd;string">A - massa per asse pari a 16.0 t</rdf:first>
+												<rdf:rest>
+													<rdf:List>
+														<rdf:first rdf:datatype="&xsd;string">Non definita</rdf:first>
+													</rdf:List>
+												</rdf:rest>
+											</rdf:List>
+										</rdf:rest>
+									</rdf:List>
+								</rdf:rest>
+						    </rdf:List>
+						</rdf:rest>
+					</rdf:List>
+			    </owl:oneOf>
+			</owl:DataRange>
+		</rdfs:range>
+    </owl:DatatypeProperty> 
+	
+	
+	<!-- http://www.disit.org/km4city/schema#juncType -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;juncType">
+        <rdfs:domain rdf:resource="&km4c;RailwayJunction"/>	
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+	<!-- http://www.disit.org/km4city/schema#railDepartment -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;railDepartment">
+        <rdfs:domain rdf:resource="&km4c;GoodsYard"/>	
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+	<!-- http://www.disit.org/km4city/schema#railwaySiding -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;railwaySiding">
+        <rdfs:domain rdf:resource="&km4c;GoodsYard"/>	
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+	<!-- http://www.disit.org/km4city/schema#state -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;state">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4c;GoodsYard"/>
+                    <rdf:Description rdf:about="&km4c;TrainStation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>	
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+	
+    <!-- http://www.disit.org/km4city/schema#yardType -->	
+	
+	<owl:DatatypeProperty rdf:about="&km4c;yardType">
+        <rdfs:domain rdf:resource="&km4c;GoodsYard"/>		
+        <rdfs:range>
+			<owl:DataRange>
+			    <owl:oneOf>
+				    <rdf:List>
+				        <rdf:first rdf:datatype="&xsd;string">scali pubblici</rdf:first>
+					    <rdf:rest>
+						    <rdf:List>
+						        <rdf:first rdf:datatype="&xsd;string">raccordi in binario</rdf:first>
+						    </rdf:List>
+						</rdf:rest>
+					</rdf:List>
+			    </owl:oneOf>
+			</owl:DataRange>
+		</rdfs:range>
+    </owl:DatatypeProperty> 	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#managingAuth -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;managingAuth">
+        <rdfs:domain rdf:resource="&km4c;TrainStation"/>	
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+	<!-- http://www.disit.org/km4city/schema#category -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;category">
+        <rdfs:domain rdf:resource="&km4c;TrainStation"/>	
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- ******************** End Railway Macroclass ************************* -->	
+
+	<!-- ******************** Context ************************* -->
+	
+	<!-- http://www.disit.org/km4city/schema#processType -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;processType">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#automaticity -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;automaticity">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#accessType -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;accessType">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#period -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;period">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>		
+	
+	
+	<!-- http://www.disit.org/km4city/schema#overtime -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;overtime">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#param -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;param">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#lastUpdate -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;lastUpdate">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>		
+
+
+	<!-- http://www.disit.org/km4city/schema#lastTriples -->
+	
+	<owl:DatatypeProperty rdf:about="&km4c;lastTriples">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>		
+	
+	<!-- ******************** End Context ************************* -->
+	
+	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    
+    <!-- http://www.disit.org/km4city/schema#Pa -->
+
+    <owl:Class rdf:about="&km4c;Pa">
+        <rdfs:label xml:lang="en">Public Administration</rdfs:label>
+        <rdfs:label xml:lang="it">Pubblica Amministrazione</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment>Comuni, regioni e provincie</rdfs:comment>
+    </owl:Class>
+	
+	
+    <!-- http://www.disit.org/km4city/schema#Region -->
+
+    <owl:Class rdf:about="&km4c;Region">
+        <rdfs:label xml:lang="en">Regional Administration</rdfs:label>
+        <rdfs:label xml:lang="it">Amministrazione Regionale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&km4c;Pa"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasProvince"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Pa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Classe le cui istanze sono le varie regioni</rdfs:comment>
+    </owl:Class>	
+	
+	
+    <!-- http://www.disit.org/km4city/schema#Province -->
+
+    <owl:Class rdf:about="&km4c;Province">
+        <rdfs:label xml:lang="en">Provincial Administration</rdfs:label>
+        <rdfs:label xml:lang="it">Amministrazione Provinciale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&km4c;Pa"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasMunicipality"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Pa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Classe le cui istanze sono le varie provincie</rdfs:comment>
+    </owl:Class>	
+		
+
+    <!-- http://www.disit.org/km4city/schema#Municipality -->
+
+    <owl:Class rdf:about="&km4c;Municipality">
+        <rdfs:label xml:lang="en">Municipality Administration</rdfs:label>
+        <rdfs:label xml:lang="it">Amministrazione Comunale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&km4c;Pa"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;isPartOfProvince"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Pa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Classe le cui istanze sono i vari comuni</rdfs:comment>
+    </owl:Class>
+    
+	
+    <!-- http://www.disit.org/km4city/schema#Road -->
+
+    <owl:Class rdf:about="&km4c;Road">
+        <rdfs:label xml:lang="en">Road</rdfs:label>
+        <rdfs:label xml:lang="it">Strada</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&otn;Road"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;containsElement"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+				<owl:onClass rdf:resource="&km4c;RoadElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;containsElement"/>
+                <owl:allValuesFrom rdf:resource="&km4c;RoadElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Classe le cui istanze sono le strade</rdfs:comment>
+    </owl:Class>
+	
+	
+    <!-- http://www.disit.org/km4city/schema#AdministrativeRoad -->
+
+    <owl:Class rdf:about="&km4c;AdministrativeRoad">
+        <rdfs:label xml:lang="en">Administrative Road</rdfs:label>
+        <rdfs:label xml:lang="it">Estesa Amministrativa</rdfs:label>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;correspondsTo"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+				<owl:onClass rdf:resource="&km4c;Road"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasRoadElement"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+				<owl:onClass rdf:resource="&km4c;RoadElement"/>
+            </owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasRoadElement"/>
+                <owl:allValuesFrom rdf:resource="&km4c;RoadElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Classe le cui istanze sono le estese amministrative definite nel grafo stradale</rdfs:comment>
+    </owl:Class>
+    
+		
+	<!-- http://www.disit.org/km4city/schema#RoadElement -->
+
+    <owl:Class rdf:about="&km4c;RoadElement">
+        <rdfs:label xml:lang="en">Road element</rdfs:label>
+        <rdfs:label xml:lang="it">Elemento Stradale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&otn;Road_Element"/>
+		<rdfs:subClassOf rdf:resource="&otn;Edge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;endsAtNode"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Node"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;endsAtNode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;Node"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;startsAtNode"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Node"/>		
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;startsAtNode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;Node"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;isPartOfRoad"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Road"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Classe le cui istanze sono gli elementi che compongono le strade</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#StreetNumber -->
+
+    <owl:Class rdf:about="&km4c;StreetNumber">
+		<rdfs:label xml:lang="en">Street Number</rdfs:label>
+        <rdfs:label xml:lang="it">Numero Civico</rdfs:label>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;belongToRoad"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Road"/>	
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;belongToRoad"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;Road"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:comment>Classe le cui istanze sono i numeri civici conosciuti</rdfs:comment>
+    </owl:Class>
+	
+
+	<!-- http://www.disit.org/km4city/schema#Entry -->
+
+    <owl:Class rdf:about="&km4c;Entry">
+		<rdfs:label xml:lang="en">Entry</rdfs:label>
+        <rdfs:label xml:lang="it">Accesso</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;placedInElement"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                <owl:onClass rdf:resource="&km4c;Entry"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geo;lat"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+				<owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geo;long"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:comment>Classe le cui istanze sono i possibili ingressi ai numeri civici</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#Milestone -->
+
+    <owl:Class rdf:about="&km4c;Milestone">
+		<rdfs:label xml:lang="en">milestone mileage</rdfs:label>
+        <rdfs:label xml:lang="it">Cippo chilometrico</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;isInElement"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="&km4c;RoadElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>		
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geo;lat"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+				<owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geo;long"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>		
+		<rdfs:comment>Classe le cui istanze sono i cippi chilometrici che si trovano lungo le principali strade</rdfs:comment>
+    </owl:Class>
+
+
+	<!-- http://www.disit.org/km4city/schema#EntryRule -->
+
+    <owl:Class rdf:about="&km4c;EntryRule">
+		<rdfs:label xml:lang="en">Entry Rule</rdfs:label>
+        <rdfs:label xml:lang="it">Regola di Acesso</rdfs:label>
+				<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;accessToElement"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+                <owl:onClass rdf:resource="&km4c;RoadElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>	
+		<rdfs:comment>Classe le cui istanze sono le regole di accesso ai differenti elementi stradali</rdfs:comment>
+    </owl:Class>
+
+
+	<!-- http://www.disit.org/km4city/schema#Maneuver -->
+
+    <owl:Class rdf:about="&km4c;Maneuver">
+		<rdfs:label xml:lang="en">Maneuver</rdfs:label>
+        <rdfs:label xml:lang="it">Manovra</rdfs:label>
+		 <rdfs:subClassOf rdf:resource="&otn;Manoeuver"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;concerningNode"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="&km4c;Node"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>	
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasFirstElem"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="&km4c;RoadElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasSecondElem"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="&km4c;RoadElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasThirdElem"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                <owl:onClass rdf:resource="&km4c;RoadElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:comment>Classe le cui istanze sono le possibili manovre che possono essere effettuate su un elemento stradale</rdfs:comment>
+    </owl:Class>
+	
+	
+    <!-- http://www.disit.org/km4city/schema#Node -->
+
+    <owl:Class rdf:about="&km4c;Node">
+        <rdfs:label xml:lang="en">Node</rdfs:label>
+        <rdfs:label xml:lang="it">Nodo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&otn;Node"/>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geo;lat"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geo;long"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:comment>Classe le cui istanze sono i nodi che congiungono gli elementi stradali</rdfs:comment>
+    </owl:Class>
+    	
+
+    <!-- http://www.disit.org/km4city/schema#Service -->
+
+    <owl:Class rdf:about="&km4c;Service">
+        <rdfs:label xml:lang="en">Service</rdfs:label>
+        <rdfs:label xml:lang="it">Servizio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&otn;Service"/>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+		<rdfs:subClassOf rdf:resource="&schema;Place"/>
+        <rdfs:comment>attivita' commerciali, servizi al cittadino, uffici...che possono essere localizzati in un punto</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#ServiceCategory -->
+
+    <owl:Class rdf:about="&km4c;ServiceCategory">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&km4cr;agritourism"/>
+					<rdf:Description rdf:about="&km4cr;boarding_house"/>   
+                    <rdf:Description rdf:about="&km4cr;hotel"/>
+                    <rdf:Description rdf:about="&km4cr;bed_and_breakfast"/>
+                    <rdf:Description rdf:about="&km4cr;camping"/>
+					<rdf:Description rdf:about="&km4cr;rest_home"/>
+					<rdf:Description rdf:about="&km4cr;religiuos_guest_house"/>
+					<rdf:Description rdf:about="&km4cr;summer_residence"/>
+					<rdf:Description rdf:about="&km4cr;day_care_center"/>
+					<rdf:Description rdf:about="&km4cr;hostel"/>
+					<rdf:Description rdf:about="&km4cr;vacation_resort"/>
+					<rdf:Description rdf:about="&km4cr;farm_house"/>
+					<rdf:Description rdf:about="&km4cr;historic_residence"/>
+					<rdf:Description rdf:about="&km4cr;mountain_dew"/>
+					<rdf:Description rdf:about="&km4cr;holiday_village"/>
+					<rdf:Description rdf:about="&km4cr;monument_location"/>
+					<rdf:Description rdf:about="&km4cr;library"/>
+					<rdf:Description rdf:about="&km4cr;museum"/>
+					<rdf:Description rdf:about="&km4cr;auditorium"/>
+					<rdf:Description rdf:about="&km4cr;travel_agency"/>
+					<rdf:Description rdf:about="&km4cr;travel_bureau"/>
+					<rdf:Description rdf:about="&km4cr;tour_operator"/>
+					<rdf:Description rdf:about="&km4cr;vehicle_rental"/>
+					<rdf:Description rdf:about="&km4cr;camper_service"/>
+					<rdf:Description rdf:about="&km4cr;doctor_office"/>
+					<rdf:Description rdf:about="&km4cr;local_health_authority"/>
+					<rdf:Description rdf:about="&km4cr;public_hospital"/>
+					<rdf:Description rdf:about="&km4cr;group_practice"/>
+					<rdf:Description rdf:about="&km4cr;senior_centers"/>
+					<rdf:Description rdf:about="&km4cr;health_reservations_center"/>
+					<rdf:Description rdf:about="&km4cr;family_counselling"/>
+					<rdf:Description rdf:about="&km4cr;dentist"/>
+					<rdf:Description rdf:about="&km4cr;red_cross"/>
+					<rdf:Description rdf:about="&km4cr;addiction_recovery_center"/>
+					<rdf:Description rdf:about="&km4cr;health_district"/>
+					<rdf:Description rdf:about="&km4cr;physical_therapy_center"/>
+					<rdf:Description rdf:about="&km4cr;veterinary"/>
+					<rdf:Description rdf:about="&km4cr;private_clinic"/>
+					<rdf:Description rdf:about="&km4cr;training_school"/>
+					<rdf:Description rdf:about="&km4cr;ski_school"/>
+					<rdf:Description rdf:about="&km4cr;diving_school"/>
+					<rdf:Description rdf:about="&km4cr;sailing_school"/>
+					<rdf:Description rdf:about="&km4cr;private_junior_school"/>
+					<rdf:Description rdf:about="&km4cr;public_junior_school"/>
+					<rdf:Description rdf:about="&km4cr;private_infant_school"/>
+					<rdf:Description rdf:about="&km4cr;public_infant_school"/>
+					<rdf:Description rdf:about="&km4cr;private_junior_high_school"/>	
+					<rdf:Description rdf:about="&km4cr;public_junior_high_school"/>
+					<rdf:Description rdf:about="&km4cr;training_school_for_teachers"/>
+					<rdf:Description rdf:about="&km4cr;private_professional_institute"/>
+					<rdf:Description rdf:about="&km4cr;public_professional_institute"/>
+					<rdf:Description rdf:about="&km4cr;private_polytechnic_school"/>
+					<rdf:Description rdf:about="&km4cr;public_polytechnic_school"/>
+					<rdf:Description rdf:about="&km4cr;private_high_school"/>
+					<rdf:Description rdf:about="&km4cr;public_high_school"/>
+					<rdf:Description rdf:about="&km4cr;language_courses"/>
+					<rdf:Description rdf:about="&km4cr;conservatory"/>
+					<rdf:Description rdf:about="&km4cr;public_university"/>
+					<rdf:Description rdf:about="&km4cr;wine_shop_and_wine_bar"/>
+					<rdf:Description rdf:about="&km4cr;dining_hall"/>
+					<rdf:Description rdf:about="&km4cr;highway_stop"/>
+					<rdf:Description rdf:about="&km4cr;sandwich_shop_pub"/>	
+					<rdf:Description rdf:about="&km4cr;restaurant"/>
+					<rdf:Description rdf:about="&km4cr;pizzeria"/>
+					<rdf:Description rdf:about="&km4cr;ice_cream_parlour"/>
+					<rdf:Description rdf:about="&km4cr;pastry_shop"/>
+					<rdf:Description rdf:about="&km4cr;bakery"/>
+					<rdf:Description rdf:about="&km4cr;grill"/>
+					<rdf:Description rdf:about="&km4cr;sushi_bar"/>
+					<rdf:Description rdf:about="&km4cr;trattoria"/>
+					<rdf:Description rdf:about="&km4cr;catering"/>
+					<rdf:Description rdf:about="&km4cr;bank"/>
+					<rdf:Description rdf:about="&km4cr;insurance"/>
+					<rdf:Description rdf:about="&km4cr;financial_institute"/>
+					<rdf:Description rdf:about="&km4cr;atm"/>
+					<rdf:Description rdf:about="&km4cr;discotheque"/>	
+					<rdf:Description rdf:about="&km4cr;hippodrome"/>
+					<rdf:Description rdf:about="&km4cr;game_room"/>
+					<rdf:Description rdf:about="&km4cr;cinema"/>
+					<rdf:Description rdf:about="&km4cr;recreation_room"/>
+					<rdf:Description rdf:about="&km4cr;social_centre"/>
+					<rdf:Description rdf:about="&km4cr;game_reserve"/>
+					<rdf:Description rdf:about="&km4cr;teathre"/>
+					<rdf:Description rdf:about="&km4cr;fishing_reserve"/>
+					<rdf:Description rdf:about="&km4cr;climbing"/>
+					<rdf:Description rdf:about="&km4cr;sports_facility"/>
+					<rdf:Description rdf:about="&km4cr;skiing_facility"/>
+					<rdf:Description rdf:about="&km4cr;riding_stables"/>
+					<rdf:Description rdf:about="&km4cr;rafting_kayak"/>	
+					<rdf:Description rdf:about="&km4cr;pull"/>
+					<rdf:Description rdf:about="&km4cr;golf"/>
+					<rdf:Description rdf:about="&km4cr;gym_fitness"/>
+					<rdf:Description rdf:about="&km4cr;aquarium"/>
+					<rdf:Description rdf:about="&km4cr;shopping_centre"/>
+					<rdf:Description rdf:about="&km4cr;hypermarket"/>
+					<rdf:Description rdf:about="&km4cr;non_food_large_retailers"/>
+					<rdf:Description rdf:about="&km4cr;single_brand_store"/>
+					<rdf:Description rdf:about="&km4cr;clothing_factory_outlet"/>
+					<rdf:Description rdf:about="&km4cr;artisan_shop"/>
+					<rdf:Description rdf:about="&km4cr;welfare_worker_office"/>
+					<rdf:Description rdf:about="&km4cr;civil_registry_and_other_office"/>
+					<rdf:Description rdf:about="&km4cr;income_revenue_authority"/>
+					<rdf:Description rdf:about="&km4cr;employment_exchange"/>
+					<rdf:Description rdf:about="&km4cr;tax_assistance_centre"/>
+					<rdf:Description rdf:about="&km4cr;department_of_motor_vehicles"/>
+					<rdf:Description rdf:about="&km4cr;youth_information_centres"/>
+					<rdf:Description rdf:about="&km4cr;consulate"/>
+					<rdf:Description rdf:about="&km4cr;police_headquarters"/>
+					<rdf:Description rdf:about="&km4cr;prefecture"/>
+					<rdf:Description rdf:about="&km4cr;social_security_service_office"/>
+					<rdf:Description rdf:about="&km4cr;postal_office"/>
+					<rdf:Description rdf:about="&km4cr;first_aid"/>
+					<rdf:Description rdf:about="&km4cr;fire_brigade"/>
+					<rdf:Description rdf:about="&km4cr;local_police"/>
+					<rdf:Description rdf:about="&km4cr;traffic_corps"/>
+					<rdf:Description rdf:about="&km4cr;carabinieri"/>
+					<rdf:Description rdf:about="&km4cr;useful_numbers"/>
+					<rdf:Description rdf:about="&km4cr;pharmacy"/>
+					<rdf:Description rdf:about="&km4cr;emergency_medical_care"/>
+					<rdf:Description rdf:about="&km4cr;emergency_services"/>
+					<rdf:Description rdf:about="&km4cr;civil_protection"/>
+					<rdf:Description rdf:about="&km4cr;italian_finance_police"/>
+					<rdf:Description rdf:about="&km4cr;coast_guard_harbormaster"/>
+					<rdf:Description rdf:about="&km4cr;corps_of_forest_rangers"/>
+					<rdf:Description rdf:about="&km4cr;commissariat_of_public_safety"/>
+					<rdf:Description rdf:about="&km4cr;civil_airport"/>
+					<rdf:Description rdf:about="&km4cr;helipads"/>
+					<rdf:Description rdf:about="&km4cr;urban_bus"/>
+					<rdf:Description rdf:about="&km4cr;airfields"/>
+					<rdf:Description rdf:about="&km4cr;train_station"/>
+					<rdf:Description rdf:about="&km4cr;car_park"/>
+					<rdf:Description rdf:about="&km4cr;courier"/>
+					<rdf:Description rdf:about="&km4cr;poison_control_center"/>
+					<rdf:Description rdf:about="&km4cr;healthcare_center"/>
+					<rdf:Description rdf:about="&km4cr;community_centers"/>
+					<rdf:Description rdf:about="&km4cr;private_preschool"/>
+					<rdf:Description rdf:about="&km4cr;footwear_factory_outlet"/>
+					<rdf:Description rdf:about="&km4cr;airport_lost_property_office"/>
+					<rdf:Description rdf:about="&km4cr;train_lost_property_office"/>     
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+  
+
+    <!-- http://www.disit.org/km4city/schema#Accommodation -->
+
+    <owl:Class rdf:about="&km4c;Accommodation">
+        <rdfs:label xml:lang="en">Accomodation</rdfs:label>
+        <rdfs:label xml:lang="it">Alloggio</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+               <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;holiday_village"/>
+                            <rdf:Description rdf:about="&km4cr;hotel"/>
+                            <rdf:Description rdf:about="&km4cr;summer_residence"/>
+                            <rdf:Description rdf:about="&km4cr;rest_home"/>
+                            <rdf:Description rdf:about="&km4cr;religiuos_guest_house"/>
+                            <rdf:Description rdf:about="&km4cr;bed_and_breakfast"/>
+                            <rdf:Description rdf:about="&km4cr;hostel"/>
+                            <rdf:Description rdf:about="&km4cr;farm_house"/>
+                            <rdf:Description rdf:about="&km4cr;agritourism"/>
+                            <rdf:Description rdf:about="&km4cr;vacation_resort"/>
+                            <rdf:Description rdf:about="&km4cr;day_care_center"/>
+                            <rdf:Description rdf:about="&km4cr;camping"/>
+                            <rdf:Description rdf:about="&km4cr;historic_residence"/>
+                            <rdf:Description rdf:about="&km4cr;mountain_dew"/>
+							<rdf:Description rdf:about="&km4cr;boarding_house"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+			</owl:Restriction>
+		</owl:equivalentClass>
+        <rdfs:comment>Alberghi e strutture simili</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+    </owl:Class>				
+
+	
+	<!-- http://www.disit.org/km4city/schema#CulturalActivity -->
+
+    <owl:Class rdf:about="&km4c;CulturalActivity">
+        <rdfs:label xml:lang="en">Cultural Activity</rdfs:label>
+        <rdfs:label xml:lang="it">Attivita' Culturale</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+			<owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>		
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;museum"/>
+                            <rdf:Description rdf:about="&km4cr;monument_location"/>
+                            <rdf:Description rdf:about="&km4cr;library"/>
+                            <rdf:Description rdf:about="&km4cr;auditorium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+			</owl:Restriction>
+		</owl:equivalentClass>
+        <rdfs:comment>biblioteche, archivi, musei ed altre attivita' culturali</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+    </owl:Class>
+
+	
+	<!-- http://www.disit.org/km4city/schema#TourismService -->
+
+    <owl:Class rdf:about="&km4c;TourismService">
+        <rdfs:label xml:lang="en">Tourism Services</rdfs:label>
+        <rdfs:label xml:lang="it">Servizi per il turismo</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;vehicle_rental"/>
+                            <rdf:Description rdf:about="&km4cr;camper_service"/>
+                            <rdf:Description rdf:about="&km4cr;travel_agency"/>
+                            <rdf:Description rdf:about="&km4cr;travel_bureau"/>
+                            <rdf:Description rdf:about="&km4cr;tour_operator"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>	
+			</owl:Restriction>
+		</owl:equivalentClass>
+        <rdfs:comment>attivita' dei servizi delle agenzie di viaggio, tour operator e servizi prenotazione</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#HealthCare -->
+
+    <owl:Class rdf:about="&km4c;HealthCare">
+        <rdfs:label xml:lang="en">Health Care</rdfs:label>
+        <rdfs:label xml:lang="it">Assistenza Sanitaria</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;doctor_office"/>
+                            <rdf:Description rdf:about="&km4cr;senior_centers"/>
+                            <rdf:Description rdf:about="&km4cr;veterinary"/>
+                            <rdf:Description rdf:about="&km4cr;health_reservations_center"/>
+                            <rdf:Description rdf:about="&km4cr;private_clinic"/>
+                            <rdf:Description rdf:about="&km4cr;group_practice"/>
+                            <rdf:Description rdf:about="&km4cr;red_cross"/>
+                            <rdf:Description rdf:about="&km4cr;public_hospital"/>
+                            <rdf:Description rdf:about="&km4cr;physical_therapy_center"/>
+                            <rdf:Description rdf:about="&km4cr;local_health_authority"/>
+                            <rdf:Description rdf:about="&km4cr;health_district"/>
+                            <rdf:Description rdf:about="&km4cr;dentist"/>
+                            <rdf:Description rdf:about="&km4cr;family_counselling"/>
+                            <rdf:Description rdf:about="&km4cr;addiction_recovery_center"/>
+							<rdf:Description rdf:about="&km4cr;poison_control_center"/>
+							<rdf:Description rdf:about="&km4cr;healthcare_center"/>
+							<rdf:Description rdf:about="&km4cr;community_centers"/>
+						</owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+			</owl:Restriction>
+		</owl:equivalentClass>
+        <rdfs:comment>ospedali, studi medici, laboratori analisi e altre strutture che forniscono servizi sanitari</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+    </owl:Class>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#Education -->
+	
+	<owl:Class rdf:about="&km4c;Education">
+        <rdfs:label xml:lang="en">Education</rdfs:label>
+        <rdfs:label xml:lang="it">Istruzione</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;public_polytechnic_school"/>
+                            <rdf:Description rdf:about="&km4cr;public_junior_school"/>
+                            <rdf:Description rdf:about="&km4cr;private_high_school"/>
+                            <rdf:Description rdf:about="&km4cr;public_university"/>
+                            <rdf:Description rdf:about="&km4cr;sailing_school"/>
+                            <rdf:Description rdf:about="&km4cr;training_school_for_teachers"/>
+                            <rdf:Description rdf:about="&km4cr;private_professional_institute"/>
+                            <rdf:Description rdf:about="&km4cr;private_polytechnic_school"/>
+                            <rdf:Description rdf:about="&km4cr;private_infant_school"/>
+                            <rdf:Description rdf:about="&km4cr;public_professional_institute"/>
+                            <rdf:Description rdf:about="&km4cr;conservatory"/>
+                            <rdf:Description rdf:about="&km4cr;training_school"/>
+                            <rdf:Description rdf:about="&km4cr;public_high_school"/>
+                            <rdf:Description rdf:about="&km4cr;ski_school"/>
+                            <rdf:Description rdf:about="&km4cr;private_junior_school"/>
+                            <rdf:Description rdf:about="&km4cr;public_junior_high_school"/>
+                            <rdf:Description rdf:about="&km4cr;language_courses"/>
+                            <rdf:Description rdf:about="&km4cr;public_infant_school"/>
+                            <rdf:Description rdf:about="&km4cr;private_junior_high_school"/>
+                            <rdf:Description rdf:about="&km4cr;diving_school"/>
+							<rdf:Description rdf:about="&km4cr;private_preschool"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+			</owl:Restriction>
+		</owl:equivalentClass>
+        <rdfs:comment>attivita' dei servizi delle agenzie di viaggio, tour operator e servizi prenotazione</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+    </owl:Class>
+
+
+	<!-- http://www.disit.org/km4city/schema#WineAndFood -->
+
+    <owl:Class rdf:about="&km4c;WineAndFood">
+        <rdfs:label xml:lang="en">Wine And Food</rdfs:label>
+        <rdfs:label xml:lang="it">Enogastronomia</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;highway_stop"/>
+                            <rdf:Description rdf:about="&km4cr;pastry_shop"/>
+                            <rdf:Description rdf:about="&km4cr;sandwich_shop_pub"/>
+                            <rdf:Description rdf:about="&km4cr;pizzeria"/>
+                            <rdf:Description rdf:about="&km4cr;bakery"/>
+                            <rdf:Description rdf:about="&km4cr;grill"/>
+                            <rdf:Description rdf:about="&km4cr;sushi_bar"/>
+                            <rdf:Description rdf:about="&km4cr;dining_hall"/>
+                            <rdf:Description rdf:about="&km4cr;restaurant"/>
+                            <rdf:Description rdf:about="&km4cr;trattoria"/>
+                            <rdf:Description rdf:about="&km4cr;catering"/>
+                            <rdf:Description rdf:about="&km4cr;wine_shop_and_wine_bar"/>
+                            <rdf:Description rdf:about="&km4cr;ice_cream_parlour"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+			</owl:Restriction>
+		</owl:equivalentClass>
+        <rdfs:comment>Ristoranti, enoteche e tutte le altre attivita' enogastronomiche</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+    </owl:Class>
+					
+
+	
+	<!-- http://www.disit.org/km4city/schema#FinancialService -->
+
+    <owl:Class rdf:about="&km4c;FinancialService">
+        <rdfs:label xml:lang="en">Financial Service</rdfs:label>
+        <rdfs:label xml:lang="it">Servizio Finanziario</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;bank"/>
+                            <rdf:Description rdf:about="&km4cr;insurance"/>
+                            <rdf:Description rdf:about="&km4cr;atm"/>
+                            <rdf:Description rdf:about="&km4cr;financial_institute"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>			
+			</owl:Restriction>
+		</owl:equivalentClass>
+        <rdfs:comment>banche, istituti monetari e altri servizi finanziari</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+	</owl:Class>
+
+
+	<!-- http://www.disit.org/km4city/schema#Entertainment -->
+
+    <owl:Class rdf:about="&km4c;Entertainment">
+        <rdfs:label xml:lang="en">Entertainment</rdfs:label>
+        <rdfs:label xml:lang="it">Intrattenimento</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;cinema"/>
+                            <rdf:Description rdf:about="&km4cr;discotheque"/>
+                            <rdf:Description rdf:about="&km4cr;golf"/>
+                            <rdf:Description rdf:about="&km4cr;recreation_room"/>
+                            <rdf:Description rdf:about="&km4cr;game_room"/>
+                            <rdf:Description rdf:about="&km4cr;rafting_kayak"/>
+                            <rdf:Description rdf:about="&km4cr;fishing_reserve"/>
+                            <rdf:Description rdf:about="&km4cr;riding_stables"/>
+                            <rdf:Description rdf:about="&km4cr;teathre"/>
+                            <rdf:Description rdf:about="&km4cr;social_centre"/>
+                            <rdf:Description rdf:about="&km4cr;hippodrome"/>
+                            <rdf:Description rdf:about="&km4cr;climbing"/>
+                            <rdf:Description rdf:about="&km4cr;pull"/>
+                            <rdf:Description rdf:about="&km4cr;gym_fitness"/>
+                            <rdf:Description rdf:about="&km4cr;skiing_facility"/>
+                            <rdf:Description rdf:about="&km4cr;sports_facility"/>
+                            <rdf:Description rdf:about="&km4cr;game_reserve"/>
+                            <rdf:Description rdf:about="&km4cr;aquarium"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>		
+			</owl:Restriction>
+		</owl:equivalentClass>
+        <rdfs:comment>Servizi per l'intrattenimento del cittadino</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+	</owl:Class>
+
+	
+	<!-- http://www.disit.org/km4city/schema#Shopping -->
+
+	<owl:Class rdf:about="&km4c;Shopping">
+		<rdfs:label xml:lang="en">Shopping</rdfs:label>
+		<rdfs:label xml:lang="it">Shopping</rdfs:label>
+		<owl:equivalentClass>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;hypermarket"/>
+                            <rdf:Description rdf:about="&km4cr;non_food_large_retailers"/>
+                            <rdf:Description rdf:about="&km4cr;artisan_shop"/>
+                            <rdf:Description rdf:about="&km4cr;clothing_factory_outlet"/>
+                            <rdf:Description rdf:about="&km4cr;shopping_centre"/>
+                            <rdf:Description rdf:about="&km4cr;single_brand_store"/>
+							<rdf:Description rdf:about="&km4cr;footwear_factory_outlet"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>			
+			</owl:Restriction>
+		</owl:equivalentClass>
+		<rdfs:comment>negozi, centri commerciali, spacci, ogni forma di attivita' di vendita al pubblico</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+	</owl:Class>
+	
+
+	
+	<!-- http://www.disit.org/km4city/schema#GovernmentOffice -->
+
+    <owl:Class rdf:about="&km4c;GovernmentOffice">
+        <rdfs:label xml:lang="en">Government Office</rdfs:label>
+        <rdfs:label xml:lang="it">Uffici Pubblici</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;social_security_service_office"/>
+                            <rdf:Description rdf:about="&km4cr;income_revenue_authority"/>
+                            <rdf:Description rdf:about="&km4cr;youth_information_centres"/>
+                            <rdf:Description rdf:about="&km4cr;employment_exchange"/>
+                            <rdf:Description rdf:about="&km4cr;department_of_motor_vehicles"/>
+                            <rdf:Description rdf:about="&km4cr;civil_registry_and_other_office"/>
+                            <rdf:Description rdf:about="&km4cr;tax_assistance_centre"/>
+                            <rdf:Description rdf:about="&km4cr;prefecture"/>
+                            <rdf:Description rdf:about="&km4cr;police_headquarters"/>
+                            <rdf:Description rdf:about="&km4cr;consulate"/>
+                            <rdf:Description rdf:about="&km4cr;postal_office"/>
+                            <rdf:Description rdf:about="&km4cr;welfare_worker_office"/>
+							<rdf:Description rdf:about="&km4cr;airport_lost_property_office"/>
+							<rdf:Description rdf:about="&km4cr;train_lost_property_office"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>			
+			</owl:Restriction>
+		</owl:equivalentClass>
+        <rdfs:comment>Uffici aperti al pubblico</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+    </owl:Class>	
+
+	
+	<!-- http://www.disit.org/km4city/schema#Emergency -->
+
+    <owl:Class rdf:about="&km4c;Emergency">
+        <rdfs:label xml:lang="en">Emergency</rdfs:label>
+        <rdfs:label xml:lang="it">Emergenze</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;pharmacy"/>
+                            <rdf:Description rdf:about="&km4cr;coast_guard_harbormaster"/>
+                            <rdf:Description rdf:about="&km4cr;traffic_corps"/>
+                            <rdf:Description rdf:about="&km4cr;commissariat_of_public_safety"/>
+                            <rdf:Description rdf:about="&km4cr;first_aid"/>
+                            <rdf:Description rdf:about="&km4cr;local_police"/>
+                            <rdf:Description rdf:about="&km4cr;carabinieri"/>
+                            <rdf:Description rdf:about="&km4cr;useful_numbers"/>
+                            <rdf:Description rdf:about="&km4cr;emergency_medical_care"/>
+                            <rdf:Description rdf:about="&km4cr;emergency_services"/>
+                            <rdf:Description rdf:about="&km4cr;italian_finance_police"/>
+                            <rdf:Description rdf:about="&km4cr;corps_of_forest_rangers"/>
+                            <rdf:Description rdf:about="&km4cr;civil_protection"/>
+                            <rdf:Description rdf:about="&km4cr;fire_brigade"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>		
+			</owl:Restriction>
+		</owl:equivalentClass>
+        <rdfs:comment>veterinary</rdfs:comment>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+    </owl:Class>
+
+	
+<!-- http://www.disit.org/km4city/schema#TransferService -->
+
+    <owl:Class rdf:about="&km4c;TransferService">
+        <rdfs:label xml:lang="en">Transfer Service</rdfs:label>
+        <rdfs:label xml:lang="it">Servizio di trasferimento</rdfs:label>
+        <owl:equivalentClass>
+			<owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasServiceCategory"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&km4cr;urban_bus"/>
+                            <rdf:Description rdf:about="&km4cr;helipads"/>
+                            <rdf:Description rdf:about="&km4cr;airfields"/>
+                            <rdf:Description rdf:about="&km4cr;car_park"/>
+                            <rdf:Description rdf:about="&km4cr;train_station"/>
+                            <rdf:Description rdf:about="&km4cr;civil_airport"/>
+                            <rdf:Description rdf:about="&km4cr;courier"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>		
+			</owl:Restriction>
+		</owl:equivalentClass>
+		<rdfs:subClassOf rdf:resource="&km4c;Service"/>
+        <rdfs:comment>Parcheggi auto, stazioni ferroviarie o degli autobus, tutto cio' che deve essere localizzato su una mappa e fa riferimento al trasporto</rdfs:comment>
+    </owl:Class>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#WeatherReport -->
+
+    <owl:Class rdf:about="&km4c;WeatherReport">
+        <rdfs:label xml:lang="en">Weather Report</rdfs:label>
+        <rdfs:label xml:lang="it">Bollettino metereologico</rdfs:label>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;refersToMunicipality"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Municipality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;refersToMunicipality"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;Municipality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Bollettino metereologico con informazioni relative a temperatura, unidita', neve, etc</rdfs:comment>
+    </owl:Class>	
+	
+
+	<!-- http://www.disit.org/km4city/schema#WeatherPrediction -->
+
+    <owl:Class rdf:about="&km4c;WeatherPrediction">
+        <rdfs:label xml:lang="en">Weather prediction</rdfs:label>
+        <rdfs:label xml:lang="it">Previsione metereologica</rdfs:label>
+        
+        <rdfs:comment>Previsione metereologica relativa ad una specifica parte del giorno</rdfs:comment>
+    </owl:Class>			
+	
+	
+	<!-- http://www.disit.org/km4city/schema#CarParkSensor -->
+
+    <owl:Class rdf:about="&km4c;CarParkSensor">
+        <rdfs:label xml:lang="en">Car Park Sensor</rdfs:label>
+        <rdfs:label xml:lang="it">Sensore presente in parcheggio</rdfs:label>
+        
+        <rdfs:comment>Sensore che raccoglie i dati all'interno di un parcheggio</rdfs:comment>
+    </owl:Class>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#SituationRecord -->
+
+    <owl:Class rdf:about="&km4c;SituationRecord">
+        <rdfs:label xml:lang="en">Situation Record of a Car Park</rdfs:label>
+        <rdfs:label xml:lang="it">Situazione di un parcheggio</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;relatedToSensor"/>
+                <owl:allValuesFrom rdf:resource="&km4c;CarParkSensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;relatedToSensor"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;CarParkSensor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Registrazione della situazione di occupazione di un determinato parcheggio in un certo istante</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#SensorSiteTable -->
+
+    <owl:Class rdf:about="&km4c;SensorSiteTable">
+        <rdfs:label xml:lang="en">Sensor Site Table</rdfs:label>
+        <rdfs:label xml:lang="it">Tabella di sensori</rdfs:label>
+        
+        <rdfs:comment>Insieme di sensori che rappresentano un unica installazione, un unico sito</rdfs:comment>
+    </owl:Class>
+
+
+	<!-- http://www.disit.org/km4city/schema#SensorSite -->
+
+    <owl:Class rdf:about="&km4c;SensorSite">
+        <rdfs:label xml:lang="en">Sensor</rdfs:label>
+        <rdfs:label xml:lang="it">Sensore</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasObservation"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Observation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasObservation"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Singolo sensore per osservare velocita', traffico, concentrazione o densita'</rdfs:comment>
+    </owl:Class>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#Observation -->
+
+    <owl:Class rdf:about="&km4c;Observation">
+        <rdfs:label xml:lang="en">Observation</rdfs:label>
+        <rdfs:label xml:lang="it">Osservazione</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;measuredBySensor"/>
+                <owl:allValuesFrom rdf:resource="&km4c;SensorSite"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;measuredBySensor"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;SensorSite"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Singolo sensore per osservare velocita', traffico, concentrazione o densita'</rdfs:comment>
+    </owl:Class>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#TrafficSpeed -->
+
+    <owl:Class rdf:about="&km4c;TrafficSpeed">
+        <rdfs:label xml:lang="en">TrafficSpeed Observation</rdfs:label>
+        <rdfs:label xml:lang="it">Osservazione sulla velocita'</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&km4c;Observation"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;averageSpeed"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>sottoclasse delle osservazioni relative alla velocita' media</rdfs:comment>
+    </owl:Class>	
+
+
+	<!-- http://www.disit.org/km4city/schema#TrafficFlow -->
+
+    <owl:Class rdf:about="&km4c;TrafficFlow">
+        <rdfs:label xml:lang="en">Traffic Flow Observation</rdfs:label>
+        <rdfs:label xml:lang="it">Osservazione sul flusso</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&km4c;Observation"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;vehicleFlow"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>sottoclasse delle osservazioni relative alla flusso auto</rdfs:comment>
+    </owl:Class>
+
+
+	<!-- http://www.disit.org/km4city/schema#TrafficConcentration -->
+
+    <owl:Class rdf:about="&km4c;TrafficConcentration">
+        <rdfs:label xml:lang="en">Traffic Concentration Observation</rdfs:label>
+        <rdfs:label xml:lang="it">Osservazione sulla concentrazione di auto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&km4c;Observation"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;concentration"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>sottoclasse delle osservazioni relative alla concentrazione di auto</rdfs:comment>
+    </owl:Class>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#TrafficHeadway -->
+
+    <owl:Class rdf:about="&km4c;TrafficHeadway">
+        <rdfs:label xml:lang="en">Traffic Headway Observation</rdfs:label>
+        <rdfs:label xml:lang="it">Osservazione sulla densita' di auto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&km4c;Observation"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;averageTime"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&xsd;float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>sottoclasse delle osservazioni sul tempo medio di transito tra auto</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#Resolution -->
+
+    <owl:Class rdf:about="&km4c;Resolution">
+        <rdfs:label xml:lang="en">Resolution</rdfs:label>
+        <rdfs:label xml:lang="it">Delibera</rdfs:label>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;approvedByPa"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+				<owl:onClass rdf:resource="&km4c;Pa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Delibera approvata da una qualche Pa</rdfs:comment>
+    </owl:Class>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#StatisticalData -->
+
+    <owl:Class rdf:about="&km4c;StatisticalData">
+        <rdfs:label xml:lang="en">StatisticalData</rdfs:label>
+        <rdfs:label xml:lang="it">Dato statistico</rdfs:label>
+        <rdfs:comment>Valore che fa riferimento ad un dato statistico legato ad una strada o ad una Pa</rdfs:comment>
+    </owl:Class>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#RouteJunction -->
+
+    <owl:Class rdf:about="&km4c;RouteJunction">
+        <rdfs:label xml:lang="en">Route Junction</rdfs:label>
+        <rdfs:label xml:lang="it">giunzione dei percorsi</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;Node"/>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+        <rdfs:comment>Punto di interconnessione tra segmenti di strada per determinare il percorso di una linea di TPL</rdfs:comment>
+    </owl:Class>	
+
+
+	<!-- http://www.disit.org/km4city/schema#RouteLink -->
+
+    <owl:Class rdf:about="&km4c;RouteLink">
+        <rdfs:label xml:lang="en">RouteLink</rdfs:label>
+        <rdfs:label xml:lang="it">strada di collegamento</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;Edge"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;finishesAtJunction"/>
+                <owl:allValuesFrom rdf:resource="&km4c;RouteJunction"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;finishesAtJunction"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;RouteJunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;beginsAtJunction"/>
+                <owl:allValuesFrom rdf:resource="&km4c;RouteJunction"/>		
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;beginsAtJunction"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;RouteJunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Tratto di strada delimitato da due TPL junction che determina il percorso di una linea TPL</rdfs:comment>
+    </owl:Class>		
+	
+
+	<!-- http://www.disit.org/km4city/schema#BusStop -->
+
+    <owl:Class rdf:about="&km4c;BusStop">
+        <rdfs:label xml:lang="en">Bus Stop</rdfs:label>
+        <rdfs:label xml:lang="it">Fermata dell'autobus</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;StopPoint"/>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+	    <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geo;lat"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geo;long"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Punto di interconnessione tra segmenti di strada per determinare il percorso di una linea di TPL</rdfs:comment>
+    </owl:Class>	
+	
+	
+	<!-- http://www.disit.org/km4city/schema#RouteSection -->
+
+    <owl:Class rdf:about="&km4c;RouteSection">
+        <rdfs:label xml:lang="en">Route Section</rdfs:label>
+        <rdfs:label xml:lang="it">Sezione di percorso</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;RouteSection"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;endsAtStop"/>
+                <owl:allValuesFrom rdf:resource="&km4c;BusStop"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;endsAtStop"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;BusStop"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;startsAtStop"/>
+                <owl:allValuesFrom rdf:resource="&km4c;BusStop"/>		
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;startsAtStop"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;BusStop"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Tratto di strada compreso tra due successive fermate dell'autobus di una certa linea</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#Route -->
+
+    <owl:Class rdf:about="&km4c;Route">
+        <rdfs:label xml:lang="en">Route</rdfs:label>
+        <rdfs:label xml:lang="it">Percorso</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;Route"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasFirstSection"/>
+                <owl:allValuesFrom rdf:resource="&km4c;RouteSection"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasFirstSection"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;RouteSection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasSection"/>
+                <owl:allValuesFrom rdf:resource="&km4c;RouteSection"/>		
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasSection"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasFirstStop"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;BusStop"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Percorso che percorre un mezzo di trasporto pubblico</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#PublicTransportLine -->
+
+    <owl:Class rdf:about="&km4c;PublicTransportLine">
+        <rdfs:label xml:lang="en">Public Transport Line</rdfs:label>
+        <rdfs:label xml:lang="it">Linea TPL</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;Line"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasRoute"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Route"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Linea di una certa azienda TPL</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#Ride -->
+
+    <owl:Class rdf:about="&km4c;Ride">
+        <rdfs:label xml:lang="en">Ride</rdfs:label>
+        <rdfs:label xml:lang="it">Corsa</rdfs:label>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasAVMRecord"/>
+                <owl:allValuesFrom rdf:resource="&km4c;AVMRecord"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;onRoute"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Route"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;scheduledOnLine"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;PublicTransportLine"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Corsa programmata da una certa azienda TPL su un certo percorso di una certa linea</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#Lot -->
+
+    <owl:Class rdf:about="&km4c;Lot">
+        <rdfs:label xml:lang="en">TPL Lot</rdfs:label>
+        <rdfs:label xml:lang="it">Lotto TPL</rdfs:label>
+        <rdfs:comment>Insieme di linee TPL, individuabili a livello regionale come lotto</rdfs:comment>
+    </owl:Class>	
+	
+
+	<!-- http://www.disit.org/km4city/schema#AVMRecord -->
+
+    <owl:Class rdf:about="&km4c;AVMRecord">
+        <rdfs:label xml:lang="en">AVM Record</rdfs:label>
+        <rdfs:label xml:lang="it">Registrazione AVM</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;lastStop"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;BusStop"/>    
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;onRoute"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;Route"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geo;lat"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geo;long"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Corsa programmata da una certa azienda TPL su un certo percorso di una certa linea</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#BusStopForecast -->
+
+    <owl:Class rdf:about="&km4c;BusStopForecast">
+        <rdfs:label xml:lang="en">BusStop Forecast</rdfs:label>
+        <rdfs:label xml:lang="it">Previsione arrivo in fermata</rdfs:label>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;atBusStop"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;BusStop"/>    
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>previsione di arrivo ad una certa fermata</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#RoadLink -->
+
+    <owl:Class rdf:about="&km4c;RoadLink">
+        <rdfs:label xml:lang="en">RoadLink</rdfs:label>
+        <rdfs:label xml:lang="it">tratto di strada lineare</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;Edge"/>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;endingJunction"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Junction"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;endingJunction"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;Junction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;startingJunction"/>
+                <owl:allValuesFrom rdf:resource="&km4c;Junction"/>		
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;startingJunction"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;Junction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Tratto di strada lineare delimitato da due giunzioni che compone il road element</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#Junction -->
+
+    <owl:Class rdf:about="&km4c;Junction">
+        <rdfs:label xml:lang="en">Junction</rdfs:label>
+        <rdfs:label xml:lang="it">giunzione stradale</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;Node"/>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+        <rdfs:comment>Punto di interconnessione tra segmenti di strada per disegnare un RoadElement</rdfs:comment>
+    </owl:Class>	
+	
+
+	<!-- http://www.disit.org/km4city/schema#HotSpotWiFi -->
+
+    <owl:Class rdf:about="&km4c;HotSpotWiFi">
+        <rdfs:label xml:lang="en">HotSpot WiFi</rdfs:label>
+        <rdfs:label xml:lang="it">HotSpot WiFi</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+        <rdfs:comment>Punto in cui e' presente un HotSpot Wi Fi per la connessione ad Internet</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#BusTicketsRetail -->
+
+    <owl:Class rdf:about="&km4c;BusTicketsRetail">
+        <rdfs:label xml:lang="en">Bus Tickets Retail</rdfs:label>
+        <rdfs:label xml:lang="it">Rivendita Biglitti Bus</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+        <rdfs:comment>Punto in cui e' possibile acquistare biglietti Bus</rdfs:comment>
+    </owl:Class>
+	
+	
+	<!-- http://www.disit.org/km4city/schema#TrafficGate -->
+
+    <owl:Class rdf:about="&km4c;TrafficGate">
+        <rdfs:label xml:lang="en">Traffic Gate</rdfs:label>
+        <rdfs:label xml:lang="it">Varchi ZTL</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+        <rdfs:comment>Varchi ZTL sparsi per la citta' geolocalizzati</rdfs:comment>
+    </owl:Class>
+
+
+	<!-- http://www.disit.org/km4city/schema#FreshPlace -->
+
+    <owl:Class rdf:about="&km4c;FreshPlace">
+        <rdfs:label xml:lang="en">Fresh Place</rdfs:label>
+        <rdfs:label xml:lang="it">Luoghi freschi</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+        <rdfs:comment>Luoghi freschi presenti a firenze in cui trovare refrigerio in estate</rdfs:comment>
+    </owl:Class>	
+	
+	
+	<!-- ******************** Railway Macroclass ************************* -->
+
+	<!-- http://www.disit.org/km4city/schema#RailwayJunction -->
+
+    <owl:Class rdf:about="&km4c;RailwayJunction">
+        <rdfs:label xml:lang="en">Railway Junction</rdfs:label>
+        <rdfs:label xml:lang="it">Giunzione Ferroviaria</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;Node"/>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+        <rdfs:comment>2 giunzioni delimitano un elemento ferroviario e rappresentano stazioni ferroviarie o scali merce</rdfs:comment>
+    </owl:Class>
+
+
+	<!-- http://www.disit.org/km4city/schema#RailwayElement -->
+
+    <owl:Class rdf:about="&km4c;RailwayElement">
+        <rdfs:label xml:lang="en">Railway Element</rdfs:label>
+        <rdfs:label xml:lang="it">Elemento Ferroviario</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;Edge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;endAtJunction"/>
+                <owl:allValuesFrom rdf:resource="&km4c;RailwayJunction"/>   
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;endAtJunction"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;RailwayJunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;startAtJunction"/>
+                <owl:allValuesFrom rdf:resource="&km4c;RailwayJunction"/>		
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;startAtJunction"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;RailwayJunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;isPartOfLine"/>
+                <owl:allValuesFrom rdf:resource="&km4c;RailwayLine"/>		
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Classe le cui istanze sono gli elementi che compongono le tratte, le sezioni o le linee ferroviarie</rdfs:comment>
+    </owl:Class>
+
+
+    <!-- http://www.disit.org/km4city/schema#RailwaySection -->
+
+    <owl:Class rdf:about="&km4c;RailwaySection">
+        <rdfs:label xml:lang="en">Railway Section</rdfs:label>
+        <rdfs:label xml:lang="it">Sezione Ferroviaria</rdfs:label>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;isComposedByElement"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+				<owl:onClass rdf:resource="&km4c;RailwayElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Classe le cui istanze sono le sezioni ferroviarie</rdfs:comment>
+    </owl:Class>
+	
+	
+    <!-- http://www.disit.org/km4city/schema#RailwayDirection -->
+
+    <owl:Class rdf:about="&km4c;RailwayDirection">
+        <rdfs:label xml:lang="en">Railway Direction</rdfs:label>
+        <rdfs:label xml:lang="it">Direttiva Ferroviaria</rdfs:label>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;consistOfElement"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+				<owl:onClass rdf:resource="&km4c;RailwayElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Classe le cui istanze sono le direttive ferroviarie</rdfs:comment>
+    </owl:Class>
+
+	
+	<!-- http://www.disit.org/km4city/schema#RailwayLine -->
+
+    <owl:Class rdf:about="&km4c;RailwayLine">
+        <rdfs:label xml:lang="en">Railway Line</rdfs:label>
+        <rdfs:label xml:lang="it">Linea Ferroviaria</rdfs:label>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasElement"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+				<owl:onClass rdf:resource="&km4c;RailwayElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+		<rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;hasElement"/>
+                <owl:allValuesFrom rdf:resource="&km4c;RailwayElement"/>		
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Classe le cui istanze sono le linee ferroviarie</rdfs:comment>
+    </owl:Class>
+
+	
+	<!-- http://www.disit.org/km4city/schema#TrainStation -->
+
+    <owl:Class rdf:about="&km4c;TrainStation">
+        <rdfs:label xml:lang="en">Train Station</rdfs:label>
+        <rdfs:label xml:lang="it">Stazione Ferroviaria</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;StopPoint"/>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+		<rdfs:subClassOf rdf:resource="&schema;Place"/>
+	    <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;correspondToJunction"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;RailwayJunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Stazione ferroviaria, sono posizionate in corrispondenza di giunzioni ferroviarie con relazione 1:1</rdfs:comment>
+    </owl:Class>	
+
+	
+	<!-- http://www.disit.org/km4city/schema#GoodsYard -->
+
+    <owl:Class rdf:about="&km4c;GoodsYard">
+        <rdfs:label xml:lang="en">Goods Yard</rdfs:label>
+        <rdfs:label xml:lang="it">Scalo Merci</rdfs:label>
+		<rdfs:subClassOf rdf:resource="&otn;StopPoint"/>
+		<rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+	    <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&km4c;correspondToJunction"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onClass rdf:resource="&km4c;RailwayJunction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Scalo Merci, sono posizionati in corrispondenza di giunzioni ferroviarie con relazione 1:1</rdfs:comment>
+    </owl:Class>	
+	
+
+	<!-- ******************** Railway Macroclass ************************* -->	
+	
+	
+	
+	<!-- http://www.w3.org/2006/time#Instant -->
+
+    <owl:Class rdf:about="&time;Instant"/>
+	
+	
+	<!-- http://www.w3.org/2006/time#Instant -->
+
+    <owl:Class rdf:about="&time;TemporalEntity"/>
+	
+
+    <!-- http://www.pms.ifi.uni-muenchen.de/OTN#Road -->
+
+    <owl:Class rdf:about="&otn;Road"/>
+    
+
+    <!-- http://www.pms.ifi.uni-muenchen.de/OTN#Road_Element -->
+
+    <owl:Class rdf:about="&otn;Road_Element"/>
+ 	
+	
+	<!-- http://www.pms.ifi.uni-muenchen.de/OTN#Geometric -->
+
+    <owl:Class rdf:about="&otn;Geometric"/>
+	
+	
+    <!-- http://www.pms.ifi.uni-muenchen.de/OTN#Node -->
+
+    <owl:Class rdf:about="&otn;Node">
+		<rdfs:subClassOf rdf:resource="&otn;Geometric"/>
+	</owl:Class>
+	
+	
+	<!-- http://www.pms.ifi.uni-muenchen.de/OTN#Edge -->
+
+    <owl:Class rdf:about="&otn;Edge">
+		<rdfs:subClassOf rdf:resource="&otn;Geometric"/>
+	</owl:Class>
+	
+	
+	<!-- http://www.pms.ifi.uni-muenchen.de/OTN#Face -->
+
+    <owl:Class rdf:about="&otn;Face">
+		<rdfs:subClassOf rdf:resource="&otn;Geometric"/>
+	</owl:Class>
+
+	
+    <!-- http://www.pms.ifi.uni-muenchen.de/OTN#Service -->
+
+    <owl:Class rdf:about="&otn;Service"/>
+	
+	
+	<!-- http://www.pms.ifi.uni-muenchen.de/OTN#Manoeuver -->
+
+    <owl:Class rdf:about="&otn;Manoeuver"/>
+	
+
+	<!-- http://www.pms.ifi.uni-muenchen.de/OTN#StopPoint -->
+
+    <owl:Class rdf:about="&otn;StopPoint">
+		<rdfs:subClassOf rdf:resource="&otn;Node"/>
+	</owl:Class>
+	
+	
+	<!-- http://www.pms.ifi.uni-muenchen.de/OTN#Route -->
+
+    <owl:Class rdf:about="&otn;Route"/>
+	
+
+	<!-- http://www.pms.ifi.uni-muenchen.de/OTN#Line -->
+
+    <owl:Class rdf:about="&otn;Line"/>
+	
+	
+	<!-- http://www.pms.ifi.uni-muenchen.de/OTN#RouteSection -->
+
+    <owl:Class rdf:about="&otn;RouteSection"/>
+	
+	
+	<!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+    <owl:Class rdf:about="&geo;SpatialThing"/>
+   
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="&foaf;Organization"/>
+	
+
+	<!-- http://www.schema.org/#Place -->
+
+    <owl:Class rdf:about="&schema;Place"/>
+	
+	
+	
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->	
+		
+    <!-- http://www.disit.org/km4city/resource#atm -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;atm">
+		<rdfs:label xml:lang="en">Atm</rdfs:label>
+        <rdfs:label xml:lang="it">Atm</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+    <!-- http://www.disit.org/km4city/resource#income_revenue_authority -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;income_revenue_authority">
+		<rdfs:label xml:lang="en">Income revenue authority</rdfs:label>
+        <rdfs:label xml:lang="it">Agenzia delle entrate</rdfs:label>
+    </owl:NamedIndividual>
+
+	
+    <!-- http://www.disit.org/km4city/resource#consulate -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;consulate">
+        <rdfs:label xml:lang="en">Consulate</rdfs:label>
+        <rdfs:label xml:lang="it">Consolato</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+    <!-- http://www.disit.org/km4city/resource#wine_shop_and_wine_bar -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;wine_shop_and_wine_bar">
+		<rdfs:label xml:lang="en">Wine shop and wine bar</rdfs:label>
+        <rdfs:label xml:lang="it">Enoteche e wine bar</rdfs:label>
+    </owl:NamedIndividual>
+	
+
+    <!-- http://www.disit.org/km4city/resource#youth_information_centres -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;youth_information_centres">
+		<rdfs:label xml:lang="en">Youth information centres</rdfs:label>
+        <rdfs:label xml:lang="it">Informa Giovani</rdfs:label>
+    </owl:NamedIndividual>	
+
+	
+    <!-- http://www.disit.org/km4city/resource#postal_office -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;postal_office">
+    	<rdfs:label xml:lang="en">Postal office</rdfs:label>
+        <rdfs:label xml:lang="it">Ufficio postale</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#aquarium -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;aquarium">
+		<rdfs:label xml:lang="en">Aquarium</rdfs:label>
+        <rdfs:label xml:lang="it">Acquario</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#civil_airport -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;civil_airport">
+		<rdfs:label xml:lang="en">Civil airport</rdfs:label>
+        <rdfs:label xml:lang="it">Aeroporto civile</rdfs:label>
+    </owl:NamedIndividual>	
+	
+	
+	<!-- http://www.disit.org/km4city/resource#travel_agency -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;travel_agency">
+		<rdfs:label xml:lang="en">Travel agency</rdfs:label>
+        <rdfs:label xml:lang="it">Agenzia di viaggio</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#agritourism -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;agritourism">
+    	<rdfs:label xml:lang="en">Agritourism</rdfs:label>
+        <rdfs:label xml:lang="it">Agriturismo</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#hotel -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;hotel">
+    	<rdfs:label xml:lang="en">Hotel</rdfs:label>
+        <rdfs:label xml:lang="it">Albergo hotel</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#climbing -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;climbing">
+    	<rdfs:label xml:lang="en">Climbing</rdfs:label>
+        <rdfs:label xml:lang="it">Alpinismo</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#doctor_office -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;doctor_office">
+    	<rdfs:label xml:lang="en">Doctor office</rdfs:label>
+        <rdfs:label xml:lang="it">Ambulatorio medico</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#civil_registry_and_other_office -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;civil_registry_and_other_office">
+    	<rdfs:label xml:lang="en">Civil registry and other office</rdfs:label>
+        <rdfs:label xml:lang="it">Anagrafe e uffici vari</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#local_health_authority -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;local_health_authority">
+    	<rdfs:label xml:lang="en">Local health authority</rdfs:label>
+        <rdfs:label xml:lang="it">Asl</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#insurance -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;insurance">   
+		<rdfs:label xml:lang="en">Insurance</rdfs:label>
+        <rdfs:label xml:lang="it">Assicurazione</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#welfare_worker_office -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;welfare_worker_office">
+		<rdfs:label xml:lang="en">Welfare worker office</rdfs:label>
+        <rdfs:label xml:lang="it">Assistenti sociali uffici</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#auditorium -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;auditorium">
+		<rdfs:label xml:lang="en">Auditorium</rdfs:label>
+        <rdfs:label xml:lang="it">Auditorium</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#urban_bus -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;urban_bus">
+    	<rdfs:label xml:lang="en">Urban bus</rdfs:label>
+        <rdfs:label xml:lang="it">Autobus urbani</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#highway_stop -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;highway_stop">
+    	<rdfs:label xml:lang="en">Highway stop</rdfs:label>
+        <rdfs:label xml:lang="it">Autogrill</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#airfields -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;airfields">
+    	<rdfs:label xml:lang="en">Airfields</rdfs:label>
+        <rdfs:label xml:lang="it">Aviosuperfici</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#bank -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;bank">
+    	<rdfs:label xml:lang="en">Bank</rdfs:label>
+        <rdfs:label xml:lang="it">Banca</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#pastry_shop -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;pastry_shop">
+    	<rdfs:label xml:lang="en">Pastry shop</rdfs:label>
+        <rdfs:label xml:lang="it">Bar pasticceria</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#bed_and_breakfast -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;bed_and_breakfast">
+    	<rdfs:label xml:lang="en">Bed and breakfast</rdfs:label>
+        <rdfs:label xml:lang="it">Bed and breakfast</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#library -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;library">
+    	<rdfs:label xml:lang="en">Library</rdfs:label>
+        <rdfs:label xml:lang="it">Biblioteca</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#tax_assistance_centre -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;tax_assistance_centre">
+    	<rdfs:label xml:lang="en">Tax Assistance Centre</rdfs:label>
+        <rdfs:label xml:lang="it">Caf</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#camping -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;camping">
+    	<rdfs:label xml:lang="en">Camping</rdfs:label>
+        <rdfs:label xml:lang="it">Campeggio</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#camper_service -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;camper_service">
+    	<rdfs:label xml:lang="en">Camper service</rdfs:label>
+        <rdfs:label xml:lang="it">Camper service</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#carabinieri -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;carabinieri">
+    	<rdfs:label xml:lang="en">Carabinieri</rdfs:label>
+        <rdfs:label xml:lang="it">Carabinieri</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#rest_home -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;rest_home">
+    	<rdfs:label xml:lang="en">Rest home</rdfs:label>
+        <rdfs:label xml:lang="it">Casa di riposo</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#religiuos_guest_house -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;religiuos_guest_house">
+    	<rdfs:label xml:lang="en">Religiuos guest house</rdfs:label>
+        <rdfs:label xml:lang="it">Casa per ferie</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#summer_residence -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;summer_residence">
+    	<rdfs:label xml:lang="en">Summer residence</rdfs:label>
+        <rdfs:label xml:lang="it">casa per vacanze</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#catering -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;catering">
+    	<rdfs:label xml:lang="en">Catering</rdfs:label>
+        <rdfs:label xml:lang="it">Catering</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#day_care_center -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;day_care_center">
+    	<rdfs:label xml:lang="en">Day care center</rdfs:label>
+        <rdfs:label xml:lang="it">Centri accoglienza e case alloggio</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#shopping_centre -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;shopping_centre">
+    	<rdfs:label xml:lang="en">Shopping centre</rdfs:label>
+        <rdfs:label xml:lang="it">Centri Commerciali</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#physical_therapy_center -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;physical_therapy_center">
+    	<rdfs:label xml:lang="en">Physical therapy center</rdfs:label>
+        <rdfs:label xml:lang="it">Centri di riabilitazione</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#employment_exchange -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;employment_exchange">   
+		<rdfs:label xml:lang="en">Employment exchange</rdfs:label>
+        <rdfs:label xml:lang="it">Centro per l'impiego</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#social_centre -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;social_centre">
+    	<rdfs:label xml:lang="en">Social centre</rdfs:label>
+        <rdfs:label xml:lang="it">Centro sociale</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#health_reservations_center -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;health_reservations_center">
+    	<rdfs:label xml:lang="en">Health reservations center</rdfs:label>
+        <rdfs:label xml:lang="it">Centro unico di prenotazione</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#cinema -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;cinema">
+    	<rdfs:label xml:lang="en">Cinema</rdfs:label>
+        <rdfs:label xml:lang="it">Cinema</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#private_clinic -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;private_clinic">
+    	<rdfs:label xml:lang="en">Private clinic</rdfs:label>
+        <rdfs:label xml:lang="it">Clinica privata</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#commissariat_of_public_safety -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;commissariat_of_public_safety">
+    	<rdfs:label xml:lang="en">Commissariat of public safety</rdfs:label>
+        <rdfs:label xml:lang="it">Commissariato di pubblica sicurezza</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#addiction_recovery_center -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;addiction_recovery_center">
+    	<rdfs:label xml:lang="en">Addiction recovery center</rdfs:label>
+        <rdfs:label xml:lang="it">Comunita e centri di recupero per dipendenze</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#conservatory -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;conservatory">
+    	<rdfs:label xml:lang="en">Conservatory</rdfs:label>
+        <rdfs:label xml:lang="it">Conservatorio</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#family_counselling -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;family_counselling">
+    	<rdfs:label xml:lang="en">Family counselling</rdfs:label>
+        <rdfs:label xml:lang="it">Consultori</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#corps_of_forest_rangers -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;corps_of_forest_rangers">
+    	<rdfs:label xml:lang="en">Corps of forest rangers</rdfs:label>
+        <rdfs:label xml:lang="it">Corpo forestale dello stato</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#courier -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;courier">
+    	<rdfs:label xml:lang="en">Courier</rdfs:label>
+        <rdfs:label xml:lang="it">Corriere espresso</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#language_courses -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;language_courses">
+    	<rdfs:label xml:lang="en">Language courses</rdfs:label>
+        <rdfs:label xml:lang="it">Corsi di lingue</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#red_cross -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;red_cross">
+    	<rdfs:label xml:lang="en">Red cross</rdfs:label>
+        <rdfs:label xml:lang="it">Croce rossa</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#dentist -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;dentist">
+    	<rdfs:label xml:lang="en">Dentist</rdfs:label>
+        <rdfs:label xml:lang="it">Dentista</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#discotheque -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;discotheque">
+    	<rdfs:label xml:lang="en">Discotheque</rdfs:label>
+        <rdfs:label xml:lang="it">Discoteca</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#health_district -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;health_district">
+    	<rdfs:label xml:lang="en">Health district</rdfs:label>
+        <rdfs:label xml:lang="it">Distretto sanitario</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#helipads -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;helipads">    
+		<rdfs:label xml:lang="en">Helipads</rdfs:label>
+        <rdfs:label xml:lang="it">Elisuperfici</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#pharmacy -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;pharmacy">
+    	<rdfs:label xml:lang="en">Pharmacy</rdfs:label>
+        <rdfs:label xml:lang="it">Farmacia</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#bakery -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;bakery">
+    	<rdfs:label xml:lang="en">Bakery</rdfs:label>
+        <rdfs:label xml:lang="it">Forno</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#ice_cream_parlour -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;ice_cream_parlour">
+    	<rdfs:label xml:lang="en">Ice cream parlour</rdfs:label>
+        <rdfs:label xml:lang="it">Gelateria</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#golf -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;golf">
+    	<rdfs:label xml:lang="en">Golf</rdfs:label>
+        <rdfs:label xml:lang="it">Golf</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#non_food_large_retailers -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;non_food_large_retailers">
+    	<rdfs:label xml:lang="en">non food large retailers</rdfs:label>
+        <rdfs:label xml:lang="it">Grande distribuzione non alimentare</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#coast_guard_harbormaster -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;coast_guard_harbormaster">
+    	<rdfs:label xml:lang="en">Coast guard harbormaster</rdfs:label>
+        <rdfs:label xml:lang="it">Guardia costiera capitaneria di porto</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#italian_finance_police -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;italian_finance_police">
+    	<rdfs:label xml:lang="en">Italian finance police</rdfs:label>
+        <rdfs:label xml:lang="it">Guardia di finanza</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#emergency_medical_care -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;emergency_medical_care">
+    	<rdfs:label xml:lang="en">Emergency medical care</rdfs:label>
+        <rdfs:label xml:lang="it">Guardia medica</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#skiing_facility -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;skiing_facility">
+    	<rdfs:label xml:lang="en">Skiing facility</rdfs:label>
+        <rdfs:label xml:lang="it">Impianti sciistici</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#sports_facility -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;sports_facility">
+    	<rdfs:label xml:lang="en">Sports facility</rdfs:label>
+        <rdfs:label xml:lang="it">Impianti sportivi</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#hypermarket -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;hypermarket">
+    	<rdfs:label xml:lang="en">Hypermarket</rdfs:label>
+        <rdfs:label xml:lang="it">Ipermercati</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#hippodrome -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;hippodrome">
+    	<rdfs:label xml:lang="en">Hippodrome</rdfs:label>
+        <rdfs:label xml:lang="it">Ippodromo</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#training_school_for_teachers -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;training_school_for_teachers">
+    	<rdfs:label xml:lang="en">Training school for teachers</rdfs:label>
+        <rdfs:label xml:lang="it">Istituti magistrali</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#private_professional_institute -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;private_professional_institute"> 
+		<rdfs:label xml:lang="en">Private professional institute</rdfs:label>
+        <rdfs:label xml:lang="it">Istituti professionali privati</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#public_professional_institute -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;public_professional_institute">
+    	<rdfs:label xml:lang="en">Public professional institute</rdfs:label>
+        <rdfs:label xml:lang="it">Istituti professionali pubblici</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#private_polytechnic_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;private_polytechnic_school">
+    	<rdfs:label xml:lang="en">Private polytechnic school</rdfs:label>
+        <rdfs:label xml:lang="it">Istituti tecnici privati</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#public_polytechnic_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;public_polytechnic_school">
+    	<rdfs:label xml:lang="en">Public polytechnic school</rdfs:label>
+        <rdfs:label xml:lang="it">Istituti tecnici pubblici</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#financial_institute -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;financial_institute">
+    	<rdfs:label xml:lang="en">Financial institute</rdfs:label>
+        <rdfs:label xml:lang="it">Istituto monetario</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#private_high_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;private_high_school">
+    	<rdfs:label xml:lang="en">Private high school</rdfs:label>
+        <rdfs:label xml:lang="it">Licei privati</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#public_high_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;public_high_school">
+    	<rdfs:label xml:lang="en">Public high school</rdfs:label>
+        <rdfs:label xml:lang="it">Licei pubblici</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#game_room -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;game_room">
+    	<rdfs:label xml:lang="en">Game room</rdfs:label>
+        <rdfs:label xml:lang="it">Ludoteca</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#monument_location -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;monument_location">   
+		<rdfs:label xml:lang="en">Monument location</rdfs:label>
+        <rdfs:label xml:lang="it">Luogo monumento</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#riding_stables -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;riding_stables">
+    	<rdfs:label xml:lang="en">Riding stables</rdfs:label>
+        <rdfs:label xml:lang="it">Maneggi</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#dining_hall -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;dining_hall">
+    	<rdfs:label xml:lang="en">Dining hall</rdfs:label>
+        <rdfs:label xml:lang="it">Mense</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#department_of_motor_vehicles -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;department_of_motor_vehicles">
+    	<rdfs:label xml:lang="en">Department of motor vehicles</rdfs:label>
+        <rdfs:label xml:lang="it">Motorizzazione civile</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#museum -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;museum">
+    	<rdfs:label xml:lang="en">Museum</rdfs:label>
+        <rdfs:label xml:lang="it">Museo</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#single_brand_store -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;single_brand_store">
+    	<rdfs:label xml:lang="en">Single brand store</rdfs:label>
+        <rdfs:label xml:lang="it">Negozi monomarca</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#artisan_shop -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;artisan_shop">
+    	<rdfs:label xml:lang="en">Artisanshop</rdfs:label>
+        <rdfs:label xml:lang="it">Negozio artigiano</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#vehicle_rental -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;vehicle_rental">
+    	<rdfs:label xml:lang="en">Vehicle rental</rdfs:label>
+        <rdfs:label xml:lang="it">Noleggio veicoli</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#useful_numbers -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;useful_numbers">
+    	<rdfs:label xml:lang="en">Useful numbers</rdfs:label>
+        <rdfs:label xml:lang="it">Numeri utili</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#public_hospital -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;public_hospital">
+    	<rdfs:label xml:lang="en">Public hospital</rdfs:label>
+        <rdfs:label xml:lang="it">Ospedale pubblico</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#hostel -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;hostel">
+    	<rdfs:label xml:lang="en">Hostel</rdfs:label>
+        <rdfs:label xml:lang="it">Ostello</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#gym_fitness -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;gym_fitness">
+    	<rdfs:label xml:lang="en">Gym fitness</rdfs:label>
+        <rdfs:label xml:lang="it">Palestra fitness</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#sandwich_shop_pub -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;sandwich_shop_pub">
+    	<rdfs:label xml:lang="en">Sandwich shop pub</rdfs:label>
+        <rdfs:label xml:lang="it">Paninoteche pubs</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#car_park -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;car_park">
+    	<rdfs:label xml:lang="en">Car park</rdfs:label>
+        <rdfs:label xml:lang="it">Parcheggio auto</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#game_reserve -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;game_reserve">
+    	<rdfs:label xml:lang="en">Game reserve</rdfs:label>
+        <rdfs:label xml:lang="it">Parco naturale</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#pull -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;pull">
+    	<rdfs:label xml:lang="en">Pull</rdfs:label>
+        <rdfs:label xml:lang="it">Piscina</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#pizzeria -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;pizzeria">
+    	<rdfs:label xml:lang="en">Pizzeria</rdfs:label>
+        <rdfs:label xml:lang="it">Pizzeria</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#group_practice -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;group_practice">
+    	<rdfs:label xml:lang="en">Group practice</rdfs:label>
+        <rdfs:label xml:lang="it">Poliambulatorio</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#local_police -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;local_police">
+    	<rdfs:label xml:lang="en">Local police</rdfs:label>
+        <rdfs:label xml:lang="it">Polizia municipale</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#traffic_corps -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;traffic_corps">
+    	<rdfs:label xml:lang="en">Traffic corps</rdfs:label>
+        <rdfs:label xml:lang="it">Polizia stradale</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#prefecture -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;prefecture">
+    	<rdfs:label xml:lang="en">Prefecture</rdfs:label>
+        <rdfs:label xml:lang="it">Prefettura</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#first_aid -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;first_aid">
+    	<rdfs:label xml:lang="en">First aid</rdfs:label>
+        <rdfs:label xml:lang="it">Pronto soccorso</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#civil_protection -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;civil_protection">
+    	<rdfs:label xml:lang="en">Civil protection</rdfs:label>
+        <rdfs:label xml:lang="it">Protezione civile</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#police_headquarters -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;police_headquarters">
+    	<rdfs:label xml:lang="en">Police headquarters</rdfs:label>
+        <rdfs:label xml:lang="it">Questura</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#rafting_kayak -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;rafting_kayak">
+    	<rdfs:label xml:lang="en">Rafting kayak</rdfs:label>
+        <rdfs:label xml:lang="it">Rafting canoa e kayak</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#vacation_resort -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;vacation_resort">   
+		<rdfs:label xml:lang="en">Vacation resort</rdfs:label>
+        <rdfs:label xml:lang="it">Residence di villeggiatura</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#farm_house -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;farm_house">
+    	<rdfs:label xml:lang="en">Farm house</rdfs:label>
+        <rdfs:label xml:lang="it">Residenza turistica alberghiera</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#historic_residence -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;historic_residence">
+    	<rdfs:label xml:lang="en">Historic residence</rdfs:label>
+        <rdfs:label xml:lang="it">Residenze epoca</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#senior_centers -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;senior_centers">
+    	<rdfs:label xml:lang="en">Senior centers</rdfs:label>
+        <rdfs:label xml:lang="it">Ricoveri</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#mountain_dew -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;mountain_dew">
+    	<rdfs:label xml:lang="en">Mountain dew</rdfs:label>
+        <rdfs:label xml:lang="it">Rifugio alpino</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#fishing_reserve -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;fishing_reserve">
+    	<rdfs:label xml:lang="en">Fishing reserve</rdfs:label>
+        <rdfs:label xml:lang="it">Riserve di pesca</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#restaurant -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;restaurant">
+    	<rdfs:label xml:lang="en">Restaurant</rdfs:label>
+        <rdfs:label xml:lang="it">Ristorante</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#grill -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;grill">
+    	<rdfs:label xml:lang="en">Grill</rdfs:label>
+        <rdfs:label xml:lang="it">Rosticceria</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#recreation_room -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;recreation_room">
+    	<rdfs:label xml:lang="en">Recreation room</rdfs:label>
+        <rdfs:label xml:lang="it">Sala gioco</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#training_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;training_school">
+    	<rdfs:label xml:lang="en">Training school</rdfs:label>
+        <rdfs:label xml:lang="it">Scuola di formazione</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#ski_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;ski_school">
+    	<rdfs:label xml:lang="en">Ski school</rdfs:label>
+        <rdfs:label xml:lang="it">Scuola di sci</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#diving_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;diving_school">
+    	<rdfs:label xml:lang="en">Diving school</rdfs:label>
+        <rdfs:label xml:lang="it">Scuola di sub</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#sailing_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;sailing_school">
+    	<rdfs:label xml:lang="en">Sailing school</rdfs:label>
+        <rdfs:label xml:lang="it">Scuola di vela</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#private_junior_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;private_junior_school">
+    	<rdfs:label xml:lang="en">Private junior school</rdfs:label>
+        <rdfs:label xml:lang="it">Scuole elementari private</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#public_junior_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;public_junior_school">
+    	<rdfs:label xml:lang="en">Public junior school</rdfs:label>
+        <rdfs:label xml:lang="it">Scuole elementari pubbliche</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#private_infant_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;private_infant_school">
+    	<rdfs:label xml:lang="en">Private infant school</rdfs:label>
+        <rdfs:label xml:lang="it">Scuole materne private</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#public_infant_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;public_infant_school">
+    	<rdfs:label xml:lang="en">Public infant school</rdfs:label>
+        <rdfs:label xml:lang="it">Scuole materne pubbliche</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#private_junior_high_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;private_junior_high_school">
+    	<rdfs:label xml:lang="en">Private junior high school</rdfs:label>
+        <rdfs:label xml:lang="it">Scuole medie private</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#public_junior_high_school -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;public_junior_high_school">
+    	<rdfs:label xml:lang="en">Public junior high school</rdfs:label>
+        <rdfs:label xml:lang="it">Scuole medie pubbliche</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#emergency_services -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;emergency_services">
+    	<rdfs:label xml:lang="en">Emergency services</rdfs:label>
+        <rdfs:label xml:lang="it">Soccorso stradale</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#clothing_factory_outlet -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;clothing_factory_outlet">
+    	<rdfs:label xml:lang="en">Clothing factory outlet</rdfs:label>
+        <rdfs:label xml:lang="it">Spacci outlet abbigliamento</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#train_station -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;train_station">
+    	<rdfs:label xml:lang="en">Train station</rdfs:label>
+        <rdfs:label xml:lang="it">Stazione ferroviaria</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#sushi_bar -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;sushi_bar">
+    	<rdfs:label xml:lang="en">Sushi bar</rdfs:label>
+        <rdfs:label xml:lang="it">Sushi bar</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#teathre -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;teathre">
+    	<rdfs:label xml:lang="en">Teathre</rdfs:label>
+        <rdfs:label xml:lang="it">Teatro</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#tour_operator -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;tour_operator">
+    	<rdfs:label xml:lang="en">Tour operator</rdfs:label>
+        <rdfs:label xml:lang="it">Tour operator</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#trattoria -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;trattoria">
+    	<rdfs:label xml:lang="en">Trattoria</rdfs:label>
+        <rdfs:label xml:lang="it">Trattoria</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#social_security_service_office -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;social_security_service_office">
+    	<rdfs:label xml:lang="en">Social security service office</rdfs:label>
+        <rdfs:label xml:lang="it">Ufficio inps</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#travel_bureau -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;travel_bureau">
+    	<rdfs:label xml:lang="en">Travel bureau</rdfs:label>
+        <rdfs:label xml:lang="it">Ufficio visite guidate</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#public_university -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;public_university">
+    	<rdfs:label xml:lang="en">Public university</rdfs:label>
+        <rdfs:label xml:lang="it">Universita pubbliche</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#veterinary -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;veterinary">
+    	<rdfs:label xml:lang="en">Veterinary</rdfs:label>
+        <rdfs:label xml:lang="it">Veterinario</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#fire_brigade -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;fire_brigade">
+    	<rdfs:label xml:lang="en">Fire brigade</rdfs:label>
+        <rdfs:label xml:lang="it">Vigili del fuoco</rdfs:label>
+    </owl:NamedIndividual>	
+	
+
+    <!-- http://www.disit.org/km4city/resource#holiday_village -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;holiday_village">
+		<rdfs:label xml:lang="en">Holiday village</rdfs:label>
+        <rdfs:label xml:lang="it">Villaggio vacanze</rdfs:label>
+    </owl:NamedIndividual>	
+	
+	
+	<!-- http://www.disit.org/km4city/resource#poison_control_center -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;poison_control_center">
+		<rdfs:label xml:lang="en">Poison control center</rdfs:label>
+        <rdfs:label xml:lang="it">Centro antiveleni</rdfs:label>
+    </owl:NamedIndividual>
+	
+	
+	<!-- http://www.disit.org/km4city/resource#healthcare_center -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;healthcare_center">
+		<rdfs:label xml:lang="en">Healthcare center</rdfs:label>
+        <rdfs:label xml:lang="it">Centri assistenza</rdfs:label>
+    </owl:NamedIndividual>	
+	
+	
+	<!-- http://www.disit.org/km4city/resource#community_centers -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;community_centers">
+		<rdfs:label xml:lang="en">Community centers</rdfs:label>
+        <rdfs:label xml:lang="it">Centri diurni</rdfs:label>
+    </owl:NamedIndividual>		
+	
+	
+	<!-- http://www.disit.org/km4city/resource#private_preschool -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;private_preschool">
+		<rdfs:label xml:lang="en">Private preschool</rdfs:label>
+        <rdfs:label xml:lang="it">Nidi privati</rdfs:label>
+    </owl:NamedIndividual>	
+
+
+	<!-- http://www.disit.org/km4city/resource#footwear_factory_outlet -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;footwear_factory_outlet">
+		<rdfs:label xml:lang="en">Footwear factory outlet</rdfs:label>
+        <rdfs:label xml:lang="it">Spacci outlet calzature</rdfs:label>
+    </owl:NamedIndividual>	
+
+
+	<!-- http://www.disit.org/km4city/resource#airport_lost_property_office -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;airport_lost_property_office">
+		<rdfs:label xml:lang="en">Airport lost property office</rdfs:label>
+        <rdfs:label xml:lang="it">Ufficio oggetti smarriti aeroporto</rdfs:label>
+    </owl:NamedIndividual>	
+
+
+	<!-- http://www.disit.org/km4city/resource#train_lost_property_office -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;train_lost_property_office">
+		<rdfs:label xml:lang="en">Train lost property office</rdfs:label>
+        <rdfs:label xml:lang="it">Ufficio oggetti smarriti stazione treno</rdfs:label>
+    </owl:NamedIndividual>	
+
+
+	<!-- http://www.disit.org/km4city/resource#boarding_house -->
+
+    <owl:NamedIndividual rdf:about="&km4cr;boarding_house">
+		<rdfs:label xml:lang="en">Boarding house</rdfs:label>
+        <rdfs:label xml:lang="it">Affittacamere</rdfs:label>
+    </owl:NamedIndividual>		
+	
+    
+
+</rdf:RDF>
