@@ -24,19 +24,10 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
-/**
- * @author audunvennesland
- * Date:02.02.2017
- * @version 1.0
- */
 public class GraphLoader {
 	
 	GraphDatabaseService db;
 
-	/**
-	 * Constructor to initialise the graph database
-	 * @param db a GraphDatabaseService
-	 */
 	public GraphLoader(GraphDatabaseService db) {
 		
 		this.db = db;
@@ -45,9 +36,10 @@ public class GraphLoader {
 
 	/**
 	 * This method creates a Neo4J graph from an input ontology
-	 * @param onto the OWL ontology for which a graph is created
-	 * @param label a label is used for creating the name of the graph (the name of the graph is the same as the ontology name)
-	 * @throws OWLOntologyCreationException An exception which describes an error during the creation of an ontology. If an ontology cannot be created then subclasses of this class will describe the reasons.
+	 * @param OWLOntology onto
+	 * @param Label label
+	 * @param GraphDatabaseService db
+	 * @throws OWLOntologyCreationException
 	 */
 	public void createOntologyGraph(OWLOntology onto, Label label) throws OWLOntologyCreationException {
 
@@ -111,8 +103,26 @@ public class GraphLoader {
 	}
 
 	/**
+	 * This method finds the shortest path between two nodes used as parameters. The path is the full path consisting of nodes and relationships between the classNode..
+	 * ...and the rootNode.
+	 * @param rootNode
+	 * @param classNode
+	 * @param label
+	 * @param rel
+	 * @return Iterable<Path> paths
+	 */
+	public Iterable<Path> findShortestPathToRoot(Node rootNode, Node classNode, Label label, RelationshipType rel) {
+
+		PathFinder<Path> finder = GraphAlgoFactory.shortestPath(
+				PathExpanders.forType(rel), 15);
+		Iterable<Path> paths = finder.findAllPaths( classNode, rootNode );
+		return paths;
+	}
+	
+
+	/**
 	 * Registers a shutdown hook for the Neo4j instance so that it shuts down nicely when the VM exits
-	 * @param graphDb a GraphDatabaseService
+	 * @param graphDb
 	 */
 	private static void registerShutdownHook(final GraphDatabaseService graphDb)
 	{
@@ -126,32 +136,22 @@ public class GraphLoader {
 		} );
 	}
 
-/**
- * 
- * @author audunvennesland
- * 2. feb. 2017
- */
+
 	private static enum RelTypes implements RelationshipType
 	{
 		isA
 	}
 	
-	/**
-	 * Test method
-	 * @param args
-	 * @throws OWLOntologyCreationException An exception which describes an error during the creation of an ontology. If an ontology cannot be created then subclasses of this class will describe the reasons.
-	 */
 	public static void main(String[] args) throws OWLOntologyCreationException {
 		
 		//create the database
-		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/ntnu-lyon-paper");
+		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/Experiment_eswc17");
 		GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 		registerShutdownHook(db);
 		
 		//get the ontology
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		//File f1 = new File("./files/ntnu-lyon-paper/ontologies/doremus.owl");		
-		File f1 = new File("./files/ntnu-lyon-paper/ontologies/otn.owl");		
+		File f1 = new File("./files/experiment_eswc17/ontologies/ekaw.owl");		
 		System.out.println("...Trying to load the ontology...");
 		OWLOntology o1 = manager.loadOntologyFromOntologyDocument(f1);
 

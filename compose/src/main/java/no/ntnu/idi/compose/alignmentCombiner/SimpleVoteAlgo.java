@@ -163,6 +163,57 @@ public class SimpleVoteAlgo {
 		
 		
 	}
+	
+	/*public 
+	
+	for (Cell currentCell : allCellsAlignment) {
+
+		if (!todel.contains(currentCell)) {
+			//get all cells that has the same object1 as c1
+			Set<Cell> cells2 = allCellsAlignment.getAlignCells1(currentCell.getObject1());
+
+			if (cells2.size() > 1) {
+				//placeholder for cells that contains the same object1 and object 2 as c1
+				Set<Cell> toCheck = new HashSet<Cell>();
+
+				Object o2 = currentCell.getObject2();
+
+				for (Cell c2 : cells2) {
+					//if this cell (c2) contains the same object1 and object2 as the current cell we move them to "toCheck"
+					if (o2.equals(c2.getObject2())) {
+						toCheck.add(c2);
+					//if not, this cell is "unique" and we keep it	
+					} else {
+						toKeep.add(currentCell);
+
+					}
+				}
+
+				if (toCheck.size() > 1) {
+
+					double confidence = currentCell.getStrength();
+					//these are the cells that contain the same object1 and object2 as the current cell
+					for (Cell c : toCheck) {
+						//check if the relations match, if so we sum their confidence
+						if (c != currentCell && c.getRelation().equals(currentCell.getRelation())) {
+							confidence = (confidence + c.getStrength());
+							currentCell.setStrength(confidence);
+							//once the confidence is summed, we can forget about the other duplicate cells, and only keep the current cell (with summed confidence)
+							todel.add(c);
+							toKeep.add(currentCell);
+
+						}
+					}
+				}
+
+			} else {
+				//if the current cell is unique, that is, the only cell with this combination of object1 and object2, we keep it
+				toKeep.add(currentCell);
+			}
+		}
+
+	}
+}*/
 
 
 	public static void main(String[] args) throws AlignmentException, IOException {
