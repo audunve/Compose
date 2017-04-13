@@ -33,25 +33,200 @@ public class SubgraphStrategy {
 			input.add(c);
 		}
 
-		TreeSet<Cell> a = rankAlignment(input);
+		//TreeSet<Cell> a = rankAlignment(input);
 
-		Iterator<Cell> aItr = a.iterator();
+		Iterator<Cell> aItr = input.iterator();
 
 		Set<Set<Cell>> mergedAlignments = new HashSet<Set<Cell>>();
-
+		Set<Set<Cell>> r_set = new HashSet<Set<Cell>>();
+		
+		Cell bestCell = findBestCell(input);
+		Set<Cell> r = new HashSet<Cell>();
+		Set<Cell> a_marked = new HashSet<Cell>();
+		
 		while (aItr.hasNext()) {
-			Cell bestCell = findBestCell(a);
-			Set<Cell> r = new HashSet<Cell>();
+
+			
+			if (!r.contains(bestCell)) {
 			r.add(bestCell);
-			Set<Cell> a_marked = getRest(bestCell, a);
-			mergedAlignments.add(r);
-			mergedAlignments = buildAlignments(onto1, onto2, a_marked, mergedAlignments);
+			}
+
+			Cell nextCell = aItr.next();
+
+			if (!nextCell.equals(bestCell)) {
+				a_marked.add(nextCell);
+
+			}
+			r_set.add(r);
+			
+			System.out.println("r contains " + r.size() + " cells");
+			
+			for (Cell r_cell : r) {
+				System.out.println(r_cell.getObject1AsURI() + " - " + r_cell.getObject2AsURI());
+			}
+			
+	
 		}
+		
+		mergedAlignments = buildAlignments(onto1, onto2, a_marked, r_set);
+		
+		System.out.println("Sending to buildAlignments: " + a_marked.size() + " (a_marked) " + r.size() + " (r)");
+
 		return mergedAlignments;
 
 	}
+	
+	public static Set<Set<Cell>> buildAlignments(OWLOntology onto1, OWLOntology onto2, Set<Cell> a_input,
+			Set<Set<Cell>> mergedAlignments) throws AlignmentException {
+		
+		if (a_input.isEmpty()) {
+			return null;
+		}
+		
+		Cell bestCell = findBestCell(a_input);
+		Set<Cell> a_marked = new HashSet<Cell>();
 
-	// this is a recursive method that builds a merged alignment if
+		Iterator<Cell> aItr = a_input.iterator();
+		
+		while (aItr.hasNext()) {
+			
+			Cell thisCell = aItr.next();
+			
+			if (!thisCell.equals(bestCell)) {
+				a_marked.add(thisCell);
+			}
+
+			Set<Cell> r_marked = new HashSet<Cell>();
+			for (Set<Cell> r : mergedAlignments) {
+				r_marked.addAll(r);	
+				r_marked.add(bestCell);
+				
+				if (isConsistent(onto1, onto2, r_marked)) {
+					
+					mergedAlignments.add(r_marked);
+				}
+			}
+
+		}
+		
+
+		return mergedAlignments;
+		
+	}
+	
+	/*public static Set<Set<Cell>> buildAlignments(OWLOntology onto1, OWLOntology onto2, Set<Cell> a_input,
+			Set<Set<Cell>> mergedAlignments) throws AlignmentException {
+		
+		if (a_input.isEmpty()) {
+			return null;
+		}
+		
+		//rank the cells in a_input into a
+		TreeSet<Cell> a = rankAlignment(a_input); 
+		
+		Iterator<Cell> aItr = a.iterator();
+		
+		while (aItr.hasNext()) {
+			for (Set<Cell> r : mergedAlignments) {
+				System.out.println("Testing r : ");
+				Set<Cell> r_marked = new HashSet<Cell>();
+				r_marked.addAll(r);
+				if (isConsistent(onto1, onto2, r_marked)) {
+					mergedAlignments.add(r_marked);
+					return buildAlignments(onto1, onto2, a, mergedAlignments);
+				}
+			}
+			aItr.remove();
+		}
+		return mergedAlignments;
+		
+	}*/
+	
+/*	// this is a recursive method that builds a merged alignment if
+			public static Set<Set<Cell>> buildAlignments(OWLOntology onto1, OWLOntology onto2, Set<Cell> a_input,
+					Set<Set<Cell>> mergedAlignments) throws AlignmentException {
+
+				if (a_input.isEmpty()) {
+					return null;
+				}
+
+				TreeSet<Cell> a = rankAlignment(a_input); 
+				
+				Iterator<Cell> aItr = a.iterator();
+				while (aItr.hasNext()) {
+					Cell bestCell = aItr.next();
+					//iterate through existing R´s in mergedAlignment
+					Iterator<Set<Cell>> mergedAlignmentsItr = mergedAlignments.iterator();
+					while (mergedAlignmentsItr.hasNext()) {
+						Set<Cell> r = mergedAlignmentsItr.next();
+						r.add(bestCell);
+						if (isConsistent(onto1, onto2, r)) {
+							//TO-DO: Check if objects are equal (line 28-32) for stable marriage
+							mergedAlignments.add(r);
+							//aItr.remove();
+							//return mergedAlignments;
+							} //end if
+						} //end for
+					} //end while
+				return mergedAlignments;
+				} //end function
+*/				
+				
+	
+	/*// this is a recursive method that builds a merged alignment if
+		public static Set<Set<Cell>> buildAlignments(OWLOntology onto1, OWLOntology onto2, Set<Cell> a_input,
+				Set<Set<Cell>> mergedAlignments) throws AlignmentException {
+
+			if (a_input.isEmpty()) {
+				return null;
+			}
+
+			TreeSet<Cell> a = rankAlignment(a_input); // not sure if this ranking is
+														// needed
+			
+			Set<Cell> a_marked = getRest(bestCell, a);
+			for (Cell c : a) {
+				Cell bestCell = findBestCell(a_input);
+
+				//TO-DO: Initialize the Set<Cell> r_marked before the loop (or try with a while loop and iterator to
+				//avoid the ConcurrentModificationException
+				Set<Cell> r_marked = new HashSet<Cell>();
+				for (Set<Cell> rItr : mergedAlignments) {
+					for (Cell cl : rItr) {
+						
+						
+						if (!r_marked.contains(cl)) {
+							System.out.println("Adding " + cl.getObject1AsURI().getFragment() + " - " + cl.getObject2AsURI().getFragment() + " to r_marked (cl)");
+						r_marked.add(cl);
+				}
+					}
+					System.out.println("Adding " + bestCell.getObject1AsURI().getFragment() + " - " + bestCell.getObject2AsURI().getFragment() + " to r_marked (bestCell)");
+					r_marked.add(bestCell);
+
+					if (isConsistent(onto1, onto2, r_marked)) {
+						Iterator<Cell> a_markedItr = a_marked.iterator();
+
+						while (a_markedItr.hasNext()) {
+							Cell a_markedCell = a_markedItr.next();
+
+							if (bestCell.getObject1().equals(a_markedCell.getObject1())
+									|| bestCell.getObject2().equals(a_markedCell.getObject2())) {
+								a_markedItr.remove();
+							} // end if
+						} // end while
+
+						mergedAlignments.add(r_marked);
+						//System.out.println("Size of mergedAlignments: " + mergedAlignments.size());
+						// return buildAlignments(onto1, onto2, a_marked,
+						// mergedAlignments);
+					} // end if
+				} // end for
+			} // end for
+			return buildAlignments(onto1, onto2, a_marked, mergedAlignments);
+
+		}*/
+
+	/*// this is a recursive method that builds a merged alignment if
 	public static Set<Set<Cell>> buildAlignments(OWLOntology onto1, OWLOntology onto2, Set<Cell> a_input,
 			Set<Set<Cell>> mergedAlignments) throws AlignmentException {
 
@@ -67,7 +242,17 @@ public class SubgraphStrategy {
 
 			//TO-DO: Initialize the Set<Cell> r_marked before the loop (or try with a while loop and iterator to
 			//avoid the ConcurrentModificationException
-			for (Set<Cell> r_marked : mergedAlignments) {
+			Set<Cell> r_marked = new HashSet<Cell>();
+			for (Set<Cell> rItr : mergedAlignments) {
+				for (Cell cl : rItr) {
+					
+					
+					if (!r_marked.contains(cl)) {
+						System.out.println("Adding " + cl.getObject1AsURI().getFragment() + " - " + cl.getObject2AsURI().getFragment() + " to r_marked (cl)");
+					r_marked.add(cl);
+			}
+				}
+				System.out.println("Adding " + bestCell.getObject1AsURI().getFragment() + " - " + bestCell.getObject2AsURI().getFragment() + " to r_marked (bestCell)");
 				r_marked.add(bestCell);
 
 				if (isConsistent(onto1, onto2, r_marked)) {
@@ -83,7 +268,7 @@ public class SubgraphStrategy {
 					} // end while
 
 					mergedAlignments.add(r_marked);
-					//Test: System.out.println("Size of mergedAlignments: " + mergedAlignments.size());
+					//System.out.println("Size of mergedAlignments: " + mergedAlignments.size());
 					// return buildAlignments(onto1, onto2, a_marked,
 					// mergedAlignments);
 				} // end if
@@ -91,7 +276,7 @@ public class SubgraphStrategy {
 		} // end for
 		return buildAlignments(onto1, onto2, a_marked, mergedAlignments);
 
-	}
+	}*/
 
 	// find the cell with the highest score
 	public static Cell findBestCell(Set<Cell> a) throws AlignmentException {
@@ -153,7 +338,7 @@ public class SubgraphStrategy {
 
 		// import the ontologies
 
-		// import the alignment files
+		/*// import the alignment files
 		File af1 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-aml.rdf");
 		File af2 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-logmap.rdf");
 		File af3 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-compose.rdf");
@@ -172,6 +357,19 @@ public class SubgraphStrategy {
 
 		for (Cell c : a1) {
 			testSet.add(c);
+		}*/
+		
+		File testFile = new File("./files/alignmentCombiner/conference-ekaw/SubGraphTest.rdf");
+		AlignmentParser parser = new AlignmentParser();
+		BasicAlignment testAlignment = (BasicAlignment) parser.parse(testFile.toURI().toString());
+		
+		Set<Alignment> testAlignments = new HashSet<Alignment>();
+		testAlignments.add(testAlignment);
+		
+		Set<Cell> testSet = new HashSet<Cell>();
+
+		for (Cell c : testAlignment) {
+			testSet.add(c);
 		}
 
 		Set<Cell> rankedAlignment = rankAlignment(testSet);
@@ -185,7 +383,7 @@ public class SubgraphStrategy {
 		OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
 
 		
-		Set<Set<Cell>> mergedAlignments = initStrategy(onto1, onto2, inputAlignments);
+		Set<Set<Cell>> mergedAlignments = initStrategy(onto1, onto2, testAlignments);
 		 
 		System.out.println("Number of merged alignments " +
 		mergedAlignments.size());
