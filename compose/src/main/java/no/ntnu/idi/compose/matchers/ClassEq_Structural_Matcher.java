@@ -53,7 +53,7 @@ import no.ntnu.idi.compose.preprocessing.Preprocessor;
 @SuppressWarnings("deprecation")
 public class ClassEq_Structural_Matcher extends ObjectAlignment implements AlignmentProcess {
 
-	final static double THRESHOLD = 0.4;
+	final static double THRESHOLD = 0.6;
 
 	/**
 	 * This label represents the graph/ontology to process

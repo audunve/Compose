@@ -40,22 +40,23 @@ public class MatcherComposition {
 
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException, OntowrapException, OWLOntologyCreationException {
 
-		final String composition = "Sequential_CompleteMatch_ClassEq";
-		String experiment = "biblio-bibo";
+		//final String composition = "Parallel_SimpleVote_Subsumption";
+		final String composition = "Parallel_SimpleVote_ClassEq";		
+		String experiment = "303-304";
 		double threshold = 0;
 		File inputFile  = null;
 		AlignmentParser parser = null;
 		BasicAlignment structAlignment = null;
 		BasicAlignment stringAlignment = null;
 		BasicAlignment wordNetAlignment = null;
+		
+		String onto1 = "303";
+		String onto2 = "304";
 
-		//the ontologies being matched (this is needed for the graph-based matcher)
-		String onto1 = experiment.substring(0, experiment.lastIndexOf("-"));
-		String onto2 = experiment.substring(experiment.lastIndexOf("-")+1, experiment.length());
+		File ontoFile1 = new File("./files/OAEI2011/" + experiment + "/" + onto1 + "..rdf");
+		File ontoFile2 = new File("./files/OAEI2011/" + experiment + "/" + onto2 + "..rdf");
 
-		File ontoFile1 = new File("./files/experiment_eswc17/ontologies/" + onto1 + ".owl");
-		File ontoFile2 = new File("./files/experiment_eswc17/ontologies/" + onto2 + ".owl");
-		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/Experiment_eswc17");
+		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/ER2017/"+experiment);
 		GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 
 		String ontologyParameter1 = Preprocessor.stripPath(ontoFile1.toString());
@@ -353,18 +354,18 @@ public class MatcherComposition {
 
 		case "Parallel_SimpleVote_ClassEq":
 			//import the alignment files
-			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_String.rdf");
-			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_WordNet2.rdf");
-			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_Structural.rdf");
+			a1 = new File("./files/OAEI2011/"+experiment+"/COMPOSE-ClassEq_String.rdf");
+			a2 = new File("./files/OAEI2011/"+experiment+"/COMPOSE-ClassEq_Graph.rdf");
+			a3 = new File("./files/OAEI2011/"+experiment+"/COMPOSE-ClassEq_WordNet.rdf");
 
 			//set the threshold
-			threshold = 0.9;
+			threshold = 0.6;
 
 			Alignment Parallel_SimpleVote_ClassEqAlignment = ParallelComposition.simpleVote(a1, a2, a3);
-			Alignment referenceAlignment_Parallel_SimpleVote_ClassEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_classEq.rdf"));
+			Alignment referenceAlignment_Parallel_SimpleVote_ClassEq = aparser.parse(new URI("file:files/OAEI2011/" + experiment + "/refalign.rdf"));
 
 			//store the alignment
-			File Parallel_SimpleVote_ClassEq_AlignmentFile = new File("./files/experiment_eswc17/alignments/" + experiment + "/Parallel_SimpleVote_ClassEq.rdf");
+			File Parallel_SimpleVote_ClassEq_AlignmentFile = new File("./files/OAEI2011/" + experiment + "/Parallel_SimpleVote_ClassEq.rdf");
 
 			writer = new PrintWriter(
 					new BufferedWriter(
@@ -375,10 +376,50 @@ public class MatcherComposition {
 
 			Parallel_SimpleVote_ClassEqAlignment.render(Parallel_SimpleVote_ClassEq_renderer);
 
-
 			System.out.println("Matching completed!");
 
 			evaluator = new PRecEvaluator(referenceAlignment_Parallel_SimpleVote_ClassEq, Parallel_SimpleVote_ClassEqAlignment);
+			p = new Properties();
+			evaluator.eval(p);
+			System.out.println("------------------------------");
+			System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
+			System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
+			System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
+			System.out.println("------------------------------");
+			
+			writer.flush();
+			writer.close();
+
+			break;
+			
+		case "Parallel_SimpleVote_Subsumption":
+			//import the alignment files
+			a1 = new File("./files/OAEI2011/"+ experiment +"/COMPOSE-Subsumption_String.rdf");
+			a2 = new File("./files/OAEI2011/"+ experiment +"/COMPOSE-Subsumption_SubClass.rdf");
+			a3 = new File("./files/OAEI2011/"+ experiment +"/COMPOSE-Subsumption_WordNet.rdf");
+
+			//set the threshold
+			threshold = 0.6;
+
+			Alignment Parallel_SimpleVote_SubsumptionAlignment = ParallelComposition.simpleVote(a1, a2, a3);
+			Alignment referenceAlignment_Parallel_SimpleVote_Subsumption = aparser.parse(new URI("file:files/OAEI2011/" + experiment + "/refalign.rdf"));
+
+			//store the alignment
+			File Parallel_SimpleVote_Subsumption_AlignmentFile = new File("./files/OAEI2011/" + experiment + "/Parallel_SimpleVote_Subsumption.rdf");
+
+			writer = new PrintWriter(
+					new BufferedWriter(
+							new FileWriter(Parallel_SimpleVote_Subsumption_AlignmentFile)), true); 
+			AlignmentVisitor Parallel_SimpleVote_Subsumption_renderer = new RDFRendererVisitor(writer);
+
+			Parallel_SimpleVote_SubsumptionAlignment.cut(threshold);
+
+			Parallel_SimpleVote_SubsumptionAlignment.render(Parallel_SimpleVote_Subsumption_renderer);
+
+
+			System.out.println("Matching completed!");
+
+			evaluator = new PRecEvaluator(referenceAlignment_Parallel_SimpleVote_Subsumption, Parallel_SimpleVote_SubsumptionAlignment);
 			p = new Properties();
 			evaluator.eval(p);
 			System.out.println("------------------------------");
@@ -437,48 +478,7 @@ public class MatcherComposition {
 
 			break;
 
-		case "Parallel_SimpleVote_Subsumption":
-			//import the alignment files
-			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_String_Matcher.rdf");
-			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
-			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
-
-			//set the threshold
-			threshold = 0.9;
-
-			Alignment Parallel_SimpleVote_SubsumptionAlignment = ParallelComposition.simpleVote(a1, a2, a3);
-			Alignment referenceAlignment_Parallel_SimpleVote_Subsumption = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_Subsumption.rdf"));
-
-			//store the alignment
-			File Parallel_SimpleVote_Subsumption_AlignmentFile = new File("./files/experiment_eswc17/alignments/" + experiment + "/Parallel_SimpleVote_Subsumption.rdf");
-
-			writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(Parallel_SimpleVote_Subsumption_AlignmentFile)), true); 
-			AlignmentVisitor Parallel_SimpleVote_Subsumption_renderer = new RDFRendererVisitor(writer);
-
-			Parallel_SimpleVote_SubsumptionAlignment.cut(threshold);
-
-			Parallel_SimpleVote_SubsumptionAlignment.render(Parallel_SimpleVote_Subsumption_renderer);
-
-
-			System.out.println("Matching completed!");
-
-			evaluator = new PRecEvaluator(referenceAlignment_Parallel_SimpleVote_Subsumption, Parallel_SimpleVote_SubsumptionAlignment);
-			p = new Properties();
-			evaluator.eval(p);
-			System.out.println("------------------------------");
-			System.out.println("F-measure: " + evaluator.getResults().getProperty("fmeasure").toString());
-			System.out.println("Precision: " + evaluator.getResults().getProperty("precision").toString());
-			System.out.println("Recall: " + evaluator.getResults().getProperty("recall").toString());
-			System.out.println("------------------------------");
-
-
-			writer.flush();
-			writer.close();
-
-
-			break;
+		
 
 
 		case "Parallel_CompleteMatch_WithPriority_ClassEq":

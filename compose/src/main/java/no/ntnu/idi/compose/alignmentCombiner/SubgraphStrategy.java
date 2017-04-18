@@ -18,15 +18,24 @@ import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
+import de.unima.alcomox.ExtractionProblem;
+import de.unima.alcomox.Settings;
+import de.unima.alcomox.exceptions.AlcomoException;
+import de.unima.alcomox.mapping.Characteristic;
+import de.unima.alcomox.mapping.Mapping;
+import de.unima.alcomox.ontology.IOntology;
+
 /**
  * @author audunvennesland 26. mar. 2017
  */
 public class SubgraphStrategy {
 
-	public static Set<Set<Cell>> initStrategy(OWLOntology onto1, OWLOntology onto2, Set<Alignment> inputAlignments)
-			throws AlignmentException {
+	public static Set<Set<Cell>> initStrategy(String onto1, String onto2, Set<Alignment> inputAlignments)
+			throws AlignmentException, AlcomoException {
 
 		Alignment inputSet = SimpleVoteAlgo.createVotedAlignment(inputAlignments);
+		
+		//prefer working with sets, not Alignment objects from Alignment API
 		Set<Cell> input = new HashSet<Cell>();
 
 		for (Cell c : inputSet) {
@@ -36,7 +45,6 @@ public class SubgraphStrategy {
 		Iterator<Cell> aItr = input.iterator();
 
 		Set<Set<Cell>> mergedAlignments = new HashSet<Set<Cell>>();
-		Set<Set<Cell>> r_set = new HashSet<Set<Cell>>();
 		
 		Cell bestCell = findBestCell(input);
 		Set<Cell> r = new HashSet<Cell>();
@@ -54,36 +62,123 @@ public class SubgraphStrategy {
 				a_marked.add(nextCell);
 
 			}
-			r_set.add(r);
-			
-	
-		}
-		
-		if (!a_marked.isEmpty()) {
-			
-		mergedAlignments = buildAlignments(onto1, onto2, a_marked, r_set);
-		
-		}
-		
-		System.out.println("Sending from inputStrategy to buildAlignments: " + a_marked.size() + " (a_marked) " + r.size() + " (r)");
+			mergedAlignments.add(r);
+				
+		}		
 
+		return buildAlignments(onto1, onto2, a_marked, mergedAlignments);
+
+	}
+	
+	public static Set<Set<Cell>> buildAlignments(String onto1, String onto2, Set<Cell> a_input,
+			Set<Set<Cell>> mergedAlignments) throws AlignmentException, AlcomoException {
+		
+
+		//if there are no cells in a_input return null
+		if (a_input.isEmpty()) {
+			return null;
+		}
+		
+		//rank the cells according to confidence strength - not sure if useful
+		//TreeSet<Cell> aInput = rankAlignment(a_input);
+		
+			System.out.println("a_Input contains " + a_input.size() + " cell(s)");
+			
+			for (Cell c: a_input) {
+				System.out.println("- " + c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment());
+			}
+				
+		Set<Cell> a_marked = new HashSet<Cell>();
+		Set<Cell> r_marked = new HashSet<Cell>();
+		Set<Set<Cell>> maTmp = new HashSet<Set<Cell>>();
+
+		for (Cell a : a_input) {
+			
+			Cell bestCell = findBestCell(a_input);
+			System.out.println("The bestCell from input is " + bestCell.getObject1AsURI().getFragment() + " - " + bestCell.getObject2AsURI().getFragment());
+			
+			Cell thisCell = a;
+			System.out.println("Checking thisCell " + thisCell.getObject1AsURI().getFragment() + " - " + thisCell.getObject2AsURI().getFragment());
+
+			if (!thisCell.equals(bestCell)) {
+				a_marked.add(thisCell);
+				System.err.println("adding " + thisCell + " to a_marked");
+
+			}//end if
+			
+			System.err.println("2 a_marked contains " + a_marked.size() + " cells.");
+			
+			Iterator<Set<Cell>> maItr = mergedAlignments.iterator();
+			while (maItr.hasNext()) {
+				Set<Cell> r = maItr.next();
+				
+				for (Cell c_r : r) {
+				r_marked.add(c_r);	
+				}
+
+				if (!r_marked.contains(bestCell)) {
+				r_marked.add(bestCell);		
+				
+				
+				maTmp.addAll(mergedAlignments);
+				
+				System.out.println("maTmp now contains " + maTmp.size() + " merged alignments");		
+				
+				
+				//TO-DO: Implement isConsistent from Alcomo
+				if (isConsistent(onto1, onto2, r_marked)) {
+					
+					System.err.println("They are consistent!");
+					
+					System.err.println("a_marked contains " + a_marked.size() + " cells.");
+					
+					Iterator<Cell> a_markedItr = a_marked.iterator();
+					while (a_markedItr.hasNext()) {
+						Cell a_markedCell = a_markedItr.next();
+						System.err.println("Contents of a_markedCell: ");
+						System.err.println(a_markedCell.getObject1AsURI().getFragment() + " - " + a_markedCell.getObject2AsURI().getFragment());
+						
+						if (!bestCell.getObject1().equals(a_markedCell.getObject1()) || !bestCell.getObject2().equals(a_markedCell.getObject2())) {
+							a_marked.add(a_markedCell);
+						} else {
+							System.err.println(bestCell.getObject1AsURI().getFragment() + " - " + bestCell.getObject2AsURI().getFragment() + " and " +
+						a_markedCell.getObject1AsURI().getFragment() + " - " + a_markedCell.getObject2AsURI().getFragment() + " have equal objects");
+						}
+					}
+					
+					//TO-DO: This is throwing a concurrentModificationException if we don´t move the contents from 'mergedAlignments' to 'maTmp'
+					maTmp.add(r_marked);	
+	
+				} //end if	
+				
+		} //end if
+				
+			} //end for
+				
+		} //end while
+		System.out.println("a_marked now contains: "+ a_marked.size() + " cells");
+		
+		System.out.println("Recursive call next...");
+		buildAlignments(onto1, onto2, a_marked, maTmp);	
 		return mergedAlignments;
 
 	}
 	
-	public static Set<Set<Cell>> buildAlignments(OWLOntology onto1, OWLOntology onto2, Set<Cell> a_input,
+	
+	/* Backup: Generates merged alignments, but not correct ones
+	 * public static Set<Set<Cell>> buildAlignments(OWLOntology onto1, OWLOntology onto2, Set<Cell> a_input,
 			Set<Set<Cell>> mergedAlignments) throws AlignmentException {
 		
-		
-		
+
 		//if there are no cells in a_input return null
 		if (a_input.isEmpty()) {
 			return null;
-			
-			//if a_input still contains cells - process them
-		} else {
+		}
 		
-			System.out.println("a_input contains " + a_input.size() + " cell(s)");
+		//rank the cells according to confidence strength - not sure if useful
+		//TreeSet<Cell> aInput = rankAlignment(a_input);
+		
+			System.out.println("a_Input contains " + a_input.size() + " cell(s)");
 			
 			for (Cell c: a_input) {
 				System.out.println("- " + c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment());
@@ -99,7 +194,6 @@ public class SubgraphStrategy {
 		//initialize r_marked that will hold each existing merged alignments + the best cell (these will be checked for consistency)
 		Set<Cell> r_marked = new HashSet<Cell>();
 
-
 		Iterator<Cell> aItr = a_input.iterator();
 		
 		//iterating through each cell in a_input
@@ -112,93 +206,40 @@ public class SubgraphStrategy {
 			if (!thisCell.equals(bestCell)) {
 				a_marked.add(thisCell);
 				//System.out.println("Adding " + thisCell.getObject1AsURI().getFragment() + " - " + thisCell.getObject2AsURI() + " to a_merged");
-			}
+			}//end if
 			
 			//add all existing merged alignments to r_marked
 			for (Set<Cell> r : mergedAlignments) {
 				r_marked.addAll(r);	
-				//System.out.println("...Adding content from mergedAlignments to r_marked...");
-			}
+			} //end for
 
 				//if r_marked does not already contain bestCell, add bestCell to r_marked
 				if (!r_marked.contains(bestCell)) {
 				r_marked.add(bestCell);
-				System.out.println("Adding " + bestCell.getObject1AsURI().getFragment() + " - " + bestCell.getObject2AsURI().getFragment() + " to r");
-				}
+				//System.out.println("Adding " + bestCell.getObject1AsURI().getFragment() + " - " + bestCell.getObject2AsURI().getFragment() + " to r");
+				} //end if
 				
 				//TO-DO: Implement isConsistent from Alcomo
 				if (isConsistent(onto1, onto2, r_marked)) {
 					
-					System.out.println("Adding " + r_marked.toString() + " to mergedAlignments");
-					mergedAlignments.add(r_marked);
-					
-				}
-				buildAlignments(onto1, onto2, a_marked, mergedAlignments);
-		}
-		//System.out.println("The merged alignment (where r_marked contains " + r_marked.size() + " cells is consistent!");
-		return mergedAlignments;
+					//System.out.println("Adding " + r_marked.toString() + " to mergedAlignments");
+					mergedAlignments.add(r_marked);					
+				} //end if	
+		} //end while
+		System.out.println("a_marked now contains: "+ a_marked.size());
 		
-		//System.out.println("r_marked now contains: "+ r_marked.size());
-		
-		} //end else
-		
-		//return mergedAlignments;
-		
-	}
-	
-	/*public static Set<Set<Cell>> buildAlignments(OWLOntology onto1, OWLOntology onto2, Set<Cell> a_input,
-			Set<Set<Cell>> mergedAlignments) throws AlignmentException {
-		
-		if (a_input.isEmpty()) {
-			return null;
-		}
-		
-		Cell bestCell = findBestCell(a_input);
-		System.out.println("The bestCell from input is " + bestCell.getObject1AsURI().getFragment() + " - " + bestCell.getObject2AsURI());
-		Set<Cell> a_marked = new HashSet<Cell>();
+		System.out.println("Recursive call next...");
 
-		Iterator<Cell> aItr = a_input.iterator();
+		buildAlignments(onto1, onto2, a_marked, mergedAlignments);
 		
-		while (aItr.hasNext()) {
-			
-			Cell thisCell = aItr.next();
-			//System.out.println("Checking thisCell " + thisCell.getObject1AsURI().getFragment() + " - " + thisCell.getObject2AsURI());
-			
-			if (!thisCell.equals(bestCell)) {
-				a_marked.add(thisCell);
-				//System.out.println("Adding " + thisCell.getObject1AsURI().getFragment() + " - " + thisCell.getObject2AsURI() + " to a_merged");
-			}
-
-			Set<Cell> r_marked = new HashSet<Cell>();
-			for (Set<Cell> r : mergedAlignments) {
-				r_marked.addAll(r);	
-				
-				System.out.println("r_marked already contains: ");
-				for (Cell rCell : r) {
-					System.out.println(rCell.getObject1AsURI().getFragment() + " - " + rCell.getObject2AsURI().getFragment());
-				}
-				
-				
-				if (!r_marked.contains(bestCell)) {
-				r_marked.add(bestCell);
-				System.out.println("Adding " + bestCell.getObject1AsURI().getFragment() + " - " + bestCell.getObject2AsURI() + " to r");
-				}
-				
-				//TO-DO: Implement isConsistent from Alcomo
-				if (isConsistent(onto1, onto2, r_marked)) {
-					
-					mergedAlignments.add(r_marked);
-				}
-			}
-
-		}
+		//System.out.println("The merged alignment (where r_marked contains " + r_marked.size() + " cells) is consistent!");
 		
-
-		return mergedAlignments;
+		return mergedAlignments;	
 		
 	}*/
 	
-
+	
+	
 	// find the cell with the highest score
 	public static Cell findBestCell(Set<Cell> a) throws AlignmentException {
 
@@ -247,15 +288,45 @@ public class SubgraphStrategy {
 
 	}
 
-	public static boolean isConsistent(OWLOntology onto1, OWLOntology onto2, Set<Cell> a) {
-
+	public static boolean isConsistent(String onto1, String onto2, Set<Cell> a) throws AlcomoException {
+		
 		boolean isConsistent = true;
+		
+		/*Settings.BLACKBOX_REASONER = Settings.BlackBoxReasoner.PELLET;
+		Settings.ONE_TO_ONE = false;
+		
+		IOntology sourceOnt = new IOntology(onto1);
+		IOntology targetOnt = new IOntology(onto2);
+		
+		//TO-DO: print the set of alignment cells to disk so that it can be parsed by Alcomo
+		String alignmentPath = null;
+		
+		Mapping mapping = new Mapping(alignmentPath);
+		mapping.applyThreshhold(0.6);
+		
+		ExtractionProblem ep = new ExtractionProblem(
+				ExtractionProblem.ENTITIES_CONCEPTSPROPERTIES,
+				ExtractionProblem.METHOD_OPTIMAL,
+				ExtractionProblem.REASONING_EFFICIENT
+				);
+		
+		ep.bindSourceOntology(sourceOnt);
+		ep.bindTargetOntology(targetOnt);
+		ep.bindMapping(mapping);
+		
+		ep.solve();
+		
+		if (ep.isCoherentExtraction()) {
+			isConsistent = true;
+		} else {
+			isConsistent = false;
+		}	*/	
 
 		return isConsistent;
 
 	}
 
-	public static void main(String[] args) throws AlignmentException, OWLOntologyCreationException {
+	public static void main(String[] args) throws AlignmentException, AlcomoException {
 
 		// import the ontologies
 
@@ -292,15 +363,11 @@ public class SubgraphStrategy {
 		for (Cell c : testAlignment) {
 			testSet.add(c);
 		}
+		
 
 		// import the owl files
-		File ontoFile1 = new File("./files/alignmentCombiner/conference-ekaw/Conference.owl");
-		File ontoFile2 = new File("./files/alignmentCombiner/conference-ekaw/ekaw.owl");
-
-		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
-		OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
-
+		String onto1 = "files/alignmentCombiner/conference-ekaw/Conference.owl";
+		String onto2 = "files/alignmentCombiner/conference-ekaw/ekaw.owl";
 		
 		Set<Set<Cell>> ma = initStrategy(onto1, onto2, testAlignments);
 		 

@@ -36,7 +36,7 @@ import no.ntnu.idi.compose.algorithms.ISub;
 @SuppressWarnings("deprecation")
 public class Subsumption_Structural_Matcher extends ObjectAlignment implements AlignmentProcess {
 
-	final double THRESHOLD = 0.8;
+	final double THRESHOLD = 0.6;
 	final String isA = "&lt;";
 	final String hasA = "&gt;";
 

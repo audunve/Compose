@@ -5,7 +5,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
 
 import org.semanticweb.owl.align.Alignment;
@@ -16,6 +19,7 @@ import org.semanticweb.owl.align.Cell;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.BasicRelation;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
+import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
@@ -158,45 +162,87 @@ public class Intersection {
 		return relaxedIntersectAlignment;
 	}
 
-	public static void main(String[] args) throws AlignmentException, IOException {
+	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
 
-		File a3 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-compose.rdf");
-		File a1 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-aml.rdf");
-		File a2 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-logmap.rdf");
+		String experiment = "303304";
 
-		BasicAlignment strictIntersection = (BasicAlignment) intersectStrictly(a1, a2, a3);
-
-		// store the new alignment
-		File strictIntersectionFile = new File("./files/alignmentCombiner/intersection/intersection-strict.rdf");
-
-		PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(strictIntersectionFile)), true);
-		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-
-		strictIntersection.render(renderer);
-		writer.flush();
-		writer.close();
+		File af1 = new File("./files/ER2017/"+experiment+"/303-304-aml_norm.rdf");
+		File af2 = new File("./files/ER2017/"+experiment+"/303-304-logmap_norm.rdf");
+		File af3 = new File("./files/ER2017/"+experiment+"/303-304-compose_norm.rdf");
 
 		AlignmentParser parser = new AlignmentParser();
-		BasicAlignment al1 = (BasicAlignment) parser.parse(a1.toURI().toString());
-		BasicAlignment al2 = (BasicAlignment) parser.parse(a2.toURI().toString());
-		BasicAlignment al3 = (BasicAlignment) parser.parse(a3.toURI().toString());
+		BasicAlignment a1 = (BasicAlignment) parser.parse(af1.toURI().toString());
+		BasicAlignment a2 = (BasicAlignment) parser.parse(af2.toURI().toString());
+		BasicAlignment a3 = (BasicAlignment) parser.parse(af3.toURI().toString());
 
 		Set<Alignment> inputAlignments = new HashSet<Alignment>();
-		inputAlignments.add(al1);
-		inputAlignments.add(al2);
-		inputAlignments.add(al3);
+		inputAlignments.add(a1);
+		inputAlignments.add(a2);
+		inputAlignments.add(a3);
 
-		BasicAlignment relaxedIntersection = intersectRelaxed(inputAlignments);
+		System.out.println("Computing intersect Strict");
+		BasicAlignment intersect_strict = (BasicAlignment) intersectStrictly(af1, af2, af3);
 		
 		// store the new alignment
-		File relaxedIntersectionFile = new File("./files/alignmentCombiner/intersection/intersection-relaxed.rdf");
-
-		writer = new PrintWriter(new BufferedWriter(new FileWriter(relaxedIntersectionFile)), true);
-		renderer = new RDFRendererVisitor(writer);
-
-		strictIntersection.render(renderer);
+		File outputAlignment_intersect_strict = new File("./files/ER2017/"+experiment+"/intersect_strict_norm.rdf");
+		
+		PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(outputAlignment_intersect_strict)), true);
+		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+		
+		System.out.println("Printing the intersect strict alignment to file");
+		intersect_strict.render(renderer);
 		writer.flush();
 		writer.close();
+			
+		System.out.println("Computing intersect relaxed");
+		BasicAlignment intersect_relaxed = intersectRelaxed(inputAlignments);
+		
+		// store the new alignment
+		File outputAlignment_intersect_relaxed = new File("./files/ER2017/"+experiment+"/intersect_relaxed_norm.rdf");
+
+		writer = new PrintWriter(new BufferedWriter(new FileWriter(outputAlignment_intersect_relaxed)), true);
+		renderer = new RDFRendererVisitor(writer);
+
+		System.out.println("Printing the intersect relaxed alignment to file");
+		intersect_relaxed.render(renderer);
+		writer.flush();
+		writer.close();
+		
+		System.out.println("Evaluating the intersect strict alignments against the reference alignment");
+		AlignmentParser aparser = new AlignmentParser(0);
+		
+		Alignment referenceAlignment = aparser.parse(new URI("file:files/ER2017/"+experiment+"/"+experiment+"_refalign.rdf"));
+		Alignment evaluatedAlignment = aparser.parse(new URI("file:files/ER2017/"+experiment+"/intersect_strict.rdf"));
+		Properties p = new Properties();
+		
+		PRecEvaluator eval_intersect_strict = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+		
+		eval_intersect_strict.eval(p);
+		System.out.println("------------------------------");
+		System.out.println("Evaluation scores intersect strict:");
+		System.out.println("------------------------------");
+		System.out.println("F-measure: " + eval_intersect_strict.getResults().getProperty("fmeasure").toString());
+		System.out.println("Precision: " + eval_intersect_strict.getResults().getProperty("precision").toString());
+		System.out.println("Recall: " + eval_intersect_strict.getResults().getProperty("recall").toString());
+		
+		System.out.println("\nEvaluating the intersect relaxed alignments against the reference alignment");
+		aparser = new AlignmentParser(0);
+		
+		referenceAlignment = aparser.parse(new URI("file:files/ER2017/"+experiment+"/"+experiment+"_refalign.rdf"));
+		evaluatedAlignment = aparser.parse(new URI("file:files/ER2017/"+experiment+"/intersect_relaxed.rdf"));
+		p = new Properties();
+		
+		PRecEvaluator eval_intersect_relaxed = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+		
+		eval_intersect_relaxed.eval(p);
+		System.out.println("------------------------------");
+		System.out.println("Evaluation scores intersect relaxed:");
+		System.out.println("------------------------------");
+		System.out.println("F-measure: " + eval_intersect_relaxed.getResults().getProperty("fmeasure").toString());
+		System.out.println("Precision: " + eval_intersect_relaxed.getResults().getProperty("precision").toString());
+		System.out.println("Recall: " + eval_intersect_relaxed.getResults().getProperty("recall").toString());
 
 	}
-}
+
+	}
+

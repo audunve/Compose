@@ -64,14 +64,14 @@ public class HybridComposition {
 	 */
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
 
-		File a1 = new File("./files/experiment_eswc17/alignments/conference-ekaw/conference-ekaw-alignment-aml.rdf");
-		File a2 = new File("./files/experiment_eswc17/alignments/conference-ekaw/conference-ekaw-alignment-logmap.rdf");
-		File a3 = new File("./files/experiment_eswc17/alignments/conference-ekaw/conference-ekaw-alignment-compose.rdf");
+		File a1 = new File("./files/OAEI2011/301-303/COMPOSE-Subsumption_String.rdf");
+		File a2 = new File("./files/OAEI2011/301-303/COMPOSE-Subsumption_WordNet.rdf");
+		File a3 = new File("./files/OAEI2011/301-303/COMPOSE-Subsumption_SubClass.rdf");
 
 		BasicAlignment newAlignment = (BasicAlignment) merge(a1, a2, a3);
 
 		//store the new alignment
-		File outputAlignment = new File("./files/experiment_eswc17/alignments/conference-ekaw/a4.rdf");
+		File outputAlignment = new File("./files/OAEI2011/301-303/TestHybrid.rdf");
 
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(
@@ -83,7 +83,7 @@ public class HybridComposition {
 		writer.close();
 		
 		
-		File partialMatchAlignmentFile = new File("./files/experiment_eswc17/alignments/conference-ekaw/a8.rdf");
+		/*File partialMatchAlignmentFile = new File("./files/experiment_eswc17/alignments/conference-ekaw/a8.rdf");
 		
 		writer = new PrintWriter(
 				new BufferedWriter(
@@ -93,6 +93,6 @@ public class HybridComposition {
 		writer.flush();
 		writer.close();
 
-		System.out.println("Aggregation completed!");
+		System.out.println("Aggregation completed!");*/
 	}
 }

@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 
 import org.semanticweb.owl.align.Alignment;
@@ -17,6 +20,7 @@ import org.semanticweb.owl.align.Cell;
 
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
+import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
@@ -216,11 +220,13 @@ public class SimpleVoteAlgo {
 }*/
 
 
-	public static void main(String[] args) throws AlignmentException, IOException {
+	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
+		
+		String experiment = "303304";
 
-		File af1 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-aml.rdf");
-		File af2 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-logmap.rdf");
-		File af3 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-compose.rdf");
+		File af1 = new File("./files/ER2017/"+experiment+"/303-304-aml_norm.rdf");
+		File af2 = new File("./files/ER2017/"+experiment+"/303-304-logmap_norm.rdf");
+		File af3 = new File("./files/ER2017/"+experiment+"/303-304-compose_norm.rdf");
 
 		AlignmentParser parser = new AlignmentParser();
 		BasicAlignment a1 = (BasicAlignment) parser.parse(af1.toURI().toString());
@@ -242,15 +248,32 @@ public class SimpleVoteAlgo {
 		BasicAlignment finalAlignment = createFinalVotedAlignment(rankedAlignment);
 		
 		// store the new alignment
-		File outputAlignment = new File("./files/alignmentCombiner/simplevote/simplevote.rdf");
+		File outputAlignment = new File("./files/ER2017/"+experiment+"/simplevote_norm.rdf");
 
 		PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(outputAlignment)), true);
 		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
 
-		System.out.println("4. Printing the final simple vote alignment to file");
+		System.out.println("4. Printing the final (normalised) simple vote alignment to file");
 		finalAlignment.render(renderer);
 		writer.flush();
 		writer.close();
+		
+		System.out.println("5. Evaluating the alignment against the reference alignment");
+		AlignmentParser aparser = new AlignmentParser(0);
+		
+		Alignment referenceAlignment = aparser.parse(new URI("file:files/ER2017/"+experiment+"/"+experiment+"_refalign.rdf"));
+		Alignment evaluatedAlignment = aparser.parse(new URI("file:files/ER2017/"+experiment+"/simplevote.rdf"));
+		Properties p = new Properties();
+		
+		PRecEvaluator eval = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+		
+		eval.eval(p);
+		System.out.println("------------------------------");
+		System.out.println("Evaluation scores:");
+		System.out.println("------------------------------");
+		System.out.println("F-measure: " + eval.getResults().getProperty("fmeasure").toString());
+		System.out.println("Precision: " + eval.getResults().getProperty("precision").toString());
+		System.out.println("Recall: " + eval.getResults().getProperty("recall").toString());
 
 	}
 

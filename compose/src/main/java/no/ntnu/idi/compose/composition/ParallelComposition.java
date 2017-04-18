@@ -52,8 +52,8 @@ public class ParallelComposition {
 			for (Cell cell2 : a2) {
 				for (Cell cell3 : a3) {
 					//if cell3.thisCell equals either cell2.thisCell || cell1.thisCell, add cell3.thisCell to the final alignment
-					//System.out.println("Checking if " + cell1.getObject1() + " - " + cell1.getObject2() + 
-						//	" equals " + cell2.getObject1() + " - " + cell2.getObject2());
+					System.out.println("Checking if " + cell1.getObject1() + " - " + cell1.getObject2() + 
+							" equals " + cell2.getObject1() + " - " + cell2.getObject2());
 					//if (cell1.equals(cell2) || cell1.equals(cell3) || cell2.equals(cell3)) {
 					if (cell1.getObject1().equals(cell2.getObject1()) && cell1.getObject2().equals(cell2.getObject2()) || cell1.getObject1().equals(cell3.getObject1()) && cell1.getObject2().equals(cell3.getObject2())) {
 						System.out.println("We have a match!");
@@ -64,7 +64,8 @@ public class ParallelComposition {
 				}
 			}
 		}
-
+		
+		System.out.println("Completed alignment matching!");
 
 		return finalAlignment;	
 
@@ -155,14 +156,16 @@ public class ParallelComposition {
 	 */
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
 
-		File a1 = new File("./files/experiment_eswc17/alignments/biblio-bibo/a1.rdf");
-		File a2 = new File("./files/experiment_eswc17/alignments/biblio-bibo/a2.rdf");
-		File a3 = new File("./files/experiment_eswc17/alignments/biblio-bibo/a3.rdf");
+		File a1 = new File("./files/OAEI2011/301-303/COMPOSE-Subsumption_String.rdf");
+		File a2 = new File("./files/OAEI2011/301-303/COMPOSE-Subsumption_WordNet.rdf");
+		File a3 = new File("./files/OAEI2011/301-303/COMPOSE-Subsumption_SubClass.rdf");
 
-		BasicAlignment newAlignment = (BasicAlignment) completeMatchWithPriority(a1, a2, a3);
+		//BasicAlignment newAlignment = (BasicAlignment) completeMatchWithPriority(a1, a2, a3);
+		BasicAlignment newAlignment = (BasicAlignment) simpleVote(a3, a1, a2);
 
 		//store the new alignment
-		File outputAlignment = new File("./files/experiment_eswc17/alignments/biblio-bibo/a4.rdf");
+		File outputAlignment = new File("./files/OAEI2011/301-303/TestSimpleVote.rdf");
+		//File outputAlignment = new File("./files/OAEI2011/301-302/TestPriorityVote.rdf");
 
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(
