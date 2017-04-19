@@ -41,7 +41,7 @@ public class SimpleVoteAlgo {
 			}
 		}
 
-		// put all cells in an alignment
+		// put all cells from the Set<Cell> in a single alignment
 		BasicAlignment allCellsAlignment = new URIAlignment();
 		for (Cell c1 : allCells) {
 			allCellsAlignment.addAlignCell(c1.getObject1(), c1.getObject2(), c1.getRelation().toString(),
@@ -78,6 +78,7 @@ public class SimpleVoteAlgo {
 					if (toCheck.size() > 1) {
 
 						double confidence = currentCell.getStrength();
+						
 						//these are the cells that contain the same object1 and object2 as the current cell
 						for (Cell c : toCheck) {
 							//check if the relations match, if so we sum their confidence
@@ -104,7 +105,7 @@ public class SimpleVoteAlgo {
 			votedAlignment.addAlignCell(c.getObject1(), c.getObject2(), c.getRelation().toString(), c.getStrength());
 		}
 
-		//remove duplicates
+		//remove duplicate cells
 		votedAlignment.normalise();
 
 		return votedAlignment;
