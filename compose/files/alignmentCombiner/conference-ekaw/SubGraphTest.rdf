@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
+	 xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' 
+	 xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+	 xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+	 xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+
+<Alignment>
+	<xml>yes</xml>
+	<level>0</level>
+	<type>?*</type>
+	<alext:method>fr.inrialpes.exmo.align.impl.method.StringDistAlignment#clone</alext:method>
+	<onto1>
+		<Ontology rdf:about="http://conference">
+			<location>file:files/ontologies/Conference.owl</location>
+		</Ontology>
+	</onto1>
+	<onto2>
+		<Ontology rdf:about="http://ekaw">
+			<location>file:files/ontologies/ekaw.owl</location>
+		</Ontology>
+	</onto2>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://conference#Invited_speaker"/>
+			<entity2 rdf:resource="http://ekaw#Invited_Speaker"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.8501</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://conference#Review"/>
+			<entity2 rdf:resource="http://ekaw#Review"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.75</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://conference#Invited_talk"/>
+			<entity2 rdf:resource="http://ekaw#Invited_Talk"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.75</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://conference#Abstract"/>
+			<entity2 rdf:resource="http://ekaw#Abstract"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.74</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://conference#Review"/>
+			<entity2 rdf:resource="http://ekaw#Positive_Review"/>
+			<relation>></relation>
+			<measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+		</Cell>
+	</map>
+</Alignment>
+</rdf:RDF>

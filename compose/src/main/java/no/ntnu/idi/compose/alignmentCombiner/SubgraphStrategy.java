@@ -14,22 +14,17 @@ import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Cell;
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
-
-import fr.inrialpes.exmo.align.impl.BasicAlignment;
-import fr.inrialpes.exmo.align.impl.URIAlignment;
-import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
-import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
 import de.unima.alcomox.ExtractionProblem;
 import de.unima.alcomox.Settings;
 import de.unima.alcomox.exceptions.AlcomoException;
-import de.unima.alcomox.mapping.Characteristic;
 import de.unima.alcomox.mapping.Mapping;
 import de.unima.alcomox.ontology.IOntology;
+import fr.inrialpes.exmo.align.impl.BasicAlignment;
+import fr.inrialpes.exmo.align.impl.BasicRelation;
+import fr.inrialpes.exmo.align.impl.URIAlignment;
+import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
+import fr.inrialpes.exmo.align.parser.AlignmentParser;
 
 /**
  * @author audunvennesland 26. mar. 2017
@@ -38,15 +33,10 @@ public class SubgraphStrategy {
 
 	/**
 	 * 
-	 * @param onto1
-	 *            used for checking consistency of the alignment
-	 * @param onto2
-	 *            used for checking consistency of the alignment
-	 * @param inputAlignments
-	 *            a set of Alignment objects formatted according to the
-	 *            Alignment format
-	 * @return returns merged alignments from the recursive method
-	 *         buildAlignments()
+	 * @param onto1 source ontology (used for checking consistency of the alignment)
+	 * @param onto2 target ontology (used for checking consistency of the alignment)
+	 * @param inputAlignments a set of Alignment objects formatted according to the Alignment format
+	 * @return returns merged alignments from the recursive method buildAlignments()
 	 * @throws AlignmentException
 	 * @throws AlcomoException
 	 * @throws IOException
@@ -116,15 +106,15 @@ public class SubgraphStrategy {
 			return null;
 		}
 
-		// rank the cells according to confidence strength - not sure if useful
-		// TreeSet<Cell> aInput = rankAlignment(a_input);
+		/*// rank the cells according to confidence strength - not sure if useful
+		TreeSet<Cell> aInput = rankAlignment(a_input);*/
 
-		//test
-		System.err.println("a_Input contains " + a_input.size() + " cell(s)");
-
-		for (Cell c : a_input) {
-			System.err.println("- " + c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment());
-		}
+// 		test
+//		System.err.println("a_Input contains " + a_input.size() + " cell(s)");
+//
+//		for (Cell c : a_input) {
+//			System.err.println("- " + c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment());
+//		}
 
 		Set<Cell> a_marked = new HashSet<Cell>();
 		Set<Cell> r_marked = new HashSet<Cell>();
@@ -133,23 +123,23 @@ public class SubgraphStrategy {
 		for (Cell a : a_input) {
 
 			Cell bestCell = findBestCell(a_input);
-			System.err.println("The bestCell from input is " + bestCell.getObject1AsURI().getFragment() + " - "
-					+ bestCell.getObject2AsURI().getFragment());
+//			System.err.println("The bestCell from input is " + bestCell.getObject1AsURI().getFragment() + " - "
+//					+ bestCell.getObject2AsURI().getFragment());
 
 			Cell thisCell = a;
-			System.err.println("Checking thisCell " + thisCell.getObject1AsURI().getFragment() + " - "
-					+ thisCell.getObject2AsURI().getFragment());
+//			System.err.println("Checking thisCell " + thisCell.getObject1AsURI().getFragment() + " - "
+//					+ thisCell.getObject2AsURI().getFragment());
 
 			if (!thisCell.equals(bestCell)) {
 				a_marked.add(thisCell);
-				System.err.println("adding " + thisCell + " to a_marked");
+//				System.err.println("adding " + thisCell + " to a_marked");
 
-			} 
+			}
 
-			System.err.println("2 a_marked contains " + a_marked.size() + " cells.");
+//			System.err.println("2 a_marked contains " + a_marked.size() + " cells.");
 
 			Iterator<Set<Cell>> maItr = mergedAlignments.iterator();
-			
+
 			while (maItr.hasNext()) {
 				Set<Cell> r = maItr.next();
 
@@ -159,10 +149,19 @@ public class SubgraphStrategy {
 
 				if (!r_marked.contains(bestCell)) {
 					r_marked.add(bestCell);
+//					System.out.println("Adding " +bestCell.getObject1AsURI().getFragment() + " " + bestCell.getRelation().toString() + " " + 
+//					bestCell.getObject2AsURI().getFragment() + " " + bestCell.getStrength() + " to r_marked");
 
 					maTmp.addAll(mergedAlignments);
 
 					if (isConsistent(onto1, onto2, r_marked)) {
+						
+						System.err.println("r_marked checked for consistency:");
+						
+						for (Cell c : r_marked) {
+							System.err.println(c.getObject1AsURI().getFragment() + " " + ((BasicRelation)(c.getRelation())).getPrettyLabel() + " " + c.getObject2AsURI().getFragment() + " " + c.getStrength());
+							
+						}
 
 						System.err.println("They are consistent!");
 
@@ -171,12 +170,15 @@ public class SubgraphStrategy {
 						Iterator<Cell> a_markedItr = a_marked.iterator();
 						while (a_markedItr.hasNext()) {
 							Cell a_markedCell = a_markedItr.next();
-							System.err.println("Contents of a_markedCell: ");
-							System.err.println(a_markedCell.getObject1AsURI().getFragment() + " - "
-									+ a_markedCell.getObject2AsURI().getFragment());
+//							System.err.println("Contents of a_markedCell: ");
+//							System.err.println(a_markedCell.getObject1AsURI().getFragment() + " - "
+//									+ a_markedCell.getObject2AsURI().getFragment());
 
-							//check if any of the objects (concepts) in the remaining alignment are equal to any of the objects in the bestCell (being added to r_marked)
-							//if so, the cell in the remaining alignment should be removed to ensure a "stable marriage".
+							// check if any of the objects (concepts) in the
+							// remaining alignment are equal to any of the
+							// objects in the bestCell (being added to r_marked)
+							// if so, the cell in the remaining alignment should
+							// be removed to ensure a "stable marriage".
 							if (!bestCell.getObject1().equals(a_markedCell.getObject1())
 									|| !bestCell.getObject2().equals(a_markedCell.getObject2())) {
 								a_marked.add(a_markedCell);
@@ -188,14 +190,20 @@ public class SubgraphStrategy {
 							}
 						}
 
-						// This is throwing a
-						// concurrentModificationException if we don´t move the
-						// contents from 'mergedAlignments' to 'maTmp'
+						// This is throwing a concurrentModificationException if we don´t move the contents from 'mergedAlignments' to 'maTmp'
 						maTmp.add(r_marked);
 
-						System.err.println("maTmp now contains " + maTmp.size() + " merged alignments");
+						/*System.err.println("maTmp now contains " + maTmp.size() + " merged alignments");
+						for (Set<Cell> s : maTmp) {
+							System.out.println("---" + s.size() + "---");
+							for (Cell c : s) {
+								System.out.println(c.getObject1AsURI().getFragment() + " " + ((BasicRelation)(c.getRelation())).getPrettyLabel() + " " + c.getObject2AsURI().getFragment() + " " + c.getStrength());
+							}
+						}*/
 
-					} // end if (consistency check)
+					} else {
+						System.out.println("Not consistent!");
+					}
 
 				} // end if
 
@@ -210,9 +218,9 @@ public class SubgraphStrategy {
 
 	}
 
-
 	/**
 	 * Finds the cell with the highest confidence among other cells in the set
+	 * 
 	 * @param a set of cells in which the cell with highest confidence is to be identified
 	 * @return the cell (correspondence) with the highest confidence
 	 * @throws AlignmentException
@@ -229,14 +237,13 @@ public class SubgraphStrategy {
 				score = thisScore;
 				bestCell = c;
 			}
-
 		}
-
 		return bestCell;
 	}
 
 	/**
 	 * Ranks an alignment (set of cells) according to confidence scores
+	 * 
 	 * @param input set of cells to be ranked
 	 * @return ranked set of cells
 	 * @throws AlignmentException
@@ -255,7 +262,9 @@ public class SubgraphStrategy {
 	}
 
 	/**
-	 * Returns a set of cell where a single cell provided as parameter is removed
+	 * Returns a set of cell where a single cell provided as parameter is
+	 * removed
+	 * 
 	 * @param removedCell cell to be removed
 	 * @param a set of cells for which a single cell will be removed
 	 * @return remaining set of cells (- removed cell)
@@ -277,6 +286,7 @@ public class SubgraphStrategy {
 
 	/**
 	 * Uses the consistency facility from Alcomo
+	 * 
 	 * @param onto1 source ontology
 	 * @param onto2 target ontology
 	 * @param a set of cells from the alignment to be checked for consistency
@@ -345,12 +355,19 @@ public class SubgraphStrategy {
 
 	}
 
+	/**
+	 * Test method
+	 * @param args
+	 * @throws AlignmentException
+	 * @throws AlcomoException
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws AlignmentException, AlcomoException, IOException {
 
 		// import the ontologies
 		String onto1 = "files/alignmentCombiner/conference-ekaw/Conference.owl";
 		String onto2 = "files/alignmentCombiner/conference-ekaw/ekaw.owl";
-		
+
 		// import the alignment files
 		File af1 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-aml.rdf");
 		File af2 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-logmap.rdf");
@@ -380,7 +397,6 @@ public class SubgraphStrategy {
 		 * 
 		 * for (Cell c : testAlignment) { testSet.add(c); }
 		 */
-
 
 		Set<Set<Set<Cell>>> ma = initStrategy(onto1, onto2, inputAlignments);
 

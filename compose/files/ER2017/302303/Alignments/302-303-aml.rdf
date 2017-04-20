@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
+	 xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' 
+	 xmlns:xsd='http://www.w3.org/2001/XMLSchema#' 
+	 alignmentSource='AgreementMakerLight'>
+
+<Alignment>
+	<xml>yes</xml>
+	<level>0</level>
+	<type>11</type>
+	<onto1>http://ebiquity.umbc.edu/v2.1/ontology/publication.owl</onto1>
+	<onto2>http://www.aifb.uni-karlsruhe.de/ontology</onto2>
+	<uri1>http://ebiquity.umbc.edu/v2.1/ontology/publication.owl</uri1>
+	<uri2>http://www.aifb.uni-karlsruhe.de/ontology</uri2>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#Book"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.99</measure>
+			<relation>=</relation>
+			<status>+</status>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#InBook"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.99</measure>
+			<relation>=</relation>
+			<status>+</status>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#Project"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9801</measure>
+			<relation>=</relation>
+			<status>-</status>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#InProceedings"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.99</measure>
+			<relation>=</relation>
+			<status>+</status>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#Article"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.99</measure>
+			<relation>=</relation>
+			<status>+</status>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#InCollection"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.99</measure>
+			<relation>=</relation>
+			<status>+</status>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#Person"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.99</measure>
+			<relation>=</relation>
+			<status>-</status>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#Publication"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.99</measure>
+			<relation>=</relation>
+			<status>-</status>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#Proceedings"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.99</measure>
+			<relation>=</relation>
+			<status>+</status>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#Misc"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.99</measure>
+			<relation>=</relation>
+			<status>+</status>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis"/>
+			<entity2 rdf:resource="http://www.aifb.uni-karlsruhe.de/ontology#Thesis"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6273</measure>
+			<relation>=</relation>
+			<status>-</status>
+		</Cell>
+	</map>
+
+</Alignment>
+</rdf:RDF>

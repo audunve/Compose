@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <alext:method>no.ntnu.idi.compose.matchers.ClassEq_Structural_Matcher#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/OAEI2011/301-303/301.rdf</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://www.aifb.uni-karlsruhe.de/ontology">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/OAEI2011/301-303/303.rdf</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+</Alignment>
+</rdf:RDF>

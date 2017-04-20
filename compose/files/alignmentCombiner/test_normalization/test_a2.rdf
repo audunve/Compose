@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
+    xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' 
+    xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+    xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+    xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+    
+    <Alignment>
+        <xml>yes</xml>
+        <level>0</level>
+        <type>?*</type>
+        <alext:method>fr.inrialpes.exmo.align.impl.method.StringDistAlignment#clone</alext:method>
+        <onto1>
+            <Ontology rdf:about="http://conference">
+                <location>file:files/ontologies/Conference.owl</location>
+            </Ontology>
+        </onto1>
+        <onto2>
+            <Ontology rdf:about="http://ekaw">
+                <location>file:files/ontologies/ekaw.owl</location>
+            </Ontology>
+        </onto2>
+        <map>
+            <Cell>
+                <entity1 rdf:resource="http://conference#Conference_document"/>
+                <entity2 rdf:resource="http://ekaw#Document"/>
+                <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.68</measure>
+                <relation>=</relation>
+            </Cell>
+        </map>
+        <map>
+            <Cell>
+                <entity1 rdf:resource="http://conference#Organization"/>
+                <entity2 rdf:resource="http://ekaw#Organisation"/>
+                <measure rdf:datatype="xsd:float">0.74</measure>
+                <relation>=</relation>
+            </Cell>
+        </map>
+        <map>
+            <Cell>
+                <entity1 rdf:resource="http://conference#Paper"/>
+                <entity2 rdf:resource="http://ekaw#Workshop_Paper"/>
+                <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.65</measure>
+                <relation>=</relation>
+            </Cell>
+        </map>
+        <map>
+            <Cell>
+                <entity1 rdf:resource="http://conference#Conference_website"/>
+                <entity2 rdf:resource="http://ekaw#Conference"/>
+                <measure rdf:datatype="xsd:float">0.60</measure>
+                <relation>=</relation>
+            </Cell>
+        </map>
+    </Alignment>
+</rdf:RDF>
