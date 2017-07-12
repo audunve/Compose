@@ -203,14 +203,14 @@ public class SequentialComposition {
 
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
 
-		File a1 = new File("./files/OAEI2011/301-303/COMPOSE-Subsumption_String.rdf");
-		File a2 = new File("./files/OAEI2011/301-303/COMPOSE-Subsumption_WordNet.rdf");
-		File a3 = new File("./files/OAEI2011/301-303/COMPOSE-Subsumption_SubClass.rdf");
+		File a1 = new File("./files/experiment_eswc17/alignments/biblio-bibo/Subsumption_WordNet.rdf");
+		File a2 = new File("./files/experiment_eswc17/alignments/biblio-bibo/Subsumption_SubClass.rdf");
+		File a3 = new File("./files/experiment_eswc17/alignments/biblio-bibo/Subsumption_Compound.rdf");
 
-		BasicAlignment newAlignment = (BasicAlignment) weightedSequentialComposition(a1, a2, a3);
+		BasicAlignment newAlignment = (BasicAlignment) weightedSequentialComposition(a2, a1, a3);
 
 		//store the new alignment
-		File outputAlignment = new File("./files/OAEI2011/301-303/TestSequential.rdf");
+		File outputAlignment = new File("./files/experiment_eswc17/alignments/biblio-bibo/web-intelligence-17-weightedSequentialCombination/structure-lexical-string.rdf");
 
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(

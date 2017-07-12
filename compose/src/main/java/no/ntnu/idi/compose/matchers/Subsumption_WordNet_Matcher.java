@@ -12,6 +12,7 @@ import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
 import misc.RiWordNetOperations;
 import no.ntnu.idi.compose.algorithms.ISub;
+import no.ntnu.idi.compose.preprocessing.Preprocessor;
 import rita.RiWordNet;
 
 /*
@@ -66,8 +67,11 @@ public class Subsumption_WordNet_Matcher extends ObjectAlignment implements Alig
 
 
 		//get the objects (entities)
-		String s1 = ontology1().getEntityName(o1).toLowerCase();
-		String s2 = ontology2().getEntityName(o2).toLowerCase();
+		//String s1 = Preprocessor.stringTokenize(ontology1().getEntityName(o1).toLowerCase(), true);
+		//String s2 = Preprocessor.stringTokenize(ontology2().getEntityName(o2).toLowerCase(), true);
+		
+		String s1 = Preprocessor.stringTokenize(ontology1().getEntityName(o1), true);
+		String s2 = Preprocessor.stringTokenize(ontology2().getEntityName(o2), true);
 
 		if (s1.equals(s2)) {
 			System.out.println(s1 + " and " + s2 + " are equivalent");

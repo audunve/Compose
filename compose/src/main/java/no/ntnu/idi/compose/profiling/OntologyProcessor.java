@@ -246,9 +246,9 @@ public class OntologyProcessor {
 		System.out.println("The Inheritance Richness (IR) of " + onto2.getName() + " is: " + computeInheritanceRichness(onto2));
 		System.out.println("The Inheritance Richness (IR) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeInheritanceRichness(onto1, onto2));
 		
-		System.out.println("The NullLabelOrComment (N) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeNullLabelOrComment(onto1, onto2) + " (" + computeNullLabelOrComment(onto1, onto2)*100 + " percent)");
+		/*System.out.println("The NullLabelOrComment (N) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeNullLabelOrComment(onto1, onto2) + " (" + computeNullLabelOrComment(onto1, onto2)*100 + " percent)");
 		System.out.println("The NullLabelOrComment (N) of " + onto1.getName() + " is: " + computeNullLabelOrComment(onto1));
-		System.out.println("The NullLabelOrComment (N) of " + onto2.getName() + " is: " + computeNullLabelOrComment(onto2));
+		System.out.println("The NullLabelOrComment (N) of " + onto2.getName() + " is: " + computeNullLabelOrComment(onto2));*/
 		
 		System.out.println("The Relationship Richness (RR) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeRelationshipRichness(onto1, onto2));
 		System.out.println("The Relationship Richness (RR) of " + onto1.getName() + " is: " + computeRelationshipRichness(onto1));
@@ -262,7 +262,15 @@ public class OntologyProcessor {
 		System.out.println("The Num Compounds (NC) of " + onto2.getName() + " is: " + OWLLoader.getNumClassCompounds(onto2));
 		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + ((OWLLoader.getNumClassCompounds(onto1) + OWLLoader.getNumClassCompounds(onto2))) / 2);
 		
+		System.out.println("The Common Substring (CS) of " + onto1.getName() + " and " + onto2.getName() + " is: " + OWLLoader.commonSubstringRatio(onto1, onto2));
 		
+		System.out.println("The Hyponymy Richness (HR) of " + onto1.getName() + " is " + OWLLoader.getHyponymRichness(onto1));
+		System.out.println("The Hyponymy Richness (HR) of " + onto2.getName() + " is " + OWLLoader.getHyponymRichness(onto2));
+		System.out.println("The Hyponymy Richness (HR) of " + onto1.getName() + " and " + onto2.getName() + " is " + (OWLLoader.getHyponymRichness(onto1) + OWLLoader.getHyponymRichness(onto2))/2);
+		
+		System.out.println("The Synonym Richness (SR) of " + onto1.getName() + " is " + OWLLoader.getSynonymRichness(onto1));
+		System.out.println("The Synonym Richness (SR) of " + onto2.getName() + " is " + OWLLoader.getSynonymRichness(onto2));
+		System.out.println("The Synonym Richness (SR) of " + onto1.getName() + " and " + onto2.getName() + " is " + (OWLLoader.getSynonymRichness(onto1) + OWLLoader.getSynonymRichness(onto2))/2);
 	}
 
 }

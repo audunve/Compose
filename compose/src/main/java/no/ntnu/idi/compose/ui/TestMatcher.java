@@ -43,17 +43,18 @@ public class TestMatcher {
 		//final String MATCHER = "WORDNET";
 		//final String MATCHER = "GRAPHALIGNMENT";
 		//final String MATCHER = "SUBSUMPTION_COMPOUND";
-		//final String MATCHER = "SUBSUMPTION_WORDNET";
-		final String MATCHER = "SUBSUMPTION_SUBCLASS";
+		final String MATCHER = "SUBSUMPTION_WORDNET";
+		//final String MATCHER = "SUBSUMPTION_SUBCLASS";
 		
 		
 		String alignmentFileName = null;
 
-		String onto1 = "301";
-		String onto2 = "304";
+		String onto1 = "biblio";
+		String onto2 = "bibo";
 
-		File ontoFile1 = new File("./files/OAEI2011/301-304/301.rdf");
-		File ontoFile2 = new File("./files/OAEI2011/301-304/304.rdf");
+		File ontoFile1 = new File("./files/OAEI-16-conference/ontologies/Biblio_2015.rdf");
+		File ontoFile2 = new File("./files/OAEI-16-conference/ontologies/BIBO.owl");
+		//File ontoFile2 = new File("./files/OAEI2011/301-304/304.rdf");
 		
 		File outputAlignment = null;
 		String ontologyParameter1 = null;
@@ -111,7 +112,9 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/OAEI2011/" + onto1 + "-" + onto2 + "/COMPOSE-ClassEq_WordNet.rdf";
+			//File ontoFile2 = new File("./files/OAEI-16-conference/ontologies/BIBO.owl");
+			//alignmentFileName = "./files/OAEI2011/" + onto1 + "-" + onto2 + "/COMPOSE-ClassEq_WordNet.rdf";
+			alignmentFileName = "./files/OAEI-16-conference/alignments/" + onto1 + "-" + onto2 + "/COMPOSE-ClassEq_WordNet.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -217,7 +220,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/OAEI2011/" + onto1 + "-" + onto2 + "/COMPOSE-Subsumption_String.rdf";		
+			alignmentFileName = "./files/OAEI-16-conference/alignments/" + onto1 + "-" + onto2 + "/COMPOSE-Subsumption_String.rdf";		
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -248,7 +251,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/OAEI2011/" + onto1 + "-" + onto2 + "/COMPOSE-Subsumption_WordNet.rdf";	
+			alignmentFileName = "./files/OAEI-16-conference/alignments/" + onto1 + "-" + onto2 + "/Subsumption_WordNet.rdf";	
 
 			outputAlignment = new File(alignmentFileName);
 

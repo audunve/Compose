@@ -46,15 +46,15 @@ public class Union {
 
 	public static void main(String[] args) throws AlignmentException, IOException {
 		
-		File a1 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-logmap.rdf");
-		File a2 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-aml.rdf");
-		File a3 = new File("./files/alignmentCombiner/conference-ekaw/conference-ekaw-alignment-compose.rdf");
+		File a1 = new File("./files/ER2017/302303/302-303-logmap_norm.rdf");
+		File a2 = new File("./files/ER2017/302303/302-303-aml_norm.rdf");
+		File a3 = new File("./files/ER2017/302303/302-303-compose_norm.rdf");
 		
 
 		Alignment unionizedAlignment = (BasicAlignment) unionize(a1, a2, a3);
 
 		//store the new alignment
-		File unionizedAlignmentFile = new File("./files/alignmentCombiner/union/union.rdf");
+		File unionizedAlignmentFile = new File("./files/ER2017/302303/union.rdf");
 
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(

@@ -32,6 +32,7 @@ public class WordNetLexicon
 		}		
 		
 	}
+	
 
 	public static void main(String[] args) throws OWLOntologyCreationException
 	{

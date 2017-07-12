@@ -3,11 +3,13 @@ package no.ntnu.idi.compose.loading;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -43,10 +45,13 @@ import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
 
 import edu.wright.cheatham.propstring.Preprocessing;
+import misc.RiWordNetOperations;
 import misc.WNDomain;
 import misc.WordNetLexicon;
 import net.didion.jwnl.JWNLException;
 import no.ntnu.idi.compose.preprocessing.Preprocessor;
+import rita.RiWordNet;
+import fr.inrialpes.exmo.ontosim.string.StringDistances;
 
 
 /**
@@ -70,6 +75,8 @@ public class OWLLoader {
 	 * A HashMap holding an OWLEntity as key and an ArrayList of instances associated with the OWLEntity
 	 */
 	private static HashMap<OWLEntity, ArrayList<String>> instanceMap = new HashMap<>();
+	
+	static StringDistances ontoString = new StringDistances();
 
 	public OWLLoader(){
 
@@ -500,9 +507,9 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		
 		while (itrOP.hasNext()) {
 			thisOP = Preprocessor.stripOPPrefix(itrOP.next().getIRI().getFragment());
-			System.out.println("Trying to find " + thisOP + " in WordNet");
+			//System.out.println("Trying to find " + thisOP + " in WordNet");
 			if (WordNetLexicon.containedInWordNet(thisOP) == true) {
-				System.out.println(thisOP + " is in WordNet");	
+				//System.out.println(thisOP + " is in WordNet");	
 				
 			OPCounter++;
 			}
@@ -515,6 +522,89 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		double wordNetCoverage = (wordNetClassCoverage + wordNetOPCoverage) / 2;
 		
 		return wordNetCoverage;	
+	}
+	
+	public static double getHyponymRichness (File ontoFile) throws OWLOntologyCreationException {
+		
+		RiWordNet database = new RiWordNet("/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-3.0/dict");
+		
+		double hyponymRichness = 0;
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		
+		Set<OWLClass> classes = onto.getClassesInSignature();
+		
+
+		
+		for (OWLClass cl : classes) {
+			String[] hyponyms = RiWordNetOperations.getHyponyms(Preprocessor.stringTokenize(cl.getIRI().getFragment(), true));
+		
+			int numHyponyms = hyponyms.length;
+			
+			//System.out.println("There are " + numHyponyms + " hyponyms for class " + cl.getIRI().getFragment().toLowerCase());
+			
+			hyponymRichness += numHyponyms;
+		}
+		
+		//System.out.println("Total number of hyponyms: " + hyponymRichness);
+		//System.out.println("Total number of classes: " + classes.size());
+
+		return (double) hyponymRichness/classes.size();
+	}
+	
+public static double getSynonymRichness (File ontoFile) throws OWLOntologyCreationException {
+		
+		RiWordNet database = new RiWordNet("/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-3.0/dict");
+		
+		double synonymRichness = 0;
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		
+		Set<OWLClass> classes = onto.getClassesInSignature();
+		
+		
+		for (OWLClass cl : classes) {
+			String[] synonyms = RiWordNetOperations.getSynonyms(Preprocessor.stringTokenize(cl.getIRI().getFragment(), true));
+		
+			int numSynonyms = synonyms.length;
+
+			
+			synonymRichness += numSynonyms;
+		}
+
+
+		return (double) synonymRichness/classes.size();
+	}
+	
+	
+	
+	private static double domainDiversity (File ontoFile1, File ontoFile2) throws OWLOntologyCreationException, FileNotFoundException, JWNLException {
+		
+		double domainDiversity = 0; 
+		
+		ArrayList<String> domainsOnto1 = WNDomain.getDomains(ontoFile1);
+		ArrayList<String> domainsOnto2 = WNDomain.getDomains(ontoFile2);
+		
+		Set<String> allDomains = new HashSet<String>();
+		allDomains.addAll(domainsOnto1);
+		allDomains.addAll(domainsOnto2);
+		
+		int domainsSize = allDomains.size();
+		System.out.println("Number of domains: " + domainsSize);
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
+		OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
+		
+		int classSize = onto1.getClassesInSignature().size() + onto2.getClassesInSignature().size();
+		System.out.println("Number of classes: " + classSize);
+		
+		domainDiversity = (double)domainsSize / (double)classSize;
+
+		
+		return domainDiversity;
 	}
 	
 	/**
@@ -594,7 +684,7 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		
 		while(itr.hasNext()) {
 			thisOP = Preprocessor.replaceUnderscore(Preprocessor.stripOPPrefix(itr.next().getIRI().getFragment()));
-			System.out.println("Printing object property including the replaceUnderscore method: " + thisOP);
+			//System.out.println("Printing object property including the replaceUnderscore method: " + thisOP);
 			if (isCompound(thisOP) == true) {
 				counter++;			
 
@@ -605,6 +695,126 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		
 		return numCompounds;	
 	}
+	
+	private static int mostCommonSubstringLength (File ontoFile1, File ontoFile2) throws OWLOntologyCreationException {
+		
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
+		OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
+		
+		Set<OWLClass> onto1Classes = onto1.getClassesInSignature();
+		Set<OWLClass> onto2Classes = onto2.getClassesInSignature();
+		
+		List<Integer> commonSubstringLengths = new ArrayList<Integer>();
+		
+		for (OWLClass cl1 : onto1Classes) {
+			for (OWLClass cl2 : onto2Classes) {
+				Set<String> result = longestCommonSubstrings(cl1.getIRI().getFragment(), cl2.getIRI().getFragment());
+				for (String s : result) {
+					int length = s.length();
+					commonSubstringLengths.add(length);
+				}
+			}
+		}
+		
+		int mostCommonSubstringLength = mostCommon(commonSubstringLengths);
+		
+		return mostCommonSubstringLength;
+		
+	}
+	
+	private static <T> T mostCommon(List<T> list) {
+	    Map<T, Integer> map = new HashMap<>();
+
+	    for (T t : list) {
+	        Integer val = map.get(t);
+	        map.put(t, val == null ? 1 : val + 1);
+	    }
+
+	    Entry<T, Integer> max = null;
+
+	    for (Entry<T, Integer> e : map.entrySet()) {
+	        if (max == null || e.getValue() > max.getValue())
+	            max = e;
+	    }
+
+	    return max.getKey();
+	}
+	
+	private static int numCommonSubStrings(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException {
+		
+		int commonSubStrings = 0;
+		
+		
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();		
+		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
+		OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
+		
+		Set<OWLClass> onto1Classes = onto1.getClassesInSignature();
+		Set<OWLClass> onto2Classes = onto2.getClassesInSignature();
+		
+		for (OWLClass cl1 : onto1Classes) {
+			for (OWLClass cl2 : onto2Classes) {
+				Set<String> result = longestCommonSubstrings(cl1.getIRI().getFragment(), cl2.getIRI().getFragment());
+					
+					if (!result.isEmpty()) {
+					System.out.println("We have a substring in " + cl1.getIRI().getFragment() + " and " + cl2.getIRI().getFragment());
+					
+					for (String s : result) {
+						System.out.println(s);
+					}
+					
+					commonSubStrings++;
+					} 
+				
+			}
+		}
+
+		System.out.println("Number of longest common substrings are " + commonSubStrings + " and number of classes in the ontology are " + (onto1Classes.size() + onto2Classes.size()));
+		return commonSubStrings;
+		
+	}
+	
+	private static Set<String> longestCommonSubstrings(String s, String t) {
+	    int[][] table = new int[s.length()][t.length()];
+	    int longest = 5;
+	    Set<String> result = new HashSet<>();
+
+	    for (int i = 0; i < s.length(); i++) {
+	        for (int j = 0; j < t.length(); j++) {
+	            if (s.charAt(i) != t.charAt(j)) {
+	                continue;
+	            }
+
+	            table[i][j] = (i == 0 || j == 0) ? 1
+	                                             : 1 + table[i - 1][j - 1];
+	            if (table[i][j] > longest) {
+	                longest = table[i][j];
+	                result.clear();
+	            }
+	            if (table[i][j] == longest) {
+	                result.add(s.substring(i - longest + 1, i + 1));
+	            }
+	        }
+	    }
+	    return result;
+	}
+	
+	public static double commonSubstringRatio (File ontoFile1, File ontoFile2) throws OWLOntologyCreationException {
+		
+		int numClasses = getNumClasses(ontoFile1) + getNumClasses(ontoFile2);
+		int numCommonSubstrings = numCommonSubStrings(ontoFile1, ontoFile2);
+		
+		int commonSubstringRatio = numCommonSubstrings / numClasses;
+		
+		return (double)commonSubstringRatio;
+
+	}
+	
+
+	
+	
 	
 	//test method
 	public static void main(String[] args) throws OWLOntologyCreationException, FileNotFoundException, JWNLException {
@@ -626,21 +836,40 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		
 
 		//import the owl files
-		File ontoFile1 = new File("./files/UoA/TestTransportWithInstances1.owl");
-		File ontoFile2 = new File("./files/UoA/TestTransportWithInstances2.owl");
+		//File ontoFile1 = new File("./files/OAEI-16-conference/ontologies/conference.owl");
+		//File ontoFile2 = new File("./files/OAEI-16-conference/ontologies/ekaw.owl");
+		//File ontoFile1 = new File("./files/OAEI-16-conference/ontologies/cmt.owl");
+		//File ontoFile2 = new File("./files/OAEI-16-conference/ontologies/confOf.owl");
+		File ontoFile1 = new File("./files/ontologies/Biblio_2015.rdf");
+		File ontoFile2 = new File("./files/ontologies/BIBO.owl");
+		//File ontoFile1 = new File("./files/UoA/TestTransportWithInstances1.owl");
+		//File ontoFile2 = new File("./files/UoA/TestTransportWithInstances2.owl");
 		//File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/DBPedia/dbpedia_2014.owl");
-		File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
-		//File ontoFile = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Schema.org/schema.rdf");
+		//File ontoFile1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/OAEI2015/Biblio/Biblio_2015.rdf");
+		//File ontoFile2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/Schema.org/schema.rdf");
 		
+		//******TESTING CommonSubString*********
+		int comSubStrings = numCommonSubStrings(ontoFile1, ontoFile2);
+		System.out.println("Number of common substrings: " + comSubStrings);
+		
+		System.out.println("The most common substring length is " + mostCommonSubstringLength (ontoFile1, ontoFile2));
+		
+		System.out.println("The common substring ratio is " + commonSubstringRatio(ontoFile1, ontoFile2));
+		
+		
+		System.out.println("The Hyponym Richness for ontology 1 is " + getHyponymRichness(ontoFile1));
+		System.out.println("The Hyponym Richness for ontology 2 is " + getHyponymRichness(ontoFile2));
+		
+		System.out.println("The Domain Diversity is: " + domainDiversity(ontoFile1, ontoFile2));
 		
 		
 		//public static ArrayList<String> getDomainList(List<Long> offsetList)
 		
 		//create offset list public static List<Long> getOffsetList(File ontoFile)
-		List<Long> offsetList = getOffsetList(ontoFile);
+		//List<Long> offsetList = getOffsetList(ontoFile);
 		
-		ArrayList<String> domainList = getDomainList(offsetList);
-		System.out.println("The size of the domainList is " + domainList.size());
+		//ArrayList<String> domainList = getDomainList(offsetList);
+		//System.out.println("The size of the domainList is " + domainList.size());
 		//System.out.println(domainList.get(index));
 		
 		
@@ -654,7 +883,7 @@ public static Map<String, String> getClassesAndSuperClasses (OWLOntology o) thro
 		
 		
 		
-		//testing instance matcher
+		//********TESTING instance matcher*********
 		/*Map<String, ArrayList<String>> instanceMap1 = new HashMap<String, ArrayList<String>>();
 		Map<String, ArrayList<String>> instanceMap2 = new HashMap<String, ArrayList<String>>();
 		

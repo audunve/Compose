@@ -352,6 +352,14 @@ public class Preprocessor {
 		System.out.println(onto1);
 		
 		System.out.println(onto2);
+		
+		String test = "academicArticle";
+		
+		
+		
+		String newString = stringTokenize(test, true);
+		
+		System.out.println("Original string: " + test + ", tokenized string: " + newString);
 
 	}
 	

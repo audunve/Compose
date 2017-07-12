@@ -1,6 +1,7 @@
 package no.ntnu.idi.compose.matchers;
 
 
+import java.util.ArrayList;
 import java.util.Properties;
 
 import org.semanticweb.owl.align.Alignment;
@@ -9,6 +10,7 @@ import org.semanticweb.owl.align.AlignmentProcess;
 
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
+import misc.RiWordNetOperations;
 
 
 
@@ -82,6 +84,33 @@ public class Subsumption_String_Matcher extends ObjectAlignment implements Align
 	public static boolean isCompound(String a, String b) {
 		boolean test = false;
 
+		String[] temp_compounds = a.split("(?<=.)(?=\\p{Lu})");
+		
+		ArrayList<String> compound = new ArrayList<String>();
+		
+		for (int i = 0; i < temp_compounds.length; i++) {
+			compound.add(temp_compounds[i].toLowerCase());
+		}
+		
+		ArrayList<String> synonyms = getSynonyms(b);
+		synonyms.add(b.toLowerCase());
+		
+		for (String s : synonyms) {
+			for (String t : compound) {
+				//System.out.println("Trying to match " + s + " and " + t);
+				if (s.toLowerCase().equals(t.toLowerCase())) {
+					test = true;
+				}
+			}
+		}
+
+
+		return test;
+	}
+	
+/*	public static boolean isCompound(String a, String b) {
+		boolean test = false;
+
 		String[] compounds = a.split("(?<=.)(?=\\p{Lu})");
 
 		for (int i = 0; i < compounds.length; i++) {
@@ -91,23 +120,49 @@ public class Subsumption_String_Matcher extends ObjectAlignment implements Align
 		}
 
 		return test;
+	}*/
+	
+	public static ArrayList<String> getSynonyms(String a) {
+		
+		
+		ArrayList<String> synonyms = new ArrayList<String>();
+		
+		String[] synsets = RiWordNetOperations.getSynonyms(a.toLowerCase());
+		
+		for (int i = 0; i < synsets.length; i++) {
+			synonyms.add(synsets[i].toLowerCase());
+		}
+		
+		return synonyms;
 	}
 	
 	
 	
 	public static void main(String[] args) {
-		String[] onto1 = {"Short Paper", "LongPaper", "Academic_Paper", "Short_Article"};
-		String[] onto2 = {"Paper", "Article"};
+		String[] onto1 = {"Short Paper", "LongPaper", "Academic_Paper", "Short_Article", "ElectricCar", "Truck"};
+		String[] onto2 = {"Paper", "Article", "Automobile", "ElectricCar"};
 		
 		for (int i = 0; i < onto1.length; i++) {
 			for (int j = 0; j < onto2.length; j++) {
 				if (isCompound(onto1[i], onto2[j])) {
 					System.out.println(onto1[i] + " < " + onto2[j]);
+				} else if (isCompound(onto2[j], onto1[i])) {
+					System.out.println(onto2[j] + " < " + onto1[i]);
 				} else {
 					System.out.println(onto1[i] + " is not subsumed by " + onto2[j]);
 				}
 			}
 		}
+		
+		/*String word = "article";
+		
+		System.out.println("Synonyms for " + word);
+		ArrayList<String> syns = getSynonyms(word);
+		for (String s : syns) {
+			System.out.println(s);
+		}*/
+		
+		
 
 	}
 }

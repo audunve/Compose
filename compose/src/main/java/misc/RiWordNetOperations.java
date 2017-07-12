@@ -15,13 +15,20 @@ public class RiWordNetOperations {
 	static RiWordNet database = new RiWordNet("/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-3.0/dict");
 
 	public static String[] getSynonyms(String inputWord) {
+		String[] synonyms = database.getSynonyms(inputWord, "n");
+
+		return synonyms;
+	}
+	
+	public static String[] getAllSynonyms(String inputWord) {
 		String[] synonyms = database.getAllSynonyms(inputWord, "n");
 
 		return synonyms;
 	}
 
 	public static String[] getHyponyms(String inputWord) {
-		String[] hyponyms = database.getAllHyponyms(inputWord, "n");
+		//String[] hyponyms = database.getAllHyponyms(inputWord, "n");
+		String[] hyponyms = database.getHyponyms(inputWord, "n");
 
 		return hyponyms;
 	}
@@ -87,17 +94,28 @@ public class RiWordNetOperations {
 		
 		File wdDomains = new File("./files/WDDomains/wn-domains-3.2-20070223");
 		
-		String inputWord = "publisher";
-		String[] synsets = getHyponyms(inputWord);
+		String inputWord = "institution";
+		String[] synonyms = getSynonyms(inputWord);
+		String[] hypernyms = getHypernyms(inputWord);
+		String[] hyponyms = getHyponyms(inputWord);
 		int[] synsetKeys = getSynsetKeys(inputWord);
 		
-		for (String s : synsets) {
+		System.out.println("---Printing synonyms---");
+		for (String s : synonyms) {
 
 			System.out.println(s); 
 		}
 		
-		for (int key : synsetKeys) {
-			System.out.println(key);
+		System.out.println("---Printing hypernyms---");
+		
+		for (String h : hypernyms) {
+			System.out.println(h);
+		}
+		
+		System.out.println("---Printing hyponyms---");
+		
+		for (String h : hypernyms) {
+			System.out.println(h);
 		}
 		
 		

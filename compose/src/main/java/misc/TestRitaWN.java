@@ -6,7 +6,9 @@ public class TestRitaWN {
 	
 	public static void main(String[] args) {
 	
-	RiWordNet wn = new RiWordNet("/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-3.0/dict");
+	//RiWordNet wn = new RiWordNet("/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-3.0/dict");
+	RiWordNet wn = new RiWordNet("/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-2.0/dict");
+	
 	
 	//note that all "lemmas" must be lowercased
 	String w1 = "motion picture";
@@ -19,6 +21,8 @@ public class TestRitaWN {
 	System.out.println("The distance between " + w1 + " and " + w2 + " is: " + distance);
 	
 	synonyms = wn.getSynonyms("book", "n");
+	
+
 	
 	for (int i = 0; i < synonyms.length; i++) {
 		//System.out.println(synonyms[i]);
