@@ -10,7 +10,7 @@
 
 
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://denia.idi.ntnu.no/TestTransportWithInstances1"
+     xml:base="http://denia.idi.ntnu.no/TestTransportWithInstances1.owl"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -22,196 +22,196 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <Class IRI="#Car"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Car"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ElectricCar"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#ElectricCar"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#HydrogenCar"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#HydrogenCar"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Location"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Location"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#MaritimeTransportMeans"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#MaritimeTransportMeans"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Person"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Person"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#PetrolCar"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#PetrolCar"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#RoadTransportMeans"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#RoadTransportMeans"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Tanker"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Tanker"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Time"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Time"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#TransportMeans"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#TransportMeans"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Year"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Year"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#born"/>
+        <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#born"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasDriver"/>
+        <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#hasDriver"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#lives"/>
+        <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#lives"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#AudiA4Allroad"/>
+        <NamedIndividual IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Audun"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Audun"/>
+        <NamedIndividual IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Tesla"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Gabriel"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Audi"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Jesper"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Gabreil"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#NissanLeaf"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Jepser"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Tesla"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Nissan"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Tone"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Tona"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#ToyotaHydrogen"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Toyota"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#VolvoXC90"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Volvo"/>
     </Declaration>
     <SubClassOf>
-        <Class IRI="#Car"/>
-        <Class IRI="#RoadTransportMeans"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Car"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#RoadTransportMeans"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#ElectricCar"/>
-        <Class IRI="#Car"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#ElectricCar"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Car"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#HydrogenCar"/>
-        <Class IRI="#Car"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#HydrogenCar"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Car"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#MaritimeTransportMeans"/>
-        <Class IRI="#TransportMeans"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#MaritimeTransportMeans"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#TransportMeans"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Person"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Person"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#PetrolCar"/>
-        <Class IRI="#Car"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#PetrolCar"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Car"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#RoadTransportMeans"/>
-        <Class IRI="#TransportMeans"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#RoadTransportMeans"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#TransportMeans"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Tanker"/>
-        <Class IRI="#MaritimeTransportMeans"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Tanker"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#MaritimeTransportMeans"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#TransportMeans"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#TransportMeans"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Year"/>
-        <Class IRI="#Time"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Year"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Time"/>
     </SubClassOf>
     <ClassAssertion>
-        <Class IRI="#PetrolCar"/>
-        <NamedIndividual IRI="#AudiA4Allroad"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Person"/>
+        <NamedIndividual IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Audun"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Person"/>
-        <NamedIndividual IRI="#Audun"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#ElectricCar"/>
+        <NamedIndividual IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Tesla"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Person"/>
-        <NamedIndividual IRI="#Gabriel"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#PetrolCar"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Audi"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Person"/>
-        <NamedIndividual IRI="#Jesper"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Person"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Gabreil"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#ElectricCar"/>
-        <NamedIndividual IRI="#NissanLeaf"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Person"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Jepser"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#ElectricCar"/>
-        <NamedIndividual IRI="#Tesla"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#HydrogenCar"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Nissan"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Person"/>
-        <NamedIndividual IRI="#Tone"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Person"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Tona"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Car"/>
-        <NamedIndividual IRI="#ToyotaHydrogen"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#HydrogenCar"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Toyota"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#PetrolCar"/>
-        <NamedIndividual IRI="#VolvoXC90"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#PetrolCar"/>
+        <NamedIndividual IRI="http://www.sintef.no/ontologies&amp;#Volvo"/>
     </ClassAssertion>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#born"/>
-        <Class IRI="#Person"/>
+        <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#born"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Person"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasDriver"/>
+        <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#hasDriver"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasDriver"/>
-            <Class IRI="#TransportMeans"/>
+            <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#hasDriver"/>
+            <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#TransportMeans"/>
         </ObjectSomeValuesFrom>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#lives"/>
-        <Class IRI="#Person"/>
+        <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#lives"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Person"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#born"/>
-        <Class IRI="#Year"/>
+        <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#born"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Year"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasDriver"/>
+        <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#hasDriver"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasDriver"/>
-            <Class IRI="#Person"/>
+            <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#hasDriver"/>
+            <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Person"/>
         </ObjectSomeValuesFrom>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#lives"/>
-        <Class IRI="#Location"/>
+        <ObjectProperty IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#lives"/>
+        <Class IRI="http://denia.idi.ntnu.no/TestTransportWithInstances1#Location"/>
     </ObjectPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#MaritimeTransportMeans</IRI>
+        <IRI>http://denia.idi.ntnu.no/TestTransportWithInstances1#MaritimeTransportMeans</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A transport means or conveyance used for transporting passengers or goods at sea</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Person</IRI>
+        <IRI>http://denia.idi.ntnu.no/TestTransportWithInstances1#Person</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A human being</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#TransportMeans</IRI>
+        <IRI>http://denia.idi.ntnu.no/TestTransportWithInstances1#TransportMeans</IRI>
         <Literal datatypeIRI="&rdf;PlainLiteral">A conveyance used for transporting goods or human beings</Literal>
     </AnnotationAssertion>
 </Ontology>

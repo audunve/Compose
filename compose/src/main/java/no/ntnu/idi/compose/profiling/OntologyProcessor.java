@@ -2,6 +2,7 @@ package no.ntnu.idi.compose.profiling;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
 import java.util.Iterator;
 import java.util.Map;
@@ -12,9 +13,10 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
+import compose.statistics.OntologyStatistics;
 import fr.inrialpes.exmo.ontowrap.LoadedOntology;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
-import no.ntnu.idi.compose.loading.OWLLoader;
+import net.didion.jwnl.JWNLException;
 
 /**
  * @author audunvennesland
@@ -62,9 +64,9 @@ public class OntologyProcessor {
 	 */
 	public static double computeAveragePopulation(File ontoFile) throws OWLOntologyCreationException {
 
-		int classesOnto = OWLLoader.getNumClasses(ontoFile);
+		int classesOnto = OntologyStatistics.getNumClasses(ontoFile);
 		
-		int individualsOnto = OWLLoader.getNumIndividuals(ontoFile);
+		int individualsOnto = OntologyStatistics.getNumIndividuals(ontoFile);
 		
 		double averagePopulation = ((double)individualsOnto / ((double)classesOnto));
 		
@@ -81,10 +83,10 @@ public class OntologyProcessor {
 	 */
 	public static double computeAveragePopulation(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException {
 
-		int classesOnto1 = OWLLoader.getNumClasses(ontoFile1);
-		int classesOnto2 = OWLLoader.getNumClasses(ontoFile2);
-		int individualsOnto1 = OWLLoader.getNumIndividuals(ontoFile1);
-		int individualsOnto2 = OWLLoader.getNumIndividuals(ontoFile2);
+		int classesOnto1 = OntologyStatistics.getNumClasses(ontoFile1);
+		int classesOnto2 = OntologyStatistics.getNumClasses(ontoFile2);
+		int individualsOnto1 = OntologyStatistics.getNumIndividuals(ontoFile1);
+		int individualsOnto2 = OntologyStatistics.getNumIndividuals(ontoFile2);
 		
 		double averagePopulation = ((double)individualsOnto1 + (double)individualsOnto2) / ((double)classesOnto1 + (double)classesOnto2);
 		
@@ -101,8 +103,8 @@ public class OntologyProcessor {
 	 */
 	public static double computeClassRichness(File ontoFile) throws OWLOntologyCreationException{
 		
-		int numClassesContainingIndividuals = OWLLoader.containsIndividuals(ontoFile);
-		int numClassesInTotal = OWLLoader.getNumClasses(ontoFile);
+		int numClassesContainingIndividuals = OntologyStatistics.containsIndividuals(ontoFile);
+		int numClassesInTotal = OntologyStatistics.getNumClasses(ontoFile);
 		
 		double classRichness = (double)numClassesContainingIndividuals / (double)numClassesInTotal;
 
@@ -119,18 +121,18 @@ public class OntologyProcessor {
 	 */
 	public static double computeInheritanceRichness(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
 		
-		int numSubClassesOnto1 = OWLLoader.getNumSubClasses(ontoFile1);
-		int numSubClassesOnto2 = OWLLoader.getNumSubClasses(ontoFile2);
-		int numClassesOnto1 = OWLLoader.getNumClasses(ontoFile1);
-		int numClassesOnto2 = OWLLoader.getNumClasses(ontoFile2);	
+		int numSubClassesOnto1 = OntologyStatistics.getNumSubClasses(ontoFile1);
+		int numSubClassesOnto2 = OntologyStatistics.getNumSubClasses(ontoFile2);
+		int numClassesOnto1 = OntologyStatistics.getNumClasses(ontoFile1);
+		int numClassesOnto2 = OntologyStatistics.getNumClasses(ontoFile2);	
 
 		return (double)(numSubClassesOnto1 + numSubClassesOnto2) / (double)(numClassesOnto1 + numClassesOnto2);
 	}
 	
 	public static double computeInheritanceRichness(File ontoFile1) throws OWLOntologyCreationException{
 		
-		int numSubClassesOnto1 = OWLLoader.getNumSubClasses(ontoFile1);
-		int numClassesOnto1 = OWLLoader.getNumClasses(ontoFile1);
+		int numSubClassesOnto1 = OntologyStatistics.getNumSubClasses(ontoFile1);
+		int numClassesOnto1 = OntologyStatistics.getNumClasses(ontoFile1);
 
 		return (double)(numSubClassesOnto1) / (double)(numClassesOnto1);
 	}
@@ -146,18 +148,18 @@ public class OntologyProcessor {
 	 */
 	public static double computeNullLabelOrComment(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
 		
-		int numClassesWithoutComments = OWLLoader.getNumClassesWithoutComments(ontoFile1) + OWLLoader.getNumClassesWithoutComments(ontoFile2);
-		int numClassesWithoutLabels = OWLLoader.getNumClassesWithoutLabels(ontoFile1) + OWLLoader.getNumClassesWithoutLabels(ontoFile2);
-		int numClasses = OWLLoader.getNumClasses(ontoFile1) + OWLLoader.getNumClasses(ontoFile2);
+		int numClassesWithoutComments = OntologyStatistics.getNumClassesWithoutComments(ontoFile1) + OntologyStatistics.getNumClassesWithoutComments(ontoFile2);
+		int numClassesWithoutLabels = OntologyStatistics.getNumClassesWithoutLabels(ontoFile1) + OntologyStatistics.getNumClassesWithoutLabels(ontoFile2);
+		int numClasses = OntologyStatistics.getNumClasses(ontoFile1) + OntologyStatistics.getNumClasses(ontoFile2);
 		
 		return (((double)numClassesWithoutComments / (double)numClasses) + ((double)numClassesWithoutLabels / (double)numClasses)) / 2;
 	}
 	
 	public static double computeNullLabelOrComment(File ontoFile1) throws OWLOntologyCreationException{
 		
-		int numClassesWithoutComments = OWLLoader.getNumClassesWithoutComments(ontoFile1);
-		int numClassesWithoutLabels = OWLLoader.getNumClassesWithoutLabels(ontoFile1);
-		int numClasses = OWLLoader.getNumClasses(ontoFile1);
+		int numClassesWithoutComments = OntologyStatistics.getNumClassesWithoutComments(ontoFile1);
+		int numClassesWithoutLabels = OntologyStatistics.getNumClassesWithoutLabels(ontoFile1);
+		int numClasses = OntologyStatistics.getNumClasses(ontoFile1);
 		
 		return (((double)numClassesWithoutComments / (double)numClasses) + ((double)numClassesWithoutLabels / (double)numClasses)) / 2;
 	}
@@ -172,16 +174,16 @@ public class OntologyProcessor {
 	 */
 	public static double computeRelationshipRichness(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
 		
-		int numSubClasses = OWLLoader.getNumSubClasses(ontoFile1) + OWLLoader.getNumSubClasses(ontoFile2);
-		int numObjectProperties = OWLLoader.getNumObjectProperties(ontoFile1) + OWLLoader.getNumObjectProperties(ontoFile2);
+		int numSubClasses = OntologyStatistics.getNumSubClasses(ontoFile1) + OntologyStatistics.getNumSubClasses(ontoFile2);
+		int numObjectProperties = OntologyStatistics.getNumObjectProperties(ontoFile1) + OntologyStatistics.getNumObjectProperties(ontoFile2);
 		
 		return  (double)numObjectProperties / ((double)numSubClasses + (double)numObjectProperties);
 	}
 	
 	public static double computeRelationshipRichness(File ontoFile1) throws OWLOntologyCreationException{
 		
-		int numSubClasses = OWLLoader.getNumSubClasses(ontoFile1);
-		int numObjectProperties = OWLLoader.getNumObjectProperties(ontoFile1);
+		int numSubClasses = OntologyStatistics.getNumSubClasses(ontoFile1);
+		int numObjectProperties = OntologyStatistics.getNumObjectProperties(ontoFile1);
 		
 		return  (double)numObjectProperties / ((double)numSubClasses + (double)numObjectProperties);
 	}
@@ -193,17 +195,19 @@ public class OntologyProcessor {
 	 * @param onto1
 	 * @param onto2
 	 * @throws OWLOntologyCreationException 
+	 * @throws JWNLException 
+	 * @throws FileNotFoundException 
 	 */
-	public static double computeWordNetCoverage(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException{
+	public static double computeWordNetCoverage(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException, FileNotFoundException, JWNLException{
 		
-		double WC = (OWLLoader.getWordNetCoverage(ontoFile1) + OWLLoader.getWordNetCoverage(ontoFile2)) / 2;
+		double WC = (OntologyStatistics.getWordNetCoverage(ontoFile1) + OntologyStatistics.getWordNetCoverage(ontoFile2)) / 2;
 		
 		return WC;
 	}
 	
-	public static double computeWordNetCoverage(File ontoFile1) throws OWLOntologyCreationException{
+	public static double computeWordNetCoverage(File ontoFile1) throws OWLOntologyCreationException, FileNotFoundException, JWNLException{
 		
-		double WC = OWLLoader.getWordNetCoverage(ontoFile1);
+		double WC = OntologyStatistics.getWordNetCoverage(ontoFile1);
 		
 		return WC;
 	}
@@ -236,7 +240,7 @@ public class OntologyProcessor {
 	}
 
 	
-	public static void main(String[] args) throws OWLOntologyCreationException, URISyntaxException, OntowrapException {
+	public static void main(String[] args) throws OWLOntologyCreationException, URISyntaxException, OntowrapException, FileNotFoundException, JWNLException {
 		
 		File onto1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Conference.owl");
 		File onto2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/ekaw.owl");
@@ -258,19 +262,19 @@ public class OntologyProcessor {
 		System.out.println("The WordNet Coverage (WC) of " + onto2.getName() + " is: " + computeWordNetCoverage(onto2));
 		System.out.println("The WordNet Coverage (WC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeWordNetCoverage(onto1, onto2) + " (" + computeWordNetCoverage(onto1, onto2)*100 + " percent)");
 		
-		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " is: " + OWLLoader.getNumClassCompounds(onto1));
-		System.out.println("The Num Compounds (NC) of " + onto2.getName() + " is: " + OWLLoader.getNumClassCompounds(onto2));
-		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + ((OWLLoader.getNumClassCompounds(onto1) + OWLLoader.getNumClassCompounds(onto2))) / 2);
+		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " is: " + OntologyStatistics.getNumClassCompounds(onto1));
+		System.out.println("The Num Compounds (NC) of " + onto2.getName() + " is: " + OntologyStatistics.getNumClassCompounds(onto2));
+		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + ((OntologyStatistics.getNumClassCompounds(onto1) + OntologyStatistics.getNumClassCompounds(onto2))) / 2);
 		
-		System.out.println("The Common Substring (CS) of " + onto1.getName() + " and " + onto2.getName() + " is: " + OWLLoader.commonSubstringRatio(onto1, onto2));
+		System.out.println("The Common Substring (CS) of " + onto1.getName() + " and " + onto2.getName() + " is: " + OntologyStatistics.commonSubstringRatio(onto1, onto2));
 		
-		System.out.println("The Hyponymy Richness (HR) of " + onto1.getName() + " is " + OWLLoader.getHyponymRichness(onto1));
-		System.out.println("The Hyponymy Richness (HR) of " + onto2.getName() + " is " + OWLLoader.getHyponymRichness(onto2));
-		System.out.println("The Hyponymy Richness (HR) of " + onto1.getName() + " and " + onto2.getName() + " is " + (OWLLoader.getHyponymRichness(onto1) + OWLLoader.getHyponymRichness(onto2))/2);
+		System.out.println("The Hyponymy Richness (HR) of " + onto1.getName() + " is " + OntologyStatistics.getHyponymRichness(onto1));
+		System.out.println("The Hyponymy Richness (HR) of " + onto2.getName() + " is " + OntologyStatistics.getHyponymRichness(onto2));
+		System.out.println("The Hyponymy Richness (HR) of " + onto1.getName() + " and " + onto2.getName() + " is " + (OntologyStatistics.getHyponymRichness(onto1) + OntologyStatistics.getHyponymRichness(onto2))/2);
 		
-		System.out.println("The Synonym Richness (SR) of " + onto1.getName() + " is " + OWLLoader.getSynonymRichness(onto1));
-		System.out.println("The Synonym Richness (SR) of " + onto2.getName() + " is " + OWLLoader.getSynonymRichness(onto2));
-		System.out.println("The Synonym Richness (SR) of " + onto1.getName() + " and " + onto2.getName() + " is " + (OWLLoader.getSynonymRichness(onto1) + OWLLoader.getSynonymRichness(onto2))/2);
+		System.out.println("The Synonym Richness (SR) of " + onto1.getName() + " is " + OntologyStatistics.getSynonymRichness(onto1));
+		System.out.println("The Synonym Richness (SR) of " + onto2.getName() + " is " + OntologyStatistics.getSynonymRichness(onto2));
+		System.out.println("The Synonym Richness (SR) of " + onto1.getName() + " and " + onto2.getName() + " is " + (OntologyStatistics.getSynonymRichness(onto1) + OntologyStatistics.getSynonymRichness(onto2))/2);
 	}
 
 }

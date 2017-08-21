@@ -22,8 +22,8 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
-import no.ntnu.idi.compose.algorithms.ISub;
-import no.ntnu.idi.compose.loading.GraphLoader;
+import compose.graph.GraphCreator;
+import compose.misc.ISub;
 
 public class GraphProcessor {
 	
@@ -257,7 +257,7 @@ public ArrayList<Object> getAllParentNodes(Node classNode, Label label) {
 
 		System.out.println("...Trying to create a graph for each of the two ontologies...");
 		//create a graph for each ontology file
-		GraphLoader gl = new GraphLoader(db);
+		GraphCreator gl = new GraphCreator(db);
 		gl.createOntologyGraph(onto1, labelOnto1);
 		gl.createOntologyGraph(onto2, labelOnto2);
 		

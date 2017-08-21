@@ -415,9 +415,9 @@
     <rdfs:comment xml:lang="en">A PhD thesis.</rdfs:comment>
   </owl:Class>
 
-  <owl:Class rdf:ID="misc">
+  <owl:Class rdf:ID="compose.misc">
     <rdfs:subClassOf rdf:resource="#Reference" />
-    <rdfs:label xml:lang="en">misc</rdfs:label>
+    <rdfs:label xml:lang="en">compose.misc</rdfs:label>
     <rdfs:comment xml:lang="en">Use this type when nothing else fits.</rdfs:comment>
   </owl:Class>
 
@@ -956,7 +956,7 @@
     <rdfs:domain>
       <owl:Class>
 	<owl:unionOf rdf:parseType="Collection">
-	  <owl:Class rdf:about="#misc" />
+	  <owl:Class rdf:about="#compose.misc" />
 	  <owl:Class rdf:about="#Booklet" />
 	</owl:unionOf>
       </owl:Class>
@@ -1843,7 +1843,7 @@
 	<date><Date><year rdf:datatype="&xsd;gYear">2004</year></Date></date>
 </Proceedings>
 
-<misc rdf:about="#a140583454">
+<compose.misc rdf:about="#a140583454">
 	<rdfs:label>{QOM} - Quick Ontology Mapping</rdfs:label>
 	<author>
 	    <PersonList>
@@ -1859,7 +1859,7 @@
 	<title>{QOM} - Quick Ontology Mapping</title>
 	<note>submitted to the ISWC 04</note>
 	<date><Date><year rdf:datatype="&xsd;gYear">2004</year></Date></date>
-</misc>
+</compose.misc>
 
 <InProceedings rdf:about="#a11065952">
 	<rdfs:label>Ontology Mapping - An Integrated Approach</rdfs:label>

@@ -10,7 +10,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Properties;
 
+import org.neo4j.graphdb.DynamicLabel;
 import org.neo4j.graphdb.GraphDatabaseService;
+import org.neo4j.graphdb.Label;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 //Alignment API classes
 import org.semanticweb.owl.align.Alignment;
@@ -18,70 +20,80 @@ import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Evaluator;
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import compose.graph.GraphCreator;
+import compose.matchers.CompoundMatcher;
+import compose.matchers.ISubMatcher;
+import compose.matchers.InstanceMatcher;
+import compose.matchers.PropEq_String_Matcher;
+import compose.matchers.PropEq_WordNet_Matcher;
+import compose.matchers.Subsumption_WordNet_Matcher;
+import compose.matchers.WordNetMatcher;
+import compose.matchers.SubclassMatcher;
+import compose.matchers.AncestorMatcher;
+import compose.matchers.ParentMatcher;
+import compose.matchers.Subsumption_Structural_Matcher;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
-import no.ntnu.idi.compose.matchers.ClassEq_Structural_Matcher;
-import no.ntnu.idi.compose.matchers.ClassEq_String_Matcher;
-import no.ntnu.idi.compose.matchers.PropEq_WordNet_Matcher;
-import no.ntnu.idi.compose.matchers.PropEq_String_Matcher;
-import no.ntnu.idi.compose.matchers.Subsumption_String_Matcher;
-import no.ntnu.idi.compose.matchers.Subsumption_Structural_Matcher;
-import no.ntnu.idi.compose.matchers.Subsumption_WordNet_Matcher;
-import no.ntnu.idi.compose.matchers.ClassEq_WordNet_Matcher;
-import no.ntnu.idi.compose.preprocessing.Preprocessor;
+import compose.misc.StringUtils;
 
 
 public class TestMatcher {
+	
+	static Logger logger = LoggerFactory.getLogger(AncestorMatcher.class);
 
-	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
-
-		double threshold;
-		//final String MATCHER = "STRING";
-		//final String MATCHER = "WORDNET";
-		//final String MATCHER = "GRAPHALIGNMENT";
-		//final String MATCHER = "SUBSUMPTION_COMPOUND";
-		final String MATCHER = "SUBSUMPTION_WORDNET";
-		//final String MATCHER = "SUBSUMPTION_SUBCLASS";
+	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException, OWLOntologyCreationException {
 		
-		
-		String alignmentFileName = null;
+		logger.info("Hello from TestMatcher");
 
-		String onto1 = "biblio";
-		String onto2 = "bibo";
+		/*** 1. SELECT THE MATCHER TO BE RUN ***/
+		final String MATCHER = "SUBSUMPTION_PATH";
 
+		/*** 2. SELECT THE TWO ONTOLOGIES TO BE MATCHED ***/
 		File ontoFile1 = new File("./files/OAEI-16-conference/ontologies/Biblio_2015.rdf");
 		File ontoFile2 = new File("./files/OAEI-16-conference/ontologies/BIBO.owl");
-		//File ontoFile2 = new File("./files/OAEI2011/301-304/304.rdf");
+//		File ontoFile1 = new File("./files/PathMatcher/PathMatcher1.owl");
+//		File ontoFile2 = new File("./files/PathMatcher/PathMatcher2.owl");
 		
+		/*** 3. SELECT THE NEO4J DATABASE FILE (FOR THE STRUCTURAL MATCHERS ONLY) ***/
+		final File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/biblio-bibo2");
+		
+
+		/*** INITIAL VALUES, NO NEED TO TOUCH THESE ***/
+		double threshold;
+		String alignmentFileName = null;
 		File outputAlignment = null;
 		String ontologyParameter1 = null;
 		String ontologyParameter2 = null;
-
 		PrintWriter writer = null;
 		AlignmentVisitor renderer = null;
-
-		//Parameters defining the (string) matching method to be applied
 		Properties params = new Properties();
-
 		AlignmentProcess a = null;
+		
+		/*** USED FOR INCLUDING THE ONTOLOGY FILE NAMES IN THE COMPUTED ALIGNMENT FILE ***/
+		String onto1 = StringUtils.stripPath(ontoFile1.toString());
+		String onto2 = StringUtils.stripPath(ontoFile2.toString());
 
 		switch(MATCHER) {
-		
-		
 
 		case "STRING":
-			a = new ClassEq_String_Matcher();
-			threshold = 0.6;
+			a = new ISubMatcher();
+			threshold = 0.1;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/OAEI2011/" + onto1 + "-" + onto2 + "/COMPOSE-ClassEq_String.rdf";
+			alignmentFileName = "./files/Path/String.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -102,9 +114,41 @@ public class TestMatcher {
 			break;
 			
 			
+		case "INSTANCE":
+			
+			a = new InstanceMatcher();
+			threshold = 0.1;
+
+			a.init(ontoFile1.toURI(), ontoFile2.toURI());
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
+
+			alignmentFileName = "./files/UoA/test/" + onto1 + "-" + onto2 + "/Instances.rdf";
+
+			outputAlignment = new File(alignmentFileName);
+
+			writer = new PrintWriter(
+					new BufferedWriter(
+							new FileWriter(outputAlignment)), true); 
+			renderer = new RDFRendererVisitor(writer);
+
+			BasicAlignment InstanceAlignment = (BasicAlignment)(a.clone());
+
+			InstanceAlignment.cut(threshold);
+
+			InstanceAlignment.render(renderer);
+			writer.flush();
+			writer.close();
+
+			System.out.println("Matching completed!");
+			break;
+			
+			
 
 		case "WORDNET":
-			a = new ClassEq_WordNet_Matcher();
+			
+			a = new WordNetMatcher();
 			threshold = 0.6;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -112,8 +156,6 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			//File ontoFile2 = new File("./files/OAEI-16-conference/ontologies/BIBO.owl");
-			//alignmentFileName = "./files/OAEI2011/" + onto1 + "-" + onto2 + "/COMPOSE-ClassEq_WordNet.rdf";
 			alignmentFileName = "./files/OAEI-16-conference/alignments/" + onto1 + "-" + onto2 + "/COMPOSE-ClassEq_WordNet.rdf";
 
 			outputAlignment = new File(alignmentFileName);
@@ -136,17 +178,14 @@ public class TestMatcher {
 
 		case "GRAPHALIGNMENT":
 
-			//File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/ntnu-lyon");
-			File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/ER2017/303-304");
-			//File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/ntnu-lyon-paper");
 			GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 			registerShutdownHook(db);
 
-			ontologyParameter1 = Preprocessor.stripPath(ontoFile1.toString());
-			ontologyParameter2 = Preprocessor.stripPath(ontoFile2.toString());
+			ontologyParameter1 = StringUtils.stripPath(ontoFile1.toString());
+			ontologyParameter2 = StringUtils.stripPath(ontoFile2.toString());
 
 			System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to the structural matcher");
-			a = new ClassEq_Structural_Matcher(ontologyParameter1,ontologyParameter2, db);
+			a = new SubclassMatcher(ontologyParameter1,ontologyParameter2, db);
 			threshold = 0.6;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -177,21 +216,33 @@ public class TestMatcher {
 			
 		case "SUBSUMPTION_SUBCLASS":
 
-			dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/ER2017/301-304");
 			db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 			registerShutdownHook(db);
 
-			ontologyParameter1 = Preprocessor.stripPath(ontoFile1.toString());
-			ontologyParameter2 = Preprocessor.stripPath(ontoFile2.toString());
+			ontologyParameter1 = StringUtils.stripPath(ontoFile1.toString());
+			ontologyParameter2 = StringUtils.stripPath(ontoFile2.toString());
 			System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to Subsumption_SubClass_Alignment.java");
-			a = new Subsumption_Structural_Matcher(ontologyParameter1,ontologyParameter2, db);
+			
+			//create new graphs
+			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+			OWLOntology o1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
+			OWLOntology o2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
+			Label labelO1 = DynamicLabel.label( ontologyParameter1 );
+			Label labelO2 = DynamicLabel.label( ontologyParameter2 );
+			
+			GraphCreator creator = new GraphCreator(db);
+			creator.createOntologyGraph(o1, labelO1);
+			creator.createOntologyGraph(o2, labelO2);
+			
+			//perform the matching
+			a = new ParentMatcher(ontologyParameter1,ontologyParameter2, db);
 			threshold = 0.6;
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 		
-			alignmentFileName = "./files/OAEI2011/" + onto1 + "-" + onto2 + "/COMPOSE-Subsumption_SubClass.rdf";	
+			alignmentFileName = "./files/PathMatcher/TestPathMatcher.rdf";	
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -210,9 +261,61 @@ public class TestMatcher {
 
 			System.out.println("Matching completed!");
 			break;
+			
+	
+			
+		case "SUBSUMPTION_PATH":
+
+			db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
+			registerShutdownHook(db);
+
+			ontologyParameter1 = StringUtils.stripPath(ontoFile1.toString());
+			ontologyParameter2 = StringUtils.stripPath(ontoFile2.toString());
+			System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to Subsumption_Path_Alignment.java");
+			
+
+			//create new graphs
+			manager = OWLManager.createOWLOntologyManager();
+			o1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
+			o2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
+			labelO1 = DynamicLabel.label( ontologyParameter1 );
+			labelO2 = DynamicLabel.label( ontologyParameter2 );
+			
+			creator = new GraphCreator(db);
+			creator.createOntologyGraph(o1, labelO1);
+			creator.createOntologyGraph(o2, labelO2);
+			
+			//perform the matching
+			a = new AncestorMatcher(ontologyParameter1,ontologyParameter2, db);
+			threshold = 0.6;
+			a.init(ontoFile1.toURI(), ontoFile2.toURI());
+			params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
+		
+			alignmentFileName = "./files/Path/PathMatcher-biblio2bibo.rdf";	
+
+			outputAlignment = new File(alignmentFileName);
+
+			writer = new PrintWriter(
+					new BufferedWriter(
+							new FileWriter(outputAlignment)), true); 
+			renderer = new RDFRendererVisitor(writer);
+
+			BasicAlignment subsumptionPathAlignment = (BasicAlignment)(a.clone());
+
+			subsumptionPathAlignment.cut(threshold);
+
+			subsumptionPathAlignment.render(renderer);
+			writer.flush();
+			writer.close();
+
+			System.out.println("Matching completed!");
+			break;
 
 		case "SUBSUMPTION_COMPOUND":
-			a = new Subsumption_String_Matcher();
+			
+			a = new CompoundMatcher();
 			threshold = 0.6;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -243,6 +346,7 @@ public class TestMatcher {
 		
 
 		case "SUBSUMPTION_WORDNET":
+			
 			a = new Subsumption_WordNet_Matcher();
 			threshold = 0.6;
 
@@ -273,6 +377,7 @@ public class TestMatcher {
 			
 
 		case "PROPERTY_WORDNET":
+			
 			a = new PropEq_WordNet_Matcher();
 			threshold = 0.6;
 
@@ -302,6 +407,7 @@ public class TestMatcher {
 			break;
 			
 		case "PROPERTY_STRING":
+			
 			a = new PropEq_String_Matcher();
 			threshold = 0.8;
 
