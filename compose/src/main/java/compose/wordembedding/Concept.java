@@ -485,7 +485,77 @@ public class Concept {
 		
 		final long start = System.nanoTime();
 
-		//import ontology
+		final File ontologyDir = new File(ontoFileName);
+		File[] filesInDir = null;
+		
+		filesInDir = ontologyDir.listFiles();
+		
+		for (int i = 0; i < filesInDir.length; i++) {
+			
+			System.out.println("Extracting vectors from " + filesInDir[i]);
+			//import ontology
+			File ontoFile = new File(filesInDir[i].toString());
+			Map<String, ArrayList<Double>> vectorMap = createVectorMap (new File(vectorFileName));
+			System.out.println("vectorMap created: " + vectorMap.size() + " entries");
+			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+			OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+			Set<OWLClass> classes = onto.getClassesInSignature();
+			
+			PrintWriter writer = new PrintWriter("vectorOutput" + StringUtils.stripOntologyName(filesInDir[i].toString()) + " .txt");
+			
+			for (OWLClass cls : classes) {
+				//ensure that only the labels contained in the vector file are represented in the output
+				
+				
+				
+				if (vectorMap.containsKey(cls.getIRI().getFragment().toString().toLowerCase())) {
+					writer.println("conceptUri: " + getConceptURI(cls));
+					//System.out.println("conceptUri: " + getConceptURI(cls));
+					writer.println("label: " + getLabel(cls));
+					//System.out.println("label: " + getLabel(cls));
+					String labelVector = getLabelVector(cls, vectorMap);
+					writer.println("label vector: " + labelVector);
+					//System.out.println("label vector: " + labelVector);
+					String commentVector = getCommentVector(onto, cls, vectorMap);
+					
+					
+					if (commentVector != null) {
+					writer.println("comment: " + getComment(onto, cls));
+					//System.out.println("comment: " + getComment(onto, cls));
+					writer.println("comment vector: " + commentVector);
+					//System.out.println("comment vector: " + commentVector);
+					writer.println("global vector: " +getGlobalVector(labelVector, commentVector));
+					//System.out.println("global vector: " +getGlobalVector(labelVector, commentVector));
+					}
+					writer.println("\n");
+					
+				} else {
+					//System.out.println("Label not found in vectorMap:");
+					//System.out.println("Class: " + cls.getIRI().getFragment().toString().toLowerCase());
+						
+				}
+				
+				
+			}
+			
+			//System.out.println("Vectors keys look like this: ");
+			//for (Entry<String, ArrayList<Double>> e : vectorMap.entrySet()) {
+			//	System.out.println(e.getKey());
+			//}
+			writer.flush();
+			writer.close();
+			
+			System.out.println("Vectors created!");
+
+			final long duration = System.nanoTime() - start;
+			long sec = duration/1000000000;
+			
+			System.out.println("The vector extraction took " + sec + " seconds");
+			
+			
+		}
+		
+		/*//import ontology
 		File ontoFile = new File(ontoFileName);
 		Map<String, ArrayList<Double>> vectorMap = createVectorMap (new File(vectorFileName));
 		
@@ -548,7 +618,7 @@ public class Concept {
 		System.out.println("The vector extraction took " + sec + " seconds");
 
 
-/*		for (OWLClass cls : classes) {
+		for (OWLClass cls : classes) {
 			//ensure that only the labels contained in the vector file are represented in the output
 			if (vectorMap.containsKey(cls.getIRI().getFragment().toString().toLowerCase())) {
 				System.out.println("conceptUri: " + getConceptURI(cls));
