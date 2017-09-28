@@ -55,11 +55,11 @@ public class TestMatcher {
 		logger.info("Hello from TestMatcher");
 
 		/*** 1. SELECT THE MATCHER TO BE RUN ***/
-		final String MATCHER = "SUBSUMPTION_PATH";
+		final String MATCHER = "INSTANCE";
 
 		/*** 2. SELECT THE TWO ONTOLOGIES TO BE MATCHED ***/
-		File ontoFile1 = new File("./files/OAEI-16-conference/ontologies/Biblio_2015.rdf");
-		File ontoFile2 = new File("./files/OAEI-16-conference/ontologies/BIBO.owl");
+		File ontoFile1 = new File("./files/OAEI-16-conference/ontologies/Conference.owl");
+		File ontoFile2 = new File("./files/OAEI-16-conference/ontologies/ekaw.owl");
 //		File ontoFile1 = new File("./files/PathMatcher/PathMatcher1.owl");
 //		File ontoFile2 = new File("./files/PathMatcher/PathMatcher2.owl");
 		

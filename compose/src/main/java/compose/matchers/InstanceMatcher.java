@@ -1,7 +1,7 @@
 package compose.matchers;
 
-import static org.testng.Assert.assertNotNull;
-import static org.testng.Assert.assertTrue;
+/*import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;*/
 
 import java.io.File;
 import java.net.URI;
@@ -32,6 +32,7 @@ import compose.statistics.OntologyStatistics;
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.ontowrap.HeavyLoadedOntology;
 import fr.inrialpes.exmo.ontowrap.OntologyFactory;
+import fr.inrialpes.exmo.ontowrap.OntowrapException;
 import fr.inrialpes.exmo.ontowrap.owlapi30.OWLAPI3Ontology;
 
 /**
@@ -66,7 +67,7 @@ public class InstanceMatcher extends ObjectAlignment implements AlignmentProcess
 	assertTrue( ontology instanceof OWLAPI3Ontology );
 	HeavyLoadedOntology onto = (HeavyLoadedOntology)ontology;*/
 
-	public double matchInstances(Object o1, Object o2) throws OWLOntologyCreationException {
+	public double matchInstances(Object o1, Object o2) throws OWLOntologyCreationException, OntowrapException {
 
 		//get the objects (entities)
 		String s1 = ontology1().getEntityName(o1).toLowerCase();
@@ -107,9 +108,9 @@ public class InstanceMatcher extends ObjectAlignment implements AlignmentProcess
 
 		for (int i = 0; i < listClassesOnto1.size(); i++) {
 			
-			instanceListClasses1 = heavyOnto1.getInstances(arg0, arg1, arg2, arg3)
+			//instanceListClasses1 = heavyOnto1.getInstances(arg0, arg1, arg2, arg3)
 
-			instanceListClasses1 = OntologyStatistics.getInstances(listClassesOnto1.get(i), onto1);
+			//instanceListClasses1 = OntologyStatistics.getInstances(listClassesOnto1.get(i), onto1);
 			if (instanceListClasses1.size() > 0 && !listClassesOnto1.get(i).equals("Thing")) {
 				instanceMap1.put(listClassesOnto1.get(i), instanceListClasses1);
 				for (int j = 0; j < instanceListClasses1.size(); j++) {
@@ -119,7 +120,7 @@ public class InstanceMatcher extends ObjectAlignment implements AlignmentProcess
 
 		for (int i = 0; i < listClassesOnto2.size(); i++) {
 
-			instanceListClasses2 = OntologyStatistics.getInstances(listClassesOnto2.get(i), onto2);
+			//instanceListClasses2 = OntologyStatistics.getInstances(listClassesOnto2.get(i), onto2);
 			if (instanceListClasses2.size() > 0 && !listClassesOnto2.get(i).equals("Thing")) {
 				instanceMap2.put(listClassesOnto2.get(i), instanceListClasses2);
 				for (int j = 0; j < instanceListClasses2.size(); j++) {
@@ -262,7 +263,7 @@ public class InstanceMatcher extends ObjectAlignment implements AlignmentProcess
 		File ontoFile1 = new File("./files/UoA/TestTransportWithInstances1.owl");
 		File ontoFile2 = new File("./files/UoA/TestTransportWithInstances2.owl");
 
-		double test = matchInstances(ontoFile1, ontoFile2);
+		//double test = matchInstances(ontoFile1, ontoFile2);
 	}
 
 

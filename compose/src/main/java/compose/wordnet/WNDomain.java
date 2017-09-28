@@ -199,8 +199,8 @@ public class WNDomain {
     public static void main(String[] args) throws FileNotFoundException, JWNLException, OWLOntologyCreationException{
         WNDomain fileSearch = new WNDomain();
         
-       	String s1 = "chair";
-       	String s2 = "electric chair";
+       	String s1 = "AirportHeliportResponsibilityOrganisation";
+       	String s2 = "airport";
        	
        	List<Long> l1 = findSynsetOffset(s1);
        	List<Long> l2 = findSynsetOffset(s2);

@@ -5,11 +5,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Properties;
 
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
+import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Cell;
 
@@ -27,10 +29,47 @@ import fr.inrialpes.exmo.align.parser.AlignmentParser;
  */
 public class HybridComposition {
 	
-	public static Alignment hybridComposition(File inputAlignment) throws AlignmentException{
+	static AlignmentProcess a = null;
+	static Properties params = null;
+	
+	public static Alignment hybridComposition(File inputAlignmentFile) throws AlignmentException, IOException, URISyntaxException{
+		String alignmentFileName = null;
+		File outputAlignment = null;
+		PrintWriter writer = null;
+		AlignmentVisitor renderer = null;
+		double threshold = 0.6;
+		AlignmentParser aparser = new AlignmentParser(0);
 		
 		//use the input alignment (from the "best" matcher) when running the other matchers
+		a = new ISubMatcher();
+		params = new Properties();
+		params.setProperty("", "");
 		
+		//parse the alignment file
+		Alignment inputAlignment = aparser.parse(new URI("file:"+inputAlignmentFile));
+		
+		a.align((Alignment)inputAlignment, params);	
+		
+		alignmentFileName = "./files/Path/String.rdf";
+
+		outputAlignment = new File(alignmentFileName);
+
+		writer = new PrintWriter(
+				new BufferedWriter(
+						new FileWriter(outputAlignment)), true); 
+		renderer = new RDFRendererVisitor(writer);
+
+		BasicAlignment StringAlignment = (BasicAlignment)(a.clone());
+
+		StringAlignment.cut(threshold);
+
+		StringAlignment.render(renderer);
+		writer.flush();
+		writer.close();
+
+		System.out.println("Matching completed!");
+		
+		return StringAlignment;
 
 		
 	}
@@ -80,6 +119,8 @@ public class HybridComposition {
 
 		//store the new alignment
 		File outputAlignment = new File("./files/OAEI2011/301-303/TestHybrid.rdf");
+		
+		BasicAlignment a = (BasicAlignment)hybridComposition(outputAlignment);
 
 		PrintWriter writer = new PrintWriter(
 				new BufferedWriter(

@@ -2,6 +2,9 @@ package compose.misc;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,11 +16,15 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.jena.ext.com.google.common.collect.ArrayListMultimap;
 import org.apache.jena.ext.com.google.common.collect.Multimap;
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.StopAnalyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
+import org.apache.lucene.analysis.tokenattributes.TermAttribute;
+import org.apache.lucene.util.Version;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.IRI;
@@ -208,7 +215,7 @@ public class StringUtils {
 
 		return label;
 	}
-	
+
 	/**
 	 * Removes underscores from a string (replaces underscores with "no space")
 	 * @param input: string with an underscore
@@ -222,42 +229,102 @@ public class StringUtils {
 		while (m.find()) {
 			m.appendReplacement(sb, m.group(1).toUpperCase());
 		}
-		
+
 		m.appendTail(sb);
 		newString = sb.toString();
-		
+
 		return newString;
 	}
-	
+
 	/**
 	 * Checks if an input string is an abbreviation (by checking if there are two consecutive uppercased letters in the string)
 	 * @param s input string
 	 * @return boolean stating whether the input string represents an abbreviation
 	 */
 	public static boolean isAbbreviation(String s) {
-		
+
 		boolean isAbbreviation = false;
-		
+
 		int counter = 0;
 
 		//iterate through the string
-		    for (int i=0; i<s.length(); i++) {
-		    
-		        if (Character.isUpperCase(s.charAt(i))) {
-		        	counter++;
-		    }
-		        if (counter > 2) {
-		    isAbbreviation = true;
+		for (int i=0; i<s.length(); i++) {
+
+			if (Character.isUpperCase(s.charAt(i))) {
+				counter++;
+			}
+			if (counter > 2) {
+				isAbbreviation = true;
+			} else {
+				isAbbreviation = false;
+			}
+		} 
+
+		return isAbbreviation;
+	}
+
+	/**
+	 * Returns the names of the ontology from the full file path (including owl or rdf suffixes)
+	 * @param ontology name without suffix
+	 * @return
+	 */
+	public static String stripOntologyName(String fileName) {
+
+		String trimmedPath = fileName.substring(fileName.lastIndexOf("/") + 1);
+		String owl = ".owl";
+		String rdf = ".rdf";
+		String stripped = null;
+
+		if (fileName.endsWith(".owl")) {
+			stripped = trimmedPath.substring(0, trimmedPath.indexOf(owl));
 		} else {
-			isAbbreviation = false;
+			stripped = trimmedPath.substring(0, trimmedPath.indexOf(rdf));
 		}
-		    } 
-		    
-		    return isAbbreviation;
+
+		return stripped;
+	}
+
+	public static String removeStopWordsfromFile(File inputFile) throws IOException {
+
+		StringBuilder tokens = new StringBuilder();
+
+		FileUtils fs = new FileUtils();
+
+		String text = fs.readFileToString(inputFile);
+
+		Analyzer analyzer = new StopAnalyzer(Version.LUCENE_36);
+		TokenStream tokenStream = analyzer.tokenStream(
+				LuceneConstants.CONTENTS, new StringReader(text));
+		TermAttribute term = tokenStream.addAttribute(TermAttribute.class);
+		while(tokenStream.incrementToken()) {
+			tokens.append(term + " ");
 		}
+
+		String tokenizedText = tokens.toString();
+		return tokenizedText;
+
+	}
 	
+	public static String removeStopWordsFromString(String inputText) throws IOException {
+
+		StringBuilder tokens = new StringBuilder();
+
+
+		Analyzer analyzer = new StopAnalyzer(Version.LUCENE_36);
+		TokenStream tokenStream = analyzer.tokenStream(
+				LuceneConstants.CONTENTS, new StringReader(inputText));
+		TermAttribute term = tokenStream.addAttribute(TermAttribute.class);
+		while(tokenStream.incrementToken()) {
+			tokens.append(term + " ");
+		}
+
+		String tokenizedText = tokens.toString();
+		return tokenizedText;
+
+	}
+
 	// ***Methods not in use***
-	
+
 	/*	*//**
 	 * Takes as input a Set of strings along with a separator (usually whitespace) and uses StringBuilder to create a string from the Set.
 	 * @param set
@@ -280,7 +347,7 @@ public class StringUtils {
 		return result;
 	}*/
 
-/*	*//**
+	/*	*//**
 	 * Takes as input a String and produces an array of Strings from this String
 	 * @param s
 	 * @return result
@@ -291,7 +358,7 @@ public class StringUtils {
 		return result;
 	}*/
 
-/*	*//**
+	/*	*//**
 	 * Takes as input two arrays of String and compares each string in one array with each string in the other array if they are equal
 	 * @param s1
 	 * @param s2
@@ -312,7 +379,7 @@ public class StringUtils {
 		return results;
 	}*/
 
-/*	public static String removeDuplicates(String s) {
+	/*	public static String removeDuplicates(String s) {
 
 		return new LinkedHashSet<String>(Arrays.asList(s.split(" "))).toString().replaceAll("(^\\[|\\]$)", "").replace(", ", " ");
 
@@ -349,33 +416,33 @@ public class StringUtils {
 
 		return label;
 	}*/
-	
+
 	public static void main(String args[]) {
 		String testString = "motionPicture";
 		String experiment = "biblio-bibo";
-		
+
 		System.out.println(tokenize(testString, true));
-		
+
 		String onto1 = experiment.substring(0, experiment.lastIndexOf("-"));
 		String onto2 = experiment.substring(experiment.lastIndexOf("-")+1, experiment.length());
 		System.out.println(onto1);
-		
+
 		System.out.println(onto2);
-		
+
 		String test = "academicArticle";
-		
+
 		String newString = stringTokenize(test, false);
-		
+
 		System.out.println("Original string: " + test + ", tokenized string: " + newString);
-		
+
 		String prop = "hasCar";
 		System.out.println("Without prefix the property name is " + stripPrefix(prop));
-		
+
 		String s = "Testing underscore";
 		System.out.println("Without underscore: " + replaceUnderscore(s));
 
 	}
-	
-	
+
+
 
 }

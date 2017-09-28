@@ -72,7 +72,7 @@ public class Subsumption_WordNet_Matcher extends ObjectAlignment implements Alig
 			System.out.println(s1 + " and " + s2 + " are equivalent");
 			matchingMap.put("=", 0.0);
 		} else {
-			System.out.println("--- Matching " + "s1:" + s1 + " and " + "s2:" + s2 + " ---");
+			//System.out.println("--- Matching " + "s1:" + s1 + " and " + "s2:" + s2 + " ---");
 
 			//TO-DO: should preprocess s1 and s2 (e.g. LectureNotes -> Lecture Notes) before getting data from WordNet
 			//String[] cls1_synonyms = RiWordNetOperations.getSynonyms(s1);
@@ -83,18 +83,19 @@ public class Subsumption_WordNet_Matcher extends ObjectAlignment implements Alig
 			//if cls2 is a part of the set of hyponyms of cls1 --> cls1 > cls2
 			if (cls1_hyponyms.length > 0) {
 				for (String hyponymCls1 : cls1_hyponyms) {
-					System.out.println("Matching " + hyponymCls1 + " and " + s2 + " --> " + iSubScore);	
+					//System.out.println("Matching " + hyponymCls1 + " and " + s2 + " --> " + iSubScore);	
 					iSubScore = iSubMatcher.score(hyponymCls1, s2);
 
 					if (iSubMatcher.score(hyponymCls1, s2) > 0.9) {
 						relation = "&gt;";
-						System.out.println("Subsumption identified! : " + s1 + " " + relation + " " + s2);
+						System.out.println("Subsumption identified! : " + s1 + " " + relation + " " + s2 + " because "
+								+ hyponymCls1 + " and " + s2 + " are considered similar");
 						finalDistance = iSubScore;
 						matchingMap.put(relation, finalDistance);
 					}
 				}
 			} else {
-				System.out.println(s1 + " does not exist in WordNet!");
+				//System.out.println(s1 + " does not exist in WordNet!");
 			}
 
 
@@ -102,17 +103,18 @@ public class Subsumption_WordNet_Matcher extends ObjectAlignment implements Alig
 			if (cls2_hyponyms.length > 0) {
 				for (String hyponymCls2 : cls2_hyponyms) {
 					iSubScore = iSubMatcher.score(hyponymCls2, s1);
-					System.out.println("Matching " + hyponymCls2 + " and " + s1 + " --> " + iSubScore);
+					//System.out.println("Matching " + hyponymCls2 + " and " + s1 + " --> " + iSubScore);
 
 					if (iSubMatcher.score(hyponymCls2, s1) > 0.9) {
 						relation = "&lt;";
-						System.out.println("Subsumption identified! : " + s2 + " " + relation + " " + s1);
+						System.out.println("Subsumption identified! : " + s2 + " " + relation + " " + s1 + " because " 
+								+ hyponymCls2 + " and " + s1 + " are considered similar");
 						finalDistance = iSubScore;
 						matchingMap.put(relation, finalDistance);
 					}
 				}
 			}  else {
-				System.out.println(s2 + " does not exist in WordNet!");
+				//System.out.println(s2 + " does not exist in WordNet!");
 			}
 		}
 

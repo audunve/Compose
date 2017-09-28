@@ -31,14 +31,12 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 			for ( Object cl2: ontology2().getClasses() ){
 				for ( Object cl1: ontology1().getClasses() ){
 					// add mapping into alignment object 
-					addAlignCell(cl1,cl2, findCompoundRelation(cl1,cl2), compoundMatch(cl1,cl2));  
+					addAlignCell(cl1,cl2, findCompoundRelation(cl1,cl2), compoundMatchWithSynonyms(cl1,cl2));  
 					}
 				}
 			
 		} catch (Exception e) { e.printStackTrace(); }
 	}
-	
-
 	
 	public double compoundMatch(Object o1, Object o2) throws AlignmentException {
 		try {
@@ -58,6 +56,27 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 			throw new AlignmentException( "Error getting entity name", owex );
 		}
 	}
+
+	
+	public double compoundMatchWithSynonyms(Object o1, Object o2) throws AlignmentException {
+		try {
+			String s1 = ontology1().getEntityName(o1);
+			String s2 = ontology2().getEntityName(o2);
+			if (s1 == null || s2 == null) return 0.;
+			
+			if (isCompound(s1,s2) && !s1.equals(s2)) { 
+				return 1.0;
+			} else if (isCompound(s2,s1) && !s2.equals(s1)) { 
+				return 1.0;
+			}
+			else { 
+				return 0.;
+			}
+		} catch ( OntowrapException owex ) {
+			throw new AlignmentException( "Error getting entity name", owex );
+		}
+	}
+	
 	
 	public String findCompoundRelation(Object o1, Object o2) throws AlignmentException {
 		try {
@@ -97,7 +116,6 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 		
 		for (String s : synonyms) {
 			for (String t : compound) {
-				//System.out.println("Trying to match " + s + " and " + t);
 				if (s.toLowerCase().equals(t.toLowerCase())) {
 					test = true;
 				}
@@ -107,20 +125,7 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 
 		return test;
 	}
-	
-/*	public static boolean isCompound(String a, String b) {
-		boolean test = false;
 
-		String[] compounds = a.split("(?<=.)(?=\\p{Lu})");
-
-		for (int i = 0; i < compounds.length; i++) {
-			if (b.equals(compounds[i])) {
-				test = true;
-			}
-		}
-
-		return test;
-	}*/
 	
 	public static ArrayList<String> getSynonyms(String a) {
 		
@@ -140,7 +145,7 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 	
 	public static void main(String[] args) {
 		String[] onto1 = {"Short Paper", "LongPaper", "Academic_Paper", "Short_Article", "ElectricCar", "Truck"};
-		String[] onto2 = {"Paper", "Article", "Automobile", "ElectricCar"};
+		String[] onto2 = {"Car", "Paper", "Article", "Automobile", "ElectricCar"};
 		
 		for (int i = 0; i < onto1.length; i++) {
 			for (int j = 0; j < onto2.length; j++) {
@@ -149,7 +154,7 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 				} else if (isCompound(onto2[j], onto1[i])) {
 					System.out.println(onto2[j] + " < " + onto1[i]);
 				} else {
-					System.out.println(onto1[i] + " is not subsumed by " + onto2[j]);
+					System.err.println(onto1[i] + " is not subsumed by " + onto2[j]);
 				}
 			}
 		}

@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashSet;
 import java.util.Properties;
+import java.util.Set;
 
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
@@ -92,7 +94,7 @@ public class MatcherComposition {
 			File a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_WordNet.rdf");
 			File a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/ClassEq_Structural.rdf");
 
-			Alignment seqCompAlignment_classEq = SequentialComposition.weightedSequentialComposition(a1, a3, a2);
+			Alignment seqCompAlignment_classEq = SequentialComposition.weightedSequentialComposition3(a1, a3, a2);
 			Alignment referenceAlignment_classEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_classEq.rdf"));
 
 			//store the alignment
@@ -217,7 +219,7 @@ public class MatcherComposition {
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropEq_WordNet.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/PropString-recall.rdf");
 
-			Alignment seqCompAlignment_propEq = SequentialComposition.weightedSequentialComposition(a3, a2, a1);
+			Alignment seqCompAlignment_propEq = SequentialComposition.weightedSequentialComposition3(a3, a2, a1);
 			Alignment referenceAlignment_propEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_propEq.rdf"));
 
 			//store the alignment
@@ -258,7 +260,7 @@ public class MatcherComposition {
 			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
 
-			Alignment seqCompAlignment_subsumption = SequentialComposition.weightedSequentialComposition(a3, a2, a1);
+			Alignment seqCompAlignment_subsumption = SequentialComposition.weightedSequentialComposition3(a3, a2, a1);
 			Alignment referenceAlignment_subsumption = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_subsumption.rdf"));
 
 			//store the alignment
@@ -360,8 +362,19 @@ public class MatcherComposition {
 
 			//set the threshold
 			threshold = 0.6;
+			
+			
+			parser = new AlignmentParser();
+			BasicAlignment ba1 = (BasicAlignment) parser.parse(a1.toURI().toString());
+			BasicAlignment ba2 = (BasicAlignment) parser.parse(a2.toURI().toString());
+			BasicAlignment ba3 = (BasicAlignment) parser.parse(a3.toURI().toString());
+			
+			Set<Alignment> aSet = new HashSet<Alignment>();
+			aSet.add(ba1);
+			aSet.add(ba2);
+			aSet.add(ba3);
 
-			Alignment Parallel_SimpleVote_ClassEqAlignment = ParallelComposition.simpleVote(a1, a2, a3);
+			Alignment Parallel_SimpleVote_ClassEqAlignment = ParallelComposition.simpleVote(aSet);
 			Alignment referenceAlignment_Parallel_SimpleVote_ClassEq = aparser.parse(new URI("file:files/OAEI2011/" + experiment + "/refalign.rdf"));
 
 			//store the alignment
@@ -400,8 +413,18 @@ public class MatcherComposition {
 
 			//set the threshold
 			threshold = 0.6;
+			
+			parser = new AlignmentParser();
+			ba1 = (BasicAlignment) parser.parse(a1.toURI().toString());
+			ba2 = (BasicAlignment) parser.parse(a2.toURI().toString());
+			ba3 = (BasicAlignment) parser.parse(a3.toURI().toString());
+			
+			aSet = new HashSet<Alignment>();
+			aSet.add(ba1);
+			aSet.add(ba2);
+			aSet.add(ba3);
 
-			Alignment Parallel_SimpleVote_SubsumptionAlignment = ParallelComposition.simpleVote(a1, a2, a3);
+			Alignment Parallel_SimpleVote_SubsumptionAlignment = ParallelComposition.simpleVote(aSet);
 			Alignment referenceAlignment_Parallel_SimpleVote_Subsumption = aparser.parse(new URI("file:files/OAEI2011/" + experiment + "/refalign.rdf"));
 
 			//store the alignment
@@ -443,8 +466,18 @@ public class MatcherComposition {
 
 			//set the threshold
 			threshold = 0.6;
+			
+			parser = new AlignmentParser();
+			ba1 = (BasicAlignment) parser.parse(a1.toURI().toString());
+			ba2 = (BasicAlignment) parser.parse(a2.toURI().toString());
+			ba3 = (BasicAlignment) parser.parse(a3.toURI().toString());
+			
+			aSet = new HashSet<Alignment>();
+			aSet.add(ba1);
+			aSet.add(ba2);
+			aSet.add(ba3);
 
-			Alignment Parallel_SimpleVote_PropEqAlignment = ParallelComposition.simpleVote(a3, a1, a2);
+			Alignment Parallel_SimpleVote_PropEqAlignment = ParallelComposition.simpleVote(aSet);
 			Alignment referenceAlignment_Parallel_SimpleVote_PropEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_propEq.rdf"));
 
 			//store the alignment
@@ -489,8 +522,9 @@ public class MatcherComposition {
 
 			//set the threshold
 			threshold = 0.9;
+			
 
-			Alignment Parallel_CompleteMatch_WithPriority_ClassEqAlignment = ParallelComposition.completeMatchWithPriority(a3, a2, a3);
+			Alignment Parallel_CompleteMatch_WithPriority_ClassEqAlignment = ParallelComposition.completeMatchWithPriority3(a3, a2, a3);
 			Alignment referenceAlignment_Parallel_CompleteMatch_WithPriority_ClassEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_classEq.rdf"));
 
 			//store the alignment
@@ -533,7 +567,7 @@ public class MatcherComposition {
 			//set the threshold
 			threshold = 0.6;
 
-			Alignment Parallel_CompleteMatch_WithPriority_PropEqAlignment = ParallelComposition.completeMatchWithPriority(a3, a1, a2);
+			Alignment Parallel_CompleteMatch_WithPriority_PropEqAlignment = ParallelComposition.completeMatchWithPriority3(a3, a1, a2);
 			Alignment referenceAlignment_Parallel_CompleteMatch_WithPriority_PropEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_propEq.rdf"));
 
 			//store the alignment
@@ -574,7 +608,7 @@ public class MatcherComposition {
 			//set the threshold
 			threshold = 0.9;
 
-			Alignment Parallel_CompleteMatch_WithPriority_SubsumptionAlignment = ParallelComposition.completeMatchWithPriority(a3, a1, a2);
+			Alignment Parallel_CompleteMatch_WithPriority_SubsumptionAlignment = ParallelComposition.completeMatchWithPriority3(a3, a1, a2);
 			Alignment referenceAlignment_Parallel_CompleteMatch_WithPriority_Subsumption = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_subsumption.rdf"));
 
 			//store the alignment

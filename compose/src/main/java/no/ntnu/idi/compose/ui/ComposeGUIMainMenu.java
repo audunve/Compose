@@ -22,12 +22,18 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
+import compose.combination.ParallelComposition;
 import compose.combination.SequentialComposition;
 import compose.graph.GraphCreator;
 import compose.matchers.CompoundMatcher;
+import compose.matchers.EditMatcher;
+import compose.matchers.ISubMatcher;
 import compose.matchers.AncestorMatcher;
 import compose.matchers.ParentMatcher;
+import compose.matchers.SmoaMatcher;
 import compose.matchers.Subsumption_WordNet_Matcher;
+import compose.matchers.TrigramMatcher;
+import compose.matchers.WordNetMatcher;
 import compose.misc.AlignmentOperations;
 import compose.misc.StringUtils;
 import compose.statistics.OntologyStatistics;
@@ -78,6 +84,7 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
+import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultValueDataset;
 import javax.swing.JSlider;
@@ -90,8 +97,8 @@ public class ComposeGUIMainMenu extends JFrame {
 
 	private JFrame frame;
 	private JPanel panelMenu;
-	private JPanel panelASimpleMatching;
-	private JPanel panelAdvancedMatching;
+	private JPanel panelSubsumptionMatching;
+	private JPanel panelEquivalenceMatching;
 	StringBuilder sbOntologyProfile1 = new StringBuilder();
 	StringBuilder sbOntologyProfile2 = new StringBuilder();
 	StringBuilder sbMatchingResults = new StringBuilder();
@@ -118,11 +125,18 @@ public class ComposeGUIMainMenu extends JFrame {
 	private JTextField textFieldParentMatcherPriority;
 	private JTextField textFieldAncestorMatcherPriority;
 	private JTextField textFieldWordNetMatcherPriority;
-	
+
 	String compoundAlignmentFileName = null;
 	String parentMatcherAlignmentFileName = null;
 	String ancestorMatcherAlignmentFileName = null;
 	String wordNetMatcherAlignmentFileName = null;
+	
+	String editAlignmentFileName = null;
+	String smoaAlignmentFileName = null;
+	String iSubAlignmentFileName = null;
+	String trigramAlignmentFileName = null;
+	String wordNetAlignmentFileName = null;
+	String structureAlignmentFileName = null;
 
 
 
@@ -168,54 +182,1285 @@ public class ComposeGUIMainMenu extends JFrame {
 		panelMenu.setLayout(null);
 		panelMenu.setVisible(true);
 
-		final JPanel panelAdvancedMatching = new JPanel();
-		frame.getContentPane().add(panelAdvancedMatching, "name_25766809915035");
-		panelAdvancedMatching.setLayout(null);
-		panelAdvancedMatching.setVisible(false);
 
-		final JPanel panelSimpleMatching = new JPanel();
-		panelSimpleMatching.setBackground(Color.WHITE);
-		frame.getContentPane().add(panelSimpleMatching, "name_25771746383092");
-		panelSimpleMatching.setLayout(null);
-		panelSimpleMatching.setVisible(false);
+		/*** Equivalence matching ***/
+		final JPanel panelEquivalenceMatching = new JPanel();
+		panelEquivalenceMatching.setBackground(Color.WHITE);
+		frame.getContentPane().add(panelEquivalenceMatching, "name_25766809915035");
+		panelEquivalenceMatching.setLayout(null);
+		
+		final JPanel EQgraphJPanel = new JPanel();
+		EQgraphJPanel.setBorder(null);
+		EQgraphJPanel.setBackground(Color.WHITE);
+		EQgraphJPanel.setBounds(456, 215, 491, 315);
+		panelEquivalenceMatching.add(EQgraphJPanel);
+		
+		
+		
+		final JEditorPane EQmatchingResultsPane = new JEditorPane();
+		EQmatchingResultsPane.setFont(new Font("Lucida Grande", Font.PLAIN, 8));
+		EQmatchingResultsPane.setForeground(Color.WHITE);
+		EQmatchingResultsPane.setBackground(Color.WHITE);
+		EQmatchingResultsPane.setBounds(595, 538, 352, 114);
+		panelEquivalenceMatching.add(EQmatchingResultsPane);
+
+		JLabel lblUploadFiles_1 = new JLabel("Upload files");
+		lblUploadFiles_1.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblUploadFiles_1.setForeground(new Color(0, 102, 153));
+		lblUploadFiles_1.setBounds(31, 36, 105, 16);
+		panelEquivalenceMatching.add(lblUploadFiles_1);
+
+		JLabel lblSelectMatchers = new JLabel("Select matchers");
+		lblSelectMatchers.setForeground(new Color(0, 102, 153));
+		lblSelectMatchers.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblSelectMatchers.setBounds(31, 172, 157, 16);
+		panelEquivalenceMatching.add(lblSelectMatchers);
+
+		JLabel lblChooseConfidenceThreshold = new JLabel("Choose confidence threshold");
+		lblChooseConfidenceThreshold.setForeground(new Color(0, 102, 153));
+		lblChooseConfidenceThreshold.setFont(new Font("Lucida Grande", Font.BOLD, 10));
+		lblChooseConfidenceThreshold.setBounds(201, 172, 157, 16);
+		panelEquivalenceMatching.add(lblChooseConfidenceThreshold);
+
+		final JCheckBox checkBoxEdit = new JCheckBox("Edit ");
+		checkBoxEdit.setBounds(41, 207, 128, 23);
+		panelEquivalenceMatching.add(checkBoxEdit);
+
+		final JCheckBox checkBoxSmoa = new JCheckBox("Smoa");
+		checkBoxSmoa.setBounds(41, 254, 128, 23);
+		panelEquivalenceMatching.add(checkBoxSmoa);
+
+		final JCheckBox checkBoxIsub = new JCheckBox("ISub");
+		checkBoxIsub.setBounds(41, 296, 128, 23);
+		panelEquivalenceMatching.add(checkBoxIsub);
+
+		final JCheckBox checkBoxTrigram = new JCheckBox("Trigram");
+		checkBoxTrigram.setBounds(41, 353, 128, 23);
+		panelEquivalenceMatching.add(checkBoxTrigram);
+
+		final JCheckBox checkBoxWordnet = new JCheckBox("WordNet");
+		checkBoxWordnet.setBounds(41, 407, 128, 23);
+		panelEquivalenceMatching.add(checkBoxWordnet);
+
+		final JCheckBox checkBoxStructure = new JCheckBox("Structure");
+		checkBoxStructure.setBounds(41, 460, 128, 23);
+		panelEquivalenceMatching.add(checkBoxStructure);
+		
+		final DefaultCategoryDataset EQdataset = 
+				new DefaultCategoryDataset( );  
+		
+		final JFreeChart EQchart = ChartFactory.createBarChart("", "", "", EQdataset, PlotOrientation.VERTICAL, true, false, false);
+		
+		final ChartPanel EQmatchingResultsChartPanel = new ChartPanel((JFreeChart) EQchart);
+
+		//labels
+		final JLabel EQlblOntology1 = new JLabel("");
+		EQlblOntology1.setEnabled(false);
+		EQlblOntology1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		EQlblOntology1.setBounds(191, 62, 133, 16);
+		panelEquivalenceMatching.add(EQlblOntology1);
+		
+		final JLabel EQlblOntology2 = new JLabel("");
+		EQlblOntology2.setEnabled(false);
+		EQlblOntology2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		EQlblOntology2.setBounds(191, 93, 133, 16);
+		panelEquivalenceMatching.add(EQlblOntology2);
+		
+		final JLabel EQlblRefAlign = new JLabel("");
+		EQlblRefAlign.setEnabled(false);
+		EQlblRefAlign.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		EQlblRefAlign.setBounds(191, 122, 133, 16);
+		panelEquivalenceMatching.add(EQlblRefAlign);
+
+		//Upload ontology files for equivalence matching
+		JButton btnEQUploadOntology1 = new JButton("Upload ontology 1");
+		btnEQUploadOntology1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OpenFile of1 = new OpenFile();
+
+				try {
+					ontoFile1 = of1.getOntoFile1();
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+
+				EQlblOntology1.setText(StringUtils.stripPath(ontoFile1.toString()));
+			}
+		});
+		btnEQUploadOntology1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		btnEQUploadOntology1.setBounds(19, 58, 169, 29);
+		panelEquivalenceMatching.add(btnEQUploadOntology1);
+
+		JButton btnEQUploadOntology2 = new JButton("Upload ontology 2");
+		btnEQUploadOntology2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OpenFile of2 = new OpenFile();
+
+				try {
+					ontoFile2 = of2.getOntoFile1();
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+
+				EQlblOntology2.setText(StringUtils.stripPath(ontoFile2.toString()));
+			}
+		});
+		btnEQUploadOntology2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		btnEQUploadOntology2.setBounds(19, 90, 169, 29);
+		panelEquivalenceMatching.add(btnEQUploadOntology2);
+
+		//Upload reference alignment for equivalence matching
+		JButton btnUploadReferenceAlignment_1 = new JButton("Upload Reference Alignment");
+		btnUploadReferenceAlignment_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				OpenFile of3 = new OpenFile();
+
+				try {
+					refAlignFile = of3.getFile();
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+				EQlblRefAlign.setText(StringUtils.stripPath(refAlignFile.toString()));
+			}
+		});
+		btnUploadReferenceAlignment_1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		btnUploadReferenceAlignment_1.setBounds(19, 119, 169, 29);
+		panelEquivalenceMatching.add(btnUploadReferenceAlignment_1);
+
+		final JCheckBox chckbxEnforceSameDomain = new JCheckBox("Enforce same domain constraint");
+		chckbxEnforceSameDomain.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		chckbxEnforceSameDomain.setBounds(41, 508, 207, 23);
+		panelEquivalenceMatching.add(chckbxEnforceSameDomain);
+
+		final JSlider sliderEQEdit = new JSlider();
+		sliderEQEdit.setBounds(181, 198, 207, 41);
+		sliderEQEdit.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
+		sliderEQEdit.setMinorTickSpacing(2);
+		sliderEQEdit.setMajorTickSpacing(10);
+		sliderEQEdit.setPaintLabels(true);
+		panelEquivalenceMatching.add(sliderEQEdit);
+
+		final JSlider sliderEQSmoa = new JSlider();
+		sliderEQSmoa.setPaintLabels(true);
+		sliderEQSmoa.setMinorTickSpacing(2);
+		sliderEQSmoa.setMajorTickSpacing(10);
+		sliderEQSmoa.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
+		sliderEQSmoa.setBounds(181, 243, 207, 41);
+		panelEquivalenceMatching.add(sliderEQSmoa);
+
+		final JSlider sliderEQISub = new JSlider();
+		sliderEQISub.setPaintLabels(true);
+		sliderEQISub.setMinorTickSpacing(2);
+		sliderEQISub.setMajorTickSpacing(10);
+		sliderEQISub.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
+		sliderEQISub.setBounds(181, 296, 207, 41);
+		panelEquivalenceMatching.add(sliderEQISub);
+
+		final JSlider sliderEQTrigram = new JSlider();
+		sliderEQTrigram.setPaintLabels(true);
+		sliderEQTrigram.setMinorTickSpacing(2);
+		sliderEQTrigram.setMajorTickSpacing(10);
+		sliderEQTrigram.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
+		sliderEQTrigram.setBounds(181, 349, 207, 41);
+		panelEquivalenceMatching.add(sliderEQTrigram);
+
+		final JSlider sliderEQWordNet = new JSlider();
+		sliderEQWordNet.setPaintLabels(true);
+		sliderEQWordNet.setMinorTickSpacing(2);
+		sliderEQWordNet.setMajorTickSpacing(10);
+		sliderEQWordNet.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
+		sliderEQWordNet.setBounds(181, 402, 207, 41);
+		panelEquivalenceMatching.add(sliderEQWordNet);
+
+		final JSlider sliderEQStructure = new JSlider();
+		sliderEQStructure.setPaintLabels(true);
+		sliderEQStructure.setMinorTickSpacing(2);
+		sliderEQStructure.setMajorTickSpacing(10);
+		sliderEQStructure.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
+		sliderEQStructure.setBounds(181, 455, 207, 41);
+		panelEquivalenceMatching.add(sliderEQStructure);
+
+		JButton btnEQEvaluate = new JButton("Evaluate");
+		btnEQEvaluate.addActionListener(new ActionListener() {
+				
+				
+				public void actionPerformed(ActionEvent e) {
+
+					//compound matcher
+					if (checkBoxEdit.isSelected()) {
+
+						Alignment a = new EditMatcher();
+						threshold = (double)sliderEQEdit.getValue()/100;
+						
+
+						try {
+							a.init(ontoFile1.toURI(), ontoFile2.toURI());
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}
+						params = new Properties();
+						params.setProperty("", "");
+						try {
+							((AlignmentProcess) a).align((Alignment)null, params);
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}	
+
+
+						editAlignmentFileName = "./files/GUITest/alignments/Edit.rdf";
+
+						outputAlignment = new File(editAlignmentFileName);
+
+						try {
+							writer = new PrintWriter(
+									new BufferedWriter(
+											new FileWriter(outputAlignment)), true);
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						} 
+						renderer = new RDFRendererVisitor(writer);
+
+						BasicAlignment editAlignment = (BasicAlignment)(a.clone());
+
+						try {
+							editAlignment.cut(threshold);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+
+						try {
+							editAlignment.render(renderer);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+						writer.flush();
+						writer.close();
+
+						//check domain constraint
+						if (chckbxEnforceSameDomain.isSelected()) {
+							
+
+							//get the alignment
+							File computedAlignment = new File(editAlignmentFileName);
+							AlignmentParser parser = new AlignmentParser();
+							BasicAlignment alignmentDomainConstraint = null;
+
+							String concept1 = null;
+							String concept2 = null;
+
+							try {
+								alignmentDomainConstraint = (BasicAlignment)parser.parse(computedAlignment.toURI().toString());
+
+								for (Cell c : alignmentDomainConstraint) {
+									concept1 = c.getObject1AsURI().getFragment();
+									concept2 = c.getObject2AsURI().getFragment();
+									if (WNDomain.sameDomain(concept1, concept2)) {
+										//increase by 10 percent
+										c.setStrength(AlignmentOperations.increaseCellStrength(c.getStrength(), 10.0));
+									} else {
+										//reduce by 10 percent
+										c.setStrength(AlignmentOperations.reduceCellStrength(c.getStrength(), 10.0));
+									}
+
+								}
+							} catch (AlignmentException | FileNotFoundException | JWNLException e1) {
+								e1.printStackTrace();
+							}
+
+
+							PrintWriter writer = null;
+							try {
+								writer = new PrintWriter(
+										new BufferedWriter(
+												new FileWriter(editAlignmentFileName)), true);
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							} 
+							AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+							try {
+								alignmentDomainConstraint.render(renderer);
+							} catch (AlignmentException e1) {
+								e1.printStackTrace();
+							}
+							writer.flush();
+							writer.close();
+
+						}
+
+						//evaluate
+						aparser = new AlignmentParser(0);
+
+						Alignment referenceAlignment = null;
+						try {
+
+							referenceAlignment = aparser.parse(new URI("file:"+refAlignFile));
+						} catch (AlignmentException | URISyntaxException e1) {
+							e1.printStackTrace();
+						}
+
+						Alignment evaluatedAlignment = null;
+						try {
+							evaluatedAlignment = aparser.parse(new URI("file:"+editAlignmentFileName));
+						} catch (AlignmentException | URISyntaxException e1) {
+
+							e1.printStackTrace();
+						}
+						Properties p = new Properties();
+
+						PRecEvaluator eval = null;
+						try {
+							eval = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}
+
+						try {
+							eval.eval(p);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+
+						//evaluation
+						double editFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+						double editPrecisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+						double editRecallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+
+						final String precision = "Precision";        
+						final String recall = "Recall";        
+						final String fMeasure = "F-Measure";
+
+						EQdataset.addValue( editPrecisionValue , "Edit" , precision );        
+						EQdataset.addValue( editRecallValue , "Edit" , recall );        
+						EQdataset.addValue( editFMeasureValue , "Edit" , fMeasure );  
+
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Edit:\n");
+						sbMatchingResults.append("F-measure: " + editFMeasureValue);
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Precision: " + editRecallValue);
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Recall: " + editRecallValue);
+
+						EQmatchingResultsPane.setText(sbMatchingResults.toString());
+
+					}
+
+					//smoa matcher
+					if (checkBoxSmoa.isSelected()) {
+						Alignment a = new SmoaMatcher();
+					threshold = (double)sliderEQSmoa.getValue()/100;
+					
+
+					try {
+						a.init(ontoFile1.toURI(), ontoFile2.toURI());
+					} catch (AlignmentException e1) {
+
+						e1.printStackTrace();
+					}
+					params = new Properties();
+					params.setProperty("", "");
+					try {
+						((AlignmentProcess) a).align((Alignment)null, params);
+					} catch (AlignmentException e1) {
+
+						e1.printStackTrace();
+					}	
+
+
+					smoaAlignmentFileName = "./files/GUITest/alignments/Smoa.rdf";
+
+					outputAlignment = new File(smoaAlignmentFileName);
+
+					try {
+						writer = new PrintWriter(
+								new BufferedWriter(
+										new FileWriter(outputAlignment)), true);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					} 
+					renderer = new RDFRendererVisitor(writer);
+
+					BasicAlignment editAlignment = (BasicAlignment)(a.clone());
+
+					try {
+						editAlignment.cut(threshold);
+					} catch (AlignmentException e1) {
+						e1.printStackTrace();
+					}
+
+					try {
+						editAlignment.render(renderer);
+					} catch (AlignmentException e1) {
+						e1.printStackTrace();
+					}
+					writer.flush();
+					writer.close();
+
+					//check domain constraint
+					if (chckbxEnforceSameDomain.isSelected()) {
+						
+
+						//get the alignment
+						File computedAlignment = new File(smoaAlignmentFileName);
+						AlignmentParser parser = new AlignmentParser();
+						BasicAlignment alignmentDomainConstraint = null;
+
+						String concept1 = null;
+						String concept2 = null;
+
+						try {
+							alignmentDomainConstraint = (BasicAlignment)parser.parse(computedAlignment.toURI().toString());
+
+							for (Cell c : alignmentDomainConstraint) {
+								concept1 = c.getObject1AsURI().getFragment();
+								concept2 = c.getObject2AsURI().getFragment();
+								if (WNDomain.sameDomain(concept1, concept2)) {
+									//increase by 10 percent
+									c.setStrength(AlignmentOperations.increaseCellStrength(c.getStrength(), 10.0));
+								} else {
+									//reduce by 10 percent
+									c.setStrength(AlignmentOperations.reduceCellStrength(c.getStrength(), 10.0));
+								}
+
+							}
+						} catch (AlignmentException | FileNotFoundException | JWNLException e1) {
+							e1.printStackTrace();
+						}
+
+
+						PrintWriter writer = null;
+						try {
+							writer = new PrintWriter(
+									new BufferedWriter(
+											new FileWriter(smoaAlignmentFileName)), true);
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						} 
+						AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+						try {
+							alignmentDomainConstraint.render(renderer);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+						writer.flush();
+						writer.close();
+
+					}
+
+					//evaluate
+					aparser = new AlignmentParser(0);
+
+					Alignment referenceAlignment = null;
+					try {
+
+						referenceAlignment = aparser.parse(new URI("file:"+refAlignFile));
+					} catch (AlignmentException | URISyntaxException e1) {
+						e1.printStackTrace();
+					}
+
+					Alignment evaluatedAlignment = null;
+					try {
+						evaluatedAlignment = aparser.parse(new URI("file:"+smoaAlignmentFileName));
+					} catch (AlignmentException | URISyntaxException e1) {
+
+						e1.printStackTrace();
+					}
+					Properties p = new Properties();
+
+					PRecEvaluator eval = null;
+					try {
+						eval = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+					} catch (AlignmentException e1) {
+
+						e1.printStackTrace();
+					}
+
+					try {
+						eval.eval(p);
+					} catch (AlignmentException e1) {
+						e1.printStackTrace();
+					}
+
+					//evaluation
+					double smoaFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+					double smoaPrecisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+					double smoaRecallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+
+					final String precision = "Precision";        
+					final String recall = "Recall";        
+					final String fMeasure = "F-Measure";
+
+					EQdataset.addValue( smoaPrecisionValue , "Smoa" , precision );        
+					EQdataset.addValue( smoaRecallValue , "Smoa" , recall );        
+					EQdataset.addValue( smoaFMeasureValue , "Smoa" , fMeasure );  
+
+					sbMatchingResults.append("\n");
+					sbMatchingResults.append("Smoa:\n");
+					sbMatchingResults.append("F-measure: " + smoaFMeasureValue);
+					sbMatchingResults.append("\n");
+					sbMatchingResults.append("Precision: " + smoaPrecisionValue);
+					sbMatchingResults.append("\n");
+					sbMatchingResults.append("Recall: " + smoaRecallValue);
+
+					EQmatchingResultsPane.setText(sbMatchingResults.toString());
+
+
+					}
+					if (checkBoxIsub.isSelected()) {
+
+						Alignment a = new ISubMatcher();
+						threshold = (double)sliderEQISub.getValue()/100;
+						
+
+						try {
+							a.init(ontoFile1.toURI(), ontoFile2.toURI());
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}
+						params = new Properties();
+						params.setProperty("", "");
+						try {
+							((AlignmentProcess) a).align((Alignment)null, params);
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}	
+
+
+						iSubAlignmentFileName = "./files/GUITest/alignments/ISub.rdf";
+
+						outputAlignment = new File(iSubAlignmentFileName);
+
+						try {
+							writer = new PrintWriter(
+									new BufferedWriter(
+											new FileWriter(outputAlignment)), true);
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						} 
+						renderer = new RDFRendererVisitor(writer);
+
+						BasicAlignment editAlignment = (BasicAlignment)(a.clone());
+
+						try {
+							editAlignment.cut(threshold);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+
+						try {
+							editAlignment.render(renderer);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+						writer.flush();
+						writer.close();
+
+						//check domain constraint
+						if (chckbxEnforceSameDomain.isSelected()) {
+							
+
+							//get the alignment
+							File computedAlignment = new File(iSubAlignmentFileName);
+							AlignmentParser parser = new AlignmentParser();
+							BasicAlignment alignmentDomainConstraint = null;
+
+							String concept1 = null;
+							String concept2 = null;
+
+							try {
+								alignmentDomainConstraint = (BasicAlignment)parser.parse(computedAlignment.toURI().toString());
+
+								for (Cell c : alignmentDomainConstraint) {
+									concept1 = c.getObject1AsURI().getFragment();
+									concept2 = c.getObject2AsURI().getFragment();
+									if (WNDomain.sameDomain(concept1, concept2)) {
+										//increase by 10 percent
+										c.setStrength(AlignmentOperations.increaseCellStrength(c.getStrength(), 10.0));
+									} else {
+										//reduce by 10 percent
+										c.setStrength(AlignmentOperations.reduceCellStrength(c.getStrength(), 10.0));
+									}
+
+								}
+							} catch (AlignmentException | FileNotFoundException | JWNLException e1) {
+								e1.printStackTrace();
+							}
+
+
+							PrintWriter writer = null;
+							try {
+								writer = new PrintWriter(
+										new BufferedWriter(
+												new FileWriter(iSubAlignmentFileName)), true);
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							} 
+							AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+							try {
+								alignmentDomainConstraint.render(renderer);
+							} catch (AlignmentException e1) {
+								e1.printStackTrace();
+							}
+							writer.flush();
+							writer.close();
+
+						}
+
+						//evaluate
+						aparser = new AlignmentParser(0);
+
+						Alignment referenceAlignment = null;
+						try {
+
+							referenceAlignment = aparser.parse(new URI("file:"+refAlignFile));
+						} catch (AlignmentException | URISyntaxException e1) {
+							e1.printStackTrace();
+						}
+
+						Alignment evaluatedAlignment = null;
+						try {
+							evaluatedAlignment = aparser.parse(new URI("file:"+iSubAlignmentFileName));
+						} catch (AlignmentException | URISyntaxException e1) {
+
+							e1.printStackTrace();
+						}
+						Properties p = new Properties();
+
+						PRecEvaluator eval = null;
+						try {
+							eval = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}
+
+						try {
+							eval.eval(p);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+
+						//evaluation
+						double iSubFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+						double iSubPrecisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+						double iSubRecallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+
+						final String precision = "Precision";        
+						final String recall = "Recall";        
+						final String fMeasure = "F-Measure";
+
+						EQdataset.addValue( iSubPrecisionValue , "ISub" , precision );        
+						EQdataset.addValue( iSubRecallValue , "ISub" , recall );        
+						EQdataset.addValue( iSubFMeasureValue , "ISub" , fMeasure );  
+
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("ISub:\n");
+						sbMatchingResults.append("F-measure: " + iSubFMeasureValue);
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Precision: " + iSubPrecisionValue);
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Recall: " + iSubRecallValue);
+
+						EQmatchingResultsPane.setText(sbMatchingResults.toString());
+
+					}
+					if (checkBoxTrigram.isSelected()) {
+
+						Alignment a = new TrigramMatcher();
+						threshold = (double)sliderEQTrigram.getValue()/100;
+						
+
+						try {
+							a.init(ontoFile1.toURI(), ontoFile2.toURI());
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}
+						params = new Properties();
+						params.setProperty("", "");
+						try {
+							((AlignmentProcess) a).align((Alignment)null, params);
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}	
+
+
+						trigramAlignmentFileName = "./files/GUITest/alignments/Trigram.rdf";
+
+						outputAlignment = new File(trigramAlignmentFileName);
+
+						try {
+							writer = new PrintWriter(
+									new BufferedWriter(
+											new FileWriter(outputAlignment)), true);
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						} 
+						renderer = new RDFRendererVisitor(writer);
+
+						BasicAlignment editAlignment = (BasicAlignment)(a.clone());
+
+						try {
+							editAlignment.cut(threshold);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+
+						try {
+							editAlignment.render(renderer);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+						writer.flush();
+						writer.close();
+
+						//check domain constraint
+						if (chckbxEnforceSameDomain.isSelected()) {
+
+							//get the alignment
+							File computedAlignment = new File(trigramAlignmentFileName);
+							AlignmentParser parser = new AlignmentParser();
+							BasicAlignment alignmentDomainConstraint = null;
+
+							String concept1 = null;
+							String concept2 = null;
+
+							try {
+								alignmentDomainConstraint = (BasicAlignment)parser.parse(computedAlignment.toURI().toString());
+
+								for (Cell c : alignmentDomainConstraint) {
+									concept1 = c.getObject1AsURI().getFragment();
+									concept2 = c.getObject2AsURI().getFragment();
+									if (WNDomain.sameDomain(concept1, concept2)) {
+										//increase by 10 percent
+										c.setStrength(AlignmentOperations.increaseCellStrength(c.getStrength(), 10.0));
+									} else {
+										//reduce by 10 percent
+										c.setStrength(AlignmentOperations.reduceCellStrength(c.getStrength(), 10.0));
+									}
+
+								}
+							} catch (AlignmentException | FileNotFoundException | JWNLException e1) {
+								e1.printStackTrace();
+							}
+
+
+							PrintWriter writer = null;
+							try {
+								writer = new PrintWriter(
+										new BufferedWriter(
+												new FileWriter(trigramAlignmentFileName)), true);
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							} 
+							AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+							try {
+								alignmentDomainConstraint.render(renderer);
+							} catch (AlignmentException e1) {
+								e1.printStackTrace();
+							}
+							writer.flush();
+							writer.close();
+
+						}
+
+						//evaluate
+						aparser = new AlignmentParser(0);
+
+						Alignment referenceAlignment = null;
+						try {
+
+							referenceAlignment = aparser.parse(new URI("file:"+refAlignFile));
+						} catch (AlignmentException | URISyntaxException e1) {
+							e1.printStackTrace();
+						}
+
+						Alignment evaluatedAlignment = null;
+						try {
+							evaluatedAlignment = aparser.parse(new URI("file:"+trigramAlignmentFileName));
+						} catch (AlignmentException | URISyntaxException e1) {
+
+							e1.printStackTrace();
+						}
+						Properties p = new Properties();
+
+						PRecEvaluator eval = null;
+						try {
+							eval = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}
+
+						try {
+							eval.eval(p);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+
+						//evaluation
+						double trigramFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+						double trigramPrecisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+						double trigramRecallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+
+						final String precision = "Precision";        
+						final String recall = "Recall";        
+						final String fMeasure = "F-Measure";
+
+
+						EQdataset.addValue( trigramPrecisionValue , "Trigram" , precision );        
+						EQdataset.addValue( trigramRecallValue , "Trigram" , recall );        
+						EQdataset.addValue( trigramFMeasureValue , "Trigram" , fMeasure );  
+
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Trigram:\n");
+						sbMatchingResults.append("F-measure: " + trigramFMeasureValue);
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Precision: " + trigramPrecisionValue);
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Recall: " + trigramRecallValue);
+
+						EQmatchingResultsPane.setText(sbMatchingResults.toString());
+
+					}
+
+					if (checkBoxWordnet.isSelected()) {
+
+						Alignment a = new WordNetMatcher();
+						threshold = (double)sliderEQWordNet.getValue()/100;
+						
+
+						try {
+							a.init(ontoFile1.toURI(), ontoFile2.toURI());
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}
+						params = new Properties();
+						params.setProperty("", "");
+						try {
+							((AlignmentProcess) a).align((Alignment)null, params);
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}	
+
+
+						wordNetAlignmentFileName = "./files/GUITest/alignments/WordNetEQ.rdf";
+
+						outputAlignment = new File(wordNetAlignmentFileName);
+
+						try {
+							writer = new PrintWriter(
+									new BufferedWriter(
+											new FileWriter(outputAlignment)), true);
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						} 
+						renderer = new RDFRendererVisitor(writer);
+
+						BasicAlignment editAlignment = (BasicAlignment)(a.clone());
+
+						try {
+							editAlignment.cut(threshold);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+
+						try {
+							editAlignment.render(renderer);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+						writer.flush();
+						writer.close();
+
+						//check domain constraint
+						if (chckbxEnforceSameDomain.isSelected()) {
+							
+
+							//get the alignment
+							File computedAlignment = new File(wordNetAlignmentFileName);
+							AlignmentParser parser = new AlignmentParser();
+							BasicAlignment alignmentDomainConstraint = null;
+
+							String concept1 = null;
+							String concept2 = null;
+
+							try {
+								alignmentDomainConstraint = (BasicAlignment)parser.parse(computedAlignment.toURI().toString());
+
+								for (Cell c : alignmentDomainConstraint) {
+									concept1 = c.getObject1AsURI().getFragment();
+									concept2 = c.getObject2AsURI().getFragment();
+									if (WNDomain.sameDomain(concept1, concept2)) {
+										//increase by 10 percent
+										c.setStrength(AlignmentOperations.increaseCellStrength(c.getStrength(), 10.0));
+									} else {
+										//reduce by 10 percent
+										c.setStrength(AlignmentOperations.reduceCellStrength(c.getStrength(), 10.0));
+									}
+
+								}
+							} catch (AlignmentException | FileNotFoundException | JWNLException e1) {
+								e1.printStackTrace();
+							}
+
+
+							PrintWriter writer = null;
+							try {
+								writer = new PrintWriter(
+										new BufferedWriter(
+												new FileWriter(wordNetAlignmentFileName)), true);
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							} 
+							AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+							try {
+								alignmentDomainConstraint.render(renderer);
+							} catch (AlignmentException e1) {
+								e1.printStackTrace();
+							}
+							writer.flush();
+							writer.close();
+
+						}
+
+						//evaluate
+						aparser = new AlignmentParser(0);
+
+						Alignment referenceAlignment = null;
+						try {
+
+							referenceAlignment = aparser.parse(new URI("file:"+refAlignFile));
+						} catch (AlignmentException | URISyntaxException e1) {
+							e1.printStackTrace();
+						}
+
+						Alignment evaluatedAlignment = null;
+						try {
+							evaluatedAlignment = aparser.parse(new URI("file:"+wordNetAlignmentFileName));
+						} catch (AlignmentException | URISyntaxException e1) {
+
+							e1.printStackTrace();
+						}
+						Properties p = new Properties();
+
+						PRecEvaluator eval = null;
+						try {
+							eval = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}
+
+						try {
+							eval.eval(p);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+
+						//evaluation
+						double wordNetFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+						double wordNetPrecisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+						double wordNetRecallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+
+						final String precision = "Precision";        
+						final String recall = "Recall";        
+						final String fMeasure = "F-Measure";
+	
+
+						EQdataset.addValue( wordNetPrecisionValue , "WordNet" , precision );        
+						EQdataset.addValue( wordNetRecallValue , "WordNet" , recall );        
+						EQdataset.addValue( wordNetFMeasureValue , "WordNet" , fMeasure );  
+
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("WordNet:\n");
+						sbMatchingResults.append("F-measure: " + wordNetFMeasureValue);
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Precision: " + wordNetPrecisionValue);
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Recall: " + wordNetRecallValue);
+
+						EQmatchingResultsPane.setText(sbMatchingResults.toString());
+
+					}
+
+					/*if (checkBoxStructure.isSelected()) {
+
+						Alignment a = new StructureEQMatcher();
+						threshold = (double)sliderEQStructure.getValue()/100;
+						
+
+						try {
+							a.init(ontoFile1.toURI(), ontoFile2.toURI());
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}
+						params = new Properties();
+						params.setProperty("", "");
+						try {
+							((AlignmentProcess) a).align((Alignment)null, params);
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}	
+
+
+						structureAlignmentFileName = "./files/GUITest/alignments/StructureEQ.rdf";
+
+						outputAlignment = new File(structureAlignmentFileName);
+
+						try {
+							writer = new PrintWriter(
+									new BufferedWriter(
+											new FileWriter(outputAlignment)), true);
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						} 
+						renderer = new RDFRendererVisitor(writer);
+
+						BasicAlignment editAlignment = (BasicAlignment)(a.clone());
+
+						try {
+							editAlignment.cut(threshold);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+
+						try {
+							editAlignment.render(renderer);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+						writer.flush();
+						writer.close();
+
+						//check domain constraint
+						if (chckbxEnforceSameDomain.isSelected()) {
+							
+
+							//get the alignment
+							File computedAlignment = new File(structureAlignmentFileName);
+							AlignmentParser parser = new AlignmentParser();
+							BasicAlignment alignmentDomainConstraint = null;
+
+							String concept1 = null;
+							String concept2 = null;
+
+							try {
+								alignmentDomainConstraint = (BasicAlignment)parser.parse(computedAlignment.toURI().toString());
+
+								for (Cell c : alignmentDomainConstraint) {
+									concept1 = c.getObject1AsURI().getFragment();
+									concept2 = c.getObject2AsURI().getFragment();
+									if (WNDomain.sameDomain(concept1, concept2)) {
+										//increase by 10 percent
+										c.setStrength(AlignmentOperations.increaseCellStrength(c.getStrength(), 10.0));
+									} else {
+										//reduce by 10 percent
+										c.setStrength(AlignmentOperations.reduceCellStrength(c.getStrength(), 10.0));
+									}
+
+								}
+							} catch (AlignmentException | FileNotFoundException | JWNLException e1) {
+								e1.printStackTrace();
+							}
+
+
+							PrintWriter writer = null;
+							try {
+								writer = new PrintWriter(
+										new BufferedWriter(
+												new FileWriter(structureAlignmentFileName)), true);
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							} 
+							AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+							try {
+								alignmentDomainConstraint.render(renderer);
+							} catch (AlignmentException e1) {
+								e1.printStackTrace();
+							}
+							writer.flush();
+							writer.close();
+
+						}
+
+						//evaluate
+						aparser = new AlignmentParser(0);
+
+						Alignment referenceAlignment = null;
+						try {
+
+							referenceAlignment = aparser.parse(new URI("file:"+refAlignFile));
+						} catch (AlignmentException | URISyntaxException e1) {
+							e1.printStackTrace();
+						}
+
+						Alignment evaluatedAlignment = null;
+						try {
+							evaluatedAlignment = aparser.parse(new URI("file:"+structureAlignmentFileName));
+						} catch (AlignmentException | URISyntaxException e1) {
+
+							e1.printStackTrace();
+						}
+						Properties p = new Properties();
+
+						PRecEvaluator eval = null;
+						try {
+							eval = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+						} catch (AlignmentException e1) {
+
+							e1.printStackTrace();
+						}
+
+						try {
+							eval.eval(p);
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+
+						//evaluation
+						double compoundFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+						double compoundPrecisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+						double compoundRecallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+
+						final String precision = "Precision";        
+						final String recall = "Recall";        
+						final String fMeasure = "F-Measure";
+						
+						final DefaultCategoryDataset EQdataset = 
+								new DefaultCategoryDataset( );  
+
+						EQdataset.addValue( compoundPrecisionValue , "Structure" , precision );        
+						EQdataset.addValue( compoundRecallValue , "Structure" , recall );        
+						EQdataset.addValue( compoundFMeasureValue , "Structure" , fMeasure );  
+
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Structure:\n");
+						sbMatchingResults.append("F-measure: " + compoundFMeasureValue);
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Precision: " + compoundPrecisionValue);
+						sbMatchingResults.append("\n");
+						sbMatchingResults.append("Recall: " + compoundRecallValue);
+
+						EQmatchingResultsPane.setText(sbMatchingResults.toString());
+
+					}*/
+
+					//add chart
+					
+					EQchart.setBorderVisible(true);
+					CategoryPlot EQcp = EQchart.getCategoryPlot();
+					EQcp.setBackgroundPaint(Color.white);
+
+					
+					EQmatchingResultsChartPanel.setBorder(null);
+					Dimension matchingResultsDimension = new Dimension();
+					matchingResultsDimension.setSize(490, 315);
+					//EQgraphJPanel.setBounds(456, 215, 491, 315);
+					EQmatchingResultsChartPanel.setPreferredSize(matchingResultsDimension);
+					EQgraphJPanel.add(EQmatchingResultsChartPanel);
+					EQgraphJPanel.setVisible(true);  
+
+				
+			}
+	
+		});
+		btnEQEvaluate.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		btnEQEvaluate.setBounds(311, 619, 117, 29);
+		panelEquivalenceMatching.add(btnEQEvaluate);
+
+		JButton btnEQMainMenu = new JButton("Main Menu");
+		btnEQMainMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				checkBoxEdit.setSelected(false);
+				checkBoxSmoa.setSelected(false);
+				checkBoxIsub.setSelected(false);
+				checkBoxTrigram.setSelected(false);
+				checkBoxWordnet.setSelected(false);
+				checkBoxStructure.setSelected(false);
+				EQmatchingResultsChartPanel.repaint();
+				EQgraphJPanel.repaint();
+				EQdataset.clear();
+				//EQchart.
+				panelEquivalenceMatching.setVisible(false);
+				panelMenu.setVisible(true);
+
+			}
+		});
+		btnEQMainMenu.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		btnEQMainMenu.setBounds(456, 619, 117, 29);
+		panelEquivalenceMatching.add(btnEQMainMenu);
+		panelEquivalenceMatching.setVisible(false);
+
+		JLabel lblEQEvaluationResults = new JLabel("Evaluation Results");
+		lblEQEvaluationResults.setForeground(new Color(0, 102, 153));
+		lblEQEvaluationResults.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		lblEQEvaluationResults.setBounds(618, 172, 157, 16);
+		panelEquivalenceMatching.add(lblEQEvaluationResults);
+
+
+		/*** Subsumption Matching ***/
+		final JPanel panelsubsumptionMatching = new JPanel();
+		panelsubsumptionMatching.setBackground(Color.WHITE);
+		frame.getContentPane().add(panelsubsumptionMatching, "name_25771746383092");
+		panelsubsumptionMatching.setLayout(null);
+		panelsubsumptionMatching.setVisible(false);
 
 		final JPanel graphJPanel = new JPanel();
 		graphJPanel.setBorder(null);
 		graphJPanel.setBackground(Color.WHITE);
-		graphJPanel.setBounds(616, 428, 362, 224);
-		panelSimpleMatching.add(graphJPanel);
-
-		final JPanel combinedProfilespanel = new JPanel();
-		combinedProfilespanel.setBounds(616, 43, 362, 313);
-		panelSimpleMatching.add(combinedProfilespanel);
-		combinedProfilespanel.setBorder(null);
-		combinedProfilespanel.setBackground(Color.WHITE);
+		graphJPanel.setBounds(616, 405, 362, 234);
+		panelsubsumptionMatching.add(graphJPanel);
 
 		final JEditorPane matchingResultsPane = new JEditorPane();
-		matchingResultsPane.setFont(new Font("Lucida Grande", Font.PLAIN, 8));
+		matchingResultsPane.setFont(new Font("Lucida Grande", Font.PLAIN, 6));
 		matchingResultsPane.setForeground(Color.GRAY);
 		matchingResultsPane.setBackground(Color.WHITE);
-		matchingResultsPane.setBounds(489, 377, 86, 156);
-		panelSimpleMatching.add(matchingResultsPane);
+		matchingResultsPane.setBounds(489, 377, 86, 275);
+		panelsubsumptionMatching.add(matchingResultsPane);
+
+		final JPanel combinedProfilespanel = new JPanel();
+		combinedProfilespanel.setBounds(616, 35, 362, 313);
+		panelsubsumptionMatching.add(combinedProfilespanel);
+		combinedProfilespanel.setBorder(null);
+		combinedProfilespanel.setBackground(Color.WHITE);
 
 		//labels
 		final JLabel lblOntology1 = new JLabel("");
 		lblOntology1.setEnabled(false);
 		lblOntology1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblOntology1.setBounds(175, 40, 133, 16);
-		panelSimpleMatching.add(lblOntology1);
+		panelsubsumptionMatching.add(lblOntology1);
 
 		final JLabel lblOntology2 = new JLabel("");
 		lblOntology2.setEnabled(false);
 		lblOntology2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblOntology2.setBounds(175, 70, 133, 16);
-		panelSimpleMatching.add(lblOntology2);
+		panelsubsumptionMatching.add(lblOntology2);
 
 		final JLabel lblRefAlignment = new JLabel("");
 		lblRefAlignment.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblRefAlignment.setEnabled(false);
-		lblRefAlignment.setBounds(175, 102, 133, 16);
-		panelSimpleMatching.add(lblRefAlignment);
+		lblRefAlignment.setBounds(175, 102, 218, 16);
+		panelsubsumptionMatching.add(lblRefAlignment);
 
 		final JSlider sliderCompoundMatcher = new JSlider();
 		sliderCompoundMatcher.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
@@ -223,7 +1468,7 @@ public class ComposeGUIMainMenu extends JFrame {
 		sliderCompoundMatcher.setMinorTickSpacing(2);
 		sliderCompoundMatcher.setMajorTickSpacing(10);
 		sliderCompoundMatcher.setPaintLabels(true);
-		panelSimpleMatching.add(sliderCompoundMatcher);
+		panelsubsumptionMatching.add(sliderCompoundMatcher);
 
 		final JSlider sliderParentMatcher = new JSlider();
 		sliderParentMatcher.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
@@ -231,7 +1476,7 @@ public class ComposeGUIMainMenu extends JFrame {
 		sliderParentMatcher.setMinorTickSpacing(2);
 		sliderParentMatcher.setMajorTickSpacing(10);
 		sliderParentMatcher.setBounds(185, 209, 249, 46);
-		panelSimpleMatching.add(sliderParentMatcher);
+		panelsubsumptionMatching.add(sliderParentMatcher);
 
 		final JSlider sliderAncestorMatcher = new JSlider();
 		sliderAncestorMatcher.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
@@ -239,7 +1484,7 @@ public class ComposeGUIMainMenu extends JFrame {
 		sliderAncestorMatcher.setMinorTickSpacing(2);
 		sliderAncestorMatcher.setMajorTickSpacing(10);
 		sliderAncestorMatcher.setBounds(185, 260, 249, 46);
-		panelSimpleMatching.add(sliderAncestorMatcher);
+		panelsubsumptionMatching.add(sliderAncestorMatcher);
 
 		final JSlider sliderWNMatcher = new JSlider();
 		sliderWNMatcher.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
@@ -247,28 +1492,28 @@ public class ComposeGUIMainMenu extends JFrame {
 		sliderWNMatcher.setMinorTickSpacing(2);
 		sliderWNMatcher.setMajorTickSpacing(10);
 		sliderWNMatcher.setBounds(185, 310, 249, 46);
-		panelSimpleMatching.add(sliderWNMatcher);
+		panelsubsumptionMatching.add(sliderWNMatcher);
 
 		final JCheckBox checkBoxSameDomainConstraintMatcher = new JCheckBox("");
 		checkBoxSameDomainConstraintMatcher.setBounds(6, 371, 37, 23);
-		panelSimpleMatching.add(checkBoxSameDomainConstraintMatcher);
+		panelsubsumptionMatching.add(checkBoxSameDomainConstraintMatcher);
 
 		//checkboxes
 		final JCheckBox chckbxWeightedSequentialComposition = new JCheckBox("Weighted Sequential Composition");
 		chckbxWeightedSequentialComposition.setBounds(6, 468, 257, 23);
-		panelSimpleMatching.add(chckbxWeightedSequentialComposition);
+		panelsubsumptionMatching.add(chckbxWeightedSequentialComposition);
 
 		final JCheckBox chckbxParallelSimpleVote = new JCheckBox("Parallel Simple Vote Composition");
 		chckbxParallelSimpleVote.setBounds(6, 500, 257, 23);
-		panelSimpleMatching.add(chckbxParallelSimpleVote);
+		panelsubsumptionMatching.add(chckbxParallelSimpleVote);
 
 		final JCheckBox chckbxParallelPrioritised = new JCheckBox("Parallel Prioritised Composition");
 		chckbxParallelPrioritised.setBounds(6, 533, 257, 23);
-		panelSimpleMatching.add(chckbxParallelPrioritised);
+		panelsubsumptionMatching.add(chckbxParallelPrioritised);
 
 		final JCheckBox chckbxHybridComposition = new JCheckBox("Hybrid Composition");
 		chckbxHybridComposition.setBounds(6, 568, 257, 23);
-		panelSimpleMatching.add(chckbxHybridComposition);
+		panelsubsumptionMatching.add(chckbxHybridComposition);
 
 		//text areas		
 		final JTextArea textAreaOntology1Profile = new JTextArea();
@@ -276,14 +1521,39 @@ public class ComposeGUIMainMenu extends JFrame {
 		textAreaOntology1Profile.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		textAreaOntology1Profile.setEditable(false);
 		textAreaOntology1Profile.setBounds(510, 17, 37, 51);
-		panelSimpleMatching.add(textAreaOntology1Profile);
+		panelsubsumptionMatching.add(textAreaOntology1Profile);
 
 		final JTextArea textAreaOntology2Profile = new JTextArea();
 		textAreaOntology2Profile.setBackground(Color.WHITE);
 		textAreaOntology2Profile.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		textAreaOntology2Profile.setEditable(false);
 		textAreaOntology2Profile.setBounds(559, 17, 45, 49);
-		panelSimpleMatching.add(textAreaOntology2Profile);
+		panelsubsumptionMatching.add(textAreaOntology2Profile);
+
+		//textfields
+		textFieldCompoundMatcherPriority = new JTextField();
+		textFieldCompoundMatcherPriority.setBounds(449, 168, 45, 26);
+		panelsubsumptionMatching.add(textFieldCompoundMatcherPriority);
+		textFieldCompoundMatcherPriority.setColumns(10);
+
+		textFieldParentMatcherPriority = new JTextField();
+		textFieldParentMatcherPriority.setColumns(10);
+		textFieldParentMatcherPriority.setBounds(449, 217, 45, 26);
+		panelsubsumptionMatching.add(textFieldParentMatcherPriority);
+
+		textFieldAncestorMatcherPriority = new JTextField();
+		textFieldAncestorMatcherPriority.setColumns(10);
+		textFieldAncestorMatcherPriority.setBounds(449, 267, 45, 26);
+		panelsubsumptionMatching.add(textFieldAncestorMatcherPriority);
+
+		textFieldWordNetMatcherPriority = new JTextField();
+		textFieldWordNetMatcherPriority.setColumns(10);
+		textFieldWordNetMatcherPriority.setBounds(449, 317, 45, 26);
+		panelsubsumptionMatching.add(textFieldWordNetMatcherPriority);
+
+		//dataset for charts
+		final DefaultCategoryDataset dataset = 
+				new DefaultCategoryDataset( );  
 
 		//buttons
 
@@ -292,52 +1562,50 @@ public class ComposeGUIMainMenu extends JFrame {
 		btnDownloadAlignment.setToolTipText("");
 		btnDownloadAlignment.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		btnDownloadAlignment.setBounds(175, 622, 153, 29);
-		panelSimpleMatching.add(btnDownloadAlignment);
+		panelsubsumptionMatching.add(btnDownloadAlignment);
 
-		JButton btnSimpleMatching = new JButton("Simple Matching");
-		btnSimpleMatching.addActionListener(new ActionListener() {
+		JButton btnsubsumptionMatching = new JButton("Subsumption Matching");
+		btnsubsumptionMatching.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelSimpleMatching.setVisible(true);
+				panelsubsumptionMatching.setVisible(true);
 				panelMenu.setVisible(false);
 			}
 		});
-		btnSimpleMatching.setBounds(193, 71, 143, 49);
-		panelMenu.add(btnSimpleMatching);
+		btnsubsumptionMatching.setBounds(193, 217, 175, 49);
+		panelMenu.add(btnsubsumptionMatching);
 
-		JButton btnAdvancedMatching = new JButton("Advanced Matching");
+		JButton btnAdvancedMatching = new JButton("Equivalence Matching");
 		btnAdvancedMatching.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelAdvancedMatching.setVisible(true);
+				panelEquivalenceMatching.setVisible(true);
 				panelMenu.setVisible(false);
 			}
 		});
-		btnAdvancedMatching.setBounds(442, 71, 143, 49);
+		btnAdvancedMatching.setBounds(510, 217, 180, 49);
 		panelMenu.add(btnAdvancedMatching);
-
-		JButton btnAdvanceMatchingCancel = new JButton("Cancel");
-		btnAdvanceMatchingCancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				panelAdvancedMatching.setVisible(false);
-				panelMenu.setVisible(true);
-			}
-		});
-		btnAdvanceMatchingCancel.setBounds(247, 183, 117, 29);
-		panelAdvancedMatching.add(btnAdvanceMatchingCancel);
+		
+		JLabel lblOntologyMatching = new JLabel("COMPOSE Ontology Matching Framework");
+		lblOntologyMatching.setFont(new Font("Lucida Grande", Font.BOLD, 16));
+		lblOntologyMatching.setBounds(193, 43, 430, 16);
+		panelMenu.add(lblOntologyMatching);
+		
+		JLabel lblTheComposeOntology = new JLabel("The COMPOSE Ontology Matching Framework... ");
+		lblTheComposeOntology.setBounds(193, 83, 355, 16);
+		panelMenu.add(lblTheComposeOntology);
 
 		JButton btnCancel = new JButton("Main menu");
 		btnCancel.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelSimpleMatching.setVisible(false);
+				panelsubsumptionMatching.setVisible(false);
 				panelMenu.setVisible(true);
 			}
 		});
 
 		btnCancel.setBounds(344, 622, 133, 29);
-		panelSimpleMatching.add(btnCancel);
+		panelsubsumptionMatching.add(btnCancel);
 
-		JButton btnUploadOntology1 = new JButton("Upload ontology 1...");
+		JButton btnUploadOntology1 = new JButton("Upload ontology 1");
 		btnUploadOntology1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		btnUploadOntology1.setBackground(Color.LIGHT_GRAY);
 		btnUploadOntology1.addActionListener(new ActionListener() {
@@ -356,9 +1624,9 @@ public class ComposeGUIMainMenu extends JFrame {
 			}
 		});
 		btnUploadOntology1.setBounds(6, 34, 169, 29);
-		panelSimpleMatching.add(btnUploadOntology1);
+		panelsubsumptionMatching.add(btnUploadOntology1);
 
-		JButton btnUploadOntology2 = new JButton("Upload ontology 2...");
+		JButton btnUploadOntology2 = new JButton("Upload ontology 2");
 		btnUploadOntology2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		btnUploadOntology2.setBackground(Color.LIGHT_GRAY);
 		btnUploadOntology2.addActionListener(new ActionListener() {
@@ -376,9 +1644,9 @@ public class ComposeGUIMainMenu extends JFrame {
 			}
 		});
 		btnUploadOntology2.setBounds(6, 66, 169, 29);
-		panelSimpleMatching.add(btnUploadOntology2);
+		panelsubsumptionMatching.add(btnUploadOntology2);
 
-		JButton btnUploadReferenceAlignment = new JButton("Upload reference alignment...");
+		JButton btnUploadReferenceAlignment = new JButton("Upload reference alignment");
 		btnUploadReferenceAlignment.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		btnUploadOntology2.setBackground(Color.LIGHT_GRAY);
 		btnUploadReferenceAlignment.addActionListener(new ActionListener() {
@@ -397,7 +1665,7 @@ public class ComposeGUIMainMenu extends JFrame {
 		btnUploadReferenceAlignment.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		btnUploadReferenceAlignment.setBackground(Color.LIGHT_GRAY);
 		btnUploadReferenceAlignment.setBounds(6, 98, 169, 29);
-		panelSimpleMatching.add(btnUploadReferenceAlignment);
+		panelsubsumptionMatching.add(btnUploadReferenceAlignment);
 
 		JButton btnComputeProfiles = new JButton("Compute ontology profiles");
 		btnComputeProfiles.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
@@ -652,27 +1920,27 @@ public class ComposeGUIMainMenu extends JFrame {
 
 			}
 		});
-		btnComputeProfiles.setBounds(318, 34, 194, 29);
-		panelSimpleMatching.add(btnComputeProfiles);
+		btnComputeProfiles.setBounds(310, 34, 194, 29);
+		panelsubsumptionMatching.add(btnComputeProfiles);
 
 
 
 		//checkboxes
 		final JCheckBox checkBoxCompoundMatcher = new JCheckBox("Compound Matcher");
 		checkBoxCompoundMatcher.setBounds(6, 171, 257, 23);
-		panelSimpleMatching.add(checkBoxCompoundMatcher);
+		panelsubsumptionMatching.add(checkBoxCompoundMatcher);
 
 		final JCheckBox checkBoxParentMatcher = new JCheckBox("Parent Matcher");
 		checkBoxParentMatcher.setBounds(6, 218, 218, 23);
-		panelSimpleMatching.add(checkBoxParentMatcher);
+		panelsubsumptionMatching.add(checkBoxParentMatcher);
 
 		final JCheckBox checkBoxAncestorMatcher = new JCheckBox("Ancestor Matcher");
 		checkBoxAncestorMatcher.setBounds(6, 268, 176, 23);
-		panelSimpleMatching.add(checkBoxAncestorMatcher);
+		panelsubsumptionMatching.add(checkBoxAncestorMatcher);
 
 		final JCheckBox checkBoxWordNetMatcher = new JCheckBox("WordNet Matcher");
 		checkBoxWordNetMatcher.setBounds(6, 318, 196, 23);
-		panelSimpleMatching.add(checkBoxWordNetMatcher);
+		panelsubsumptionMatching.add(checkBoxWordNetMatcher);
 
 
 
@@ -701,7 +1969,7 @@ public class ComposeGUIMainMenu extends JFrame {
 
 						e1.printStackTrace();
 					}	
-				
+
 
 					compoundAlignmentFileName = "./files/GUITest/alignments/Compound.rdf";
 
@@ -836,46 +2104,29 @@ public class ComposeGUIMainMenu extends JFrame {
 						e1.printStackTrace();
 					}
 
-					/*//evaluation
-					double fMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
-					double precisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
-					double recallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+					//evaluation
+					double compoundFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+					double compoundPrecisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+					double compoundRecallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
 
 					final String precision = "Precision";        
 					final String recall = "Recall";        
 					final String fMeasure = "F-Measure";
 
-					final DefaultCategoryDataset dataset = 
-							new DefaultCategoryDataset( );  
+					dataset.addValue( compoundPrecisionValue , "Compound" , precision );        
+					dataset.addValue( compoundRecallValue , "Compound" , recall );        
+					dataset.addValue( compoundFMeasureValue , "Compound" , fMeasure );  
 
-					dataset.addValue( precisionValue , "eval" , precision );        
-					dataset.addValue( recallValue , "eval" , recall );        
-					dataset.addValue( fMeasureValue , "eval" , fMeasure );  
-
-
-					//add chart
-					JFreeChart chart = ChartFactory.createBarChart("", "", "", dataset, PlotOrientation.VERTICAL, false, false, false);
-					chart.setBorderVisible(false);
-					CategoryPlot cp = chart.getCategoryPlot();
-					cp.setBackgroundPaint(Color.white);
-
-					ChartPanel matchingResultsChartPanel = new ChartPanel((JFreeChart) chart);
-					matchingResultsChartPanel.setBorder(null);
-					Dimension matchingResultsDimension = new Dimension();
-					matchingResultsDimension.setSize(362, 224);
-					matchingResultsChartPanel.setPreferredSize(matchingResultsDimension);
-					//matchingResultsChartPanel.setBackground(Color.gray);
-					graphJPanel.add(matchingResultsChartPanel);
-					graphJPanel.setVisible(true);
 
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("F-measure: " + fMeasureValue);
+					sbMatchingResults.append("Compound:\n");
+					sbMatchingResults.append("F-measure: " + compoundFMeasureValue);
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("Precision: " + precisionValue);
+					sbMatchingResults.append("Precision: " + compoundPrecisionValue);
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("Recall: " + recallValue);
+					sbMatchingResults.append("Recall: " + compoundRecallValue);
 
-					matchingResultsPane.setText(sbMatchingResults.toString());*/
+					matchingResultsPane.setText(sbMatchingResults.toString());
 
 				}
 
@@ -1023,7 +2274,7 @@ public class ComposeGUIMainMenu extends JFrame {
 
 					}
 
-					/*//evaluate
+					//evaluate
 					aparser = new AlignmentParser(0);
 
 					Alignment referenceAlignment = null;
@@ -1058,43 +2309,28 @@ public class ComposeGUIMainMenu extends JFrame {
 					}
 
 					//evaluation
-					double fMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
-					double precisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
-					double recallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+					double parentMatcherFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+					double parentMatcherPrecisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+					double parentMatcherRecallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
 
 					String precision = "Precision";        
 					String recall = "Recall";        
 					String fMeasure = "F-Measure";
 
-					final DefaultCategoryDataset dataset = 
-							new DefaultCategoryDataset( );  
+					dataset.addValue( parentMatcherPrecisionValue , "Parent Matcher" , precision );        
+					dataset.addValue( parentMatcherRecallValue , "Parent Matcher" , recall );        
+					dataset.addValue( parentMatcherFMeasureValue , "Parent Matcher" , fMeasure );  
 
-					dataset.addValue( precisionValue , "eval" , precision );        
-					dataset.addValue( recallValue , "eval" , recall );        
-					dataset.addValue( fMeasureValue , "eval" , fMeasure );  
-
-					//add chart
-					JFreeChart chart = ChartFactory.createBarChart("", "", "", dataset, PlotOrientation.VERTICAL, false, false, false);
-					chart.setBorderVisible(true);
-					CategoryPlot cp = chart.getCategoryPlot();
-					cp.setBackgroundPaint(Color.white);
-
-					ChartPanel matchingResultsChartPanel = new ChartPanel((JFreeChart) chart);
-					matchingResultsChartPanel.setBorder(null);
-					Dimension matchingResultsDimension = new Dimension();
-					matchingResultsDimension.setSize(362, 224);
-					matchingResultsChartPanel.setPreferredSize(matchingResultsDimension);
-					graphJPanel.add(matchingResultsChartPanel);
-					graphJPanel.setVisible(true);    
 
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("F-measure: " + fMeasureValue);
+					sbMatchingResults.append("Parent Matcher: \n");
+					sbMatchingResults.append("F-measure: " + parentMatcherFMeasureValue);
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("Precision: " + precisionValue);
+					sbMatchingResults.append("Precision: " + parentMatcherPrecisionValue);
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("Recall: " + recallValue);
+					sbMatchingResults.append("Recall: " + parentMatcherRecallValue);
 
-					matchingResultsPane.setText(sbMatchingResults.toString());*/
+					matchingResultsPane.setText(sbMatchingResults.toString());
 
 
 				}
@@ -1187,7 +2423,7 @@ public class ComposeGUIMainMenu extends JFrame {
 					}
 					writer.flush();
 					writer.close();
-					
+
 					//check domain constraint
 					if (checkBoxSameDomainConstraintMatcher.isSelected()) {
 
@@ -1240,7 +2476,7 @@ public class ComposeGUIMainMenu extends JFrame {
 
 					}
 
-					/*//evaluate
+					//evaluate
 					aparser = new AlignmentParser(0);
 
 					Alignment referenceAlignment = null;
@@ -1274,9 +2510,9 @@ public class ComposeGUIMainMenu extends JFrame {
 					}
 
 					//evaluation
-					double fMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
-					double precisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
-					double recallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+					double ancestorMatcherFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+					double ancestorMatcherPrecisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+					double ancestorMatcherRecallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
 
 					String precision = "Precision";        
 					String recall = "Recall";        
@@ -1285,32 +2521,19 @@ public class ComposeGUIMainMenu extends JFrame {
 					final DefaultCategoryDataset dataset = 
 							new DefaultCategoryDataset( );  
 
-					dataset.addValue( precisionValue , "eval" , precision );        
-					dataset.addValue( recallValue , "eval" , recall );        
-					dataset.addValue( fMeasureValue , "eval" , fMeasure );  
-
-					//add chart
-					JFreeChart chart = ChartFactory.createBarChart("", "", "", dataset, PlotOrientation.VERTICAL, false, false, false);
-					chart.setBorderVisible(true);
-					CategoryPlot cp = chart.getCategoryPlot();
-					cp.setBackgroundPaint(Color.white);
-
-					ChartPanel matchingResultsChartPanel = new ChartPanel((JFreeChart) chart);
-					matchingResultsChartPanel.setBorder(null);
-					Dimension matchingResultsDimension = new Dimension();
-					matchingResultsDimension.setSize(362, 224);
-					matchingResultsChartPanel.setPreferredSize(matchingResultsDimension);
-					graphJPanel.add(matchingResultsChartPanel);
-					graphJPanel.setVisible(true);    
+					dataset.addValue( ancestorMatcherPrecisionValue , "Ancestor Matcher" , precision );        
+					dataset.addValue( ancestorMatcherRecallValue , "Ancestor Matcher" , recall );        
+					dataset.addValue( ancestorMatcherFMeasureValue , "Ancestor Matcher" , fMeasure );  
 
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("F-measure: " + fMeasureValue);
+					sbMatchingResults.append("Ancestor Matcher: \n");
+					sbMatchingResults.append("F-measure: " + ancestorMatcherFMeasureValue);
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("Precision: " + precisionValue);
+					sbMatchingResults.append("Precision: " + ancestorMatcherPrecisionValue);
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("Recall: " + recallValue);
+					sbMatchingResults.append("Recall: " + ancestorMatcherRecallValue);
 
-					matchingResultsPane.setText(sbMatchingResults.toString());*/
+					matchingResultsPane.setText(sbMatchingResults.toString());
 
 				}
 				if (checkBoxWordNetMatcher.isSelected()) {
@@ -1359,7 +2582,7 @@ public class ComposeGUIMainMenu extends JFrame {
 					}
 					writer.flush();
 					writer.close();
-					
+
 					//check domain constraint
 					if (checkBoxSameDomainConstraintMatcher.isSelected()) {
 
@@ -1412,7 +2635,7 @@ public class ComposeGUIMainMenu extends JFrame {
 
 					}
 
-					/*//evaluate
+					//evaluate
 					aparser = new AlignmentParser(0);
 
 					Alignment referenceAlignment = null;
@@ -1446,76 +2669,60 @@ public class ComposeGUIMainMenu extends JFrame {
 					}
 
 					//evaluation
-					double fMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
-					double precisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
-					double recallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+					double wordNetMatcherFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+					double wordNetMatcherPrecisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+					double wordNetMatcherRecallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
 
 					String precision = "Precision";        
 					String recall = "Recall";        
 					String fMeasure = "F-Measure";
 
-					final DefaultCategoryDataset dataset = 
-							new DefaultCategoryDataset( );  
 
-					dataset.addValue( precisionValue , "eval" , precision );        
-					dataset.addValue( recallValue , "eval" , recall );        
-					dataset.addValue( fMeasureValue , "eval" , fMeasure );  
-
-					//add chart
-					JFreeChart chart = ChartFactory.createBarChart("", "", "", dataset, PlotOrientation.VERTICAL, false, false, false);
-					chart.setBorderVisible(true);
-					CategoryPlot cp = chart.getCategoryPlot();
-					cp.setBackgroundPaint(Color.white);
-
-					ChartPanel matchingResultsChartPanel = new ChartPanel((JFreeChart) chart);
-					matchingResultsChartPanel.setBorder(null);
-					Dimension matchingResultsDimension = new Dimension();
-					matchingResultsDimension.setSize(362, 224);
-					matchingResultsChartPanel.setPreferredSize(matchingResultsDimension);
-					graphJPanel.add(matchingResultsChartPanel);
-					graphJPanel.setVisible(true);    
-
+					dataset.addValue( wordNetMatcherPrecisionValue , "WordNet" , precision );        
+					dataset.addValue( wordNetMatcherRecallValue , "WordNet" , recall );        
+					dataset.addValue( wordNetMatcherFMeasureValue , "WordNet" , fMeasure );  
 
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("F-measure: " + fMeasureValue);
+					sbMatchingResults.append("WordNet Matcher: \n");
+					sbMatchingResults.append("F-measure: " + wordNetMatcherFMeasureValue);
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("Precision: " + precisionValue);
+					sbMatchingResults.append("Precision: " + wordNetMatcherPrecisionValue);
 					sbMatchingResults.append("\n");
-					sbMatchingResults.append("Recall: " + recallValue);
+					sbMatchingResults.append("Recall: " + wordNetMatcherRecallValue);
 
-					matchingResultsPane.setText(sbMatchingResults.toString());*/
+					matchingResultsPane.setText(sbMatchingResults.toString());
 
 				}
-				
+
 				if (chckbxWeightedSequentialComposition.isSelected()) {
-					
+
 					Alignment computedAlignment = null;
 					String weightedSequentialCompositionAlignmentFileName = "./files/GUITest/alignments/WeightedSequentialComposition.rdf";
-					
+
 					//Set<File> alignmentFiles = new HashSet<File>();
 					ArrayList<File> alignmentFiles = new ArrayList<File>();
-					
+
 					//get the alignment files involved
 					if (checkBoxCompoundMatcher.isSelected()) {
 						File f1 = new File(compoundAlignmentFileName);
 						alignmentFiles.add(f1);
 					}
-					
+
 					if (checkBoxParentMatcher.isSelected()) {
 						File f1 = new File(parentMatcherAlignmentFileName);
 						alignmentFiles.add(f1);
 					}
-					
+
 					if (checkBoxAncestorMatcher.isSelected()) {
 						File f1 = new File(ancestorMatcherAlignmentFileName);
 						alignmentFiles.add(f1);
 					}
-					
+
 					if (checkBoxWordNetMatcher.isSelected()) {
 						File f1 = new File(wordNetMatcherAlignmentFileName);
 						alignmentFiles.add(f1);
 					}
-					
+
 					if (alignmentFiles.size() == 3) {
 						try {
 							computedAlignment = SequentialComposition.weightedSequentialComposition3(alignmentFiles.get(0), alignmentFiles.get(1), alignmentFiles.get(2));
@@ -1529,7 +2736,7 @@ public class ComposeGUIMainMenu extends JFrame {
 							e1.printStackTrace();
 						}
 					}
-					
+
 					outputAlignment = new File(weightedSequentialCompositionAlignmentFileName);
 
 					try {
@@ -1556,10 +2763,10 @@ public class ComposeGUIMainMenu extends JFrame {
 					}
 					writer.flush();
 					writer.close();
-					
-					
-					
-					
+
+
+
+
 					//evaluate computed alignment
 					aparser = new AlignmentParser(0);
 
@@ -1602,15 +2809,12 @@ public class ComposeGUIMainMenu extends JFrame {
 					String recall = "Recall";        
 					String fMeasure = "F-Measure";
 
-					final DefaultCategoryDataset dataset = 
-							new DefaultCategoryDataset( );  
+					dataset.addValue( precisionValue , "WSC" , precision );        
+					dataset.addValue( recallValue , "WSC" , recall );        
+					dataset.addValue( fMeasureValue , "WSC" , fMeasure );  
 
-					dataset.addValue( precisionValue , "eval" , precision );        
-					dataset.addValue( recallValue , "eval" , recall );        
-					dataset.addValue( fMeasureValue , "eval" , fMeasure );  
-
-					//add chart
-					JFreeChart chart = ChartFactory.createBarChart("", "", "", dataset, PlotOrientation.VERTICAL, false, false, false);
+					/*					//add chart
+					JFreeChart chart = ChartFactory.createBarChart("", "", "", dataset, PlotOrientation.VERTICAL, true, false, false);
 					chart.setBorderVisible(true);
 					CategoryPlot cp = chart.getCategoryPlot();
 					cp.setBackgroundPaint(Color.white);
@@ -1621,9 +2825,10 @@ public class ComposeGUIMainMenu extends JFrame {
 					matchingResultsDimension.setSize(362, 224);
 					matchingResultsChartPanel.setPreferredSize(matchingResultsDimension);
 					graphJPanel.add(matchingResultsChartPanel);
-					graphJPanel.setVisible(true);  
-					
+					graphJPanel.setVisible(true);  */
+
 					sbMatchingResults.append("\n");
+					sbMatchingResults.append("Weighted Sequential: \n");
 					sbMatchingResults.append("F-measure: " + fMeasureValue);
 					sbMatchingResults.append("\n");
 					sbMatchingResults.append("Precision: " + precisionValue);
@@ -1631,124 +2836,421 @@ public class ComposeGUIMainMenu extends JFrame {
 					sbMatchingResults.append("Recall: " + recallValue);
 
 					matchingResultsPane.setText(sbMatchingResults.toString());
-					
+
 				}
-				
+
+				if (chckbxParallelSimpleVote.isSelected()) {
+
+					Alignment computedAlignment = null;
+					String simpleVoteCompositionAlignmentFileName = "./files/GUITest/alignments/SimpleVoteComposition.rdf";
+					Set<Alignment> alignments = new HashSet<Alignment>();
+
+
+					//get the alignment files involved
+					if (checkBoxCompoundMatcher.isSelected()) {	
+						Alignment cAlignment = null;
+						try {
+							cAlignment = aparser.parse(new URI("file:"+compoundAlignmentFileName));
+						} catch (AlignmentException | URISyntaxException e1) {
+							e1.printStackTrace();
+						}
+						alignments.add(cAlignment);
+					}
+
+					if (checkBoxParentMatcher.isSelected()) {
+						Alignment parAlignment = null;
+						try {
+							parAlignment = aparser.parse(new URI("file:"+parentMatcherAlignmentFileName));
+						} catch (AlignmentException | URISyntaxException e1) {
+							e1.printStackTrace();
+						}
+						alignments.add(parAlignment);
+					}
+
+					if (checkBoxAncestorMatcher.isSelected()) {
+						Alignment ancAlignment = null;
+						try {
+							ancAlignment = aparser.parse(new URI("file:"+ancestorMatcherAlignmentFileName));
+						} catch (AlignmentException | URISyntaxException e1) {
+							e1.printStackTrace();
+						}
+						alignments.add(ancAlignment);
+					}
+
+					if (checkBoxWordNetMatcher.isSelected()) {
+						Alignment wnAlignment = null;
+						try {
+							wnAlignment = aparser.parse(new URI("file:"+wordNetMatcherAlignmentFileName));
+						} catch (AlignmentException | URISyntaxException e1) {
+							e1.printStackTrace();
+						}
+						alignments.add(wnAlignment);
+					}
+
+					try {
+						computedAlignment = ParallelComposition.simpleVote(alignments);
+					} catch (AlignmentException e2) {
+						e2.printStackTrace();
+					}
+
+
+					outputAlignment = new File(simpleVoteCompositionAlignmentFileName);
+
+					try {
+						writer = new PrintWriter(
+								new BufferedWriter(
+										new FileWriter(outputAlignment)), true);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					} 
+					renderer = new RDFRendererVisitor(writer);
+
+					BasicAlignment svAlignment = (BasicAlignment)(computedAlignment.clone());
+
+					try {
+						svAlignment.cut(threshold);
+					} catch (AlignmentException e1) {
+						e1.printStackTrace();
+					}
+
+					try {
+						svAlignment.render(renderer);
+					} catch (AlignmentException e1) {
+						e1.printStackTrace();
+					}
+					writer.flush();
+					writer.close();
+
+
+
+
+					//evaluate computed alignment
+					aparser = new AlignmentParser(0);
+
+					Alignment referenceAlignment = null;
+					try {
+						referenceAlignment = aparser.parse(new URI("file:"+refAlignFile));
+					} catch (AlignmentException | URISyntaxException e1) {
+						e1.printStackTrace();
+					}
+
+					Alignment evaluatedAlignment = null;
+					try {
+						evaluatedAlignment = aparser.parse(new URI("file:"+simpleVoteCompositionAlignmentFileName));
+					} catch (AlignmentException | URISyntaxException e1) {
+
+						e1.printStackTrace();
+					}
+					Properties p = new Properties();
+
+					PRecEvaluator eval = null;
+					try {
+						eval = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+					} catch (AlignmentException e1) {
+
+						e1.printStackTrace();
+					}
+
+					try {
+						eval.eval(p);
+					} catch (AlignmentException e1) {
+						e1.printStackTrace();
+					}
+
+					//evaluation
+					double fMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+					double precisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+					double recallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+
+					String precision = "Precision";        
+					String recall = "Recall";        
+					String fMeasure = "F-Measure";
+
+					dataset.addValue( precisionValue , "Simple Vote" , precision );        
+					dataset.addValue( recallValue , "Simple Vote" , recall );        
+					dataset.addValue( fMeasureValue , "Simple Vote" , fMeasure );  
+
+					sbMatchingResults.append("\n");
+					sbMatchingResults.append("Simple Vote: \n");
+					sbMatchingResults.append("F-measure: " + fMeasureValue);
+					sbMatchingResults.append("\n");
+					sbMatchingResults.append("Precision: " + precisionValue);
+					sbMatchingResults.append("\n");
+					sbMatchingResults.append("Recall: " + recallValue);
+
+					matchingResultsPane.setText(sbMatchingResults.toString());
+
+				}
+
+				if (chckbxParallelPrioritised.isSelected()) {
+
+					//get the priorities
+					int compoundPriority = Integer.parseInt(textFieldCompoundMatcherPriority.getText());
+					int parentMatcherPriority = Integer.parseInt(textFieldParentMatcherPriority.getText());
+					int ancestorMatcherPriority = Integer.parseInt(textFieldAncestorMatcherPriority.getText());
+					int wordNetMatcherPriority = Integer.parseInt(textFieldWordNetMatcherPriority.getText());
+
+					Alignment computedAlignment = null;
+					String parallelPrioritisedCompositionAlignmentFileName = "./files/GUITest/alignments/ParallelPriorityComposition.rdf";
+
+					ArrayList<File> alignmentFiles = new ArrayList<File>();
+
+					//get the alignment files involved
+					if (checkBoxCompoundMatcher.isSelected()) {
+						File f = new File(compoundAlignmentFileName);
+						alignmentFiles.add(f);
+					}
+
+					if (checkBoxParentMatcher.isSelected()) {
+						File f = new File(parentMatcherAlignmentFileName);
+						alignmentFiles.add(f);
+					}
+
+					if (checkBoxAncestorMatcher.isSelected()) {
+						File f = new File(ancestorMatcherAlignmentFileName);
+						alignmentFiles.add(f);
+					}
+
+					if (checkBoxWordNetMatcher.isSelected()) {
+						File f = new File(wordNetMatcherAlignmentFileName);
+						alignmentFiles.add(f);
+					}
+
+					if (alignmentFiles.size() == 3) {
+						try {
+							if (compoundPriority == 1) {
+								computedAlignment = ParallelComposition.completeMatchWithPriority3(alignmentFiles.get(0), alignmentFiles.get(1), alignmentFiles.get(2));
+							} else if (parentMatcherPriority == 1) {
+								computedAlignment = ParallelComposition.completeMatchWithPriority3(alignmentFiles.get(1), alignmentFiles.get(0), alignmentFiles.get(2));
+							} else  {
+								computedAlignment = ParallelComposition.completeMatchWithPriority3(alignmentFiles.get(2), alignmentFiles.get(0), alignmentFiles.get(1));	
+							}
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+					} else {
+						try {
+							if (compoundPriority == 1) {
+								computedAlignment = ParallelComposition.completeMatchWithPriority4(alignmentFiles.get(0), alignmentFiles.get(1), alignmentFiles.get(2), alignmentFiles.get(3));
+							} else if (parentMatcherPriority == 1) {
+								computedAlignment = ParallelComposition.completeMatchWithPriority4(alignmentFiles.get(1), alignmentFiles.get(0), alignmentFiles.get(2), alignmentFiles.get(3));
+							} else if (ancestorMatcherPriority == 1) {
+								computedAlignment = ParallelComposition.completeMatchWithPriority4(alignmentFiles.get(2), alignmentFiles.get(0), alignmentFiles.get(1), alignmentFiles.get(3));
+							} else {
+								computedAlignment = ParallelComposition.completeMatchWithPriority4(alignmentFiles.get(3), alignmentFiles.get(0), alignmentFiles.get(1), alignmentFiles.get(2));
+							}
+						} catch (AlignmentException e1) {
+							e1.printStackTrace();
+						}
+					}
+
+					outputAlignment = new File(parallelPrioritisedCompositionAlignmentFileName);
+
+					try {
+						writer = new PrintWriter(
+								new BufferedWriter(
+										new FileWriter(outputAlignment)), true);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					} 
+					renderer = new RDFRendererVisitor(writer);
+
+					BasicAlignment ppAlignment = (BasicAlignment)(computedAlignment.clone());
+
+					try {
+						ppAlignment.cut(threshold);
+					} catch (AlignmentException e1) {
+						e1.printStackTrace();
+					}
+
+					try {
+						ppAlignment.render(renderer);
+					} catch (AlignmentException e1) {
+						e1.printStackTrace();
+					}
+					writer.flush();
+					writer.close();
+
+
+
+
+					//evaluate computed alignment
+					aparser = new AlignmentParser(0);
+
+					Alignment referenceAlignment = null;
+					try {
+						referenceAlignment = aparser.parse(new URI("file:"+refAlignFile));
+					} catch (AlignmentException | URISyntaxException e1) {
+						e1.printStackTrace();
+					}
+
+					Alignment evaluatedAlignment = null;
+					try {
+						evaluatedAlignment = aparser.parse(new URI("file:"+parallelPrioritisedCompositionAlignmentFileName));
+					} catch (AlignmentException | URISyntaxException e1) {
+
+						e1.printStackTrace();
+					}
+					Properties p = new Properties();
+
+					PRecEvaluator eval = null;
+					try {
+						eval = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
+					} catch (AlignmentException e1) {
+
+						e1.printStackTrace();
+					}
+
+					try {
+						eval.eval(p);
+					} catch (AlignmentException e1) {
+						e1.printStackTrace();
+					}
+
+					//evaluation
+					double fMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
+					double precisionValue = round(Double.parseDouble(eval.getResults().getProperty("precision").toString()), 2);
+					double recallValue = round(Double.parseDouble(eval.getResults().getProperty("recall").toString()), 2);
+
+					String precision = "Precision";        
+					String recall = "Recall";        
+					String fMeasure = "F-Measure";
+
+					dataset.addValue( precisionValue , "Priority" , precision );        
+					dataset.addValue( recallValue , "Priority" , recall );        
+					dataset.addValue( fMeasureValue , "Priority" , fMeasure );  
+
+
+					sbMatchingResults.append("\n");
+					sbMatchingResults.append("Parallel Priority: \n");
+					sbMatchingResults.append("F-measure: " + fMeasureValue);
+					sbMatchingResults.append("\n");
+					sbMatchingResults.append("Precision: " + precisionValue);
+					sbMatchingResults.append("\n");
+					sbMatchingResults.append("Recall: " + recallValue);
+
+					matchingResultsPane.setText(sbMatchingResults.toString());
+
+
+
+
+				}
+
+				//add chart
+				JFreeChart chart = ChartFactory.createBarChart("", "", "", dataset, PlotOrientation.VERTICAL, true, false, false);
+				chart.setBorderVisible(true);
+				CategoryPlot cp = chart.getCategoryPlot();
+				cp.setBackgroundPaint(Color.white);
+
+				ChartPanel matchingResultsChartPanel = new ChartPanel((JFreeChart) chart);
+				matchingResultsChartPanel.setBorder(null);
+				Dimension matchingResultsDimension = new Dimension();
+				matchingResultsDimension.setSize(362, 224);
+				matchingResultsChartPanel.setPreferredSize(matchingResultsDimension);
+				graphJPanel.add(matchingResultsChartPanel);
+				graphJPanel.setVisible(true);  
+
 			}
 		});
+
+
+
+
 		btnEvaluate.setToolTipText("");
 		btnEvaluate.setBounds(6, 623, 153, 29);
-		panelSimpleMatching.add(btnEvaluate);
+		panelsubsumptionMatching.add(btnEvaluate);
 
 
 
 		//labels
 		JLabel lblUploadFiles = new JLabel("Upload files");
-		lblUploadFiles.setForeground(new Color(255, 102, 0));
+		lblUploadFiles.setForeground(Color.RED);
 		lblUploadFiles.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		lblUploadFiles.setBounds(20, 13, 133, 16);
-		panelSimpleMatching.add(lblUploadFiles);
+		panelsubsumptionMatching.add(lblUploadFiles);
 
 		JLabel matchersLabel = new JLabel("Select Matchers");
 		matchersLabel.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		matchersLabel.setForeground(new Color(255, 102, 0));
+		matchersLabel.setForeground(Color.RED);
 		matchersLabel.setBounds(20, 150, 139, 16);
-		panelSimpleMatching.add(matchersLabel);
+		panelsubsumptionMatching.add(matchersLabel);
 
 
 		JLabel individualProfilesLabel = new JLabel("Ontology Profiles ");
-		individualProfilesLabel.setForeground(new Color(255, 102, 0));
+		individualProfilesLabel.setForeground(Color.RED);
 		individualProfilesLabel.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		individualProfilesLabel.setBounds(713, 18, 299, 16);
-		panelSimpleMatching.add(individualProfilesLabel);
+		individualProfilesLabel.setBounds(713, 13, 299, 16);
+		panelsubsumptionMatching.add(individualProfilesLabel);
 
 		JLabel matchingResultsLabel = new JLabel("Evaluation Results");
-		matchingResultsLabel.setForeground(new Color(255, 102, 0));
+		matchingResultsLabel.setForeground(Color.RED);
 		matchingResultsLabel.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		matchingResultsLabel.setBounds(748, 400, 132, 16);
-		panelSimpleMatching.add(matchingResultsLabel);
+		matchingResultsLabel.setBounds(748, 377, 132, 16);
+		panelsubsumptionMatching.add(matchingResultsLabel);
 
 		JLabel lblConfidence = new JLabel("Choose Confidence threshold");
 		lblConfidence.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		lblConfidence.setForeground(new Color(255, 102, 0));
+		lblConfidence.setForeground(Color.RED);
 		lblConfidence.setBounds(197, 150, 218, 16);
-		panelSimpleMatching.add(lblConfidence);
+		panelsubsumptionMatching.add(lblConfidence);
 
-		JLabel labelSameDomainConstraint = new JLabel("Same domain?");
+		JLabel labelSameDomainConstraint = new JLabel("Enforce same domain constraint");
 		labelSameDomainConstraint.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		labelSameDomainConstraint.setToolTipText("The \"Same Domain Constraint\" adds confidence if two concepts from the ontologies being matched are associated with the same WordNet Domain and reduces confidence if they aren´t");
-		labelSameDomainConstraint.setForeground(new Color(255, 102, 0));
-		labelSameDomainConstraint.setBounds(39, 374, 109, 16);
-		panelSimpleMatching.add(labelSameDomainConstraint);
+		labelSameDomainConstraint.setForeground(Color.RED);
+		labelSameDomainConstraint.setBounds(39, 374, 163, 16);
+		panelsubsumptionMatching.add(labelSameDomainConstraint);
 
-		JLabel lblPriority = new JLabel("Set Priority");
-		lblPriority.setForeground(new Color(255, 102, 0));
+		JLabel lblPriority = new JLabel("Set Priority (0 if not included)");
+		lblPriority.setForeground(Color.RED);
 		lblPriority.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		lblPriority.setBounds(486, 150, 104, 16);
-		panelSimpleMatching.add(lblPriority);
+		lblPriority.setBounds(446, 150, 147, 16);
+		panelsubsumptionMatching.add(lblPriority);
 
-		textFieldCompoundMatcherPriority = new JTextField();
-		textFieldCompoundMatcherPriority.setBounds(489, 168, 45, 26);
-		panelSimpleMatching.add(textFieldCompoundMatcherPriority);
-		textFieldCompoundMatcherPriority.setColumns(10);
 
-		textFieldParentMatcherPriority = new JTextField();
-		textFieldParentMatcherPriority.setColumns(10);
-		textFieldParentMatcherPriority.setBounds(489, 217, 45, 26);
-		panelSimpleMatching.add(textFieldParentMatcherPriority);
-
-		textFieldAncestorMatcherPriority = new JTextField();
-		textFieldAncestorMatcherPriority.setColumns(10);
-		textFieldAncestorMatcherPriority.setBounds(489, 267, 45, 26);
-		panelSimpleMatching.add(textFieldAncestorMatcherPriority);
-
-		textFieldWordNetMatcherPriority = new JTextField();
-		textFieldWordNetMatcherPriority.setColumns(10);
-		textFieldWordNetMatcherPriority.setBounds(489, 317, 45, 26);
-		panelSimpleMatching.add(textFieldWordNetMatcherPriority);
 
 		JLabel lblComposition = new JLabel("Select Composition ");
-		lblComposition.setForeground(new Color(255, 102, 0));
+		lblComposition.setForeground(Color.RED);
 		lblComposition.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		lblComposition.setBounds(20, 435, 395, 16);
-		panelSimpleMatching.add(lblComposition);
+		lblComposition.setBounds(20, 443, 395, 16);
+		panelsubsumptionMatching.add(lblComposition);
 
-		
+
 
 		JLabel lblComputeOntologyProfile = new JLabel("Compute ontology profile");
-		lblComputeOntologyProfile.setForeground(new Color(255, 102, 0));
+		lblComputeOntologyProfile.setForeground(Color.RED);
 		lblComputeOntologyProfile.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		lblComputeOntologyProfile.setBounds(318, 13, 194, 16);
-		panelSimpleMatching.add(lblComputeOntologyProfile);
+		panelsubsumptionMatching.add(lblComputeOntologyProfile);
 
 		JLabel lblConfigureAutomatically = new JLabel("Automatic matcher configuration");
 		lblConfigureAutomatically.setToolTipText("The \"Same Domain Constraint\" adds confidence if two concepts from the ontologies being matched are associated with the same WordNet Domain and reduces confidence if they aren´t");
-		lblConfigureAutomatically.setForeground(new Color(255, 102, 0));
+		lblConfigureAutomatically.setForeground(Color.RED);
 		lblConfigureAutomatically.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		lblConfigureAutomatically.setBounds(352, 74, 182, 16);
-		panelSimpleMatching.add(lblConfigureAutomatically);
+		lblConfigureAutomatically.setBounds(340, 74, 182, 16);
+		panelsubsumptionMatching.add(lblConfigureAutomatically);
 
 		JCheckBox checkBoxConfigureMatchersAutomatically = new JCheckBox("");
-		checkBoxConfigureMatchersAutomatically.setBounds(320, 70, 37, 23);
-		panelSimpleMatching.add(checkBoxConfigureMatchersAutomatically);
+		checkBoxConfigureMatchersAutomatically.setBounds(310, 70, 37, 23);
+		panelsubsumptionMatching.add(checkBoxConfigureMatchersAutomatically);
 
 		JLabel lblrequiresMin = new JLabel("(Requires min 3 alignments)");
 		lblrequiresMin.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		lblrequiresMin.setForeground(new Color(255, 102, 0));
+		lblrequiresMin.setForeground(Color.RED);
 		lblrequiresMin.setBounds(259, 472, 194, 16);
-		panelSimpleMatching.add(lblrequiresMin);
+		panelsubsumptionMatching.add(lblrequiresMin);
 
 		JLabel label = new JLabel("(Requires min 3 alignments)");
 		label.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		label.setForeground(new Color(255, 102, 0));
+		label.setForeground(Color.RED);
 		label.setBounds(259, 503, 194, 16);
-		panelSimpleMatching.add(label);
+		panelsubsumptionMatching.add(label);
 
 		JLabel label_1 = new JLabel("(Requires min 3 alignments)");
 		label_1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		label_1.setForeground(new Color(255, 102, 0));
+		label_1.setForeground(Color.RED);
 		label_1.setBounds(259, 537, 194, 16);
-		panelSimpleMatching.add(label_1);
+		panelsubsumptionMatching.add(label_1);
 
 
 	}
