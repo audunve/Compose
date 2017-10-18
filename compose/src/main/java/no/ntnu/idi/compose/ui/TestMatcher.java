@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Properties;
 
@@ -19,49 +18,49 @@ import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owl.align.AlignmentVisitor;
-import org.semanticweb.owl.align.Evaluator;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import compose.graph.GraphCreator;
+import compose.matchers.AncestorMatcher;
 import compose.matchers.CompoundMatcher;
+import compose.matchers.EditMatcher;
 import compose.matchers.ISubMatcher;
 import compose.matchers.InstanceMatcher;
+import compose.matchers.ParentMatcher;
 import compose.matchers.PropEq_String_Matcher;
 import compose.matchers.PropEq_WordNet_Matcher;
+import compose.matchers.SubclassMatcher;
 import compose.matchers.Subsumption_WordNet_Matcher;
 import compose.matchers.WordNetMatcher;
-import compose.matchers.SubclassMatcher;
-import compose.matchers.AncestorMatcher;
-import compose.matchers.ParentMatcher;
-import compose.matchers.Subsumption_Structural_Matcher;
-import fr.inrialpes.exmo.align.impl.BasicAlignment;
-import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
-import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
-import fr.inrialpes.exmo.align.parser.AlignmentParser;
 import compose.misc.StringUtils;
+import fr.inrialpes.exmo.align.impl.BasicAlignment;
+import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 
 
 public class TestMatcher {
 	
-	static Logger logger = LoggerFactory.getLogger(AncestorMatcher.class);
+	//static Logger logger = LoggerFactory.getLogger(AncestorMatcher.class);
 
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException, OWLOntologyCreationException {
 		
-		logger.info("Hello from TestMatcher");
+		//logger.info("Hello from TestMatcher");
 
 		/*** 1. SELECT THE MATCHER TO BE RUN ***/
-		final String MATCHER = "INSTANCE";
+		final String MATCHER = "STRING";
 
 		/*** 2. SELECT THE TWO ONTOLOGIES TO BE MATCHED ***/
-		File ontoFile1 = new File("./files/OAEI-16-conference/ontologies/Conference.owl");
-		File ontoFile2 = new File("./files/OAEI-16-conference/ontologies/ekaw.owl");
-//		File ontoFile1 = new File("./files/PathMatcher/PathMatcher1.owl");
-//		File ontoFile2 = new File("./files/PathMatcher/PathMatcher2.owl");
+		//File ontoFile1 = new File("./files/wndomainexperiment/SchemaOrg/schema-org.owl");
+		//File ontoFile2 = new File("./files/wndomainexperiment/efrbroo.owl");
+		
+		File ontoFile1 = new File("./files/BEST/airm_mono.owl");
+		File ontoFile2 = new File("./files/BEST/aixm_airportheliport.owl");
+		//File ontoFile1 = new File("./files/Path/schema-org.owl");
+		//File ontoFile2 = new File("./files/Path/schema-org.owl");
+		
+		
 		
 		/*** 3. SELECT THE NEO4J DATABASE FILE (FOR THE STRUCTURAL MATCHERS ONLY) ***/
 		final File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/biblio-bibo2");
@@ -86,14 +85,17 @@ public class TestMatcher {
 
 		case "STRING":
 			a = new ISubMatcher();
-			threshold = 0.1;
+			//a = new EditMatcher();
+			threshold = 0.8;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
 			params = new Properties();
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
+			
+			System.err.println("The a alignment contains " + a.nbCells() + " correspondences");
 
-			alignmentFileName = "./files/Path/String.rdf";
+			alignmentFileName = "./files/BEST/alignments/" + onto1 + "-" + onto2 + "-String.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -103,10 +105,14 @@ public class TestMatcher {
 			renderer = new RDFRendererVisitor(writer);
 
 			BasicAlignment StringAlignment = (BasicAlignment)(a.clone());
+			
+			
 
 			StringAlignment.cut(threshold);
 
 			StringAlignment.render(renderer);
+			
+			System.err.println("The StringAlignment contains " + StringAlignment.nbCells() + " correspondences");
 			writer.flush();
 			writer.close();
 
@@ -124,7 +130,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/UoA/test/" + onto1 + "-" + onto2 + "/Instances.rdf";
+			//alignmentFileName = "./files/UoA/test/" + onto1 + "-" + onto2 + "/Instances.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -156,7 +162,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/OAEI-16-conference/alignments/" + onto1 + "-" + onto2 + "/COMPOSE-ClassEq_WordNet.rdf";
+			alignmentFileName = "./files/COMPOSE-ClassEq_WordNet.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -193,7 +199,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 			
-			alignmentFileName = "./files/OAEI2011/" + onto1 + "-" + onto2 + "/COMPOSE-ClassEq_Graph.rdf";		
+			//alignmentFileName = "./files/OAEI2011/" + onto1 + "-" + onto2 + "/COMPOSE-ClassEq_Graph.rdf";		
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -323,7 +329,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/OAEI-16-conference/alignments/" + onto1 + "-" + onto2 + "/COMPOSE-Subsumption_String.rdf";		
+			//alignmentFileName = "./files/OAEI-16-conference/alignments/" + onto1 + "-" + onto2 + "/COMPOSE-Subsumption_String.rdf";		
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -355,7 +361,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/OAEI-16-conference/alignments/" + onto1 + "-" + onto2 + "/Subsumption_WordNet.rdf";	
+			//alignmentFileName = "./files/OAEI-16-conference/alignments/" + onto1 + "-" + onto2 + "/Subsumption_WordNet.rdf";	
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -386,7 +392,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/PropEq_WordNet2.rdf";
+			//alignmentFileName = "./files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/PropEq_WordNet2.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -416,7 +422,7 @@ public class TestMatcher {
 			params.setProperty("", "");
 			a.align((Alignment)null, params);	
 
-			alignmentFileName = "./files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/PropEq_String.rdf";
+			//alignmentFileName = "./files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/PropEq_String.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 

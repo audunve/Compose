@@ -17,7 +17,7 @@ import fr.inrialpes.exmo.ontowrap.OntowrapException;
  */
 public class ISubMatcher extends ObjectAlignment implements AlignmentProcess {
 
-	static ISub isubMatcher = new ISub();
+	ISub isubMatcher = new ISub();
 
 	public void align(Alignment alignment, Properties param) throws AlignmentException {
 

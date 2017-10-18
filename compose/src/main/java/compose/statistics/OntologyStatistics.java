@@ -30,9 +30,9 @@ import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
 
 import compose.misc.StringUtils;
-import compose.wordnet.JWNLOperations;
 import compose.wordnet.RiWordNetOperations;
 import compose.wordnet.WNDomain;
+import compose.wordnet.WordNetOperations;
 import fr.inrialpes.exmo.ontosim.string.StringDistances;
 import net.didion.jwnl.JWNLException;
 import rita.RiWordNet;
@@ -417,7 +417,7 @@ public class OntologyStatistics {
 
 		while (itr.hasNext()) {
 			thisClass = itr.next().getIRI().getFragment();
-			if (JWNLOperations.containedInWordNet(thisClass) == true) {
+			if (WordNetOperations.containedInWordNet(thisClass) == true) {
 				classCounter++;
 			}
 		}

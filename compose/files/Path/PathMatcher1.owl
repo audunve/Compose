@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/audunvennesland/ontologies/2017/7/untitled-ontology-365#"
+<rdf:RDF xmlns="http://www.semanticweb.org/audunvennesland/ontologies/2017/7/untitled-ontology-365"
      xml:base="http://www.semanticweb.org/audunvennesland/ontologies/2017/7/untitled-ontology-365"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns"
+     xmlns:owl="http://www.w3.org/2002/07/owl"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema">
     <owl:Ontology rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2017/7/untitled-ontology-366"/>
     
 
@@ -21,68 +21,68 @@
     
 
 
-    <!-- http://www.sintef.no/ontologies&amp;#Best_In_Track_Paper -->
+    <!-- http://www.sintef.no/ontologies/Best_In_Track_Paper -->
 
-    <owl:Class rdf:about="http://www.sintef.no/ontologies&amp;#Best_In_Track_Paper">
-        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies&amp;#Long_Paper"/>
+    <owl:Class rdf:about="http://www.sintef.no/ontologies/Best_In_Track_Paper">
+        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies/Long_Paper"/>
     </owl:Class>
     
 
 
-    <!-- http://www.sintef.no/ontologies&amp;#Conference -->
+    <!-- http://www.sintef.no/ontologies/Conference -->
 
-    <owl:Class rdf:about="http://www.sintef.no/ontologies&amp;#Conference"/>
+    <owl:Class rdf:about="http://www.sintef.no/ontologies/Conference"/>
     
 
 
-    <!-- http://www.sintef.no/ontologies&amp;#FinancialReport -->
+    <!-- http://www.sintef.no/ontologies/FinancialReport -->
 
-    <owl:Class rdf:about="http://www.sintef.no/ontologies&amp;#FinancialReport">
-        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies&amp;#Report"/>
+    <owl:Class rdf:about="http://www.sintef.no/ontologies/FinancialReport">
+        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies/Report"/>
     </owl:Class>
     
 
 
-    <!-- http://www.sintef.no/ontologies&amp;#Long_Paper -->
+    <!-- http://www.sintef.no/ontologies/Long_Paper -->
 
-    <owl:Class rdf:about="http://www.sintef.no/ontologies&amp;#Long_Paper">
-        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies&amp;#Paper"/>
+    <owl:Class rdf:about="http://www.sintef.no/ontologies/Long_Paper">
+        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies/Paper"/>
     </owl:Class>
     
 
 
-    <!-- http://www.sintef.no/ontologies&amp;#Paper -->
+    <!-- http://www.sintef.no/ontologies/Paper -->
 
-    <owl:Class rdf:about="http://www.sintef.no/ontologies&amp;#Paper"/>
+    <owl:Class rdf:about="http://www.sintef.no/ontologies/Paper"/>
     
 
 
-    <!-- http://www.sintef.no/ontologies&amp;#Paper_Author -->
+    <!-- http://www.sintef.no/ontologies/Paper_Author -->
 
-    <owl:Class rdf:about="http://www.sintef.no/ontologies&amp;#Paper_Author">
-        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies&amp;#Person"/>
+    <owl:Class rdf:about="http://www.sintef.no/ontologies/Paper_Author">
+        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies/Person"/>
     </owl:Class>
     
 
 
-    <!-- http://www.sintef.no/ontologies&amp;#Person -->
+    <!-- http://www.sintef.no/ontologies/Person -->
 
-    <owl:Class rdf:about="http://www.sintef.no/ontologies&amp;#Person"/>
+    <owl:Class rdf:about="http://www.sintef.no/ontologies/Person"/>
     
 
 
-    <!-- http://www.sintef.no/ontologies&amp;#Report -->
+    <!-- http://www.sintef.no/ontologies/Report -->
 
-    <owl:Class rdf:about="http://www.sintef.no/ontologies&amp;#Report">
-        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies&amp;#Conference"/>
+    <owl:Class rdf:about="http://www.sintef.no/ontologies/Report">
+        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies/Conference"/>
     </owl:Class>
     
 
 
-    <!-- http://www.sintef.no/ontologies&amp;#Short_Paper -->
+    <!-- http://www.sintef.no/ontologies/Short_Paper -->
 
-    <owl:Class rdf:about="http://www.sintef.no/ontologies&amp;#Short_Paper">
-        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies&amp;#Paper"/>
+    <owl:Class rdf:about="http://www.sintef.no/ontologies/Short_Paper">
+        <rdfs:subClassOf rdf:resource="http://www.sintef.no/ontologies/Paper"/>
     </owl:Class>
     
 
@@ -96,11 +96,11 @@
      -->
 
     <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owlAllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.sintef.no/ontologies&amp;#Conference"/>
-            <rdf:Description rdf:about="http://www.sintef.no/ontologies&amp;#Paper"/>
-            <rdf:Description rdf:about="http://www.sintef.no/ontologies&amp;#Person"/>
+            <rdf:Description rdf:about="http://www.sintef.no/ontologies/Conference"/>
+            <rdf:Description rdf:about="http://www.sintef.no/ontologies/Paper"/>
+            <rdf:Description rdf:about="http://www.sintef.no/ontologies/Person"/>
         </owl:members>
     </rdf:Description>
 </rdf:RDF>

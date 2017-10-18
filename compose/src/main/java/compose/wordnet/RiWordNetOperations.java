@@ -118,12 +118,7 @@ public class RiWordNetOperations {
 			System.out.println(h);
 		}
 		
-		
-		
-		
-		//readWDDomains(wdDomains);
-		
-		
+
 	}
 
 

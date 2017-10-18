@@ -31,7 +31,7 @@ import compose.misc.StringUtils;
  * @author audunvennesland
  * 21. sep. 2017 
  */
-public class Concept {
+public class VectorExtractor {
 
 	/**
 	 * An OWLOntologyManagermanages a set of ontologies. It is the main point
@@ -188,8 +188,6 @@ public class Concept {
 	 * @throws FileNotFoundException
 	 */
 	public static Map<String, ArrayList<Double>> createVectorMap (File vectorFile) throws FileNotFoundException {
-		
-		//System.err.println("createVectorMap: Start creating vectorMap");
 
 		Map<String, ArrayList<Double>> vectorMap = new HashMap<String, ArrayList<Double>>();
 
@@ -202,20 +200,16 @@ public class Concept {
 			String[] strings = line.split(" ");
 
 			String word1 = strings[0];
-			
-			//System.err.println("word1 is " + word1);
 
 			ArrayList<Double> vec = new ArrayList<Double>();
 			for (int i = 1; i < strings.length; i++) {
 				vec.add(Double.valueOf(strings[i]));
 			}
 			vectorMap.put(word1, vec);
-			//System.err.println("Adding " + word1 + " and corresponding vectors to the vectorMap");
 
 		}
 		sc.close();
-		
-		System.err.println("createVectorMap: vectorMap consists of " + vectorMap.size() + " entries");
+
 		return vectorMap;
 	}
 
@@ -232,12 +226,10 @@ public class Concept {
 		ArrayList<Double> labelVectors = new ArrayList<Double>();
 		Map<String, ArrayList<Double>> compoundVectors = new HashMap<String, ArrayList<Double>>();
 		String labelVector = null;
-		//String label = cls.getIRI().getFragment().toString().toLowerCase();
 		String label = cls.getIRI().getFragment().toString();
-		System.out.println("The label is " + label);
 
 		if (!isCompound(label)) {
-			
+
 			String lcLabel = label.toLowerCase();
 
 			if (vectorMap.containsKey(lcLabel)) {
@@ -249,18 +241,17 @@ public class Concept {
 				}
 
 			} else {
-				
+
 				labelVectors = null;
 			}
 
 			labelVector = sb.toString();
 
-		} else {
+		} else if (isCompound(label)) {
 
-			System.out.println("We have a compound in " + label);
-			
 			//get the compounds and check if any of them are in the vector file
 			String[] compounds = label.split("(?<=.)(?=\\p{Lu})");
+
 
 			for (int i = 0; i < compounds.length; i++) {
 				if (vectorMap.containsKey(compounds[i].toLowerCase())) {
@@ -268,26 +259,22 @@ public class Concept {
 
 					compoundVectors.put(compounds[i].toLowerCase(), labelVectors);
 
-					//compute average vectors for all labels
 
 				} else {
 					labelVectors = null;
 				}
 			}
 
+			//we need to create average scores for each vector dimension (i.e. the rows of a vector matrix)
 			ArrayList<Double> avgs = new ArrayList<Double>();
 
-			int numVectors = 0;
+			//get the number (dimension) of vectors for each entry (should be 300)
+			int numVectors = 300;
+			ArrayList<Double> temp = new ArrayList<Double>();
 
-			for (Entry<String, ArrayList<Double>> e : vectorMap.entrySet()) {
-
-				numVectors = e.getValue().size();
-
-			}
-
+			//creating a temporary arraylist<double> that will be used to compute average vectors for each vector
 			for (int i = 0; i < numVectors; i++) {
 
-				ArrayList<Double> temp = new ArrayList<Double>();
 
 				for (Entry<String, ArrayList<Double>> e : compoundVectors.entrySet()) {
 
@@ -297,13 +284,25 @@ public class Concept {
 
 				}
 
+
 				double avg = 0;
 
+				//number of entries to create an average from
+				int entries = temp.size();
+
+				//for each vector (d) in the temporary arraylist
 				for (double d : temp) {
 					avg += d;
+
 				}
 
-				avgs.add(avg);
+				double newAvg = avg/entries;
+
+				//ensure that vectors are not 0.0 or NaN
+				if (newAvg != 0.0 && !Double.isNaN(newAvg)) {
+					avgs.add(newAvg);
+
+				}
 
 			}
 
@@ -316,11 +315,12 @@ public class Concept {
 
 		}
 
-
-
 		return labelVector;
 
+
 	}
+
+
 
 	/**
 	 * Returns the average vector of all tokens represented in the RDFS comment for an OWL class
@@ -339,69 +339,79 @@ public class Concept {
 		String commentVector = null;
 
 		ArrayList<Double> commentVectors = new ArrayList<Double>();
-		
-		if (comment != null) {
 
-		//create tokens from comment
-		ArrayList<String> tokens = StringUtils.tokenize(comment, true);
+		if (comment != null && !comment.isEmpty()) {
 
-		for (String s : tokens) {
-			if (vectorMap.containsKey(s)) {
-				commentVectors = vectorMap.get(s);
+			//create tokens from comment
+			ArrayList<String> tokens = StringUtils.tokenize(comment, true);
 
-				allCommentVectors.put(s, commentVectors);
+			for (String s : tokens) {
+				if (vectorMap.containsKey(s)) {
+					commentVectors = vectorMap.get(s);
 
-			} else {
-				commentVectors = null;
-			}
+					allCommentVectors.put(s, commentVectors);
 
-		}
-
-		ArrayList<Double> avgs = new ArrayList<Double>();
-
-		int numVectors = 0;
-
-		for (Entry<String, ArrayList<Double>> e : vectorMap.entrySet()) {
-
-			numVectors = e.getValue().size();
-
-		}
-
-		for (int i = 0; i < numVectors; i++) {
-
-			ArrayList<Double> temp = new ArrayList<Double>();
-
-			for (Entry<String, ArrayList<Double>> e : allCommentVectors.entrySet()) {
-
-				ArrayList<Double> a = e.getValue();
-
-				temp.add(a.get(i));
+				} else {
+					commentVectors = null;
+				}
 
 			}
 
-			double avg = 0;
+			ArrayList<Double> avgs = new ArrayList<Double>();
 
-			for (double d : temp) {
-				avg += d;
+			int numVectors = 0;
+
+			for (Entry<String, ArrayList<Double>> e : vectorMap.entrySet()) {
+
+				numVectors = e.getValue().size();
+
 			}
 
-			avgs.add(avg);
+			for (int i = 0; i < numVectors; i++) {
 
-		}
+				ArrayList<Double> temp = new ArrayList<Double>();
 
-		for (double d : avgs) {
-			sb.append(Double.toString(round(d, 6)) + " ");
+				for (Entry<String, ArrayList<Double>> e : allCommentVectors.entrySet()) {
 
-		}
+					ArrayList<Double> a = e.getValue();
 
-		commentVector = sb.toString();
+					temp.add(a.get(i));
+
+				}
+
+				double avg = 0;
+
+				int entries = temp.size();
+
+				for (double d : temp) {
+					avg += d;
+				}
+
+				double newAvg = avg/entries;
+
+
+				if (newAvg != 0.0 && !Double.isNaN(newAvg)) {
+					avgs.add(newAvg);
+
+				}
+
+			}
+
+			for (double d : avgs) {
+				sb.append(Double.toString(round(d, 6)) + " ");
+
+			}
+
+			commentVector = sb.toString();
 		} else {
-		commentVector = null;
+			commentVector = null;
 		}
 
 		return commentVector;
 
 	}
+
+
 
 	/**
 	 * Returns a "global vector", that is an average of a label vector and a comment vector
@@ -418,37 +428,61 @@ public class Concept {
 		ArrayList<Double> globalVectors = new ArrayList<Double>();
 		ArrayList<Double> doubles1 = new ArrayList<Double>();
 		ArrayList<Double> doubles2 = new ArrayList<Double>();
-		
-		//won´t happen anyway I think
-		if (labelVector != null) {
-		v1 = labelVector.split(" ");
-		
-		if (v1 != null)
-		for (String s : v1) {
-			doubles1.add(Double.valueOf(s));
-		}
-		
-		}
-		
-		int numVectors = v1.length;
-		
-		if (commentVector!= null) {
-		v2 = commentVector.split(" ");
-		
-		for (String t : v2) {
-			doubles2.add(Double.valueOf(t));
-		}
-		
-		for (int i = 0; i < numVectors; i++) {
-			double average = (doubles1.get(i) + doubles2.get(i)) / 2;
-			globalVectors.add(average);
+
+
+		if (labelVector != null ) {
+			v1 = labelVector.split(" ");
+
+			if (v1 != null) {
+				for (String s : v1) {
+					if (!s.isEmpty()) {
+						doubles1.add(Double.valueOf(s));
+					}
+				}
+			} else {
+				doubles1 = null;
+			}
 
 		}
-		
-		} else {
-			
-			globalVectors = doubles1;
-		}
+
+		int numVectors = 300;
+		//int numVectors = v1.length;
+
+		if (commentVector!= null && !commentVector.isEmpty()) {
+			v2 = commentVector.split(" ");
+
+			for (String t : v2) {
+				if (!t.isEmpty()) {
+					doubles2.add(Double.valueOf(t));
+				} else {
+					doubles2 = null;
+				}
+			}
+
+			double average = 0;
+			for (int i = 0; i < numVectors; i++) {
+				if (doubles1.size() < 1 && doubles2.size() < 1) {
+					sb = null;
+				} else if (doubles1.size() < 1 && doubles2.size() > 0) {
+					average = doubles2.get(i);
+				} else if (doubles1.size() > 0 && doubles2.size() < 1) { 
+					average = doubles1.get(i);
+				} else {
+
+					if (doubles1.get(i) == 0.0) {
+						average = doubles2.get(i);
+					} else if (doubles2.get(i) == 0.0) {
+						average = doubles1.get(i);
+					} else {
+
+						average = (doubles1.get(i) + doubles2.get(i)) / 2;
+					}
+				}
+				globalVectors.add(average);
+
+			}
+
+		} 
 
 
 		for (double d : globalVectors) {
@@ -462,7 +496,6 @@ public class Concept {
 	}
 
 
-
 	/**
 	 * The main method
 	 * @param args
@@ -473,165 +506,71 @@ public class Concept {
 
 		Scanner scanner = new Scanner(new 
 				InputStreamReader(System.in));
-		System.out.println("Enter path to ontology file folder: ");  
 
-		//read a line using scanner object.
+		//read the ontology files folder from console
+		System.out.println("Enter path to ontology file folder: ");  
 		String ontoFileName = scanner.nextLine();
 
+		//read the vector file from console
 		System.out.println("Enter path to vector file:");  
-
-		//read an integer using scanner object.
 		String vectorFileName = scanner.nextLine(); 
-		
+
+		//time with extraction process starts (to present run-time after the process is completed)
 		final long start = System.nanoTime();
 
 		final File ontologyDir = new File(ontoFileName);
 		File[] filesInDir = null;
-		
+
 		filesInDir = ontologyDir.listFiles();
-		
+
 		for (int i = 0; i < filesInDir.length; i++) {
-			
-			System.out.println("Extracting vectors from " + filesInDir[i]);
+
 			//import ontology
 			File ontoFile = new File(filesInDir[i].toString());
 			Map<String, ArrayList<Double>> vectorMap = createVectorMap (new File(vectorFileName));
-			System.out.println("vectorMap created: " + vectorMap.size() + " entries");
 			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 			OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
 			Set<OWLClass> classes = onto.getClassesInSignature();
-			
-			PrintWriter writer = new PrintWriter("vectorOutput" + StringUtils.stripOntologyName(filesInDir[i].toString()) + " .txt");
-			
+
+			PrintWriter writer = new PrintWriter("vectorOutput" + StringUtils.stripOntologyName(filesInDir[i].toString()) + ".txt");
+
 			for (OWLClass cls : classes) {
-				//ensure that only the labels contained in the vector file are represented in the output
-				
-				
-				
-				if (vectorMap.containsKey(cls.getIRI().getFragment().toString().toLowerCase())) {
-					writer.println("conceptUri: " + getConceptURI(cls));
-					//System.out.println("conceptUri: " + getConceptURI(cls));
-					writer.println("label: " + getLabel(cls));
-					//System.out.println("label: " + getLabel(cls));
-					String labelVector = getLabelVector(cls, vectorMap);
-					writer.println("label vector: " + labelVector);
-					//System.out.println("label vector: " + labelVector);
-					String commentVector = getCommentVector(onto, cls, vectorMap);
+
+				String labelVector = getLabelVector(cls, vectorMap);
+				String commentVector = getCommentVector(onto, cls, vectorMap);
+
+				//if only label vectors
+					if (labelVector != null && !labelVector.isEmpty()) {
+
+						writer.println("conceptUri: " + getConceptURI(cls));
+						writer.println("label: " + getLabel(cls));
+						writer.println("label vector: " + labelVector);
 					
-					
-					if (commentVector != null) {
-					writer.println("comment: " + getComment(onto, cls));
-					//System.out.println("comment: " + getComment(onto, cls));
-					writer.println("comment vector: " + commentVector);
-					//System.out.println("comment vector: " + commentVector);
-					writer.println("global vector: " +getGlobalVector(labelVector, commentVector));
-					//System.out.println("global vector: " +getGlobalVector(labelVector, commentVector));
-					}
-					writer.println("\n");
-					
-				} else {
-					//System.out.println("Label not found in vectorMap:");
-					//System.out.println("Class: " + cls.getIRI().getFragment().toString().toLowerCase());
+						//if only comment vectors
+						if (commentVector != null && !commentVector.isEmpty()) {
+							writer.println("comment: " + getComment(onto, cls));
+							writer.println("comment vector: " + commentVector);
+							writer.println("global vector: " +getGlobalVector(labelVector, commentVector));
+							writer.println("\n");
 						
+					} else {
+
+					writer.println("\n");
+					}
+					}
+
 				}
-				
-				
+				writer.flush();
+				writer.close();
+
 			}
-			
-			//System.out.println("Vectors keys look like this: ");
-			//for (Entry<String, ArrayList<Double>> e : vectorMap.entrySet()) {
-			//	System.out.println(e.getKey());
-			//}
-			writer.flush();
-			writer.close();
-			
+		
 			System.out.println("Vectors created!");
 
 			final long duration = System.nanoTime() - start;
 			long sec = duration/1000000000;
-			
+
 			System.out.println("The vector extraction took " + sec + " seconds");
-			
-			
 		}
-		
-		/*//import ontology
-		File ontoFile = new File(ontoFileName);
-		Map<String, ArrayList<Double>> vectorMap = createVectorMap (new File(vectorFileName));
-		
-		System.out.println("vectorMap created: " + vectorMap.size() + " entries");
 
-		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
-
-		Set<OWLClass> classes = onto.getClassesInSignature();
-		
-		//System.out.println("Ontology parsed: " + classes.size() + " classes");
-		
-		PrintWriter writer = new PrintWriter("vectorOutput.txt");
-		
-		
-		
-		for (OWLClass cls : classes) {
-			//ensure that only the labels contained in the vector file are represented in the output
-			
-			
-			
-			if (vectorMap.containsKey(cls.getIRI().getFragment().toString().toLowerCase())) {
-				writer.println("conceptUri: " + getConceptURI(cls));
-				//System.out.println("conceptUri: " + getConceptURI(cls));
-				writer.println("label: " + getLabel(cls));
-				//System.out.println("label: " + getLabel(cls));
-				String labelVector = getLabelVector(cls, vectorMap);
-				writer.println("label vector: " + labelVector);
-				//System.out.println("label vector: " + labelVector);
-				String commentVector = getCommentVector(onto, cls, vectorMap);
-				writer.println("comment: " + getComment(onto, cls));
-				//System.out.println("comment: " + getComment(onto, cls));
-				writer.println("comment vector: " + commentVector);
-				//System.out.println("comment vector: " + commentVector);
-				writer.println("global vector: " +getGlobalVector(labelVector, commentVector));
-				//System.out.println("global vector: " +getGlobalVector(labelVector, commentVector));
-				writer.println("\n");
-				
-			} else {
-				//System.out.println("Label not found in vectorMap:");
-				//System.out.println("Class: " + cls.getIRI().getFragment().toString().toLowerCase());
-					
-			}
-			
-			
-		}
-		
-		//System.out.println("Vectors keys look like this: ");
-		//for (Entry<String, ArrayList<Double>> e : vectorMap.entrySet()) {
-		//	System.out.println(e.getKey());
-		//}
-		writer.flush();
-		writer.close();
-		
-		System.out.println("Vectors created!");
-
-		final long duration = System.nanoTime() - start;
-		long sec = duration/1000000000;
-		
-		System.out.println("The vector extraction took " + sec + " seconds");
-
-
-		for (OWLClass cls : classes) {
-			//ensure that only the labels contained in the vector file are represented in the output
-			if (vectorMap.containsKey(cls.getIRI().getFragment().toString().toLowerCase())) {
-				System.out.println("conceptUri: " + getConceptURI(cls));
-				System.out.println("label: " + getLabel(cls));
-				String labelVector = getLabelVector(cls, vectorMap);
-				System.out.println("label vector: " + labelVector);
-				String commentVector = getCommentVector(onto, cls, vectorMap);
-				System.out.println("comment: " + getComment(onto, cls));
-				System.out.println("comment vector: " + commentVector);
-				System.out.println("global vector: " +getGlobalVector(labelVector, commentVector));
-				System.out.println("\n");
-			}
-		}*/
 	}
-
-}

@@ -10,180 +10,20 @@
   <type>**</type>
   <alext:method>compose.matchers.CompoundMatcher#clone</alext:method>
   <onto1>
-    <Ontology rdf:about="http://cmt">
-      <location>file:/Users/audunvennesland/Documents/ontologies/cmt.owl</location>
+    <Ontology rdf:about="http://topbraid.org/schema/">
+      <location>file:/Users/audunvennesland/Documents/PhD/Ontologies/Schema.org/schema.rdf</location>
       <formalism>
         <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
       </formalism>
     </Ontology>
   </onto1>
   <onto2>
-    <Ontology rdf:about="http://confOf">
-      <location>file:/Users/audunvennesland/Documents/ontologies/confOf.owl</location>
+    <Ontology rdf:about="http://www.disit.org/km4city/schema/">
+      <location>file:/Users/audunvennesland/Documents/PhD/Ontologies/Smart%20Cities/KM4City/km4c-1-1.owl</location>
       <formalism>
         <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
       </formalism>
     </Ontology>
   </onto2>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#ExternalReviewer'/>
-      <entity2 rdf:resource='http://confOf#Author'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#ProgramCommitteeMember'/>
-      <entity2 rdf:resource='http://confOf#Member'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#ProgramCommitteeMember'/>
-      <entity2 rdf:resource='http://confOf#Participant'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#ConferenceMember'/>
-      <entity2 rdf:resource='http://confOf#Conference'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#ConferenceMember'/>
-      <entity2 rdf:resource='http://confOf#Member'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#ConferenceMember'/>
-      <entity2 rdf:resource='http://confOf#Participant'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#PaperFullVersion'/>
-      <entity2 rdf:resource='http://confOf#Paper'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#Reviewer'/>
-      <entity2 rdf:resource='http://confOf#Author'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#Person'/>
-      <entity2 rdf:resource='http://confOf#Science_Worker'/>
-      <relation>></relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#Person'/>
-      <entity2 rdf:resource='http://confOf#Scholar'/>
-      <relation>></relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#ConferenceChair'/>
-      <entity2 rdf:resource='http://confOf#Conference'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#Bid'/>
-      <entity2 rdf:resource='http://confOf#Contribution'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#Meta-Reviewer'/>
-      <entity2 rdf:resource='http://confOf#Author'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#PaperAbstract'/>
-      <entity2 rdf:resource='http://confOf#Paper'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#User'/>
-      <entity2 rdf:resource='http://confOf#Science_Worker'/>
-      <relation>></relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#User'/>
-      <entity2 rdf:resource='http://confOf#Scholar'/>
-      <relation>></relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#User'/>
-      <entity2 rdf:resource='http://confOf#Person'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#AuthorNotReviewer'/>
-      <entity2 rdf:resource='http://confOf#Author'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#SubjectArea'/>
-      <entity2 rdf:resource='http://confOf#Person'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
-  <map>
-    <Cell>
-      <entity1 rdf:resource='http://cmt#SubjectArea'/>
-      <entity2 rdf:resource='http://confOf#Topic'/>
-      <relation>&lt;</relation>
-      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
-    </Cell>
-  </map>
 </Alignment>
 </rdf:RDF>

@@ -31,15 +31,22 @@ import net.didion.jwnl.dictionary.Dictionary;
 import org.apache.lucene.analysis.Analyzer;
 
 /**
- * Demonstration of the core features of Java WordNet library by John Didion
+ * Methods using the lexicon WordNet. The library used is JWNL.
  *
- * @author Roland Kluge
+ * @author Audun
  *
  */
-public class JWNLOperations
+public class WordNetOperations
 {
 	final static POS pos = POS.NOUN;
 	
+	/**
+	 * Retrieves synsets from WordNet associated with an input word
+	 * @param inputWord The input word for which synsets will be retrieved 
+	 * @return Synsets associated with an input word
+	 * @throws FileNotFoundException
+	 * @throws JWNLException
+	 */
 	public static Synset[] getSynsets (String inputWord) throws FileNotFoundException, JWNLException {
 		
 		JWNL.initialize(new FileInputStream("/Users/audunvennesland/git/Compose/compose/file_property.xml"));
@@ -56,6 +63,13 @@ public class JWNLOperations
 		
 	}
 	
+	/**
+	 * A method that checks if an input word is present in WordNet
+	 * @param inputWord The input word for which presens in WordNet is checked
+	 * @return a boolean stating whether or not the input word resides in WordNet
+	 * @throws FileNotFoundException
+	 * @throws JWNLException
+	 */
 	public static boolean containedInWordNet(String inputWord) throws FileNotFoundException, JWNLException {
 		
 		Synset[] synsets = getSynsets(inputWord);
@@ -71,6 +85,7 @@ public class JWNLOperations
 		
 	}
 	
+/*
 	public static String getDomain(String inputWord) throws JWNLException, FileNotFoundException {
 		
 		
@@ -93,9 +108,9 @@ public class JWNLOperations
 		
 		return domain;
 		
-	}
+	}*/
 	
-	public static void readWDDomains(File file) {
+	/*public static void readWDDomains(File file) {
 
 		FileInputStream fis = null;
 		BufferedInputStream bis = null;
@@ -126,7 +141,7 @@ public class JWNLOperations
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 		
     public static void main(final String[] args) throws FileNotFoundException, JWNLException, OWLOntologyCreationException
     {
