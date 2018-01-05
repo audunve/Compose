@@ -26,7 +26,6 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import compose.graph.GraphCreator;
 import compose.matchers.AncestorMatcher;
 import compose.matchers.CompoundMatcher;
-import compose.matchers.EditMatcher;
 import compose.matchers.ISubMatcher;
 import compose.matchers.InstanceMatcher;
 import compose.matchers.ParentMatcher;
@@ -55,8 +54,8 @@ public class TestMatcher {
 		//File ontoFile1 = new File("./files/wndomainexperiment/SchemaOrg/schema-org.owl");
 		//File ontoFile2 = new File("./files/wndomainexperiment/efrbroo.owl");
 		
-		File ontoFile1 = new File("./files/BEST/airm_mono.owl");
-		File ontoFile2 = new File("./files/BEST/aixm_airportheliport.owl");
+		File ontoFile1 = new File("./files/OAEI2011/301-302/301.rdf");
+		File ontoFile2 = new File("./files/OAEI2011/301-302/302.rdf");
 		//File ontoFile1 = new File("./files/Path/schema-org.owl");
 		//File ontoFile2 = new File("./files/Path/schema-org.owl");
 		
