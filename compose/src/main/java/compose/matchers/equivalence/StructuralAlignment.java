@@ -1,4 +1,4 @@
-package compose.matchers;
+package compose.matchers.equivalence;
 
 import java.io.File;
 import java.io.IOException;

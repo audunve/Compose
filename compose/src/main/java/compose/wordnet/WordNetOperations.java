@@ -39,6 +39,8 @@ import org.apache.lucene.analysis.Analyzer;
 public class WordNetOperations
 {
 	final static POS pos = POS.NOUN;
+
+	
 	
 	/**
 	 * Retrieves synsets from WordNet associated with an input word
@@ -50,37 +52,41 @@ public class WordNetOperations
 	public static Synset[] getSynsets (String inputWord) throws FileNotFoundException, JWNLException {
 		
 		JWNL.initialize(new FileInputStream("/Users/audunvennesland/git/Compose/compose/file_property.xml"));
-	    Dictionary dictionary = Dictionary.getInstance();
+		Dictionary dictionary = Dictionary.getInstance();
 	    
 	    String token = StringUtils.stringTokenize(inputWord, true);
 
 	    IndexWord indexWord = dictionary.lookupIndexWord(pos, token);
 
 		Synset[] synsets = indexWord.getSenses();
-	    
-
+		
 		return synsets;
 		
 	}
 	
 	/**
 	 * A method that checks if an input word is present in WordNet
-	 * @param inputWord The input word for which presens in WordNet is checked
+	 * @param inputWord The input word for which presence in WordNet is checked
 	 * @return a boolean stating whether or not the input word resides in WordNet
 	 * @throws FileNotFoundException
 	 * @throws JWNLException
 	 */
 	public static boolean containedInWordNet(String inputWord) throws FileNotFoundException, JWNLException {
 		
-		Synset[] synsets = getSynsets(inputWord);
+		JWNL.initialize(new FileInputStream("/Users/audunvennesland/git/Compose/compose/file_property.xml"));
+		Dictionary dictionary = Dictionary.getInstance();
 		
-		if (synsets.length > 0)
+		
+		IndexWord indexWord = dictionary.lookupIndexWord(pos, inputWord);
+		
+		
+		if (indexWord == null)
 		{
-			return true;
+			return false;
 		}
 		else
 		{
-			return false;
+			return true;
 		}		
 		
 	}
@@ -146,9 +152,13 @@ public class WordNetOperations
     public static void main(final String[] args) throws FileNotFoundException, JWNLException, OWLOntologyCreationException
     {
     	
-    	String inputWord = "test";
+    	String inputWord = "car";
     	
-    	Synset[] synsets = getSynsets(inputWord);
+    	System.out.println("Is " + inputWord + " contained in WordNet: " + containedInWordNet(inputWord));
+    	
+    	
+    	
+    	/*Synset[] synsets = getSynsets(inputWord);
     	
     	System.out.println("Printing synsets to " + inputWord);
     	for (Synset synset : synsets) {
@@ -188,7 +198,7 @@ public class WordNetOperations
 				 //System.out.println("The domain is " + getDomain(syns[i].toString()));
 			 }
 		}
-		
+		*/
 
 }
 }

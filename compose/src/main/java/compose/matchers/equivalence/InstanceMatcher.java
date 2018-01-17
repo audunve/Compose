@@ -1,4 +1,4 @@
-package compose.matchers;
+package compose.matchers.equivalence;
 
 /*import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;*/

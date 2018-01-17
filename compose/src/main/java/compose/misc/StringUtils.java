@@ -2,56 +2,30 @@ package compose.misc;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.jena.ext.com.google.common.collect.ArrayListMultimap;
-import org.apache.jena.ext.com.google.common.collect.Multimap;
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.StopAnalyzer;
+//import org.apache.lucene.analysis.StopAnalyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
-import org.apache.lucene.analysis.tokenattributes.TermAttribute;
-import org.apache.lucene.util.Version;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.AxiomType;
-import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLAnnotation;
-import org.semanticweb.owlapi.model.OWLAnnotationAssertionAxiom;
-import org.semanticweb.owlapi.model.OWLAxiom;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLDataProperty;
-import org.semanticweb.owlapi.model.OWLEntity;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
-import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import org.semanticweb.owlapi.reasoner.NodeSet;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
-
-import compose.statistics.OntologyStatistics;
 
 public class StringUtils {
 
 	//private static OWLAxiomIndex ontology;
 	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 	static OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
+
+
 
 
 	/**
@@ -284,7 +258,48 @@ public class StringUtils {
 		return stripped;
 	}
 
-	public static String removeStopWordsfromFile(File inputFile) throws IOException {
+	/**
+	 * Returns the full IRI of an input ontology
+	 * @param o the input OWLOntology
+	 * @return the IRI of an OWLOntology
+	 */
+	public static String getOntologyIRI(OWLOntology o) {
+		String ontologyIRI = o.getOntologyID().getOntologyIRI().toString();
+
+		return ontologyIRI;
+	}
+
+	/**
+	 * Convert from a filename to a file URL.
+	 */
+	public static String convertToFileURL ( String filename )
+	{
+
+		String path = new File ( filename ).getAbsolutePath ();
+		if ( File.separatorChar != '/' )
+		{
+			path = path.replace ( File.separatorChar, '/' );
+		}
+		if ( !path.startsWith ( "/" ) )
+		{
+			path = "/" + path;
+		}
+		String retVal =  "file:" + path;
+
+		return retVal;
+	}
+
+	public static String validateRelationType (String relType) {
+		if (relType.equals("<")) {
+			relType = "&lt;";
+		}
+
+		return relType;
+	}
+
+	/* Compatibility problems with Lucene so commenting out these methods until that is solved
+	 * 
+	 * public static String removeStopWordsfromFile(File inputFile) throws IOException {
 
 		StringBuilder tokens = new StringBuilder();
 
@@ -304,7 +319,7 @@ public class StringUtils {
 		return tokenizedText;
 
 	}
-	
+
 	public static String removeStopWordsFromString(String inputText) throws IOException {
 
 		StringBuilder tokens = new StringBuilder();
@@ -321,6 +336,80 @@ public class StringUtils {
 		String tokenizedText = tokens.toString();
 		return tokenizedText;
 
+	}*/
+
+	public static String removeStopWords (String inputString) {
+
+		List<String> stopWordsList = Arrays.asList(
+				"a", "an", "and", "are", "as", "at", "be", "but", "by",
+				"for", "if", "in", "into", "is", "it",
+				"no", "not", "of", "on", "or", "such",
+				"that", "the", "their", "then", "there", "these",
+				"they", "this", "to", "was", "will", "with"
+				);
+
+		String output;
+		String[] words = inputString.split(" ");
+		ArrayList<String> wordsList = new ArrayList<String>();
+		StringBuffer sb = new StringBuffer();
+
+		for(String word : words)
+		{
+			String wordCompare = word.toLowerCase();
+			if(!stopWordsList.contains(wordCompare))
+			{
+				wordsList.add(word);
+			}
+		}
+
+		for (String str : wordsList){
+			sb.append(str + " ");
+		}
+
+		return output = sb.toString();
+	}
+
+	/**
+	 * Takes as input a String and produces an array of Strings from this String
+	 * @param s
+	 * @return result
+	 */
+	public static String[] split(String s) {
+		String[] result = s.split(" ");
+
+		return result;
+	}
+	
+	public static boolean isCompoundWord(String s) {
+		String[] compounds = s.split("(?<=.)(?=\\p{Lu})");
+		
+		if (compounds.length > 1) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
+	public static String getCompoundHead(String s) {
+		String[] compounds = s.split("(?<=.)(?=\\p{Lu})");
+		
+		String compoundHead = compounds[compounds.length-1];
+		
+		return compoundHead;
+	}
+	
+	public static ArrayList<String> getWordsFromCompound (String s) {
+		String[] compounds = s.split("(?<=.)(?=\\p{Lu})");
+		
+		ArrayList<String> compoundWordsList = new ArrayList<String>();
+		
+		for (int i = 0; i < compounds.length; i++) {
+			compoundWordsList.add(compounds[i]);
+		}
+		
+		return compoundWordsList;
+		
 	}
 
 	// ***Methods not in use***
@@ -347,22 +436,14 @@ public class StringUtils {
 		return result;
 	}*/
 
-	/*	*//**
-	 * Takes as input a String and produces an array of Strings from this String
-	 * @param s
-	 * @return result
-	 *//*
-	public static String[] split(String s) {
-		String[] result = s.split(" ");
 
-		return result;
-	}*/
 
 	/*	*//**
 	 * Takes as input two arrays of String and compares each string in one array with each string in the other array if they are equal
 	 * @param s1
 	 * @param s2
 	 * @return results - basically an iterator that counts the number of equal strings in the two arrays
+	 * @throws OWLOntologyCreationException 
 	 *//*
 	public static int commonWords(String[] s1, String[] s2) {
 
@@ -417,7 +498,7 @@ public class StringUtils {
 		return label;
 	}*/
 
-	public static void main(String args[]) {
+	public static void main(String args[]) throws OWLOntologyCreationException {
 		String testString = "motionPicture";
 		String experiment = "biblio-bibo";
 
@@ -440,6 +521,37 @@ public class StringUtils {
 
 		String s = "Testing underscore";
 		System.out.println("Without underscore: " + replaceUnderscore(s));
+
+		File ontoFile = new File("./files/ontologies/BIBO.owl"); 
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager(); 
+		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+
+		String ontoIRI = getOntologyIRI(onto);
+		System.out.println("The IRI of the ontology is " + ontoIRI);
+
+		String relType = "<";
+
+		System.out.println("The relation type is " + relType);
+
+		String newRelType = validateRelationType(relType);
+
+		System.out.println("New relationtype is " + newRelType);
+
+		System.out.println(removeStopWords("Here we go again and if we do not go then we stay put is that not the case?"));
+		
+		String compositeString = "PlaceOfWorship";
+		
+		System.out.println("Is " + compositeString + " a compound: " + isCompoundWord(compositeString));
+		
+		System.out.println("The compound head is " + getCompoundHead(compositeString));
+		
+		System.out.println("Printing all individual words from " + compositeString + " :");
+		
+		ArrayList<String> compoundWordsList = getWordsFromCompound(compositeString);
+		
+		for (String word : compoundWordsList) {
+			System.out.println(word);
+		}
 
 	}
 

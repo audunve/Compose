@@ -8,22 +8,126 @@
   <xml>yes</xml>
   <level>0</level>
   <type>**</type>
-  <alext:method>compose.matchers.CompoundMatcher#clone</alext:method>
+  <alext:method>compose.matchers.subsumption.CompoundMatcher#clone</alext:method>
   <onto1>
-    <Ontology rdf:about="http://topbraid.org/schema/">
-      <location>file:/Users/audunvennesland/Documents/PhD/Ontologies/Schema.org/schema.rdf</location>
+    <Ontology rdf:about="http://oaei.ontologymatching.org/tests/101/onto.rdf">
+      <location>file:/Users/audunvennesland/git/Compose/compose/files/ontologies/Biblio_2015.rdf</location>
       <formalism>
         <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
       </formalism>
     </Ontology>
   </onto1>
   <onto2>
-    <Ontology rdf:about="http://www.disit.org/km4city/schema/">
-      <location>file:/Users/audunvennesland/Documents/PhD/Ontologies/Smart%20Cities/KM4City/km4c-1-1.owl</location>
+    <Ontology rdf:about="http://purl.org/ontology/bibo/">
+      <location>file:/Users/audunvennesland/git/Compose/compose/files/ontologies/BIBO.owl</location>
       <formalism>
         <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
       </formalism>
     </Ontology>
   </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#MastersThesis'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/Thesis'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#PhdThesis'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/Thesis'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#InCollection'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/Collection'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#Book'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/EditedBook'/>
+      <relation>></relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#Book'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/BookSection'/>
+      <relation>></relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#Book'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/MultiVolumeBook'/>
+      <relation>></relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#TechReport'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/Report'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#Reference'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/ReferenceSource'/>
+      <relation>></relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#Part'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/DocumentPart'/>
+      <relation>></relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#Academic'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/AcademicArticle'/>
+      <relation>></relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#Article'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/AcademicArticle'/>
+      <relation>></relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#InBook'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/Book'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/tests/101/onto.rdf#InProceedings'/>
+      <entity2 rdf:resource='http://purl.org/ontology/bibo/Proceedings'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
 </Alignment>
 </rdf:RDF>

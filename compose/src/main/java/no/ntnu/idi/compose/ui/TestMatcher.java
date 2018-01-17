@@ -22,18 +22,15 @@ import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-
 import compose.graph.GraphCreator;
-import compose.matchers.AncestorMatcher;
-import compose.matchers.CompoundMatcher;
-import compose.matchers.ISubMatcher;
-import compose.matchers.InstanceMatcher;
-import compose.matchers.ParentMatcher;
-import compose.matchers.PropEq_String_Matcher;
-import compose.matchers.PropEq_WordNet_Matcher;
-import compose.matchers.SubclassMatcher;
-import compose.matchers.Subsumption_WordNet_Matcher;
-import compose.matchers.WordNetMatcher;
+import compose.matchers.equivalence.ISubMatcher;
+import compose.matchers.equivalence.InstanceMatcher;
+import compose.matchers.equivalence.SuperclassMatcher;
+import compose.matchers.equivalence.WordNetMatcher;
+import compose.matchers.subsumption.AncestorMatcher;
+import compose.matchers.subsumption.CompoundMatcher;
+import compose.matchers.subsumption.ParentMatcher;
+import compose.matchers.subsumption.WNHyponymMatcher;
 import compose.misc.StringUtils;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
@@ -54,8 +51,8 @@ public class TestMatcher {
 		//File ontoFile1 = new File("./files/wndomainexperiment/SchemaOrg/schema-org.owl");
 		//File ontoFile2 = new File("./files/wndomainexperiment/efrbroo.owl");
 		
-		File ontoFile1 = new File("./files/OAEI2011/301-302/301.rdf");
-		File ontoFile2 = new File("./files/OAEI2011/301-302/302.rdf");
+		File ontoFile1 = new File("./files/wndomainsexperiment/bibframe.rdf");
+		File ontoFile2 = new File("./files/wndomainsexperiment/schema-org.owl");
 		//File ontoFile1 = new File("./files/Path/schema-org.owl");
 		//File ontoFile2 = new File("./files/Path/schema-org.owl");
 		
@@ -94,7 +91,7 @@ public class TestMatcher {
 			
 			System.err.println("The a alignment contains " + a.nbCells() + " correspondences");
 
-			alignmentFileName = "./files/BEST/alignments/" + onto1 + "-" + onto2 + "-String.rdf";
+			alignmentFileName = "./files/wndomainsexperiment/alignments/" + onto1 + "-" + onto2 + "-String.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 
@@ -190,7 +187,7 @@ public class TestMatcher {
 			ontologyParameter2 = StringUtils.stripPath(ontoFile2.toString());
 
 			System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to the structural matcher");
-			a = new SubclassMatcher(ontologyParameter1,ontologyParameter2, db);
+			a = new SuperclassMatcher(ontologyParameter1,ontologyParameter2, db);
 			threshold = 0.6;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -219,7 +216,7 @@ public class TestMatcher {
 			System.out.println("Matching completed!");
 			break;
 			
-		case "SUBSUMPTION_SUBCLASS":
+		/*case "SUBSUMPTION_SUBCLASS":
 
 			db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 			registerShutdownHook(db);
@@ -266,7 +263,7 @@ public class TestMatcher {
 
 			System.out.println("Matching completed!");
 			break;
-			
+			*/
 	
 			
 		case "SUBSUMPTION_PATH":
@@ -276,17 +273,16 @@ public class TestMatcher {
 
 			ontologyParameter1 = StringUtils.stripPath(ontoFile1.toString());
 			ontologyParameter2 = StringUtils.stripPath(ontoFile2.toString());
-			System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to Subsumption_Path_Alignment.java");
+			System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to Subsumption_SubClass_Alignment.java");
 			
-
 			//create new graphs
-			manager = OWLManager.createOWLOntologyManager();
-			o1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
-			o2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
-			labelO1 = DynamicLabel.label( ontologyParameter1 );
-			labelO2 = DynamicLabel.label( ontologyParameter2 );
+			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+			OWLOntology o1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
+			OWLOntology o2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
+			Label labelO1 = DynamicLabel.label( ontologyParameter1 );
+			Label labelO2 = DynamicLabel.label( ontologyParameter2 );
 			
-			creator = new GraphCreator(db);
+			GraphCreator creator = new GraphCreator(db);
 			creator.createOntologyGraph(o1, labelO1);
 			creator.createOntologyGraph(o2, labelO2);
 			
@@ -352,7 +348,7 @@ public class TestMatcher {
 
 		case "SUBSUMPTION_WORDNET":
 			
-			a = new Subsumption_WordNet_Matcher();
+			a = new WNHyponymMatcher();
 			threshold = 0.6;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -381,65 +377,9 @@ public class TestMatcher {
 			break;
 			
 
-		case "PROPERTY_WORDNET":
+		
 			
-			a = new PropEq_WordNet_Matcher();
-			threshold = 0.6;
-
-			a.init(ontoFile1.toURI(), ontoFile2.toURI());
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-
-			//alignmentFileName = "./files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/PropEq_WordNet2.rdf";
-
-			outputAlignment = new File(alignmentFileName);
-
-			writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(outputAlignment)), true); 
-			renderer = new RDFRendererVisitor(writer);
-
-			BasicAlignment PropertyWordNet2Alignment = (BasicAlignment)(a.clone());
-
-			PropertyWordNet2Alignment.cut(threshold);
-
-			PropertyWordNet2Alignment.render(renderer);
-			writer.flush();
-			writer.close();
-
-			System.out.println("Matching completed!");
-			break;
-			
-		case "PROPERTY_STRING":
-			
-			a = new PropEq_String_Matcher();
-			threshold = 0.8;
-
-			a.init(ontoFile1.toURI(), ontoFile2.toURI());
-			params = new Properties();
-			params.setProperty("", "");
-			a.align((Alignment)null, params);	
-
-			//alignmentFileName = "./files/ntnu-lyon-paper/alignments/km4c-otn/" + onto1 + "-" + onto2 + "/PropEq_String.rdf";
-
-			outputAlignment = new File(alignmentFileName);
-
-			writer = new PrintWriter(
-					new BufferedWriter(
-							new FileWriter(outputAlignment)), true); 
-			renderer = new RDFRendererVisitor(writer);
-
-			BasicAlignment StringPropertyAlignment = (BasicAlignment)(a.clone());
-
-			StringPropertyAlignment.cut(threshold);
-
-			StringPropertyAlignment.render(renderer);
-			writer.flush();
-			writer.close();
-
-			System.out.println("Matching completed!");
-			break;
+		
 
 
 		}

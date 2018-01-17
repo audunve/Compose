@@ -20,11 +20,9 @@ import org.semanticweb.owl.align.Cell;
 import org.semanticweb.owl.align.Evaluator;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
-import compose.matchers.ISubMatcher;
-import compose.matchers.PropEq_String_DataProperty_Matcher;
-import compose.matchers.PropEq_WordNet_Matcher;
-import compose.matchers.WordNetMatcher;
-import compose.matchers.SubclassMatcher;
+import compose.matchers.equivalence.ISubMatcher;
+import compose.matchers.equivalence.WordNetMatcher;
+import compose.matchers.subsumption.OppositeSubclassMatcher;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
@@ -75,7 +73,7 @@ public class MatcherComposition {
 		ISubMatcher stringMatcher = new ISubMatcher();
 		WordNetMatcher wordNetMatcher = new WordNetMatcher();
 		//the graph-based matcher needs parameters (preprocessed names of the ontology files and a pointer to the Neo4J database)
-		SubclassMatcher structuralMatcher = new SubclassMatcher(ontologyParameter1,ontologyParameter2, db);
+		OppositeSubclassMatcher structuralMatcher = new OppositeSubclassMatcher(ontologyParameter1,ontologyParameter2, db);
 
 
 		ParallelComposition par = new ParallelComposition();
@@ -257,7 +255,7 @@ public class MatcherComposition {
 
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/CompoundMatcher.rdf");
-			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
+			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/WNHyponymMatcher.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
 
 			Alignment seqCompAlignment_subsumption = SequentialComposition.weightedSequentialComposition3(a3, a2, a1);
@@ -602,7 +600,7 @@ public class MatcherComposition {
 		case "Parallel_CompleteMatch_WithPriority_Subsumption":
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/CompoundMatcher.rdf");
-			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
+			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/WNHyponymMatcher.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
 
 			//set the threshold
@@ -732,7 +730,7 @@ public class MatcherComposition {
 
 			//import the alignment files
 			a1 = new File("./files/experiment_eswc17/alignments/" + experiment + "/CompoundMatcher.rdf");
-			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_WordNet_Matcher.rdf");
+			a2 = new File("./files/experiment_eswc17/alignments/" + experiment + "/WNHyponymMatcher.rdf");
 			a3 = new File("./files/experiment_eswc17/alignments/" + experiment + "/Subsumption_SubClass.rdf");
 
 			//set the threshold

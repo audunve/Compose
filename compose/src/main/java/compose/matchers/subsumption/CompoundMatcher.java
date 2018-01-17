@@ -1,4 +1,4 @@
-package compose.matchers;
+package compose.matchers.subsumption;
 
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 			for ( Object cl2: ontology2().getClasses() ){
 				for ( Object cl1: ontology1().getClasses() ){
 					// add mapping into alignment object 
-					addAlignCell(cl1,cl2, findCompoundRelation(cl1,cl2), compoundMatchWithSynonyms(cl1,cl2));  
+					addAlignCell(cl1,cl2, findCompoundRelation(cl1,cl2), compoundMatch(cl1,cl2));  
 					}
 				}
 			
@@ -64,9 +64,9 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 			String s2 = ontology2().getEntityName(o2);
 			if (s1 == null || s2 == null) return 0.;
 			
-			if (isCompound(s1,s2) && !s1.equals(s2)) { 
+			if (isCompoundWithSynonyms(s1,s2) && !s1.equals(s2)) { 
 				return 1.0;
-			} else if (isCompound(s2,s1) && !s2.equals(s1)) { 
+			} else if (isCompoundWithSynonyms(s2,s1) && !s2.equals(s1)) { 
 				return 1.0;
 			}
 			else { 
@@ -100,7 +100,7 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 		}
 	}
 
-	public static boolean isCompound(String a, String b) {
+	public static boolean isCompoundWithSynonyms(String a, String b) {
 		boolean test = false;
 
 		String[] temp_compounds = a.split("(?<=.)(?=\\p{Lu})");
@@ -122,6 +122,20 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 			}
 		}
 
+
+		return test;
+	}
+	
+	public static boolean isCompound(String a, String b) {
+		boolean test = false;
+
+		String[] compounds = a.split("(?<=.)(?=\\p{Lu})");
+
+		for (int i = 0; i < compounds.length; i++) {
+			if (b.equals(compounds[i])) {
+				test = true;
+			}
+		}
 
 		return test;
 	}

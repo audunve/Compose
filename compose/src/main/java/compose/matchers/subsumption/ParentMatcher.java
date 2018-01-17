@@ -1,4 +1,4 @@
-package compose.matchers;
+package compose.matchers.subsumption;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,15 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import org.neo4j.graphalgo.GraphAlgoFactory;
-import org.neo4j.graphalgo.PathFinder;
 import org.neo4j.graphdb.Direction;
 import org.neo4j.graphdb.DynamicLabel;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Label;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Path;
-import org.neo4j.graphdb.PathExpanders;
 import org.neo4j.graphdb.RelationshipType;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.traversal.Evaluators;
@@ -24,20 +21,16 @@ import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+import compose.graph.GraphOperations;
 import compose.misc.ISub;
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
 
 @SuppressWarnings("deprecation")
-public class AncestorMatcher extends ObjectAlignment implements AlignmentProcess {
+public class ParentMatcher extends ObjectAlignment implements AlignmentProcess {
 
-	
-	private static final Logger logger = LoggerFactory.getLogger(AncestorMatcher.class);
-
-	final double THRESHOLD = 0.95;
+	final double THRESHOLD = 0.6;
 	final String isA = "&lt;";
 	final String hasA = "&gt;";
 
@@ -51,8 +44,8 @@ public class AncestorMatcher extends ObjectAlignment implements AlignmentProcess
 	String key = "classname";
 
 
-	//constructor that receives the labels (ontology file names) from TestMatcher.java
-	public AncestorMatcher(String ontology1Name, String ontology2Name, GraphDatabaseService database) {
+	//constructor that receives the labels (ontology file names) and the database from TestMatcher.java
+	public ParentMatcher(String ontology1Name, String ontology2Name, GraphDatabaseService database) {
 		labelOnto1 = DynamicLabel.label(ontology1Name);
 		labelOnto2 = DynamicLabel.label(ontology2Name);
 		db = database;
@@ -63,17 +56,14 @@ public class AncestorMatcher extends ObjectAlignment implements AlignmentProcess
 	 * The align() method is imported from the Alignment API and is modified to use the methods declared in this class
 	 */
 	public void align( Alignment alignment, Properties param ) throws AlignmentException {
-		
-		
 		try {
 
 			// Match classes
 			for ( Object cl2: ontology2().getClasses() ){
 				for ( Object cl1: ontology1().getClasses() ){
 
-					System.out.println("Matching " + cl1.toString() + " and " + cl2.toString());
-					Map<String, Double> matchingMap = computePath(cl1, cl2);
-					
+					//get map from matchSubClasses2Class where the relation is the key and the value is the score
+					Map<String, Double> matchingMap = matchSubClasses2Class(cl1, cl2);
 
 					// add mapping into alignment object for each entry in the matching map
 					for (Map.Entry<String, Double> entry : matchingMap.entrySet()) {
@@ -88,113 +78,84 @@ public class AncestorMatcher extends ObjectAlignment implements AlignmentProcess
 		} catch (Exception e) { e.printStackTrace(); }
 	}
 
-	
-public Map<String, Double> computePath(Object o1, Object o2) throws OWLOntologyCreationException, OntowrapException, IOException {
-		
-		logger.debug("Hello from AncestorMatcher - computePath()");
-		
-		//map to keep the relation and matching score
-		Map<String,Double> matchingMap = new HashMap<String,Double>();
-		
 
-		double score = 0;
+	/**
+	 * Matches the parents of o1 with o2, if there is a similarity above a certain threshold (determined by ISub), then
+	 * o1 is subsumed by o2, and vice versa. 
+	 * @param o1
+	 * @param o2
+	 * @return
+	 * @throws OWLOntologyCreationException
+	 * @throws OntowrapException
+	 * @throws IOException
+	 */
+	private Map<String,Double> matchSubClasses2Class(Object o1, Object o2) throws OWLOntologyCreationException, OntowrapException, IOException {
+
 		String s1 = ontology1().getEntityName(o1);
+		//System.out.println("s1 is " + s1);
 		String s2 = ontology2().getEntityName(o2);
+		//System.out.println("s2 is " + s2);
 		
+		//System.out.println("Labels are " + labelOnto1.toString() + " and " + labelOnto2.toString());
+		
+		//Whenever I use the GraphOperations class for using Neo4J methods I get a nullpointerexception in TestMatcher...
+		//GraphOperations op = new GraphOperations();
+
 		//get the s1 node from ontology 1
+		//Node s1Node = GraphOperations.getNode(s1, labelOnto1);
 		Node s1Node = getNode(s1, labelOnto1);
+		//System.out.println("s1Node is " + s1Node.getId());
 
 		//get the s2 node from ontology 2
+		//Node s2Node = GraphOperations.getNode(s2, labelOnto2);
 		Node s2Node = getNode(s2, labelOnto2);
+		//System.out.println("s2Node is " + s1Node.getId());
 
-		//get parents of o1 and o2
-		ArrayList<Object> parentNodesO1 = getAllParentNodes(s1Node,labelOnto1);
-		ArrayList<Object> parentNodesO2 = getAllParentNodes(s2Node,labelOnto2);
-		
-		System.out.println("Number of parents to s1Node: " + parentNodesO1.size());
-		System.out.println("Number of parents to s2Node: " + parentNodesO2.size());
-		
-		//holds similar parents (key = O1 parent, value = O2 parent)
-		//Map<String, String> parentMap = new HashMap<String, String>();
-		ArrayList<String> parents = new ArrayList<String>();
-		
-		double sim = 0;
-		
+		//get the parent nodes of a class from ontology 1
+		//ArrayList onto1Parents = GraphOperations.getClosestParentNode(s1Node, labelOnto1);
+		ArrayList onto1Parents = getClosestParentNode(s1Node, labelOnto1);
+		for (int i = 0; i < onto1Parents.size(); i++) {
+		}
 
-		//match parents
-		//if there are several parents that match:
-		//- select the pair of parents with the highest similarity
-		//- if the similarity is equal among two or more pairs, 
-		//select the pair with the average shortest distance to the objects being matched (o1 and o2) as these are considered more "discriminating"
-		for (int i = 0; i < parentNodesO1.size(); i++) {
-			for (int j = 0; j < parentNodesO2.size(); j++) {
-				
-				double thisSim = iSubMatcher.score(parentNodesO1.get(i).toString(), parentNodesO2.get(j).toString());
-				
-				//if two parents are equal, put them in the parent map, but only if their similarity is greater than any previous similarity computed
-				if (thisSim >= THRESHOLD && thisSim > sim) {
-					//parentMap.put(parentNodesO1.get(i).toString(), parentNodesO2.get(j).toString());
-					parents.add(parentNodesO1.get(i).toString());
-					parents.add(parentNodesO2.get(j).toString());
-					sim = thisSim;
-				}
+		//get the parent nodes of a class from ontology 2
+		//ArrayList onto2Parents = GraphOperations.getClosestParentNode(s2Node,labelOnto2);
+		ArrayList onto2Parents = getClosestParentNode(s2Node,labelOnto2);
+		for (int i = 0; i < onto2Parents.size(); i++) {
+		}
+
+		//double score = 0;
+		double iSubSimScore = 0;
+		ISub iSubMatcher = new ISub();
+
+		//map to keep the relation and matching score
+		Map<String,Double> matchingMap = new HashMap<String,Double>();
+
+		//System.out.println("\n");
+		//System.out.println("------- Matching task: " + s1 + " and " + s2 + " -------");
+
+		//match o1 with the parent nodes of o2
+		for (int i = 0; i < onto2Parents.size(); i++) {
+			iSubSimScore = iSubMatcher.score(s1, onto2Parents.get(i).toString());
+			//System.out.println("Matching " + s1 + " with " + s2 + "´s parent " + onto2Parents.get(i) + " with a score of " + iSubSimScore);
+			if (iSubSimScore >= THRESHOLD) {
+				matchingMap.put(hasA, iSubSimScore);
+				//System.out.println("Conclusion: " + s1 + " " + hasA + " " + s2);
 			}
 		}
-		
-		System.out.println("Similar parents: ");
-		if (parents.size() > 0) {
-		for (String s : parents) {
-			System.err.println(s);
-			
-			//find distance between o1/o2 and parents that match (the most)
-			Node parentO1Node = getNode(parents.get(0), labelOnto1);
-			Node parentO2Node = getNode(parents.get(1), labelOnto2);
-			
-			Iterable<Path> o1DistanceToSimParent = findShortestPathBetweenNodes(s1Node, parentO1Node, labelOnto1, RelTypes.isA);
-			Iterable<Path> o2DistanceToSimParent = findShortestPathBetweenNodes(s2Node, parentO2Node, labelOnto2, RelTypes.isA);
-			
-			Path pathO1 = o1DistanceToSimParent.iterator().next();
-			Path pathO2 = o2DistanceToSimParent.iterator().next();
-			
-			int o1Distance = pathO1.length();
-			System.out.println("Distance from " + s1 + " to " + parents.get(0) + ": " + o1Distance);
-			int o2Distance = pathO2.length();
-			System.out.println("Distance from " + s2 + " to " + parents.get(1) + ": " + o2Distance);
-			
-			//constrain so that there has to be some terminological similarity between the concepts
-			double conceptSimScore = iSubMatcher.score(s1, s2);
-			
-			//constrain so that the respective distance between o1 and common parent and o2 and common parent is not more than 1
-			int respectiveDistance = 0;
-			if (o1Distance > o2Distance) {
-			respectiveDistance = o1Distance - o2Distance;
-			} else {
-				respectiveDistance = o2Distance - o1Distance;
+		//match parent nodes of o1 with o2
+		for (int i = 0; i < onto1Parents.size(); i++) {
+			iSubSimScore = iSubMatcher.score(s2, onto1Parents.get(i).toString());
+			//System.out.println("Matching " + s2 + " with " + s1 + "´s parent " +  onto1Parents.get(i) + " with a score of " + iSubSimScore);
+			if (iSubSimScore >= THRESHOLD) {
+				matchingMap.put(isA, iSubSimScore);
+				//System.out.println("Conclusion: " + s1 + " " + isA + " " + s2);
 			}
-
-			
-//			if (o1Distance > o2Distance && respectiveDistance == 1 && conceptSimScore > 0.4 ) {
-			if (o1Distance > o2Distance && conceptSimScore > 0.4 ) {
-				score = 1;
-				matchingMap.put(isA, score);
-			} else {
-				score = 0;
-				matchingMap.put(isA, score);
-			}
-			
-			return matchingMap;
-			
-		}} else {
-			System.out.println("There are no similar parents for this pair!");
-			
-			matchingMap.put(isA, 0.0);
-		
 		}
+
+		//System.out.println("------- End Matching task: " + s1 + " and " + s2 + " -------");
+		//System.out.println("\n");
 		return matchingMap;
 
-		
-
-		
 	}
 	
 	private static void registerShutdownHook(final GraphDatabaseService db)
@@ -210,7 +171,7 @@ public Map<String, Double> computePath(Object o1, Object o2) throws OWLOntologyC
 		} );
 	}
 
-	private static enum RelTypes implements RelationshipType
+	public static enum RelTypes implements RelationshipType
 	{
 		isA
 	}
@@ -350,7 +311,7 @@ public Map<String, Double> computePath(Object o1, Object o2) throws OWLOntologyC
 			parentNodeTraverser = getParentNodeTraverser(classNode);
 
 			for (Path parentNodePath: parentNodeTraverser) {
-				if (parentNodePath.endNode().hasLabel(label) && !parentNodePath.endNode().getProperty("classname").equals("owl:Thing")){
+				if (parentNodePath.endNode().hasLabel(label)){
 					parentNodeList.add(parentNodePath.endNode().getProperty("classname"));
 
 				}
@@ -396,32 +357,6 @@ public Map<String, Double> computePath(Object o1, Object o2) throws OWLOntologyC
 
 		return distanceToRoot;
 	}
-	
-	/**
-	 * This method finds the shortest path between two nodes used as parameters. The path is the full path consisting of nodes and relationships between the classNode..
-	 * ...and the parentNode.
-	 * @param parentNode
-	 * @param classNode
-	 * @param label
-	 * @param rel
-	 * @return Iterable<Path> paths
-	 */
-	public  Iterable<Path> findShortestPathBetweenNodes(Node parentNode, Node classNode, Label label, RelationshipType rel) {
-
-		Iterable<Path> paths = null;
-		try ( Transaction tx = db.beginTx() ) {
-		PathFinder<Path> finder = GraphAlgoFactory.shortestPath(
-				PathExpanders.forType(rel), 15);
-		paths = finder.findAllPaths( classNode, parentNode );
-		
-		tx.success();
-
-		}
-		
-		return paths;
-
-	}
-
 
 
 }

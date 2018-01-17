@@ -25,15 +25,15 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import compose.combination.ParallelComposition;
 import compose.combination.SequentialComposition;
 import compose.graph.GraphCreator;
-import compose.matchers.CompoundMatcher;
-import compose.matchers.EditMatcher;
-import compose.matchers.ISubMatcher;
-import compose.matchers.AncestorMatcher;
-import compose.matchers.ParentMatcher;
-import compose.matchers.SmoaMatcher;
-import compose.matchers.Subsumption_WordNet_Matcher;
-import compose.matchers.TrigramMatcher;
-import compose.matchers.WordNetMatcher;
+import compose.matchers.equivalence.EditMatcher;
+import compose.matchers.equivalence.ISubMatcher;
+import compose.matchers.equivalence.SmoaMatcher;
+import compose.matchers.equivalence.TrigramMatcher;
+import compose.matchers.equivalence.WordNetMatcher;
+import compose.matchers.subsumption.AncestorMatcher;
+import compose.matchers.subsumption.CompoundMatcher;
+import compose.matchers.subsumption.ParentMatcher;
+import compose.matchers.subsumption.WNHyponymMatcher;
 import compose.misc.AlignmentOperations;
 import compose.misc.Intersection;
 import compose.misc.StringUtils;
@@ -2248,7 +2248,9 @@ public class ComposeGUIMainMenu extends JFrame {
 							e1.printStackTrace();
 						}
 						
-						DownloadFile df = new DownloadFile();
+						/* NOTE 16.01.2018: Not working
+						 * 
+						 * DownloadFile df = new DownloadFile();
 						
 						File alignmentFile = null;
 						
@@ -2257,7 +2259,7 @@ public class ComposeGUIMainMenu extends JFrame {
 						} catch (Exception e1) {
 							// FIXME Auto-generated catch block
 							e1.printStackTrace();
-						}
+						}*/
 						
 						//evaluation
 						double wordNetFMeasureValue = round(Double.parseDouble(eval.getResults().getProperty("fmeasure").toString()),2);
@@ -3449,7 +3451,7 @@ public class ComposeGUIMainMenu extends JFrame {
 				if (checkBoxWordNetMatcher.isSelected()) {
 
 					//perform the matching
-					a = new Subsumption_WordNet_Matcher();
+					a = new WNHyponymMatcher();
 					threshold = (double)sliderWNMatcher.getValue()/100;
 					try {
 						a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -3632,6 +3634,8 @@ public class ComposeGUIMainMenu extends JFrame {
 						File f1 = new File(wordNetMatcherAlignmentFileName);
 						alignmentFiles.add(f1);
 					}
+					
+			
 
 					if (alignmentFiles.size() == 3) {
 						try {
@@ -3753,7 +3757,8 @@ public class ComposeGUIMainMenu extends JFrame {
 
 					Alignment computedAlignment = null;
 					String simpleVoteCompositionAlignmentFileName = "./files/GUITest/alignments/SimpleVoteComposition.rdf";
-					Set<Alignment> alignments = new HashSet<Alignment>();
+					//Set<Alignment> alignments = new HashSet<Alignment>();
+					ArrayList<Alignment> alignments = new ArrayList<Alignment>();
 
 
 					//get the alignment files involved

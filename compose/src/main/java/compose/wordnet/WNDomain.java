@@ -213,15 +213,15 @@ public class WNDomain {
 		ArrayList<String> s1_offsetStrings = convertOffsetToString(l1);
 		ArrayList<String> s2_offsetStrings = convertOffsetToString(l2);
 		
-		System.err.println("Domains associated with " + s1);
-		for (String s : s1_offsetStrings) {
-			System.err.println(s);
-		}
+//		System.err.println("Domains associated with " + s1);
+//		for (String s : s1_offsetStrings) {
+//			System.err.println(s);
+//		}
 		
-		System.err.println("Domains associated with " + s2);
-		for (String t : s2_offsetStrings) {
-			System.err.println(t);
-		}
+//		System.err.println("Domains associated with " + s2);
+//		for (String t : s2_offsetStrings) {
+//			System.err.println(t);
+//		}
 
 		boolean same = sameDomain(s1_offsetStrings, s2_offsetStrings);
 
