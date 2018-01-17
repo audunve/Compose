@@ -1,4 +1,4 @@
-package no.ntnu.idi.compose.profiling;
+package compose.profiling;
 
 
 import java.io.File;

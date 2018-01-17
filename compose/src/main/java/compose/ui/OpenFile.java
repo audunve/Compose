@@ -1,4 +1,4 @@
-package no.ntnu.idi.compose.ui;
+package compose.ui;
 import java.io.File;
 
 import javax.swing.JFileChooser;

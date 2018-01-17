@@ -1,4 +1,4 @@
-package no.ntnu.idi.compose.ui;
+package compose.ui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -37,6 +37,7 @@ import compose.matchers.subsumption.WNHyponymMatcher;
 import compose.misc.AlignmentOperations;
 import compose.misc.Intersection;
 import compose.misc.StringUtils;
+import compose.profiling.OntologyProcessor;
 import compose.statistics.OntologyStatistics;
 import compose.wordnet.WNDomain;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
@@ -44,7 +45,6 @@ import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 import net.didion.jwnl.JWNLException;
-import no.ntnu.idi.compose.profiling.OntologyProcessor;
 
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;

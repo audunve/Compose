@@ -1,14 +1,14 @@
-package no.ntnu.idi.compose.ui;
+package compose.ui;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
+import compose.profiling.OntologyProcessor;
 import compose.statistics.OntologyStatistics;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
 import net.didion.jwnl.JWNLException;
-import no.ntnu.idi.compose.profiling.OntologyProcessor;
 
 public class OntologyProfiler {
 	
