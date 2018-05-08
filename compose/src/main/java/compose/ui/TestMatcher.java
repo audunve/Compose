@@ -23,9 +23,11 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import compose.graph.GraphCreator;
+import compose.matchers.equivalence.EditMatcher;
 import compose.matchers.equivalence.ISubMatcher;
 import compose.matchers.equivalence.InstanceMatcher;
 import compose.matchers.equivalence.SuperclassMatcher;
+import compose.matchers.equivalence.TrigramMatcher;
 import compose.matchers.equivalence.WordNetMatcher;
 import compose.matchers.subsumption.AncestorMatcher;
 import compose.matchers.subsumption.CompoundMatcher;
@@ -45,21 +47,21 @@ public class TestMatcher {
 		//logger.info("Hello from TestMatcher");
 
 		/*** 1. SELECT THE MATCHER TO BE RUN ***/
-		final String MATCHER = "STRING";
+		final String MATCHER = "SUBSUMPTION_PATH";
 
 		/*** 2. SELECT THE TWO ONTOLOGIES TO BE MATCHED ***/
 		//File ontoFile1 = new File("./files/wndomainexperiment/SchemaOrg/schema-org.owl");
 		//File ontoFile2 = new File("./files/wndomainexperiment/efrbroo.owl");
 		
-		File ontoFile1 = new File("./files/wndomainsexperiment/bibframe.rdf");
-		File ontoFile2 = new File("./files/wndomainsexperiment/schema-org.owl");
+		File ontoFile1 = new File("./files/ontologies/biblio_2015.rdf");
+		File ontoFile2 = new File("./files/ontologies/BIBO.owl");
 		//File ontoFile1 = new File("./files/Path/schema-org.owl");
 		//File ontoFile2 = new File("./files/Path/schema-org.owl");
 		
-		
+		///Users/audunvennesland/Documents/phd/development/Neo4J_new
 		
 		/*** 3. SELECT THE NEO4J DATABASE FILE (FOR THE STRUCTURAL MATCHERS ONLY) ***/
-		final File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/biblio-bibo2");
+		final File dbFile = new File("/Users/audunvennesland/Documents/phd/development/Neo4J_new/test");
 		
 
 		/*** INITIAL VALUES, NO NEED TO TOUCH THESE ***/
@@ -82,6 +84,7 @@ public class TestMatcher {
 		case "STRING":
 			a = new ISubMatcher();
 			//a = new EditMatcher();
+			//a = new TrigramMatcher();
 			threshold = 0.8;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -91,7 +94,7 @@ public class TestMatcher {
 			
 			System.err.println("The a alignment contains " + a.nbCells() + " correspondences");
 
-			alignmentFileName = "./files/wndomainsexperiment/alignments/" + onto1 + "-" + onto2 + "-String.rdf";
+			alignmentFileName = "./files/wndomainsexperiment/alignments/" + onto1 + "-" + onto2 + "-ISub08.rdf";
 
 			outputAlignment = new File(alignmentFileName);
 

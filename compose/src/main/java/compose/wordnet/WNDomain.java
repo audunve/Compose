@@ -23,6 +23,7 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 
 import net.didion.jwnl.JWNLException;
 import net.didion.jwnl.data.Synset;
+import compose.misc.Jaccard;
 import compose.misc.StringUtils;
 
 
@@ -56,26 +57,80 @@ public class WNDomain {
 	 * @return a list (ArrayList) of domains converted from offsets (long)
 	 * @throws FileNotFoundException 
 	 */
-	public static ArrayList<String> convertOffsetToString(List<Long> offset) throws FileNotFoundException {
-		ArrayList<String> synsets = new ArrayList<String>();
+	public static Set<String> convertOffsetToString(List<Long> offset) throws FileNotFoundException {
+		Set<String> synsets = new HashSet<String>();
 
 		for (Long l : offset) {
 			synsets.add(findDomain("./files/wndomains/wn-domains-3.2-20070223.txt", l.toString()));
+			//System.out.println("Offset: " + l + " - " + findDomain("./files/wndomains/wn-domains-3.2-20070223.txt", l.toString()));
 		}
-		//need to remove "factotum" since this is too generic
-		synsets.remove("factotum");
+		
+		
 
 		return synsets;
 	}
+	
+	/**
+	 * Returns true if two strings belong to the same domain, i.e. their offsets are associated with the same domains in WNDomains.
+	 * @param s1 input string
+	 * @param s2 input string
+	 * @return boolean stating whether two strings are associated with the same domains
+	 * @throws FileNotFoundException
+	 * @throws JWNLException
+	 */
+	public static boolean sameDomain(String s1, String s2) throws FileNotFoundException, JWNLException {
+
+
+		List<Long> l1 = findSynsetOffset(s1);
+		List<Long> l2 = findSynsetOffset(s2);
+
+		Set<String> s1_offsetStrings = convertOffsetToString(l1);
+		Set<String> s2_offsetStrings = convertOffsetToString(l2);
+		
+		//remove factotum
+		s1_offsetStrings.remove("factotum");
+		s2_offsetStrings.remove("factotum");
+
+		boolean same = sameDomain(s1_offsetStrings, s2_offsetStrings);
+
+		return same;
+	}
+	
+	/**
+	 * Returns true if two strings belong to the same domain, i.e. their offsets are associated with the same domains in WNDomains.
+	 * @param s1 input string
+	 * @param s2 input string
+	 * @return boolean stating whether two strings are associated with the same domains
+	 * @throws FileNotFoundException
+	 * @throws JWNLException
+	 */
+	public static boolean sameDomainJaccard(String s1, String s2, double minJaccard) throws FileNotFoundException, JWNLException {
+
+
+		List<Long> l1 = findSynsetOffset(s1);
+		List<Long> l2 = findSynsetOffset(s2);
+
+		Set<String> s1_offsetStrings = convertOffsetToString(l1);
+		Set<String> s2_offsetStrings = convertOffsetToString(l2);
+		
+		//remove factotum
+		s1_offsetStrings.remove("factotum");
+		s2_offsetStrings.remove("factotum");
+		
+		
+
+		boolean same = sameDomainJaccard(s1_offsetStrings, s2_offsetStrings, minJaccard);
+
+		return same;
+	}
 
 	/**
-	 * Checks if two separate arraylists contain equal strings. 
+	 * Checks if two separate arraylists contain equal strings. If the sets only share 1 common element, sameDomain is set to true, otherwise false
 	 * @param c1 list of domains associated with an ontology concept
 	 * @param c2 list of domains associated with an ontology concept
 	 * @return boolean stating whether the two input arraylist contains equal values
 	 */
-	//TO-DO: Implement Jaccard for determining if same domain
-	public static boolean sameDomain(ArrayList<String> c1, ArrayList<String> c2) {
+	public static boolean sameDomain(Set<String> c1, Set<String> c2) {
 		boolean similar = false;
 
 		for (String s1 : c1) {
@@ -89,10 +144,33 @@ public class WNDomain {
 
 		return similar;
 	}
+	
+	/**
+	 * Checks if two separate arraylists contain equal strings. If the computed Jaccard score >= minJaccard, sameDomain is set to true, otherwise false
+	 * @param c1 list of domains associated with an ontology concept
+	 * @param c2 list of domains associated with an ontology concept
+	 * @return boolean stating whether the two input arraylist contains equal values
+	 */
+	public static boolean sameDomainJaccard(Set<String> c1, Set<String> c2, double minJaccard) {
+		boolean similar = false;
+
+		double jaccardScore = Jaccard.jaccardSetSim(c1, c2);
+		
+		System.out.println("The jaccard score is " + jaccardScore);
+		
+		//need to check that none of the sets are empty (this means that there are no domains) and that the computed jaccard score is above the minimum jaccard constraint		
+		if ((!c1.isEmpty() && !c2.isEmpty()) && jaccardScore > minJaccard) {
+			similar = true;
+		} else {
+			similar = false;
+		}
+
+		return similar;
+	}
 
 
 	/**
-	 * Retrieves the domains (as string) given an synset offset as parameter from the WordNet Domains domain classification file. In the classification file each line is represented as '[Synset offset] (tab) [Domain name]'
+	 * Retrieves the domains (as string) given a synset offset as parameter from the WordNet Domains domain classification file. In the classification file each line is represented as '[Synset offset] (tab) [Domain name]'
 	 * @param WNDomainsFileName Name of the WordNet Domains domain classification file
 	 * @param searchStr The input synset offset
 	 * @return Domains associated with the synset offset in the WordNet Domains domain classification file
@@ -115,6 +193,7 @@ public class WNDomain {
 				domain = parts.get(1);
 			}
 		}
+		
 		return domain;
 	}
 
@@ -127,7 +206,7 @@ public class WNDomain {
 	 * @throws FileNotFoundException
 	 * @throws JWNLException
 	 */
-	public static ArrayList<String> getDomains (File ontoFile) throws OWLOntologyCreationException, FileNotFoundException, JWNLException {
+	public static ArrayList<String> getDomainsFromFile (File ontoFile) throws OWLOntologyCreationException, FileNotFoundException, JWNLException {
 
 		ArrayList<String> domains = new ArrayList<String>();
 
@@ -145,7 +224,9 @@ public class WNDomain {
 				String offset = l.toString();
 				String domain = findDomain("./files/wndomains/wn-domains-3.2-20070223.txt", offset);
 				//System.out.println("Found domain for " + cls.getIRI().getFragment().toLowerCase() + ": " + domain);
+		
 				domains.add(domain);
+				
 			}
 		}
 
@@ -196,65 +277,83 @@ public class WNDomain {
 
 	}
 
-	/**
-	 * Returns true if two strings belong to the same domain, i.e. their offsets are associated with the same domains in WNDomains.
-	 * @param s1 input string
-	 * @param s2 input string
-	 * @return boolean stating whether two strings are associated with the same domains
-	 * @throws FileNotFoundException
-	 * @throws JWNLException
-	 */
-	public static boolean sameDomain(String s1, String s2) throws FileNotFoundException, JWNLException {
-
-
-		List<Long> l1 = findSynsetOffset(s1);
-		List<Long> l2 = findSynsetOffset(s2);
-
-		ArrayList<String> s1_offsetStrings = convertOffsetToString(l1);
-		ArrayList<String> s2_offsetStrings = convertOffsetToString(l2);
+	
+	
+	public static Set<String> getDomainsFromString (String inputWord) throws FileNotFoundException, JWNLException {
 		
-//		System.err.println("Domains associated with " + s1);
-//		for (String s : s1_offsetStrings) {
-//			System.err.println(s);
-//		}
+		List<Long> synsetOffsets = null;
+		Set<String> synsetList = new HashSet<String>();
 		
-//		System.err.println("Domains associated with " + s2);
-//		for (String t : s2_offsetStrings) {
-//			System.err.println(t);
-//		}
-
-		boolean same = sameDomain(s1_offsetStrings, s2_offsetStrings);
-
-		return same;
+		//get the synset offset if the word is represented in WordNet
+		if (WordNetOperations.containedInWordNet(inputWord)) {
+			synsetOffsets = findSynsetOffset(inputWord);
+			synsetList = convertOffsetToString(synsetOffsets);
+		}
+		
+		//remove duplicates and "factotum"
+		Set<String> synsetSet = new HashSet<String>();
+		
+		for (String s : synsetList) {
+			
+			if (!s.equals("factotum")) {
+			synsetSet.add(s);
+			}
+		}
+		
+		return synsetSet;
 	}
 
 
 	public static void main(String[] args) throws FileNotFoundException, JWNLException, OWLOntologyCreationException{
 		WNDomain fileSearch = new WNDomain();
 
-		//       	String s1 = "AirportHeliportResponsibilityOrganisation";
-		//       	String s2 = "airport";
+		       	String s1 = "content";
+		       	String s2 = "continent";
 
-		String s1 = "book";
-		String s2 = "cook";
-
-		List<Long> l1 = findSynsetOffset(s1);
-		List<Long> l2 = findSynsetOffset(s2);
-
-		ArrayList<String> s1_offsetStrings = convertOffsetToString(l1);
-		ArrayList<String> s2_offsetStrings = convertOffsetToString(l2);
+		double minJaccard = 0.5;
+		
+		
+		//String s1 = "volcano";
+		
+		Set<String> synsetSetS1= getDomainsFromString(s1);
+		
+		System.err.println("Domains associated with " + s1);
+		
+		for (String word : synsetSetS1) {
+			System.err.println(word);
+		}
+		
+		//String s2 = "volcano";
+		
+		Set<String> synsetSetS2= getDomainsFromString(s2);
 
 		System.out.println("--- Offset(s) for " + s1 + " ---");
-		for (String s1Offset : s1_offsetStrings) {
+		for (String s1Offset : synsetSetS1) {
 			System.out.println(s1Offset);
 		}
 
 		System.out.println("\n --- Offset(s) for " + s2 + "---");
-		for (String s2Offset : s2_offsetStrings) {
+		for (String s2Offset : synsetSetS2) {
 			System.out.println(s2Offset);
 		}
 
-		System.out.println("From the same domain?: " + sameDomain(s1_offsetStrings, s2_offsetStrings));
+		System.out.println("\nFrom the same domain?: " + sameDomain(synsetSetS1, synsetSetS2));
+		
+		System.out.println("\nFrom the same domain (jaccard 0.5) " + sameDomainJaccard(s1, s2, minJaccard ));
+		
+		List<Long> s1List = findSynsetOffset(s1);
+		System.out.println("Offsets for " + s1 + ": ");
+		
+		for (Long l : s1List) {
+			System.out.println(l);
+		}
+		
+		List<Long> s2List = findSynsetOffset(s2);
+		System.out.println("Offsets for " + s2 + ": ");
+		for (Long l : s2List) {
+			System.out.println(l);
+		}
+		
 
 
 		File ontoFile = new File("./files/OAEI-16-conference/ontologies/Biblio_2015.rdf");

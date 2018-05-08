@@ -60,6 +60,8 @@ public class WordNetOperations
 
 		Synset[] synsets = indexWord.getSenses();
 		
+		JWNL.shutdown();
+		
 		return synsets;
 		
 	}
@@ -74,11 +76,15 @@ public class WordNetOperations
 	public static boolean containedInWordNet(String inputWord) throws FileNotFoundException, JWNLException {
 		
 		JWNL.initialize(new FileInputStream("/Users/audunvennesland/git/Compose/compose/file_property.xml"));
+
 		Dictionary dictionary = Dictionary.getInstance();
 		
 		
 		IndexWord indexWord = dictionary.lookupIndexWord(pos, inputWord);
 		
+		//System.out.println("The lemma of " + inputWord + " is " + indexWord.getLemma());
+		
+		JWNL.shutdown();
 		
 		if (indexWord == null)
 		{
@@ -89,7 +95,11 @@ public class WordNetOperations
 			return true;
 		}		
 		
+		
+		
 	}
+	
+	
 	
 /*
 	public static String getDomain(String inputWord) throws JWNLException, FileNotFoundException {
@@ -152,7 +162,22 @@ public class WordNetOperations
     public static void main(final String[] args) throws FileNotFoundException, JWNLException, OWLOntologyCreationException
     {
     	
-    	String inputWord = "car";
+  /*  	Enumeration - Enumeration
+    	Role - Role
+    	Object - ImageObject
+    	Object - AudioObject
+    	IntendedAudience - Audience
+    	Organization - EducationalOrganization
+    	Organization - MedicalOrganization
+    	Organization - Organization
+    	Organization - GovernmentOrganization
+    	Organization - SportsOrganization
+    	Review - Review
+    	TableOfContents - Table
+    	Media - MediaObject
+    	Barcode - Barcode*/
+    	
+    	String inputWord = "type format music release";
     	
     	System.out.println("Is " + inputWord + " contained in WordNet: " + containedInWordNet(inputWord));
     	

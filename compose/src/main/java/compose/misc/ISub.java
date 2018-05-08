@@ -189,8 +189,8 @@ public class ISub {
 		
 		ISub i = new ISub();
 		
-		String s1 = "book";
-		String s2 = "cook";
+		String s1 = "content";
+		String s2 = "continent";
 		
 		double result = i.score(s1, s2);
 		

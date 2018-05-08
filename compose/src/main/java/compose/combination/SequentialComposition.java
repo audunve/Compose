@@ -89,7 +89,7 @@ public class SequentialComposition {
 				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtils.validateRelationType(e.getKey().getRelation().getRelation()), e.getKey().getStrength());
 			//if all other alignments have this cell
 			} else if (e.getValue() == (3)) {
-				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtils.validateRelationType(e.getKey().getRelation().getRelation()), e.getKey().getStrength()*2);
+				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtils.validateRelationType(e.getKey().getRelation().getRelation()), 1.0);
 			}
 		}
 		
@@ -403,6 +403,18 @@ public class SequentialComposition {
 		for (Cell c : newAlignment) {
 			System.out.println(c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment() + " : " + c.getRelation().getRelation() + " : " + c.getStrength());
 		}
+		
+		//Store the combined alignment
+				File outputAlignment = new File("./files/OAEI2009/alignments/test.rdf");
+
+				PrintWriter writer = new PrintWriter(
+						new BufferedWriter(
+								new FileWriter(outputAlignment)), true); 
+				AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+
+				newAlignment.render(renderer);
+				writer.flush();
+				writer.close();
 
 	}
 }

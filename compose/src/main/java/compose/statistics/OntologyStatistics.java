@@ -526,7 +526,7 @@ public class OntologyStatistics {
 
 		double domainDiversity = 0;
 
-		ArrayList<String> domainsOnto1 = WNDomain.getDomains(ontoFile);
+		ArrayList<String> domainsOnto1 = WNDomain.getDomainsFromFile(ontoFile);
 
 		Set<String> allDomains = new HashSet<String>();
 		allDomains.addAll(domainsOnto1);
@@ -565,8 +565,8 @@ public class OntologyStatistics {
 
 		double domainDiversity = 0;
 
-		ArrayList<String> domainsOnto1 = WNDomain.getDomains(ontoFile1);
-		ArrayList<String> domainsOnto2 = WNDomain.getDomains(ontoFile2);
+		ArrayList<String> domainsOnto1 = WNDomain.getDomainsFromFile(ontoFile1);
+		ArrayList<String> domainsOnto2 = WNDomain.getDomainsFromFile(ontoFile2);
 
 		Set<String> allDomains = new HashSet<String>();
 		allDomains.addAll(domainsOnto1);

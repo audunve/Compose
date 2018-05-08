@@ -164,11 +164,9 @@ public class Intersection {
 
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException {
 
-		String experiment = "303304";
-
-		File af1 = new File("./files/ER2017/"+experiment+"/303-304-aml_norm.rdf");
-		File af2 = new File("./files/ER2017/"+experiment+"/303-304-logmap_norm.rdf");
-		File af3 = new File("./files/ER2017/"+experiment+"/303-304-compose_norm.rdf");
+		File af1 = new File("./files/experiment_06032018/datasets/d1/alignments/equivalence/aixm_airportheliport-aerodromeinfrastructure-PropertyMatcher0.5.rdf");
+		File af2 = new File("./files/experiment_06032018/datasets/d1/alignments/equivalence/aixm_airportheliport-aerodromeinfrastructure-WNSyn0.95.rdf");
+		File af3 = new File("./files/experiment_06032018/datasets/d1/alignments/equivalence/aixm_airportheliport-aerodromeinfrastructure-ISub0.95.rdf");
 
 		AlignmentParser parser = new AlignmentParser();
 		BasicAlignment a1 = (BasicAlignment) parser.parse(af1.toURI().toString());

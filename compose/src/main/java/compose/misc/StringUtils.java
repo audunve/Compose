@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -391,6 +393,27 @@ public class StringUtils {
 		
 	}
 	
+	public static String getCompoundWordsWithSpaces (String s) {
+		
+		//System.err.println("From getCompoundWordsWithSpaces: String s is " + s);
+		
+		StringBuffer sb = new StringBuffer();
+		
+		ArrayList<String> compoundWordsList = getWordsFromCompound(s);
+		
+		//System.err.println("From getCompoundWordsWithSpaces: The size of compoundWordsList is  " + compoundWordsList.size());
+		
+		for (String word : compoundWordsList) {
+			
+			sb.append(word + " ");
+			
+		}
+		
+		String compoundWordWithSpaces = sb.toString();
+		
+		return compoundWordWithSpaces;
+	}
+	
 	public static String getCompoundHead(String s) {
 		String[] compounds = s.split("(?<=.)(?=\\p{Lu})");
 		
@@ -403,6 +426,19 @@ public class StringUtils {
 		String[] compounds = s.split("(?<=.)(?=\\p{Lu})");
 		
 		ArrayList<String> compoundWordsList = new ArrayList<String>();
+		
+		for (int i = 0; i < compounds.length; i++) {
+			compoundWordsList.add(compounds[i]);
+		}
+		
+		return compoundWordsList;
+		
+	}
+	
+	public static Set<String> getWordsAsSetFromCompound (String s) {
+		String[] compounds = s.split("(?<=.)(?=\\p{Lu})");
+		
+		Set<String> compoundWordsList = new HashSet<String>();
 		
 		for (int i = 0; i < compounds.length; i++) {
 			compoundWordsList.add(compounds[i]);
@@ -539,7 +575,7 @@ public class StringUtils {
 
 		System.out.println(removeStopWords("Here we go again and if we do not go then we stay put is that not the case?"));
 		
-		String compositeString = "PlaceOfWorship";
+		String compositeString = "MusicReleaseFormatType";
 		
 		System.out.println("Is " + compositeString + " a compound: " + isCompoundWord(compositeString));
 		
@@ -553,6 +589,9 @@ public class StringUtils {
 			System.out.println(word);
 		}
 
+		String word = getCompoundWordsWithSpaces(compositeString);
+		
+		System.out.println(word);
 	}
 
 

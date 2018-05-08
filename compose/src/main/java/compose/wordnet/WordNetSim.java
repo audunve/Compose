@@ -172,8 +172,8 @@ public class WordNetSim {
 
 	public static void main(String[] args) {
 
-		String c1 = "Regular_author";
-		String c2 = "Paper_Author";
+		String c1 = "instrument";
+		String c2 = "event";
 
 		String s1 = StringUtils.stringTokenize(c1, true).toLowerCase();
 		String s2 = StringUtils.stringTokenize(c2,true).toLowerCase();

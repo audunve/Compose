@@ -80,6 +80,8 @@ public class Evaluator {
 
 		AlignmentParser aparser = new AlignmentParser(0);
 		Alignment referenceAlignment = aparser.parse(new URI(StringUtils.convertToFileURL(referenceAlignmentFileName)));
+		
+
 
 		Properties p = new Properties();
 
@@ -97,6 +99,8 @@ public class Evaluator {
 			eval = new PRecEvaluator(referenceAlignment, evaluatedAlignment);
 
 			eval.eval(p);
+			
+			System.out.println("Number of relations in alignment: " + evaluatedAlignment.nbCells());
 
 			System.out.println("------------------------------");
 			System.out.println("Evaluator scores for " + StringUtils.stripPath(filesInDir[i].toString()));
@@ -113,8 +117,9 @@ public class Evaluator {
 			System.out.println("False negatives (FN): " + fn);
 			System.out.println("\n");
 		}
+		}
 
-	}
+	
 
 	/**
 	 * Produces a Map of key: matcher (i.e. alignment produced by a particular matcher) and value: F-measure score from evaluation of against the alignment for that particular matcher
@@ -227,7 +232,7 @@ public class Evaluator {
 			
 			try {
 				FileOutputStream outputStream = 
-						new FileOutputStream(new File("./files/OAEI2009/Evaluation/excel.xlsx"));
+						new FileOutputStream(new File("./files/Amazon-GoogleProducts/evaluation/excel.xlsx"));
 				workbook.write(outputStream);
 				outputStream.close();
 				System.out.println("Excel written successfully..");
@@ -262,9 +267,9 @@ public class Evaluator {
 
 	public static void main(String[] args) throws AlignmentException, URISyntaxException, FileNotFoundException {
 
-		String singleAlignment = "./files/OAEI2009/alignments/103/101-103-Parent0.9.rdf";
-		String alignmentFolder = "./files/OAEI2009/combinedAlignments/103";
-		String refalign = "./files/OAEI2009/103/refalign.rdf";
+		String singleAlignment = "./files/wndomainsexperiment/alignments/AML_bibframe-schemaorg-ISub08.rdf";
+		String alignmentFolder = "./files/Amazon-GoogleProducts/alignments";
+		String refalign = "./files/Amazon-GoogleProducts/refalign.rdf";
 
 		//evaluateSingleAlignment(singleAlignment, refalign);
 		//evaluateAlignmentFolder(alignmentFolder,refalign);

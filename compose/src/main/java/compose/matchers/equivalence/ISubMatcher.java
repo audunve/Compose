@@ -48,11 +48,11 @@ public class ISubMatcher extends ObjectAlignment implements AlignmentProcess {
 		String s1 = ontology1().getEntityName(o1).toLowerCase();
 		String s2 = ontology2().getEntityName(o2).toLowerCase();
 		
-		System.out.println("Matching " +  s1 + " and " + s2);
+		//System.out.println("Matching " +  s1 + " and " + s2);
 
 		double measure = isubMatcher.score(s1, s2);
 
-		System.out.println("The score is " + measure);
+		//System.out.println("The score is " + measure);
 		return measure;
 
 	}
