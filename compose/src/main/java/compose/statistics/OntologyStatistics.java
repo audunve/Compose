@@ -29,7 +29,7 @@ import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
 import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
 
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 import compose.wordnet.RiWordNetOperations;
 import compose.wordnet.WNDomain;
 import compose.wordnet.WordNetOperations;
@@ -465,7 +465,7 @@ public class OntologyStatistics {
 
 		for (OWLClass cl : classes) {
 			String[] hyponyms = RiWordNetOperations
-					.getHyponyms(StringUtils.stringTokenize(cl.getIRI().getFragment(), true));
+					.getHyponyms(StringUtilities.stringTokenize(cl.getIRI().getFragment(), true));
 
 			int numHyponyms = hyponyms.length;
 
@@ -497,7 +497,7 @@ public class OntologyStatistics {
 
 		for (OWLClass cl : classes) {
 			String[] synonyms = RiWordNetOperations
-					.getSynonyms(StringUtils.stringTokenize(cl.getIRI().getFragment(), true));
+					.getSynonyms(StringUtilities.stringTokenize(cl.getIRI().getFragment(), true));
 
 			int numSynonyms = synonyms.length;
 
@@ -634,7 +634,7 @@ public class OntologyStatistics {
 		int counter = 0;
 
 		while (itr.hasNext()) {
-			thisClass = StringUtils.replaceUnderscore(itr.next().getIRI().getFragment());
+			thisClass = StringUtilities.replaceUnderscore(itr.next().getIRI().getFragment());
 
 			if (isCompound(thisClass) == true) {
 				counter++;

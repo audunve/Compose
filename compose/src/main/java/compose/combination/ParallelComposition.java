@@ -21,7 +21,7 @@ import org.semanticweb.owl.align.Relation;
 
 import compose.eval.Evaluator;
 import compose.matchers.equivalence.ISubMatcher;
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.BasicRelation;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
@@ -48,6 +48,7 @@ public class ParallelComposition {
 	public static BasicAlignment simpleVote(ArrayList<Alignment> inputAlignments) throws AlignmentException {
 
 		BasicAlignment simpleVoteAlignment = new URIAlignment();
+		simpleVoteAlignment.setType("SimpleVote");
 
 		ArrayList<Cell> allCells = new ArrayList<Cell>();
 
@@ -116,7 +117,7 @@ public class ParallelComposition {
 		
 
 		for (Cell c : toKeep) {
-			simpleVoteAlignment.addAlignCell(c.getObject1(), c.getObject2(), StringUtils.validateRelationType(c.getRelation().getRelation()),
+			simpleVoteAlignment.addAlignCell(c.getObject1(), c.getObject2(), StringUtilities.validateRelationType(c.getRelation().getRelation()),
 					c.getStrength());
 		}
 
@@ -202,11 +203,11 @@ public class ParallelComposition {
 				//if (cell2.getObject1().equals(cell1.getObject1()) || cell2.getObject2().equals(cell1.getObject2())) {
 				if (!cell1.equals(cell2)) {
 					//if (cell2.compareTo(cell1) == 1) {
-					intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), StringUtils.validateRelationType(cell1.getRelation().getRelation()), cell1.getStrength());
+					intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), StringUtilities.validateRelationType(cell1.getRelation().getRelation()), cell1.getStrength());
 					//System.out.println("Adding " + cell1.getObject1() + " and " + cell1.getObject2() + " to the intermediate alignment");
 					//if the cells are equal in any of the objects, we only add cells from the first alignment
 				} else {
-					intermediateAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
+					intermediateAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
 					//continue;
 				}
 			}
@@ -223,11 +224,11 @@ public class ParallelComposition {
 				//if the cells aren´t equal (contains similar entities) we can add a new cell
 				//if (cell3.getObject1().equals(cell2.getObject1()) || cell3.getObject2().equals(cell2.getObject2())) {
 				if (!cell2.equals(cell3)) {
-					completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
+					completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
 					//break;
 					//if the cells are not equal in any of their objects, we can add cells from a3
 				} else {
-					completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtils.validateRelationType(cell3.getRelation().getRelation()), cell3.getStrength());
+					completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtilities.validateRelationType(cell3.getRelation().getRelation()), cell3.getStrength());
 					//continue;
 				}
 			}
@@ -275,10 +276,10 @@ public class ParallelComposition {
 			for (Cell cell2 : a2) {				
 				//if the cells aren´t equal (contains similar entities) we can add a new cell
 				if (!priCell.equals(cell2)) {
-					completeMatchAlignment.addAlignCell(priCell.getObject1(), priCell.getObject2(), StringUtils.validateRelationType(priCell.getRelation().getRelation()), priCell.getStrength());
+					completeMatchAlignment.addAlignCell(priCell.getObject1(), priCell.getObject2(), StringUtilities.validateRelationType(priCell.getRelation().getRelation()), priCell.getStrength());
 					//if the cells are equal in any of the objects, we only add cells from the first alignment
 				} else {
-					completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
+					completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
 					//continue;
 				}
 			}
@@ -294,11 +295,11 @@ public class ParallelComposition {
 			for (Cell cell3 : a3) {
 				//if the cells aren´t equal (contains similar entities) we can add a new cell
 				if (!priCell.equals(cell3)) {
-					completeMatchAlignment.addAlignCell(priCell.getObject1(), priCell.getObject2(), StringUtils.validateRelationType(priCell.getRelation().getRelation()), priCell.getStrength());
+					completeMatchAlignment.addAlignCell(priCell.getObject1(), priCell.getObject2(), StringUtilities.validateRelationType(priCell.getRelation().getRelation()), priCell.getStrength());
 					//break;
 					//if the cells are not equal in any of their objects, we can add cells from a3
 				} else {
-					completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtils.validateRelationType(cell3.getRelation().getRelation()), cell3.getStrength());
+					completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtilities.validateRelationType(cell3.getRelation().getRelation()), cell3.getStrength());
 					//continue;
 				}
 			}
@@ -309,11 +310,11 @@ public class ParallelComposition {
 					for (Cell cell4 : a4) {
 						//if the cells aren´t equal (contains similar entities) we can add a new cell
 						if (!priCell.equals(cell4)) {
-							completeMatchAlignment.addAlignCell(priCell.getObject1(), priCell.getObject2(), StringUtils.validateRelationType(priCell.getRelation().getRelation()), priCell.getStrength());
+							completeMatchAlignment.addAlignCell(priCell.getObject1(), priCell.getObject2(), StringUtilities.validateRelationType(priCell.getRelation().getRelation()), priCell.getStrength());
 							//break;
 							//if the cells are not equal in any of their objects, we can add cells from a3
 						} else {
-							completeMatchAlignment.addAlignCell(cell4.getObject1(), cell4.getObject2(), StringUtils.validateRelationType(cell4.getRelation().getRelation()), cell4.getStrength());
+							completeMatchAlignment.addAlignCell(cell4.getObject1(), cell4.getObject2(), StringUtilities.validateRelationType(cell4.getRelation().getRelation()), cell4.getStrength());
 							//continue;
 						}
 					}

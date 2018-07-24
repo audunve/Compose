@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
@@ -28,7 +29,7 @@ import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 
 /**
  * Runs the different matcher compositions (
@@ -59,8 +60,8 @@ public class MatcherComposition {
 		File dbFile = new File("/Users/audunvennesland/Documents/PhD/Development/Neo4J/ER2017/"+experiment);
 		GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 
-		String ontologyParameter1 = StringUtils.stripPath(ontoFile1.toString());
-		String ontologyParameter2 = StringUtils.stripPath(ontoFile2.toString());
+		String ontologyParameter1 = StringUtilities.stripPath(ontoFile1.toString());
+		String ontologyParameter2 = StringUtilities.stripPath(ontoFile2.toString());
 
 		//reference alignment for the evaluation
 		AlignmentParser aparser = new AlignmentParser(0);
@@ -367,12 +368,12 @@ public class MatcherComposition {
 			BasicAlignment ba2 = (BasicAlignment) parser.parse(a2.toURI().toString());
 			BasicAlignment ba3 = (BasicAlignment) parser.parse(a3.toURI().toString());
 			
-			Set<Alignment> aSet = new HashSet<Alignment>();
-			aSet.add(ba1);
-			aSet.add(ba2);
-			aSet.add(ba3);
+			ArrayList<Alignment> aList = new ArrayList<Alignment>();
+			aList.add(ba1);
+			aList.add(ba2);
+			aList.add(ba3);
 
-			Alignment Parallel_SimpleVote_ClassEqAlignment = ParallelComposition.simpleVote(aSet);
+			Alignment Parallel_SimpleVote_ClassEqAlignment = ParallelComposition.simpleVote(aList);
 			Alignment referenceAlignment_Parallel_SimpleVote_ClassEq = aparser.parse(new URI("file:files/OAEI2011/" + experiment + "/refalign.rdf"));
 
 			//store the alignment
@@ -417,12 +418,12 @@ public class MatcherComposition {
 			ba2 = (BasicAlignment) parser.parse(a2.toURI().toString());
 			ba3 = (BasicAlignment) parser.parse(a3.toURI().toString());
 			
-			aSet = new HashSet<Alignment>();
-			aSet.add(ba1);
-			aSet.add(ba2);
-			aSet.add(ba3);
+			aList = new ArrayList<Alignment>();
+			aList.add(ba1);
+			aList.add(ba2);
+			aList.add(ba3);
 
-			Alignment Parallel_SimpleVote_SubsumptionAlignment = ParallelComposition.simpleVote(aSet);
+			Alignment Parallel_SimpleVote_SubsumptionAlignment = ParallelComposition.simpleVote(aList);
 			Alignment referenceAlignment_Parallel_SimpleVote_Subsumption = aparser.parse(new URI("file:files/OAEI2011/" + experiment + "/refalign.rdf"));
 
 			//store the alignment
@@ -470,12 +471,12 @@ public class MatcherComposition {
 			ba2 = (BasicAlignment) parser.parse(a2.toURI().toString());
 			ba3 = (BasicAlignment) parser.parse(a3.toURI().toString());
 			
-			aSet = new HashSet<Alignment>();
-			aSet.add(ba1);
-			aSet.add(ba2);
-			aSet.add(ba3);
+			aList = new ArrayList<Alignment>();
+			aList.add(ba1);
+			aList.add(ba2);
+			aList.add(ba3);
 
-			Alignment Parallel_SimpleVote_PropEqAlignment = ParallelComposition.simpleVote(aSet);
+			Alignment Parallel_SimpleVote_PropEqAlignment = ParallelComposition.simpleVote(aList);
 			Alignment referenceAlignment_Parallel_SimpleVote_PropEq = aparser.parse(new URI("file:files/experiment_eswc17/alignments/" + experiment + "/referencealignment/refalign_propEq.rdf"));
 
 			//store the alignment

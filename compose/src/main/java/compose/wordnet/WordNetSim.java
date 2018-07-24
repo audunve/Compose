@@ -2,7 +2,7 @@ package compose.wordnet;
 
 import java.util.ArrayList;
 
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 import edu.cmu.lti.lexical_db.ILexicalDatabase;
 import edu.cmu.lti.lexical_db.NictWordNet;
 import edu.cmu.lti.ws4j.impl.HirstStOnge;
@@ -175,11 +175,11 @@ public class WordNetSim {
 		String c1 = "instrument";
 		String c2 = "event";
 
-		String s1 = StringUtils.stringTokenize(c1, true).toLowerCase();
-		String s2 = StringUtils.stringTokenize(c2,true).toLowerCase();
+		String s1 = StringUtilities.stringTokenize(c1, true).toLowerCase();
+		String s2 = StringUtilities.stringTokenize(c2,true).toLowerCase();
 
-		ArrayList<String> tokens_1 = StringUtils.tokenize(s1, true);
-		ArrayList<String> tokens_2 = StringUtils.tokenize(s2, true);
+		ArrayList<String> tokens_1 = StringUtilities.tokenize(s1, true);
+		ArrayList<String> tokens_2 = StringUtilities.tokenize(s2, true);
 
 		double score = 0; 
 		double finalScore = 0;

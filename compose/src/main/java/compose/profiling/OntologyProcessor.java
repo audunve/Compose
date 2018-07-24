@@ -3,6 +3,8 @@ package compose.profiling;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.URISyntaxException;
 import java.util.Iterator;
 import java.util.Map;
@@ -13,7 +15,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
-import compose.statistics.OntologyStatistics;
+//import compliancevalidator.statistics.OntologyStatistics;
 import fr.inrialpes.exmo.ontowrap.LoadedOntology;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
 import net.didion.jwnl.JWNLException;
@@ -152,16 +154,20 @@ public class OntologyProcessor {
 		int numClassesWithoutLabels = OntologyStatistics.getNumClassesWithoutLabels(ontoFile1) + OntologyStatistics.getNumClassesWithoutLabels(ontoFile2);
 		int numClasses = OntologyStatistics.getNumClasses(ontoFile1) + OntologyStatistics.getNumClasses(ontoFile2);
 		
-		return (((double)numClassesWithoutComments / (double)numClasses) + ((double)numClassesWithoutLabels / (double)numClasses)) / 2;
+		//return (((double)numClassesWithoutComments / (double)numClasses) + ((double)numClassesWithoutLabels / (double)numClasses)) / 2;
+		return (double)numClassesWithoutComments / numClasses ;
 	}
 	
 	public static double computeNullLabelOrComment(File ontoFile1) throws OWLOntologyCreationException{
 		
 		int numClassesWithoutComments = OntologyStatistics.getNumClassesWithoutComments(ontoFile1);
 		int numClassesWithoutLabels = OntologyStatistics.getNumClassesWithoutLabels(ontoFile1);
+		//System.out.println("Number of classes without comments: " + numClassesWithoutComments);
 		int numClasses = OntologyStatistics.getNumClasses(ontoFile1);
+		//System.out.println("Total number of classes: " + numClasses);
 		
-		return (((double)numClassesWithoutComments / (double)numClasses) + ((double)numClassesWithoutLabels / (double)numClasses)) / 2;
+		//return (((double)numClassesWithoutComments / (double)numClasses) + ((double)numClassesWithoutLabels / (double)numClasses)) / 2;
+		return (double)numClassesWithoutComments / numClasses;
 	}
 
 	/**
@@ -198,16 +204,16 @@ public class OntologyProcessor {
 	 * @throws JWNLException 
 	 * @throws FileNotFoundException 
 	 */
-	public static double computeWordNetCoverage(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException, FileNotFoundException, JWNLException{
+	public static double computeWordNetCoverageComp(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException, FileNotFoundException, JWNLException{
 		
-		double WC = (OntologyStatistics.getWordNetCoverage(ontoFile1) + OntologyStatistics.getWordNetCoverage(ontoFile2)) / 2;
+		double WC = (OntologyStatistics.getWordNetCoverageComp(ontoFile1) + OntologyStatistics.getWordNetCoverageComp(ontoFile2)) / 2;
 		
 		return WC;
 	}
 	
-	public static double computeWordNetCoverage(File ontoFile1) throws OWLOntologyCreationException, FileNotFoundException, JWNLException{
+	public static double computeWordNetCoverageComp(File ontoFile1) throws OWLOntologyCreationException, FileNotFoundException, JWNLException{
 		
-		double WC = OntologyStatistics.getWordNetCoverage(ontoFile1);
+		double WC = OntologyStatistics.getWordNetCoverageComp(ontoFile1);
 		
 		return WC;
 	}
@@ -238,43 +244,54 @@ public class OntologyProcessor {
 		// TO-DO: Implement functionality for finding enrichments
 		return null;
 	}
+	
+	public static double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    BigDecimal bd = new BigDecimal(value);
+	    bd = bd.setScale(places, RoundingMode.HALF_UP);
+	    return bd.doubleValue();
+	}
 
 	
 	public static void main(String[] args) throws OWLOntologyCreationException, URISyntaxException, OntowrapException, FileNotFoundException, JWNLException {
 		
-		File onto1 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/Conference.owl");
-		File onto2 = new File("/Users/audunvennesland/Documents/PhD/Ontologies/OAEI/Conference-2016/conference/ekaw.owl");
+		File onto1 = new File("./files/KEOD18/datasets_refined/d1/ontologies/aixm_airportheliport.owl");
+		File onto2 = new File("./files/KEOD18/datasets_refined/d1/ontologies/aerodromeinfrastructure.owl");
 		
+		System.out.println("*** Number of Compounds ***");
+		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " is: " + OntologyStatistics.getNumClassCompounds(onto1));
+		System.out.println("The Num Compounds (NC) of " + onto2.getName() + " is: " + OntologyStatistics.getNumClassCompounds(onto2));
+		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + ((OntologyStatistics.getNumClassCompounds(onto1) + OntologyStatistics.getNumClassCompounds(onto2))) / 2 + " (" + 
+				round((((OntologyStatistics.getNumClassCompounds(onto1) + OntologyStatistics.getNumClassCompounds(onto2))) / 2)*100, 2) + " percent)");
 
+		System.out.println("\n*** Annotation Coverage ***");
+		System.out.println("The Annotation Coverage of " + onto1.getName() + " is: " + (100-computeNullLabelOrComment(onto1)));
+		System.out.println("The Annotation Coverage of  " + onto2.getName() + " is: " + (100-computeNullLabelOrComment(onto2)));
+		System.out.println("The Annotation Coverage of  " + onto1.getName() + " and " + onto2.getName() + " is: " + (100-computeNullLabelOrComment(onto1, onto2)) + " (" + round((100-computeNullLabelOrComment(onto1, onto2)),2) + " percent)");
+		
+		System.out.println("\n*** Inheritance Richness (Real number) ***");
 		System.out.println("The Inheritance Richness (IR) of " + onto1.getName() + " is: " + computeInheritanceRichness(onto1));
 		System.out.println("The Inheritance Richness (IR) of " + onto2.getName() + " is: " + computeInheritanceRichness(onto2));
 		System.out.println("The Inheritance Richness (IR) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeInheritanceRichness(onto1, onto2));
-		
-		/*System.out.println("The NullLabelOrComment (N) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeNullLabelOrComment(onto1, onto2) + " (" + computeNullLabelOrComment(onto1, onto2)*100 + " percent)");
-		System.out.println("The NullLabelOrComment (N) of " + onto1.getName() + " is: " + computeNullLabelOrComment(onto1));
-		System.out.println("The NullLabelOrComment (N) of " + onto2.getName() + " is: " + computeNullLabelOrComment(onto2));*/
-		
-		System.out.println("The Relationship Richness (RR) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeRelationshipRichness(onto1, onto2));
+
+		System.out.println("\n*** Relationship Richness ***");
 		System.out.println("The Relationship Richness (RR) of " + onto1.getName() + " is: " + computeRelationshipRichness(onto1));
 		System.out.println("The Relationship Richness (RR) of " + onto2.getName() + " is: " + computeRelationshipRichness(onto2));
+		System.out.println("The Relationship Richness (RR) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeRelationshipRichness(onto1, onto2) + " (" + round((computeRelationshipRichness(onto1, onto2))*100,2) + " percent)");
 		
-		System.out.println("The WordNet Coverage (WC) of " + onto1.getName() + " is: " + computeWordNetCoverage(onto1));
-		System.out.println("The WordNet Coverage (WC) of " + onto2.getName() + " is: " + computeWordNetCoverage(onto2));
-		System.out.println("The WordNet Coverage (WC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeWordNetCoverage(onto1, onto2) + " (" + computeWordNetCoverage(onto1, onto2)*100 + " percent)");
+//		System.out.println("\n*** WordNet Coverage ***");
+//		System.out.println("The WordNet Coverage (WC) of " + onto1.getName() + " is: " + computeWordNetCoverageComp(onto1));
+//		System.out.println("The WordNet Coverage (WC) of " + onto2.getName() + " is: " + computeWordNetCoverageComp(onto2));
+//		System.out.println("The WordNet Coverage (WC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + computeWordNetCoverageComp(onto1, onto2) + " (" + round(computeWordNetCoverageComp(onto1, onto2)*100,2) + " percent)");
 		
-		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " is: " + OntologyStatistics.getNumClassCompounds(onto1));
-		System.out.println("The Num Compounds (NC) of " + onto2.getName() + " is: " + OntologyStatistics.getNumClassCompounds(onto2));
-		System.out.println("The Num Compounds (NC) of " + onto1.getName() + " and " + onto2.getName() + " is: " + ((OntologyStatistics.getNumClassCompounds(onto1) + OntologyStatistics.getNumClassCompounds(onto2))) / 2);
+		System.out.println("\n*** Synonym Richness (Real number) ***");
+		System.out.println("The Synonym Richness (Comp) (SR_comp) of " + onto1.getName() + " is " + OntologyStatistics.getSynonymRichnessComp(onto1));
+		System.out.println("The Synonym Richness (Comp) (SR_comp) of " + onto2.getName() + " is " + OntologyStatistics.getSynonymRichnessComp(onto2));
+		System.out.println("The Synonym Richness (Comp) (SR_comp) of " + onto1.getName() + " and " + onto2.getName() + " is " + (OntologyStatistics.getSynonymRichnessComp(onto1) + OntologyStatistics.getSynonymRichnessComp(onto2))/2);
+
 		
-		System.out.println("The Common Substring (CS) of " + onto1.getName() + " and " + onto2.getName() + " is: " + OntologyStatistics.commonSubstringRatio(onto1, onto2));
-		
-		System.out.println("The Hyponymy Richness (HR) of " + onto1.getName() + " is " + OntologyStatistics.getHyponymRichness(onto1));
-		System.out.println("The Hyponymy Richness (HR) of " + onto2.getName() + " is " + OntologyStatistics.getHyponymRichness(onto2));
-		System.out.println("The Hyponymy Richness (HR) of " + onto1.getName() + " and " + onto2.getName() + " is " + (OntologyStatistics.getHyponymRichness(onto1) + OntologyStatistics.getHyponymRichness(onto2))/2);
-		
-		System.out.println("The Synonym Richness (SR) of " + onto1.getName() + " is " + OntologyStatistics.getSynonymRichness(onto1));
-		System.out.println("The Synonym Richness (SR) of " + onto2.getName() + " is " + OntologyStatistics.getSynonymRichness(onto2));
-		System.out.println("The Synonym Richness (SR) of " + onto1.getName() + " and " + onto2.getName() + " is " + (OntologyStatistics.getSynonymRichness(onto1) + OntologyStatistics.getSynonymRichness(onto2))/2);
+
 	}
 
 }

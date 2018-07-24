@@ -24,7 +24,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 import compose.statistics.OntologyStatistics;
 
 public class GraphCreator {
@@ -153,7 +153,7 @@ public class GraphCreator {
 		//get the ontology
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		File f1 = new File("./files/PathMatcher/PathMatcher-1.owl");		
-		System.out.println("...Loading ontology " + StringUtils.stripPath(f1.toString()));
+		System.out.println("...Loading ontology " + StringUtilities.stripPath(f1.toString()));
 		OWLOntology o1 = manager.loadOntologyFromOntologyDocument(f1);
 
 		String ontologyName = manager.getOntologyDocumentIRI(o1).getFragment();

@@ -36,7 +36,7 @@ import compose.matchers.subsumption.ParentMatcher;
 import compose.matchers.subsumption.WNHyponymMatcher;
 import compose.misc.AlignmentOperations;
 import compose.misc.Intersection;
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 import compose.profiling.OntologyProcessor;
 import compose.statistics.OntologyStatistics;
 import compose.wordnet.WNDomain;
@@ -285,7 +285,7 @@ public class ComposeGUIMainMenu extends JFrame {
 					ex.printStackTrace();
 				}
 
-				EQlblOntology1.setText(StringUtils.stripPath(ontoFile1.toString()));
+				EQlblOntology1.setText(StringUtilities.stripPath(ontoFile1.toString()));
 			}
 		});
 		btnEQUploadOntology1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
@@ -303,7 +303,7 @@ public class ComposeGUIMainMenu extends JFrame {
 					ex.printStackTrace();
 				}
 
-				EQlblOntology2.setText(StringUtils.stripPath(ontoFile2.toString()));
+				EQlblOntology2.setText(StringUtilities.stripPath(ontoFile2.toString()));
 			}
 		});
 		btnEQUploadOntology2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
@@ -322,7 +322,7 @@ public class ComposeGUIMainMenu extends JFrame {
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
-				EQlblRefAlign.setText(StringUtils.stripPath(refAlignFile.toString()));
+				EQlblRefAlign.setText(StringUtilities.stripPath(refAlignFile.toString()));
 			}
 		});
 		btnUploadReferenceAlignment_1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
@@ -2531,7 +2531,7 @@ public class ComposeGUIMainMenu extends JFrame {
 					ex.printStackTrace();
 				}
 
-				lblOntology1.setText(StringUtils.stripPath(ontoFile1.toString()));
+				lblOntology1.setText(StringUtilities.stripPath(ontoFile1.toString()));
 
 			}
 		});
@@ -2551,7 +2551,7 @@ public class ComposeGUIMainMenu extends JFrame {
 					ex.printStackTrace();
 				}
 
-				lblOntology2.setText(StringUtils.stripPath(ontoFile2.toString()));
+				lblOntology2.setText(StringUtilities.stripPath(ontoFile2.toString()));
 
 			}
 		});
@@ -2570,7 +2570,7 @@ public class ComposeGUIMainMenu extends JFrame {
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
-				lblRefAlignment.setText(StringUtils.stripPath(refAlignFile.toString()));
+				lblRefAlignment.setText(StringUtilities.stripPath(refAlignFile.toString()));
 
 			}
 		});
@@ -2623,7 +2623,7 @@ public class ComposeGUIMainMenu extends JFrame {
 				//WordNet Coverage
 				double wc1 = 0;
 				try {
-					wc1 = round(OntologyProcessor.computeWordNetCoverage(ontoFile1), 2);
+					wc1 = round(OntologyProcessor.computeWordNetCoverageComp(ontoFile1), 2);
 				} catch (OWLOntologyCreationException | FileNotFoundException | JWNLException e1) {
 					e1.printStackTrace();
 				}
@@ -2666,7 +2666,7 @@ public class ComposeGUIMainMenu extends JFrame {
 				}
 
 
-				String ontology1Name = StringUtils.stripPath(ontoFile1.toString());
+				String ontology1Name = StringUtilities.stripPath(ontoFile1.toString());
 				sbOntologyProfile1.append("- " + ontology1Name + " -");
 				sbOntologyProfile1.append("\n");
 				sbOntologyProfile1.append("Compound Ratio: " + String.valueOf(cr1));
@@ -2725,7 +2725,7 @@ public class ComposeGUIMainMenu extends JFrame {
 				//WordNet Coverage
 				double wc2 = 0;
 				try {
-					wc2 = round(OntologyProcessor.computeWordNetCoverage(ontoFile2), 2);
+					wc2 = round(OntologyProcessor.computeWordNetCoverageComp(ontoFile2), 2);
 				} catch (OWLOntologyCreationException | FileNotFoundException | JWNLException e1) {
 					e1.printStackTrace();
 				}
@@ -2768,7 +2768,7 @@ public class ComposeGUIMainMenu extends JFrame {
 				}
 
 
-				String ontology2Name = StringUtils.stripPath(ontoFile2.toString());
+				String ontology2Name = StringUtilities.stripPath(ontoFile2.toString());
 				sbOntologyProfile2.append("- " + ontology2Name + " -");
 				sbOntologyProfile2.append("\n");
 				sbOntologyProfile2.append("Compound Ratio: " + String.valueOf(cr2));
@@ -3057,8 +3057,8 @@ public class ComposeGUIMainMenu extends JFrame {
 					registerShutdownHook(db);
 
 
-					String ontologyParameter1 = StringUtils.stripPath(ontoFile1.toString());
-					String ontologyParameter2 = StringUtils.stripPath(ontoFile2.toString());					
+					String ontologyParameter1 = StringUtilities.stripPath(ontoFile1.toString());
+					String ontologyParameter2 = StringUtilities.stripPath(ontoFile2.toString());					
 
 					//create new graphs
 					manager = OWLManager.createOWLOntologyManager();
@@ -3259,8 +3259,8 @@ public class ComposeGUIMainMenu extends JFrame {
 					GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 					registerShutdownHook(db);
 
-					String ontologyParameter1 = StringUtils.stripPath(ontoFile1.toString());
-					String ontologyParameter2 = StringUtils.stripPath(ontoFile2.toString());
+					String ontologyParameter1 = StringUtilities.stripPath(ontoFile1.toString());
+					String ontologyParameter2 = StringUtilities.stripPath(ontoFile2.toString());
 
 					//create new graphs
 					manager = OWLManager.createOWLOntologyManager();

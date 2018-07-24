@@ -263,7 +263,7 @@ public class InstanceMatcher extends ObjectAlignment implements AlignmentProcess
 		File ontoFile1 = new File("./files/UoA/TestTransportWithInstances1.owl");
 		File ontoFile2 = new File("./files/UoA/TestTransportWithInstances2.owl");
 
-		//double test = matchInstances(ontoFile1, ontoFile2);
+		double test = matchInstances(ontoFile1, ontoFile2);
 	}
 
 

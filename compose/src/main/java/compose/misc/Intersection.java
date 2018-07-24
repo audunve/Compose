@@ -177,6 +177,8 @@ public class Intersection {
 		inputAlignments.add(a1);
 		inputAlignments.add(a2);
 		inputAlignments.add(a3);
+		
+		String experiment = "301-302";
 
 		System.out.println("Computing intersect Strict");
 		BasicAlignment intersect_strict = (BasicAlignment) intersectStrictly(af1, af2, af3);

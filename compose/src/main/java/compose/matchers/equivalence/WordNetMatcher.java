@@ -7,7 +7,7 @@ import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owl.align.Cell;
 
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
@@ -51,8 +51,8 @@ public static Alignment matchAlignment(Alignment inputAlignment) throws Alignmen
 		
 		//match the objects (need to preprocess to remove URI) in every cell of the alignment
 		for (Cell c : inputAlignment) {
-			score = computeAlignmentWordNetMatch(StringUtils.getString(c.getObject1().toString()), StringUtils.getString(c.getObject2().toString()));
-			System.out.println("Matching " + StringUtils.getString(c.getObject1().toString()) + " and " + StringUtils.getString(c.getObject2().toString()) + " with a score of " + score);
+			score = computeAlignmentWordNetMatch(StringUtilities.getString(c.getObject1().toString()), StringUtilities.getString(c.getObject2().toString()));
+			System.out.println("Matching " + StringUtilities.getString(c.getObject1().toString()) + " and " + StringUtilities.getString(c.getObject2().toString()) + " with a score of " + score);
 			if (score > c.getStrength() && score > threshold) {
 				refinedAlignment.addAlignCell(c.getObject1(), c.getObject2(), "=", increaseCellStrength(score));
 			} else {
@@ -103,8 +103,8 @@ public static Alignment matchAlignment(Alignment inputAlignment) throws Alignmen
 		
 			//get the objects (entities)
 			//need to split the strings
-			String s1 = StringUtils.stringTokenize(ontology1().getEntityName(o1),true).toLowerCase();
-			String s2 = StringUtils.stringTokenize(ontology2().getEntityName(o2),true).toLowerCase();
+			String s1 = StringUtilities.stringTokenize(ontology1().getEntityName(o1),true).toLowerCase();
+			String s2 = StringUtilities.stringTokenize(ontology2().getEntityName(o2),true).toLowerCase();
 			
 			//TO-DO: trying to utilize token-by-token matching in wordnet, but not successful
 			/*ArrayList<String> tokens_1 = StringUtils.tokenize(s1, true);

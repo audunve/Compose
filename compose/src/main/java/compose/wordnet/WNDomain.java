@@ -24,7 +24,7 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import net.didion.jwnl.JWNLException;
 import net.didion.jwnl.data.Synset;
 import compose.misc.Jaccard;
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 
 
 public class WNDomain {
@@ -159,7 +159,7 @@ public class WNDomain {
 		System.out.println("The jaccard score is " + jaccardScore);
 		
 		//need to check that none of the sets are empty (this means that there are no domains) and that the computed jaccard score is above the minimum jaccard constraint		
-		if ((!c1.isEmpty() && !c2.isEmpty()) && jaccardScore > minJaccard) {
+		if ((!c1.isEmpty() && !c2.isEmpty()) && jaccardScore >= minJaccard) {
 			similar = true;
 		} else {
 			similar = false;

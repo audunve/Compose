@@ -33,7 +33,7 @@ import compose.matchers.subsumption.AncestorMatcher;
 import compose.matchers.subsumption.CompoundMatcher;
 import compose.matchers.subsumption.ParentMatcher;
 import compose.matchers.subsumption.WNHyponymMatcher;
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 
@@ -76,8 +76,8 @@ public class TestMatcher {
 		AlignmentProcess a = null;
 		
 		/*** USED FOR INCLUDING THE ONTOLOGY FILE NAMES IN THE COMPUTED ALIGNMENT FILE ***/
-		String onto1 = StringUtils.stripPath(ontoFile1.toString());
-		String onto2 = StringUtils.stripPath(ontoFile2.toString());
+		String onto1 = StringUtilities.stripPath(ontoFile1.toString());
+		String onto2 = StringUtilities.stripPath(ontoFile2.toString());
 
 		switch(MATCHER) {
 
@@ -186,8 +186,8 @@ public class TestMatcher {
 			GraphDatabaseService db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 			registerShutdownHook(db);
 
-			ontologyParameter1 = StringUtils.stripPath(ontoFile1.toString());
-			ontologyParameter2 = StringUtils.stripPath(ontoFile2.toString());
+			ontologyParameter1 = StringUtilities.stripPath(ontoFile1.toString());
+			ontologyParameter2 = StringUtilities.stripPath(ontoFile2.toString());
 
 			System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to the structural matcher");
 			a = new SuperclassMatcher(ontologyParameter1,ontologyParameter2, db);
@@ -274,8 +274,8 @@ public class TestMatcher {
 			db = new GraphDatabaseFactory().newEmbeddedDatabase(dbFile);
 			registerShutdownHook(db);
 
-			ontologyParameter1 = StringUtils.stripPath(ontoFile1.toString());
-			ontologyParameter2 = StringUtils.stripPath(ontoFile2.toString());
+			ontologyParameter1 = StringUtilities.stripPath(ontoFile1.toString());
+			ontologyParameter2 = StringUtilities.stripPath(ontoFile2.toString());
 			System.out.println("Passing " + ontologyParameter1 + " and " + ontologyParameter2 + " to Subsumption_SubClass_Alignment.java");
 			
 			//create new graphs

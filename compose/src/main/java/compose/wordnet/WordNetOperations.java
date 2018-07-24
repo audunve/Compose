@@ -16,7 +16,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 import edu.smu.tspell.wordnet.WordNetDatabase;
 import net.didion.jwnl.JWNL;
 import net.didion.jwnl.JWNLException;
@@ -54,7 +54,7 @@ public class WordNetOperations
 		JWNL.initialize(new FileInputStream("/Users/audunvennesland/git/Compose/compose/file_property.xml"));
 		Dictionary dictionary = Dictionary.getInstance();
 	    
-	    String token = StringUtils.stringTokenize(inputWord, true);
+	    String token = StringUtilities.stringTokenize(inputWord, true);
 
 	    IndexWord indexWord = dictionary.lookupIndexWord(pos, token);
 

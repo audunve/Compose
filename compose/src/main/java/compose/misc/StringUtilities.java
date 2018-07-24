@@ -1,6 +1,9 @@
 package compose.misc;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,14 +24,36 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
-public class StringUtils {
+public class StringUtilities {
 
 	//private static OWLAxiomIndex ontology;
 	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 	static OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
 
+	
+	//myString = myString.replaceAll("[^a-zA-Z0-9\\.\\-]", "_");
 
 
+	public static void fixAlignmentName(String folder) throws IOException {
+		
+		File allFiles = new File(folder);
+
+		File[] files = allFiles.listFiles();
+		System.err.println("Number of files: " + files.length);
+		
+		String fileName = null;
+		File newFile = null;
+		
+		for (int i = 0; i < files.length; i++) {
+			
+			fileName = files[i].getName();
+			//System.out.println("Filename is " + fileName);
+			files[i].renameTo(new File(fileName = "./files/DBLP-Scholar/alignments/new/" + fileName.replaceAll("[^a-zA-Z0-9.-]", "_")));
+			
+			//System.out.println("New Filename is " + fileName);
+			
+		}
+	}
 
 	/**
 	 * Takes a string as input and returns an arraylist of tokens from this string
@@ -480,6 +505,7 @@ public class StringUtils {
 	 * @param s2
 	 * @return results - basically an iterator that counts the number of equal strings in the two arrays
 	 * @throws OWLOntologyCreationException 
+	 * @throws IOException 
 	 *//*
 	public static int commonWords(String[] s1, String[] s2) {
 
@@ -534,7 +560,15 @@ public class StringUtils {
 		return label;
 	}*/
 
-	public static void main(String args[]) throws OWLOntologyCreationException {
+	public static void main(String args[]) throws OWLOntologyCreationException, IOException {
+		
+		//public static void fixAlignmentName(String folderName) {
+		
+		String folder = "./files/DBLP-Scholar/alignments";
+		
+		fixAlignmentName(folder);
+		
+		/*
 		String testString = "motionPicture";
 		String experiment = "biblio-bibo";
 
@@ -592,6 +626,7 @@ public class StringUtils {
 		String word = getCompoundWordsWithSpaces(compositeString);
 		
 		System.out.println(word);
+		*/
 	}
 
 

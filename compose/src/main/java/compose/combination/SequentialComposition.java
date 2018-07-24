@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +17,7 @@ import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Cell;
 
-import compose.misc.StringUtils;
+import compose.misc.StringUtilities;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
@@ -39,9 +40,13 @@ public class SequentialComposition {
 	public static Alignment weightedSequentialComposition(ArrayList<Alignment> inputAlignments) throws AlignmentException {
 
 		Alignment newAlignment = new URIAlignment();
+		newAlignment.setType("WSC");
 
 		//set the first alignment in the array list as "prioritised alignment" and remove it from the arraylist
 		Alignment priAlignment = inputAlignments.get(0);
+		
+		//a.init( new URI(prefix.concat(onto1.toString().substring(2))), new URI(prefix.concat(onto2.toString().substring(2))));
+		
 		
 		//create a list of cells from the "prioritised alignment"
 		ArrayList<Cell> priCellsList = new ArrayList<Cell>();
@@ -71,29 +76,36 @@ public class SequentialComposition {
 			cellCountMap.put(c1, counter);
 		}
 		
-		System.out.println("Printing cellCountMap");
+		//System.out.println("Printing cellCountMap");
 		
-		for (Entry<Cell, Integer> entry : cellCountMap.entrySet()) {
-			System.out.println(entry.getKey().getObject1AsURI().getFragment() + " - " + entry.getKey().getObject2AsURI().getFragment() + " : " + entry.getKey().getRelation().getRelation() + " = " + entry.getValue());
-		}
+//		for (Entry<Cell, Integer> entry : cellCountMap.entrySet()) {
+//			System.out.println(entry.getKey().getObject1AsURI().getFragment() + " - " + entry.getKey().getObject2AsURI().getFragment() + " : " + entry.getKey().getRelation().getRelation() + " = " + entry.getValue());
+//		}
+		
+//		for (Entry<Cell, Integer> entry : cellCountMap.entrySet()) {
+//			System.out.println(entry.getKey().getObject1AsURI() + " - " + entry.getKey().getObject2AsURI() + " : " + entry.getKey().getRelation().getRelation() + " = " + entry.getValue());
+//		}
+		
+		//System.out.println("Test: Finished printing the map");
 		
 		for (Entry<Cell, Integer> e : cellCountMap.entrySet()) {
 			//if no other alignments have this cell -> reduce its confidence by 50 percent
 			if (e.getValue() == (0)) {
-				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtils.validateRelationType(e.getKey().getRelation().getRelation()), e.getKey().getStrength()-0.41);
+				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtilities.validateRelationType(e.getKey().getRelation().getRelation()), e.getKey().getStrength()-0.41);
 				//if one other alignment have this cell
 			} else if (e.getValue() == (1)) {
-				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtils.validateRelationType(e.getKey().getRelation().getRelation()), e.getKey().getStrength()-0.2);
+				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtilities.validateRelationType(e.getKey().getRelation().getRelation()), e.getKey().getStrength()-0.2);
 			//if two other alignments have this cell
 			} else if (e.getValue() == (2)) {
-				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtils.validateRelationType(e.getKey().getRelation().getRelation()), e.getKey().getStrength());
+				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtilities.validateRelationType(e.getKey().getRelation().getRelation()), e.getKey().getStrength());
 			//if all other alignments have this cell
 			} else if (e.getValue() == (3)) {
-				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtils.validateRelationType(e.getKey().getRelation().getRelation()), 1.0);
+				newAlignment.addAlignCell(e.getKey().getObject1(), e.getKey().getObject2(), StringUtilities.validateRelationType(e.getKey().getRelation().getRelation()), 1.0);
 			}
 		}
 		
-
+		//System.out.println("Test: Finished checking similar cells");
+		
 		//remove duplicates before returning the completed alignment
 		((BasicAlignment) newAlignment).normalise();
 
@@ -212,15 +224,15 @@ public class SequentialComposition {
 				if (cell2.getObject1().equals(cell1.getObject1()) && cell2.getObject2().equals(cell1.getObject2())) {
 					//if the strength in the previous alignment is higher, this cell is added + weight
 					if (cell1.getStrength() >= cell2.getStrength()) {
-						firstAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), StringUtils.validateRelationType(cell1.getRelation().getRelation()), increaseCellStrength(cell1.getStrength()));
+						firstAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), StringUtilities.validateRelationType(cell1.getRelation().getRelation()), increaseCellStrength(cell1.getStrength()));
 						//if the current cells strength is higher, this cells strength is retained
 					} else if (cell2.getStrength() >= cell1.getStrength()) {
-						firstAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
+						firstAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
 					}
 					//if the cells are not equal, we add the cells from both the previous alignment and the current alignment, but give them reduced strength.
 				} else {
-					firstAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), StringUtils.validateRelationType(cell1.getRelation().getRelation()), reduceCellStrength(cell1.getStrength()));
-					firstAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), reduceCellStrength(cell2.getStrength()));
+					firstAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), StringUtilities.validateRelationType(cell1.getRelation().getRelation()), reduceCellStrength(cell1.getStrength()));
+					firstAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), reduceCellStrength(cell2.getStrength()));
 					continue;
 				}
 			}
@@ -234,15 +246,15 @@ public class SequentialComposition {
 				if (cell3.getObject1().equals(cell2.getObject1()) && cell3.getObject2().equals(cell2.getObject2())) {
 					//if the strength in the previous alignment is higher, this cell is added + weight
 					if (cell2.getStrength() >= cell3.getStrength()) {
-						secondAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), increaseCellStrength(cell2.getStrength()));
+						secondAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), increaseCellStrength(cell2.getStrength()));
 						//if the current cells strength is higher, this is retained
 					} else if (cell3.getStrength() >= cell2.getStrength()) {
-						secondAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtils.validateRelationType(cell3.getRelation().getRelation()), cell3.getStrength());
+						secondAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtilities.validateRelationType(cell3.getRelation().getRelation()), cell3.getStrength());
 					}
 					//if the cells are not equal, we add the cells from both the previous alignment and the current alignment, but give them reduced strength.
 				} else {
-					secondAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), reduceCellStrength(cell2.getStrength()));
-					secondAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtils.validateRelationType(cell3.getRelation().getRelation()), reduceCellStrength(cell3.getStrength()));
+					secondAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), reduceCellStrength(cell2.getStrength()));
+					secondAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtilities.validateRelationType(cell3.getRelation().getRelation()), reduceCellStrength(cell3.getStrength()));
 					continue;
 				}
 			}
@@ -255,14 +267,14 @@ public class SequentialComposition {
 				if (cell5.getObject1().equals(cell4.getObject1()) && cell5.getObject2().equals(cell4.getObject2())) {
 					//if the strength in the previous alignment is higher, this cell is added + weight
 					if (cell4.getStrength() >= cell5.getStrength()) {
-						finalAlignment.addAlignCell(cell5.getObject1(), cell5.getObject2(), StringUtils.validateRelationType(cell5.getRelation().getRelation()), cell5.getStrength());
+						finalAlignment.addAlignCell(cell5.getObject1(), cell5.getObject2(), StringUtilities.validateRelationType(cell5.getRelation().getRelation()), cell5.getStrength());
 					} else if (cell5.getStrength() >= cell4.getStrength()) {
-						finalAlignment.addAlignCell(cell5.getObject1(), cell5.getObject2(), StringUtils.validateRelationType(cell5.getRelation().getRelation()), cell5.getStrength());
+						finalAlignment.addAlignCell(cell5.getObject1(), cell5.getObject2(), StringUtilities.validateRelationType(cell5.getRelation().getRelation()), cell5.getStrength());
 					}
 					//if the cells are not equal, we add the cells from both the previous alignment and the current alignment, but give them reduced strength
 				} else {
-					finalAlignment.addAlignCell(cell4.getObject1(), cell4.getObject2(), StringUtils.validateRelationType(cell4.getRelation().getRelation()), reduceCellStrength(cell4.getStrength()));
-					finalAlignment.addAlignCell(cell5.getObject1(), cell5.getObject2(), StringUtils.validateRelationType(cell5.getRelation().getRelation()), reduceCellStrength(cell5.getStrength()));
+					finalAlignment.addAlignCell(cell4.getObject1(), cell4.getObject2(), StringUtilities.validateRelationType(cell4.getRelation().getRelation()), reduceCellStrength(cell4.getStrength()));
+					finalAlignment.addAlignCell(cell5.getObject1(), cell5.getObject2(), StringUtilities.validateRelationType(cell5.getRelation().getRelation()), reduceCellStrength(cell5.getStrength()));
 					continue;
 				}
 			}
@@ -302,15 +314,15 @@ public class SequentialComposition {
 				if (cell2.getObject1().equals(cell1.getObject1()) && cell2.getObject2().equals(cell1.getObject2())) {
 					//if the strength in the previous alignment is higher, this cell is added 
 					if (cell1.getStrength() >= cell2.getStrength()) {
-						intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), StringUtils.validateRelationType(cell1.getRelation().getRelation()), cell1.getStrength());
+						intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), StringUtilities.validateRelationType(cell1.getRelation().getRelation()), cell1.getStrength());
 						//if the current cells strength is higher, this cells strength is retained
 					} else if (cell2.getStrength() >= cell1.getStrength()) {
-						intermediateAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
+						intermediateAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
 					}
 					//if the cells are not equal, we add the cells from both the previous alignment and the current alignment.
 				} else {
-					intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), StringUtils.validateRelationType(cell1.getRelation().getRelation()), cell1.getStrength());
-					intermediateAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
+					intermediateAlignment.addAlignCell(cell1.getObject1(), cell1.getObject2(), StringUtilities.validateRelationType(cell1.getRelation().getRelation()), cell1.getStrength());
+					intermediateAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
 					continue;
 				}
 			}
@@ -323,15 +335,15 @@ public class SequentialComposition {
 				if (cell3.getObject1().equals(cell2.getObject1()) && cell3.getObject2().equals(cell2.getObject2())) {
 					//if the strength in the previous alignment is higher, this cell is added
 					if (cell2.getStrength() >= cell3.getStrength()) {
-						completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
+						completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
 						//if the current cells strength is higher, this is retained
 					} else if (cell3.getStrength() >= cell2.getStrength()) {
-						completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtils.validateRelationType(cell3.getRelation().getRelation()), cell3.getStrength());
+						completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtilities.validateRelationType(cell3.getRelation().getRelation()), cell3.getStrength());
 					}
 					//if the cells are not equal, we add the cells from both the previous alignment and the current alignment.
 				} else {
-					completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtils.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
-					completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtils.validateRelationType(cell3.getRelation().getRelation()), cell3.getStrength());
+					completeMatchAlignment.addAlignCell(cell2.getObject1(), cell2.getObject2(), StringUtilities.validateRelationType(cell2.getRelation().getRelation()), cell2.getStrength());
+					completeMatchAlignment.addAlignCell(cell3.getObject1(), cell3.getObject2(), StringUtilities.validateRelationType(cell3.getRelation().getRelation()), cell3.getStrength());
 					continue;
 				}
 			}
