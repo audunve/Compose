@@ -14,8 +14,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.StopAnalyzer;
-import org.apache.lucene.analysis.tokenattributes.TermAttribute;
+//import org.apache.lucene.analysis.StopAnalyzer;
+//import org.apache.lucene.analysis.tokenattributes.TermAttribute;
 import org.apache.lucene.util.Version;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
@@ -26,14 +26,25 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
 
+import edu.stanford.nlp.simple.Sentence;
+
 public class StringUtilities {
 
 	//private static OWLAxiomIndex ontology;
 	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 	static OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
 
-	
-	//myString = myString.replaceAll("[^a-zA-Z0-9\\.\\-]", "_");
+	/**
+	 * Returns the lemma of a word using the Stanford SimpleNLP API
+	 * @param input the word to create the lemma from
+	 * @return
+	   Jan 26, 2019
+	 */
+	public static String getLemma (String input) {
+		String lemma = new Sentence(input).lemma(0);
+		
+		return lemma;
+	}
 
 	public static String splitCompounds(String input) {
 
@@ -433,23 +444,23 @@ public class StringUtilities {
 
 	}*/
 
-	public static String removeStopWordsFromString(String inputText) throws IOException {
-
-		StringBuilder tokens = new StringBuilder();
-
-
-		Analyzer analyzer = new StopAnalyzer(Version.LUCENE_36);
-		TokenStream tokenStream = analyzer.tokenStream(
-				LuceneConstants.CONTENTS, new StringReader(inputText));
-		TermAttribute term = tokenStream.addAttribute(TermAttribute.class);
-		while(tokenStream.incrementToken()) {
-			tokens.append(term + " ");
-		}
-
-		String tokenizedText = tokens.toString();
-		return tokenizedText;
-
-	}
+//	public static String removeStopWordsFromString(String inputText) throws IOException {
+//
+//		StringBuilder tokens = new StringBuilder();
+//
+//
+//		Analyzer analyzer = new StopAnalyzer(Version.LUCENE_36);
+//		TokenStream tokenStream = analyzer.tokenStream(
+//				LuceneConstants.CONTENTS, new StringReader(inputText));
+//		TermAttribute term = tokenStream.addAttribute(TermAttribute.class);
+//		while(tokenStream.incrementToken()) {
+//			tokens.append(term + " ");
+//		}
+//
+//		String tokenizedText = tokens.toString();
+//		return tokenizedText;
+//
+//	}
 	/*
 	public static void remStopWords(String inputText) throws IOException {
 
@@ -519,6 +530,18 @@ public class StringUtilities {
 		} else {
 			return false;
 		}
+		
+	}
+	
+	public static String splitCompoundString(String s) {
+		StringBuffer splitCompound = new StringBuffer();
+		String[] compounds = s.split("(?<=.)(?=\\p{Lu})");
+		
+		for (int i = 0; i < compounds.length; i++) {
+			splitCompound.append(" " + compounds[i]);
+		}
+		
+		return splitCompound.toString();
 		
 	}
 	
@@ -698,6 +721,12 @@ public class StringUtilities {
 		//public static void fixAlignmentName(String folderName) {
 		
 		String folder = "./files/DBLP-Scholar/alignments";
+		
+		//public static String splitCompoundString(String s) {
+		String propName = "isWrittenBy";
+		System.out.println("The new property name is " + splitCompoundString(propName));
+		
+		
 			
 		//fixAlignmentName(folder);
 		

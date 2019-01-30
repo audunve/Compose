@@ -20,12 +20,12 @@ import utilities.Relation;
  * @author audunvennesland
  *
  */
-public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess {
+public class CompoundSubsumptionMatcher extends ObjectAlignment implements AlignmentProcess {
 
 
 	final double THRESHOLD = 0.9;
 
-	public CompoundMatcher() {
+	public CompoundSubsumptionMatcher() {
 	}
 
 
@@ -43,65 +43,65 @@ public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess
 		} catch (Exception e) { e.printStackTrace(); }
 	}
 
-	public Relation getRelation(Object o1, Object o2) throws AlignmentException, OntowrapException {
-
-		Relation newRelation = new Relation();
-
-		String s1 = ontology1().getEntityName(o1);
-		String s2 = ontology2().getEntityName(o2);
-
-		double score = 0;
-		String relationType = null;
-
-		String[] s1Compounds = s1.split("(?<=.)(?=\\p{Lu})");
-		String[] s2Compounds = s2.split("(?<=.)(?=\\p{Lu})");
-
-		if (s1Compounds.length > 2 && s2Compounds.length > 2) {
-
-			if (s2.equals(s1Compounds[s1Compounds.length-1]) || s2.equals(s1Compounds[s1Compounds.length-1]+s1Compounds[s1Compounds.length-2] + s1Compounds[s1Compounds.length-3])) {
-
-				score = 1.0;
-				relationType = ">";
-
-				newRelation.setConcept1(s2);
-				newRelation.setConcept2(s1);
-				newRelation.setRelationType(relationType);
-				newRelation.setConfidence(score);
-			}
-
-			if (s1.equals(s2Compounds[s2Compounds.length-1]) || s1.equals(s2Compounds[s2Compounds.length-1]+s2Compounds[s2Compounds.length-2] + s2Compounds[s2Compounds.length-3])) {
-
-				score = 1.0;
-				relationType = ">";
-
-				score = 1.0;
-				relationType = ">";
-				newRelation.setConcept1(s2);
-				newRelation.setConcept2(s1);
-				newRelation.setRelationType(relationType);
-				newRelation.setConfidence(score);
-			}
-
-		} else if (s1Compounds.length > 1 && s2Compounds.length > 1) {
-
-			if (s2.equals(s1Compounds[s1Compounds.length-1]) || s2.equals(s1Compounds[s1Compounds.length-1]+s1Compounds[s1Compounds.length-2])) {
-
-				score = 0.8;
-				relationType = "<";
-			}
-
-			if (s1.equals(s2Compounds[s2Compounds.length-1]) || s1.equals(s2Compounds[s2Compounds.length-1]+s2Compounds[s2Compounds.length-2])) {
-
-				score = 0.8;
-				relationType = ">";
-			}
-		}
-
-
-		return newRelation;
-
-
-	}
+//	public Relation getRelation(Object o1, Object o2) throws AlignmentException, OntowrapException {
+//
+//		Relation newRelation = new Relation();
+//
+//		String s1 = ontology1().getEntityName(o1);
+//		String s2 = ontology2().getEntityName(o2);
+//
+//		double score = 0;
+//		String relationType = null;
+//
+//		String[] s1Compounds = s1.split("(?<=.)(?=\\p{Lu})");
+//		String[] s2Compounds = s2.split("(?<=.)(?=\\p{Lu})");
+//
+//		if (s1Compounds.length > 2 && s2Compounds.length > 2) {
+//
+//			if (s2.equals(s1Compounds[s1Compounds.length-1]) || s2.equals(s1Compounds[s1Compounds.length-1]+s1Compounds[s1Compounds.length-2] + s1Compounds[s1Compounds.length-3])) {
+//
+//				score = 1.0;
+//				relationType = ">";
+//
+//				newRelation.setConcept1(s2);
+//				newRelation.setConcept2(s1);
+//				newRelation.setRelationType(relationType);
+//				newRelation.setConfidence(score);
+//			}
+//
+//			if (s1.equals(s2Compounds[s2Compounds.length-1]) || s1.equals(s2Compounds[s2Compounds.length-1]+s2Compounds[s2Compounds.length-2] + s2Compounds[s2Compounds.length-3])) {
+//
+//				score = 1.0;
+//				relationType = ">";
+//
+//				score = 1.0;
+//				relationType = ">";
+//				newRelation.setConcept1(s2);
+//				newRelation.setConcept2(s1);
+//				newRelation.setRelationType(relationType);
+//				newRelation.setConfidence(score);
+//			}
+//
+//		} else if (s1Compounds.length > 1 && s2Compounds.length > 1) {
+//
+//			if (s2.equals(s1Compounds[s1Compounds.length-1]) || s2.equals(s1Compounds[s1Compounds.length-1]+s1Compounds[s1Compounds.length-2])) {
+//
+//				score = 0.8;
+//				relationType = "<";
+//			}
+//
+//			if (s1.equals(s2Compounds[s2Compounds.length-1]) || s1.equals(s2Compounds[s2Compounds.length-1]+s2Compounds[s2Compounds.length-2])) {
+//
+//				score = 0.8;
+//				relationType = ">";
+//			}
+//		}
+//
+//
+//		return newRelation;
+//
+//
+//	}
 
 	public static double getCompoundScore(String a, String b) {
 

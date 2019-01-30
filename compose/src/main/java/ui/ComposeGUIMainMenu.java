@@ -22,12 +22,13 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
+import backup.EditMatcher_remove;
+import backup.ParentMatcher;
+import backup.SmoaMatcher_remove;
+import backup.TrigramMatcher;
+import backup.WNRiWordNetDistance;
 import utilities.OntologyOperations;
-import equivalencematching.EditMatcher_remove;
-import equivalencematching.ISubMatcher;
-import equivalencematching.SmoaMatcher_remove;
-import equivalencematching.TrigramMatcher;
-import equivalencematching.WNRiWordNetDistance;
+import equivalencematching.StringEquivalenceMatcher;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
@@ -37,10 +38,9 @@ import matchercombination.ParallelCombination;
 import matchercombination.SequentialCombination;
 import net.didion.jwnl.JWNLException;
 import ontologyprofiling.OntologyProfiler;
-import subsumptionmatching.AncestorMatcher;
-import subsumptionmatching.CompoundMatcher;
-import subsumptionmatching.ParentMatcher;
-import subsumptionmatching.WNHyponymMatcher;
+import subsumptionmatching.AncestorSubsumptionMatcher;
+import subsumptionmatching.CompoundSubsumptionMatcher;
+import subsumptionmatching.LexicalSubsumptionMatcher;
 import utilities.AlignmentOperations;
 import utilities.StringUtilities;
 import utilities.WNDomain;
@@ -715,7 +715,7 @@ public class ComposeGUIMainMenu extends JFrame {
 					}
 					if (checkBoxIsub.isSelected()) {
 
-						Alignment a = new ISubMatcher();
+						Alignment a = new StringEquivalenceMatcher();
 						threshold = (double)sliderEQISub.getValue()/100;
 						
 
@@ -1776,7 +1776,7 @@ public class ComposeGUIMainMenu extends JFrame {
 					}
 					if (checkBoxIsub.isSelected()) {
 
-						Alignment a = new ISubMatcher();
+						Alignment a = new StringEquivalenceMatcher();
 						threshold = (double)sliderEQISub.getValue()/100;
 						
 
@@ -2863,7 +2863,7 @@ public class ComposeGUIMainMenu extends JFrame {
 				//compound matcher
 				if (checkBoxCompoundMatcher.isSelected()) {
 
-					Alignment a = new CompoundMatcher();
+					Alignment a = new CompoundSubsumptionMatcher();
 					threshold = (double)sliderCompoundMatcher.getValue()/100;
 
 					try {
@@ -3291,7 +3291,7 @@ public class ComposeGUIMainMenu extends JFrame {
 					}
 
 					//perform the matching
-					a = new AncestorMatcher(ontologyParameter1,ontologyParameter2, db);
+					a = new AncestorSubsumptionMatcher(ontologyParameter1,ontologyParameter2, db);
 					threshold = (double)sliderAncestorMatcher.getValue()/100;
 					try {
 						a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -3450,7 +3450,7 @@ public class ComposeGUIMainMenu extends JFrame {
 				if (checkBoxWordNetMatcher.isSelected()) {
 
 					//perform the matching
-					a = new WNHyponymMatcher();
+					a = new LexicalSubsumptionMatcher();
 					threshold = (double)sliderWNMatcher.getValue()/100;
 					try {
 						a.init(ontoFile1.toURI(), ontoFile2.toURI());

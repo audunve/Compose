@@ -15,7 +15,7 @@ import utilities.ISub;
  * @author audunvennesland
  * 2. feb. 2017
  */
-public class ISubMatcher extends ObjectAlignment implements AlignmentProcess {
+public class StringEquivalenceMatcher extends ObjectAlignment implements AlignmentProcess {
 
 	ISub isubMatcher = new ISub();
 

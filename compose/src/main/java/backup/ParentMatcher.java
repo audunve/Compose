@@ -1,4 +1,4 @@
-package subsumptionmatching;
+package backup;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,7 +24,6 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
-import graph.GraphOperations_delete;
 import utilities.ISub;
 
 @SuppressWarnings("deprecation")

@@ -15,7 +15,7 @@ import org.semanticweb.owl.align.AlignmentProcess;
 import org.semanticweb.owl.align.AlignmentVisitor;
 import org.semanticweb.owl.align.Cell;
 
-import equivalencematching.ISubMatcher;
+import equivalencematching.StringEquivalenceMatcher;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
@@ -41,7 +41,7 @@ public class HybridCombination {
 		AlignmentParser aparser = new AlignmentParser(0);
 		
 		//use the input alignment (from the "best" matcher) when running the other matchers
-		a = new ISubMatcher();
+		a = new StringEquivalenceMatcher();
 		params = new Properties();
 		params.setProperty("", "");
 		

@@ -23,23 +23,23 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 
-import equivalencematching.DefinitionsMatcher;
-import equivalencematching.EditMatcher_remove;
-import equivalencematching.ISubMatcher;
-import equivalencematching.InstanceMatcher_remove;
-import equivalencematching.PropertyMatcher;
-import equivalencematching.SuperclassMatcher;
-import equivalencematching.TrigramMatcher;
-import equivalencematching.WNRiWordNetDistance;
+import backup.EditMatcher_remove;
+import backup.InstanceMatcher_remove;
+import backup.ParentMatcher;
+import backup.SuperclassMatcher;
+import backup.TrigramMatcher;
+import backup.WNRiWordNetDistance;
+import equivalencematching.DefinitionsEquivalenceMatcher;
+import equivalencematching.StringEquivalenceMatcher;
+import equivalencematching.PropertyEquivalenceMatcher;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import graph.Graph;
 import meronymmatching.WNMeronymMatcher;
-import subsumptionmatching.AncestorMatcher;
-import subsumptionmatching.CompoundMatcher;
-import subsumptionmatching.DefinitionsSubsMatcher;
-import subsumptionmatching.ParentMatcher;
-import subsumptionmatching.WNHyponymMatcher;
+import subsumptionmatching.AncestorSubsumptionMatcher;
+import subsumptionmatching.CompoundSubsumptionMatcher;
+import subsumptionmatching.DefinitionsSubsumptionMatcher;
+import subsumptionmatching.LexicalSubsumptionMatcher;
 import utilities.StringUtilities;
 
 
@@ -48,11 +48,13 @@ public class TestMatcher {
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException, OWLOntologyCreationException {
 		
 		/*** 1. SELECT THE MATCHER TO BE RUN ***/
-		final String MATCHER = "DEFINITIONS_SUB";
+		final String MATCHER = "DEFINITIONS_EQ";
 
 		/*** 2. SELECT THE TWO ONTOLOGIES TO BE MATCHED ***/
-		File ontoFile1 = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/bibframe.rdf");
-		File ontoFile2 = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/schema-org.owl");
+//		File ontoFile1 = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/bibframe.rdf");
+//		File ontoFile2 = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/schema-org.owl");
+		File ontoFile1 = new File("./files/_PHD_EVALUATION/ATMONTO-AIRM/ONTOLOGIES/ATMOntoCoreMerged.owl");
+		File ontoFile2 = new File("./files/_PHD_EVALUATION/ATMONTO-AIRM/ONTOLOGIES/airm-mono.owl");
 		
 		/*** 3. SELECT THE NEO4J DATABASE FILE (FOR THE STRUCTURAL MATCHERS ONLY) ***/
 		final File dbFile = new File("/Users/audunvennesland/Documents/phd/development/Neo4J_new/test");
@@ -75,7 +77,7 @@ public class TestMatcher {
 		switch(MATCHER) {
 
 		case "STRING":
-			a = new ISubMatcher();
+			a = new StringEquivalenceMatcher();
 			//a = new EditMatcher();
 			//a = new TrigramMatcher();
 			threshold = 0.8;
@@ -110,7 +112,7 @@ public class TestMatcher {
 			break;
 		
 		case "DEFINITIONS_EQ":
-			a = new DefinitionsMatcher();
+			a = new DefinitionsEquivalenceMatcher();
 			threshold = 0.2;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -145,7 +147,7 @@ public class TestMatcher {
 			break;
 			
 		case "PROPERTYMATCHER":
-			a = new PropertyMatcher();
+			a = new PropertyEquivalenceMatcher();
 			threshold = 0.2;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -350,7 +352,7 @@ public class TestMatcher {
 			creator.createOntologyGraph(o2, labelO2);
 			
 			//perform the matching
-			a = new AncestorMatcher(ontologyParameter1,ontologyParameter2, db);
+			a = new AncestorSubsumptionMatcher(ontologyParameter1,ontologyParameter2, db);
 			threshold = 0.6;
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
 			params = new Properties();
@@ -379,7 +381,7 @@ public class TestMatcher {
 
 		case "SUBSUMPTION_COMPOUND":
 			
-			a = new CompoundMatcher();
+			a = new CompoundSubsumptionMatcher();
 			threshold = 0.6;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -438,7 +440,7 @@ public class TestMatcher {
 			break;
 
 		case "DEFINITIONS_SUB":
-			a = new DefinitionsSubsMatcher();
+			a = new DefinitionsSubsumptionMatcher();
 			threshold = 0.2;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -471,7 +473,7 @@ public class TestMatcher {
 
 		case "SUBSUMPTION_WORDNET":
 			
-			a = new WNHyponymMatcher();
+			a = new LexicalSubsumptionMatcher();
 			threshold = 0.6;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());

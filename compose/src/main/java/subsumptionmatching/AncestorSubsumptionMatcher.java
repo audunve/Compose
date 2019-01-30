@@ -32,10 +32,10 @@ import fr.inrialpes.exmo.ontowrap.OntowrapException;
 import utilities.ISub;
 
 @SuppressWarnings("deprecation")
-public class AncestorMatcher extends ObjectAlignment implements AlignmentProcess {
+public class AncestorSubsumptionMatcher extends ObjectAlignment implements AlignmentProcess {
 
 	
-	private static final Logger logger = LoggerFactory.getLogger(AncestorMatcher.class);
+	private static final Logger logger = LoggerFactory.getLogger(AncestorSubsumptionMatcher.class);
 
 	final double THRESHOLD = 0.6;
 	final String isA = "&lt;";
@@ -52,7 +52,7 @@ public class AncestorMatcher extends ObjectAlignment implements AlignmentProcess
 
 
 	//constructor that receives the labels (ontology file names) from TestMatcher.java
-	public AncestorMatcher(String ontology1Name, String ontology2Name, GraphDatabaseService database) {
+	public AncestorSubsumptionMatcher(String ontology1Name, String ontology2Name, GraphDatabaseService database) {
 		labelOnto1 = DynamicLabel.label(ontology1Name);
 		labelOnto2 = DynamicLabel.label(ontology2Name);
 		db = database;
