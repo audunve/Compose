@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <onto1>
+    <Ontology rdf:about="http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf">
+      <location>http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://oaei.ontologymatching.org/2009/benchmarks/303/onto.rdf">
+      <location>http://oaei.ontologymatching.org/2009/benchmarks/303/onto.rdf</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Conference'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Conference'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Conference'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Meeting'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6824352224809879</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Conference'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Topic'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6549578309290882</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Article'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Proceedings'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Proceedings'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Lecture'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8111964087095407</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Proceedings'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Workshop'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8111964087095407</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Proceedings'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Publication'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8111964087095407</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Proceedings'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Exhibition'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7605492350635389</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Proceedings'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Topic'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8111964087095407</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Proceedings'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Project'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8111964087095407</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Book'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Enterprise'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6199418878936567</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Book'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Workshop'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.643818554864491</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Book'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Book'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Book'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Booklet'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6761052236613168</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Book'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Publication'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.782018861262697</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Book'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Project'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6438185548644911</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Booklet'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Publication'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6644785906335147</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Booklet'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Book'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9165764795199879</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Booklet'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://oaei.ontologymatching.org/2010/benchmarks/301/onto.rdf#Manual'/>
+      <entity2 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

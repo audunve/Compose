@@ -1,0 +1,789 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <alext:method>compliancevalidator.matchers.equivalence.WordNetSynMatcher#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://www.project-best.eu/owl/aixm-mod/shared">
+      <location>file:files/experiment_06032018/datasets/d4/ontologies/aixm_shared.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl">
+      <location>file:files/experiment_06032018/datasets/d4/ontologies/airm-mono.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeVerticalDatumType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#ValLightIntensityType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.84</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeLightIntensityType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeValueInterpretationType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#PostalAddress'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#LightElement'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#LightElement'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeLightHoldingPositionType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7305699481865285</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeLightSourceType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTrajectoryType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8363636363636363</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeApproachPrefixType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8518518518518519</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAuthorityType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7419354838709677</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeGasType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8070175438596491</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeBuoyType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7301587301587301</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTacticalReroutingApplicationType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8070175438596491</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAerodromeSignApplicabilityType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7301587301587301</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeCompassPointType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7076923076923077</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeBearingType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeInternationalFlightType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7666666666666667</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTacticalReroutingReasonType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8070175438596491</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTacticalReroutingConstraintType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7931034482758621</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodePilotControlledLightingType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.71875</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAirspaceType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7419354838709677</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAerialRefuellingType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8679245283018868</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAerodromeType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8363636363636363</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeConvectionCellType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7540983606557377</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAircraftType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7540983606557377</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeFlightRulesType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8363636363636363</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeMissedApproachType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.92</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeRadioEmissionType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7796610169491526</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeApproachType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.92</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeLogicalOperatorType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.71875</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeFlightType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8363636363636363</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeCapacityType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7931034482758621</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeSafeAltitudeType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7419354838709677</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeUomForceType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8214285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTaxiwayType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8214285714285714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeNasRoleType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7419354838709677</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAerialRefuellingPrefixType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8070175438596491</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeObscurationType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeUomTimeType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9019607843137255</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeSignificantPointDesignatorType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8363636363636363</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTrajectoryPointType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.71875</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeContaminationType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8363636363636363</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeFiledFlightRulesType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8363636363636363</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeOceanicReclearanceReasonType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7076923076923077</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTelecomNetworkType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#ContactInformation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#TelephoneContact'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#TelephoneContact'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTacticalReroutingStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9255813953488372</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeStatusNavaidType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9255813953488372</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeCivilMilitaryCrossingStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7107142857142857</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeSSRCodeStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7566539923954373</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeStatusOperationsType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeStatusAirspaceType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8652173913043478</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAircraftFlightStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8326359832635983</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeStatusServiceType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7624521072796935</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAircraftPerformanceStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7236363636363636</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeOceanicClearanceStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8923766816143498</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeConstraintStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8766519823788547</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeMilitaryStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7896825396825397</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeStatusAirportType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8883928571428571</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodePlanningStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8614718614718615</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeSlotAllocationStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7509433962264151</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeEmergencyStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9170506912442397</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTrajectoryDialogueStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8223140495867769</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeBasicCoordinationStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7865612648221344</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeDeicingStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9255813953488372</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTargetTimeStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8577586206896551</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeCoordinationAndTransferStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7713178294573644</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeCTAStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7397769516728625</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeEquipmentStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.737037037037037</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#NavaidOperationalStatus'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7116279069767442</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeStatusConstructionType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8326359832635983</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeFlightReadyStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8805309734513275</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAlertActivationStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8923766816143498</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTrajectoryPointAcceptanceStatusType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7624521072796935</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#LightElementStatus'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#LightStatus'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8913043478260869</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeReferenceRoleType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.79</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeHeightReferenceType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8061224489795918</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTimeReferenceType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeNorthReferenceType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9294117647058824</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeVerticalReferenceType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9080459770114943</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeColourType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeDayType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeParticularDayType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8910891089108911</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTimeEventType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#OnlineContact'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#SpecialDate'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeCheckpointCategoryType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7685589519650655</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAviationStandardsType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8341232227488151</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeFlightDataKindType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7685589519650655</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeTimeEventCombinationType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAerodromeTrafficType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7787610619469026</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeConstraintCategoryType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7457627118644068</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAircraftWingspanClassType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7154471544715447</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

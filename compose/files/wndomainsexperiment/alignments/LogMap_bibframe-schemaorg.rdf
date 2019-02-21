@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+	xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+	xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+	xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+	xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+	<Alignment>
+		<xml>yes</xml>
+		<level>0</level>
+		<type>?*</type>
+		<alext:method>compose.matchers.equivalence.EditMatcher#clone</alext:method>
+		<onto1>
+			<Ontology rdf:about="http://id.loc.gov/ontologies/bibframe#">
+				<location>file:/Users/audunvennesland/git/Compose/compose/./files/wndomainsexperiment/bibframe.rdf</location>
+				<formalism>
+					<Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+				</formalism>
+			</Ontology>
+		</onto1>
+		<onto2>
+			<Ontology rdf:about="http://schema.org">
+				<location>file:/Users/audunvennesland/git/Compose/compose/./files/wndomainsexperiment/schema-org.owl</location>
+				<formalism>
+					<Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+				</formalism>
+			</Ontology>
+		</onto2>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Review"/>
+		<entity2 rdf:resource="http://schema.org#Review"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Language"/>
+		<entity2 rdf:resource="http://schema.org#Language"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Organization"/>
+		<entity2 rdf:resource="http://schema.org#Organization"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Role"/>
+		<entity2 rdf:resource="http://schema.org#Role"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Coden"/>
+		<entity2 rdf:resource="http://schema.org#Code"/>
+		<measure rdf:datatype="xsd:float">0.47</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<!--<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Event"/>
+		<entity2 rdf:resource="http://purl.org/dc/dcmitype/Event"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>-->
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Event"/>
+		<entity2 rdf:resource="http://schema.org#Event"/>
+		<measure rdf:datatype="xsd:float">0.51</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Place"/>
+		<entity2 rdf:resource="http://schema.org#Place"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<!--<map>
+	<Cell>
+		<entity1 rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+		<entity2 rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>-->
+<!--<map>
+	<Cell>
+		<entity1 rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+		<entity2 rdf:resource="http://schema.org#Person"/>
+		<measure rdf:datatype="xsd:float">0.51</measure>
+		<relation>=</relation>
+	</Cell>
+</map>-->
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#StillImage"/>
+		<entity2 rdf:resource="http://purl.org/dc/dcmitype#Image"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<!--<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Person"/>
+		<entity2 rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+		<measure rdf:datatype="xsd:float">0.51</measure>
+		<relation>=</relation>
+	</Cell>
+</map>-->
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Person"/>
+		<entity2 rdf:resource="http://schema.org#Person"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Enumeration"/>
+		<entity2 rdf:resource="http://schema.org#Enumeration"/>
+		<measure rdf:datatype="xsd:float">0.5</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Collection"/>
+		<entity2 rdf:resource="http://schema.org#CollectionPage"/>
+		<measure rdf:datatype="xsd:float">0.46</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Production"/>
+		<entity2 rdf:resource="http://schema.org#SomeProducts"/>
+		<measure rdf:datatype="xsd:float">0.5</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Production"/>
+		<entity2 rdf:resource="http://schema.org#Product"/>
+		<measure rdf:datatype="xsd:float">0.5</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#BookFormat"/>
+		<entity2 rdf:resource="http://schema.org#BookFormatType"/>
+		<measure rdf:datatype="xsd:float">0.46</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Text"/>
+		<entity2 rdf:resource="http://schema.org#Text"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Issuance"/>
+		<entity2 rdf:resource="http://purl.org/ontology/bibo#Issue"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<!--<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Dataset"/>
+		<entity2 rdf:resource="http://purl.org/dc/dcmitype/Dataset"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>-->
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Dataset"/>
+		<entity2 rdf:resource="http://schema.org#Dataset"/>
+		<measure rdf:datatype="xsd:float">0.51</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<!--<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Dataset"/>
+		<entity2 rdf:resource="http://rdfs.org/ns/void#Dataset"/>
+		<measure rdf:datatype="xsd:float">0.51</measure>
+		<relation>=</relation>
+	</Cell>
+</map>-->
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Distribution"/>
+		<entity2 rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+		<measure rdf:datatype="xsd:float">0.5</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Item"/>
+		<entity2 rdf:resource="http://schema.org#ItemAvailability"/>
+		<measure rdf:datatype="xsd:float">0.7</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+<map>
+	<Cell>
+		<entity1 rdf:resource="http://id.loc.gov/ontologies/bibframe#Barcode"/>
+		<entity2 rdf:resource="http://schema.org#Barcode"/>
+		<measure rdf:datatype="xsd:float">0.5</measure>
+		<relation>=</relation>
+	</Cell>
+</map>
+</Alignment>
+</rdf:RDF>

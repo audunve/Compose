@@ -1,0 +1,1338 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://project-best.eu/owl/iwxxm-mod/metar"
+     xml:base="http://project-best.eu/owl/iwxxm-mod/metar"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:iwxxm-met="http://project-best.eu/owl/iwxxm-mod/metar#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://project-best.eu/owl/iwxxm-mod/metar"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility-prevailingVisibilityOperator -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility-prevailingVisibilityOperator">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RelationalOperator"/>
+        <rdfs:comment xml:lang="en">The reported relational operator for the prevailing horizontal visibility.  When reported, this operator is reported in conjunction with prevailing visibility.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds-layer -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds-layer">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer"/>
+        <rdfs:comment xml:lang="en">The observed cloud groups, up to four may be included.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-contamination -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-contamination">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RunwayContamination"/>
+        <rdfs:comment xml:lang="en">Proportion of runway surface that is contaminated - usually expressed as a percentage of the total runway area.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-depositType -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-depositType">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RunwayDeposits"/>
+        <rdfs:comment xml:lang="en">The type of runway deposit, such as damp conditions, wet snow, or ice.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-runway -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-runway">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RunwayDirection"/>
+        <rdfs:comment xml:lang="en">The runway to which the conditions apply.  The runway may be missing in cases where all runways are closed due to snow</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange-meanRVROperator -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange-meanRVROperator">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RelationalOperator"/>
+        <rdfs:comment xml:lang="en">The reported relational operator for the mean RVR. When reported, this operator is reported in conjunction with mean RVR.  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange-pastTendency -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange-pastTendency">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency"/>
+        <rdfs:comment xml:lang="en">The runway visual range tendency (up, down, none).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange-runway -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange-runway">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RunwayDirection"/>
+        <rdfs:comment xml:lang="en">The runway to which reported runway visual range information applies</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState-seaState -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState-seaState">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#SeaSurfaceState"/>
+        <rdfs:comment xml:lang="en">The state of the sea observed by aeronautical meteorological stations established on offshore structures in support of helicopter operations</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear-runway -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear-runway">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RunwayDirection"/>
+        <rdfs:comment xml:lang="en">The specific runway(s) affected by wind shear at this aerodrome. No specific runways are reported when all runways are affected by wind shear</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer-amount -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer-amount">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#CloudAmountReportedAtAerodrome"/>
+        <rdfs:comment xml:lang="en">The observed cloud amount</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer-cloudType -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer-cloudType">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#SigConvectiveCloudType"/>
+        <rdfs:comment xml:lang="en">The observed significant cloud types: cumulonimbus or towering cumulus</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement-featureOfInterest -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement-featureOfInterest">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#SF_SpatialSamplingFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-evaluationMethodType -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-evaluationMethodType">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation-featureOfInterest -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation-featureOfInterest">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#SF_SamplingPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation-result -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation-result">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-cloud -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-cloud">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds"/>
+        <rdfs:comment xml:lang="en">When no clouds are detected by the automatic observing system, it should be indicated by a missing cloud group with a nil reason of notDetectedByAutoSystem (&quot;NCD&quot; from TAC).  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-presentWeather -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-presentWeather">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromePresentWeather"/>
+        <rdfs:comment xml:lang="en">When observed, between one and three present weather conditions</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-recentWeather -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-recentWeather">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRecentWeather"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-runwayState -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-runwayState">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+        <rdfs:comment xml:lang="en">When runways are affected by snow, slush, or other contaminants, a runway state report for each runway in use is required.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-rvr -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-rvr">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange"/>
+        <rdfs:comment xml:lang="en">RVR conditions are required if horizontal visibility or RVR is less than 1500 meters, up to a maximum of four runways</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-seaState -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-seaState">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-surfaceWind -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-surfaceWind">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-visibility -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-visibility">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-windShear -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-windShear">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport-observation -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport-observation">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation"/>
+        <rdfs:comment xml:lang="en">The observation which resulted in the current meteorological conditions at an aerodrome</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport-status -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport-status">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus"/>
+        <rdfs:comment xml:lang="en">The report status (e.g., normal, corrected)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport-trendForecast -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport-trendForecast">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecast"/>
+        <rdfs:comment xml:lang="en">The process that results in a trend forecast.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecast-featureOfInterest -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecast-featureOfInterest">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecast_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecast"/>
+        <rdfs:range rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#SF_SamplingPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecast_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecast_OP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation-phenomenonTime -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation-phenomenonTime">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation-resultTime -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation-resultTime">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#Instant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation-validTime -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation-validTime">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation_OP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#DateTimeInterval"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation_OP_ -->
+
+    <owl:ObjectProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation_OP_"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility-minimumVisibility -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility-minimumVisibility">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The minimum observed visibility.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility-minimumVisibilityDirection -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility-minimumVisibilityDirection">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The direction of the minimum visibility relative to the reporting station.  This is optional in cases where minimum visibility is reported but the visibility is fluctuating rapidly.  Minimum visibility is reported in cardinal and inter-cardinal directions (N, NE, E, SE, S, SW, W, and NW)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility-prevailingVisibility -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility-prevailingVisibility">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The reported prevailing horizontal visibility at the surface that is representative of the aerodrome.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility_DP_ -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility_DP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds-verticalVisibility -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds-verticalVisibility">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The reported vertical visibility.  Vertical visibility is defined as the vertical visual range into an obscuring medium.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds_DP_ -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds_DP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-depthOfDeposit -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-depthOfDeposit">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Depth of deposit on the surface of the runway.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-estimatedSurfaceFriction -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-estimatedSurfaceFriction">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The estimated surface friction for the affected runway.  Between 0.0 and 0.9.  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState_DP_ -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState_DP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange-meanRVR -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange-meanRVR">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The mean recent runway visual range value observed. This mean represents the 10 minute average for observed RVR except when the 10-minute period immediately preceding the observation includes a marked discontinuity in runway visual range values, only those values occurring after the discontinuity is used for obtaining mean values.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange_DP_ -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange_DP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState-seaSurfaceTemperature -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState-seaSurfaceTemperature">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The sea-surface temperature observed by aeronautical meteorological stations established on offshore structures in support of helicopter operations.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState-significantWaveHeight -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState-significantWaveHeight">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The significant wave height observed</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState_DP_ -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState_DP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind-meanWindDirection -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind-meanWindDirection">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The observed average wind direction from which the wind is blowing over the past ten minutes.  Not reported when winds are variable</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind-meanWindSpeed -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind-meanWindSpeed">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The average observed wind speed over the past ten minutes</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind_DP_ -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind_DP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer-base -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer-base">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">For a given cloud or cloud layer, height of the lowest level in the atmosphere at which the air contains a perceptible quantity of cloud particles.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer_DP_ -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer_DP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-dateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-dateTime">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-evaluationMethodDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-evaluationMethodDescription">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-evaluationProcedure -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-evaluationProcedure">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-measureDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-measureDescription">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-measureIdentification -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-measureIdentification">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-nameOfMeasure -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-nameOfMeasure">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-result -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element-result">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_DP_ -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element_DP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-airTemperature -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-airTemperature">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The observed air temperature.  This is the temperature indicated by a thermometer exposed to the air in a place sheltered from direct solar radiation.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-dewpointTemperature -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-dewpointTemperature">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The observed dew point temperature.  This is the temperature to which a given air parcel must be cooled at constant pressure and constant water vapor content in order for saturation to occur.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-qnh -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-qnh">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The observed QNH altimeter setting.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_DP_ -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord_DP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation-parameter -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation-parameter">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation_DP_ -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation_DP_"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#extremeClockwiseWindDirection -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#extremeClockwiseWindDirection">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#extremeCounterClockwiseWindDirection -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#extremeCounterClockwiseWindDirection">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#windGust -->
+
+    <owl:DatatypeProperty rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#windGust">
+        <rdfs:subPropertyOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind_DP_"/>
+        <rdfs:domain rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DataTypes"/>
+        <rdfs:comment xml:lang="en">An aggregation of horizontal visibility conditions typically reported together at an aerodrome, including the prevailing visibility and minimum visibility.  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DataTypes"/>
+        <rdfs:comment xml:lang="en">An aggregation of observed cloud conditions typically reported together at an aerodrome, including cloud types, cloud layers, and vertical visibility.  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds-amountAndHeightUnobservableByAutoSystem -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds-amountAndHeightUnobservableByAutoSystem">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds"/>
+        <rdfs:comment xml:lang="en">An automatic observing system observed cumulonimbus clouds or towering cumulus clouds but the cloud amount and height could not be observed</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromePresentWeather -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromePresentWeather">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Codelists"/>
+        <owl:disjointWith rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRecentWeather"/>
+        <rdfs:comment xml:lang="en">The present weather observed at, or in near vicinity of, an aerodrome.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRecentWeather -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRecentWeather">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Codelists"/>
+        <rdfs:comment xml:lang="en">Weather phenomenon of operational significance to aviation observed during the period since the last routine report, or last hour, whichever is shorter, but not at the time of observation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DataTypes"/>
+        <rdfs:comment xml:lang="en">An aggregation of runway conditions typically reported together at an aerodrome, including the runway contamination, friction, and deposits.  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-allRunways -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-allRunways">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+        <rdfs:comment xml:lang="en">When true, indicates the reported conditions apply to all runways</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-cleared -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-cleared">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+        <rdfs:comment xml:lang="en">Indicates that reported runway has been cleared of meteorological deposits, such as snow.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-estimatedSurfaceFrictionUnreliable -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-estimatedSurfaceFrictionUnreliable">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+        <rdfs:comment xml:lang="en">When true, the estimated surface friction is unreliable and is not reported.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-snowClosure -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState-snowClosure">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+        <rdfs:comment xml:lang="en">Indicates whether the aerodrome is closed due to an extreme deposit of snow.  This affects all runways</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DataTypes"/>
+        <rdfs:comment xml:lang="en">An aggregation of runway visual range conditions for a single runway, typically reported together at an aerodrome</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DataTypes"/>
+        <rdfs:comment xml:lang="en">An aggregation of sea state conditions typically reported together at an aerodrome.  This includes information on sea-surface temperature and either the state of the sea or significant wave height from aeronautical meteorological stations established on offshore structures in support of helicopter operations</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DataTypes"/>
+        <rdfs:comment xml:lang="en">An aggregation of surface wind conditions typically reported together at an aerodrome, including wind direction information, wind speed, and wind gusts.  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind-variableDirection -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind-variableDirection">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind"/>
+        <rdfs:comment xml:lang="en">When true, indicates that the wind direction is variable.  A wind direction value may still be reported</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DataTypes"/>
+        <rdfs:comment xml:lang="en">An aggregation of wind shear conditions typically reported together at an aerodrome, including the set of affected runways. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#CloudAmountReportedAtAerodrome -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#CloudAmountReportedAtAerodrome">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Codelists"/>
+        <rdfs:comment xml:lang="en">Amount of cloud - assessed by category:</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DataTypes"/>
+        <rdfs:comment xml:lang="en">A cloud layer, including a cloud amount, cloud base and cloud type</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#Codelists -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#Codelists">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#OM_ComplexObservation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_Element"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Codelists"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DataTypes -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DataTypes">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#Enumerations -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#Enumerations">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#METAR -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#METAR">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport"/>
+        <owl:disjointWith rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#SPECI"/>
+        <rdfs:comment xml:lang="en">A routine observation made at an aerodrome throughout the day.  METAR observations are made (and distributed) at intervals of one hour or, if so determined by regional air navigation agreement, at intervals of one half-hour. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservation">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement"/>
+        <owl:disjointWith rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecast"/>
+        <rdfs:comment xml:lang="en">A specialized OM_Observation type used for reporting an aggregate set of observed meteorological conditions at an Aerodrome. The result of this observation type refers to an entity of type MeteorologicalAerodromeObservationRecord.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">A specialized Record type containing meteorological conditions observed at an aerodrome.  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-cloudAndVisibilityOK -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord-cloudAndVisibilityOK">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+        <rdfs:comment xml:lang="en">When true, indicates that the observed cloud ceiling, horizontal visibility, and weather conditions are of no operational significance.  See ICAO Annex 3 / WMO No. 49-2 Section 2.2. Also known as &quot;CAVOK&quot;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">A report of observed and trend forecast weather phenomenon from the surface near an aerodrome.  This is a shared superclass for METAR and SPECI reports, which have identical reported information.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport-automatedStation -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport-automatedStation">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport"/>
+        <rdfs:comment xml:lang="en">When true, this report was reported by an automated station.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Enumerations"/>
+        <owl:disjointWith rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency"/>
+        <rdfs:comment xml:lang="en">The status of a MeteorologicalAerodromeObservationReport (e.g., a normal issuance, correction of an earlier report, etc.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecast -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecast">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement"/>
+        <rdfs:comment xml:lang="en">A specialized OM_Observation type used for reporting an aggregate set of forecast meteorological conditions at an Aerodrome. The result of this observation type refers to an entity of type MeteorologicalAerodromeTrendForecastRecord.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#OM_ComplexObservation -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#OM_ComplexObservation">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#OM_Observation"/>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#RelationalOperator -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#RelationalOperator">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Enumerations"/>
+        <rdfs:comment xml:lang="en">RelationalOperator defines the restricted set of operators that may be specified alongside numerical quantities in ICAO Annex 3/WMO No. 49.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#RunwayContamination -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#RunwayContamination">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Codelists"/>
+        <rdfs:comment xml:lang="en">Extent of runway surface that is contaminated (covered)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#RunwayDeposits -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#RunwayDeposits">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Codelists"/>
+        <rdfs:comment xml:lang="en">Type of deposit on a runway.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#RunwayDirection -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#RunwayDirection">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Codelists"/>
+        <rdfs:comment>Not in iWXXM UML Model</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#SF_SamplingPoint -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#SF_SamplingPoint">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#SF_SpatialSamplingFeature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#SF_SpatialSamplingFeature -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#SF_SpatialSamplingFeature">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#SPECI -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#SPECI">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport"/>
+        <rdfs:comment xml:lang="en">A special (i.e., non-routine) observation made at an aerodrome as needed. SPECI observations are made (and distributed) in accordance with criteria established by the meteorological authority, in consultation with the appropriate ATS authority, operators and others concerned. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#SeaSurfaceState -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#SeaSurfaceState">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Codelists"/>
+        <rdfs:comment xml:lang="en">Categorical assessment of sea surface state (or other large open body of water) based on height of waves.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#SigConvectiveCloudType -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#SigConvectiveCloudType">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Codelists"/>
+    </owl:Class>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency -->
+
+    <owl:Class rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency">
+        <rdfs:subClassOf rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#Enumerations"/>
+        <rdfs:comment xml:lang="en">The tendency of visual range (e.g., upward, downward).  Defined for the purposes of aviation meteorology reporting of the visual range on runways (WMO No. 49-2).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#DateTimeInterval -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#DateTimeInterval"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Instant -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Instant"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode-directExternal -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode-directExternal">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode-directInternal -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode-directInternal">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode-indirect -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode-indirect">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#DQ_EvaluationMethodTypeCode"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus-CORRECTION -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus-CORRECTION">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus"/>
+        <rdfs:comment xml:lang="en">A correction of an earlier report</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus-MISSING -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus-MISSING">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus"/>
+        <rdfs:comment xml:lang="en">The report is missing (&quot;NIL&quot; from ICAO Annex 3 / WMO No. 49)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus-NORMAL -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus-NORMAL">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeReportStatus"/>
+        <rdfs:comment xml:lang="en">Normal report status: not a correction of an earlier report</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#RelationalOperator-ABOVE -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#RelationalOperator-ABOVE">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RelationalOperator"/>
+        <rdfs:comment xml:lang="en">The actual value is above the maximum value that can be determined by the system (&quot;ABV&quot;, &quot;P&quot;)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#RelationalOperator-BELOW -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#RelationalOperator-BELOW">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RelationalOperator"/>
+        <rdfs:comment xml:lang="en">The actual value is below the minimum value that can be determined by the system (&quot;BLW&quot;, &quot;M&quot;)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency-DOWNWARD -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency-DOWNWARD">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency"/>
+        <rdfs:comment xml:lang="en">Downward (decreasing) tendency</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency-NO_CHANGE -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency-NO_CHANGE">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency"/>
+        <rdfs:comment xml:lang="en">No change</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency-UPWARD -->
+
+    <owl:NamedIndividual rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency-UPWARD">
+        <rdf:type rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#VisualRangeTendency"/>
+        <rdfs:comment xml:lang="en">Upward (increasing) tendency</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#CloudLayer"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#Codelists"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#ComplexSamplingMeasurement"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#DataTypes"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#Enumerations"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport"/>
+            <rdf:Description rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#SF_SpatialSamplingFeature"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

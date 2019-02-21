@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <alext:method>compliancevalidator.matchers.subsumption.ClosestParentMatcher#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://www.project-best.eu/owl/iwxxm-mod/common">
+      <location>file:files/experiment_06032018/datasets/d2/ontologies/iwxxm_common.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl">
+      <location>file:files/experiment_06032018/datasets/d2/ontologies/airm-mono.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/iwxxm-mod/common#AerodromeSurfaceWindForecast'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#Aerodrome'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.8285714285714285</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/iwxxm-mod/common#AerodromeSurfaceWindForecast'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeSet'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7687265917602997</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/iwxxm-mod/common#AerodromeSurfaceWindForecast'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeSurfaceRoutingNetwork'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7183115517500376</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.project-best.eu/owl/iwxxm-mod/common#AerodromeSurfaceWindForecast'/>
+      <entity2 rdf:resource='http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeSign'/>
+      <relation>&lt;</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.7417458365932714</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

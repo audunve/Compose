@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#"
+     xml:base="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#createdBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#createdBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Resource"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#HumanEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#hasSubject -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#hasSubject">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Subject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#isOrganizedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#isOrganizedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Project"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#ScientificEvent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#OrganisationalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#reviewer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#reviewer">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Article"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Book"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#MastersThesis"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#PhdThesis"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#TechReport"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#HumanEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#submittedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#submittedTo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Article"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#ScientificEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Article -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Article">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:comment>A piece of writing included with others in a newspaper, magazine, or other publication</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Book -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Book">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:comment>A written or printed work consisting of pages glued or sewn together along one side and bound in covers</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Conference -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Conference">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#ScientificEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#HumanEntity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#HumanEntity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#LegalEntity"/>
+        <rdfs:comment>A human being regarded as an individual.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#InBook -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#InBook">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:comment>A chapter or paper being a part of a book</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#InCollection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#InCollection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:comment>A work that is part of a collection.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#InProceedings -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#InProceedings">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:comment>A paper that is part of a proceeding.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Journal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Journal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#ScientificEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#LegalEntity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#LegalEntity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#MastersThesis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#MastersThesis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:comment>A long essay or dissertation involving personal research, written by a candidate for a master university degree.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Misc -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Misc">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:comment>Consisting of a mixture of various things that are not usually connected with each other</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#OrganisationalEntity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#OrganisationalEntity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#LegalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#PhdThesis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#PhdThesis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:comment>A long essay or dissertation involving personal research, written by a candidate for a doctorate university degree.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Proceedings -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Proceedings">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:comment>A published report of a set of meetings or a conference.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Project -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Project"/>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Resource"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#SoftCopy"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Resource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Resource"/>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#ScientificEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#ScientificEvent"/>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#SoftCopy -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#SoftCopy">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Resource"/>
+        <rdfs:comment>A legible version of a piece of information not printed on a physical medium, especially as stored or displayed on a computer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Subject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Subject"/>
+    
+
+
+    <!-- http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#TechReport -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#TechReport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Publication"/>
+        <rdfs:comment>A technical report (also scientific report) is a document that describes the process, progress, or results of technical or scientific research or the state of a technical or scientific research problem</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Article"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Book"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#InBook"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#InCollection"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#InProceedings"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#MastersThesis"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Misc"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#PhdThesis"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Proceedings"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#TechReport"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#HumanEntity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Project"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-212#Resource"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

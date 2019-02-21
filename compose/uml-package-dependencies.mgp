@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PackageAnalysis>
+    <Package name="equivalencematching" x="81" y="119">
+        <DependencyLink destination="utilities"/>
+        <DependencyLink destination="graph"/>
+    </Package>
+    <Package name="evaluation" x="377" y="329">
+        <DependencyLink destination="utilities"/>
+    </Package>
+    <Package name="graph" x="377" y="49">
+        <DependencyLink destination="utilities"/>
+    </Package>
+    <Package name="matchercombination" x="348" y="168">
+        <DependencyLink destination="evaluation"/>
+        <DependencyLink destination="equivalencematching"/>
+        <DependencyLink destination="utilities"/>
+    </Package>
+    <Package name="ontologyprofiling" x="360" y="398">
+        <DependencyLink destination="utilities"/>
+    </Package>
+    <Package name="subsumptionmatching" x="621" y="120">
+        <DependencyLink destination="utilities"/>
+        <DependencyLink destination="graph"/>
+    </Package>
+    <Package name="ui" x="568" y="277">
+        <DependencyLink destination="evaluation"/>
+        <DependencyLink destination="equivalencematching"/>
+        <DependencyLink destination="ontologyprofiling"/>
+        <DependencyLink destination="matchercombination"/>
+        <DependencyLink destination="utilities"/>
+        <DependencyLink destination="subsumptionmatching"/>
+        <DependencyLink destination="graph"/>
+    </Package>
+    <Package name="utilities" x="228" y="275"/>
+    <Package name="wordnetdomains" x="62" y="276">
+        <DependencyLink destination="utilities"/>
+    </Package>
+</PackageAnalysis>

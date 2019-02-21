@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <relationClass>fr.inrialpes.exmo.align.impl.rel.A5AlgebraRelation</relationClass>
+  <onto1>
+    <Ontology rdf:about="http://sweetontology.net#">
+      <location>http://sweetontology.net#</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#">
+      <location>https://data.nasa.gov/ontologies/atmonto/ATM#</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#LayerCloud'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#CloudLayer'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Radial'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#RadialRoute'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Star'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#STAR'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Pole'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#Terminal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Sphere'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#Sector'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#AirSpace'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#AirspaceRoute'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Truck'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#DeicingTruck'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Flight'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#Flight'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Capacity'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#AircraftCapacity'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Airport'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#Airport'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Element'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#NavigationElement'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#WeatherCondition'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#WeatherCondition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Visibility'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#VisibilityCondition'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Sequence'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#Sequence'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Polygon'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#Polygonal2DRegion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Data'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#AirportData'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#NavigationEquipment'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#NavElementContainer'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Location'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#Location'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Circular'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#CircularRegion'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Route'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#TRoute'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Path'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#NavigationPath'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#TimeInterval'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#TimeInterval'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Aircraft'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#Aircraft'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Model'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#AircraftModel'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Flow'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#AircraftFlow'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://sweetontology.net#Type'/>
+      <entity2 rdf:resource='https://data.nasa.gov/ontologies/atmonto/ATM#AircraftType'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

@@ -1,0 +1,1364 @@
+\Location	<	\Entity
+\Location	<	\Object
+\Location	>	\Entity\GeoEnabledEntity\AirspaceVolume
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\Volcano
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\RouteSegment
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\BridgeSide
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\CirclingArea
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\DeicingArea
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\SignificantPoint
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\SeparationMinima
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\RoutePortion
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\Tropopause
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TrajectoryPoint
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\DesignatedPoint
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\ObstacleArea
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\VerticalStructure\AerodromeSign
+\Location	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\WeatherPhenomenon\WindLayer
+\Location	>	\Entity\TemporalEnabledEntity\NavigationArea
+\Location	>	\Entity\TemporalEnabledEntity\Airspace
+\Location	>	\Entity\TemporalEnabledEntity\Route
+\Location	>	\Entity\TemporalEnabledEntity\DistanceIndication
+\Location	>	\Entity\TemporalEnabledEntity\AerodromeCollocation
+\Location	>	\Entity\TemporalEnabledEntity\MovementArea
+\Location	>	\Entity\TemporalEnabledEntity\SeparationMode
+\Location	>	\Entity\TemporalEnabledEntity\HeadingChange
+\Location	>	\Entity\TemporalEnabledEntity\RunwayDirection
+\Location	>	\Entity\TemporalEnabledEntity\ManoeuvringArea
+\Location	>	\Entity\TemporalEnabledEntity\ReferenceLocation
+\Location	>	\Entity\TemporalEnabledEntity\AirspaceExit
+\Location	>	\Entity\TemporalEnabledEntity\AirspaceActivation
+\Location	>	\Entity\TemporalEnabledEntity\TaxiRoute
+\Location	>	\Entity\TemporalEnabledEntity\SurfaceContamination
+\Location	>	\Entity\TemporalEnabledEntity\AirspaceReservation
+\Location	>	\Entity\TemporalEnabledEntity\OverPoint
+\Location	>	\Entity\TemporalEnabledEntity\AirspaceEntry
+\Location	>	\Entity\TemporalEnabledEntity\AirportSlot
+\Location	>	\Entity\TemporalEnabledEntity\AngleIndication
+\Location	>	\Entity\TemporalEnabledEntity\DirectRoute
+\Location	>	\Entity\TemporalEnabledEntity\AircraftState
+\Location	>	\Entity\TemporalEnabledEntity\Organisation\AerospaceManufacturer
+\Location	>	\Entity\TemporalEnabledEntity\Organisation\State
+\Location	>	\Entity\TemporalEnabledEntity\WeatherCondition\AviationCondition\RouteCondition
+\Location	>	\Entity\TemporalEnabledEntity\WeatherCondition\AviationCondition\AirspaceCondition
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\Volcano
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\RouteSegment
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\BridgeSide
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\CirclingArea
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\DeicingArea
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\SignificantPoint
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\SeparationMinima
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\RoutePortion
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\Tropopause
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TrajectoryPoint
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\DesignatedPoint
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\ObstacleArea
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\VerticalStructure\AerodromeSign
+\Location	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\WeatherPhenomenon\WindLayer
+\Location	>	\Object\AircraftDirection
+\Location	>	\Object\LightActivation
+\Location	>	\Object\ObstaclePlacement
+\Location	>	\Object\SurfaceCharacteristics
+\Location	>	\Object\Minima
+\Location	>	\Object\ApproachCondition
+\Location	>	\Object\AirspaceLayer
+\Location	>	\Object\PointReference
+\Location	>	\Object\ObjectWithSchedule\RouteAvailability
+\Location	>	\Object\ObjectWithSchedule\LightStatus
+\Meteorological condition	<	\Entity
+\Sky condition	<	\Entity
+\Sky condition	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\WeatherPhenomenon\Cloud
+\Sky condition	!	\Entity\TemporalEnabledEntity\GroundHandling
+\Sky condition	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\WeatherPhenomenon\Cloud
+\Visibility condition	<	\Entity
+\Surface wind condition	<	\Entity
+\Surface wind condition	<	\Object\DepartureLegCondition
+\Surface wind condition	<	\Object\SurfaceContaminationLayer
+\Surface wind condition	<	\Object\SurfaceCharacteristics
+\Surface wind condition	<	\Object\ApproachCondition
+\Surface wind condition	<	\Object\Qualification
+\Weather condition	<	\Entity
+\Weather condition	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\WeatherPhenomenon
+\Weather condition	>	\Entity\TemporalEnabledEntity\WeatherCondition
+\Weather condition	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\WeatherPhenomenon
+\Sequenced item	<	\Entity
+\Intersection fix	<	\Entity
+\Intersection fix	<	\Object
+\Intersection fix	!	\Object\CircleSector
+\METARreporting station	<	\Entity
+\METARreporting station	<	\Object\AuthorityForSpecialNavigationStation
+\METARreporting station	<	\Object\SurveillanceGroundStation
+\Aircraft Type	<	\CodeUomWeightType
+\Aircraft Type	<	\CodeAltimeterType
+\Aircraft Type	<	\CodeFlightDataKindType
+\Aircraft Type	<	\CodeWakeTurbulenceCategoryType
+\Aircraft Type	<	\CodeMilitaryStatusType
+\Aircraft Type	<	\CodeAlternativeFlightStateType
+\Aircraft Type	<	\CodeNotePurposeType
+\Aircraft Type	<	\CodeFlightOriginType
+\Aircraft Type	<	\CodeSurfacePreparationType
+\Aircraft Type	<	\ValLightIntensityType
+\Aircraft Type	<	\CodeTacticalReroutingStatusType
+\Aircraft Type	<	\CodeHoldingSideType
+\Aircraft Type	<	\CodeAirspaceType
+\Aircraft Type	<	\CodeProcedureAvailabilityType
+\Aircraft Type	<	\CodeRNPCapabilityType
+\Aircraft Type	<	\CodeOrganisationType
+\Aircraft Type	<	\CodeWorkAreaType
+\Aircraft Type	<	\CodeApproachLightingICAOType
+\Aircraft Type	<	\CodeTrajectoryElementType
+\Aircraft Type	<	\AngleRangeType
+\Aircraft Type	<	\CodeAirToAirEngagementType
+\Aircraft Type	<	\CodeAerodromeSurfaceRoutingNetworkNodeType
+\Aircraft Type	<	\CodeConditionalRouteType
+\Aircraft Type	<	\CodeHelicopterPerformanceType
+\Aircraft Type	<	\CodeEquipmentUnavailableType
+\Aircraft Type	<	\CodeSSRModeType
+\Aircraft Type	<	\CodeRoadType
+\Aircraft Type	<	\CodeTimeEventType
+\Aircraft Type	<	\CodeMarkingConditionType
+\Aircraft Type	<	\CodeAerodromeCollocationType
+\Aircraft Type	<	\CodeSurvivalEquipmentType
+\Aircraft Type	<	\CodeRunwayExitType
+\Aircraft Type	<	\CodeVerticalStructureType
+\Aircraft Type	<	\CodePrecipitationType
+\Aircraft Type	<	\CodeMarkerBeaconSignalType
+\Aircraft Type	<	\CodeCloudType
+\Aircraft Type	<	\CodeDMEChannelType
+\Aircraft Type	<	\CodeGasType
+\Aircraft Type	<	\CodeHeightReferenceType
+\Aircraft Type	<	\CodeOceanicClearanceStatusType
+\Aircraft Type	<	\CodeRuleProcedureType
+\Aircraft Type	<	\CodeInternationalFlightType
+\Aircraft Type	<	\CodeRuleProcedureTitleType
+\Aircraft Type	<	\AltitudeRangeType
+\Aircraft Type	<	\CodeVerticalStructureMarkingType
+\Aircraft Type	<	\CodePCNPavementType
+\Aircraft Type	<	\CodeLightingJARType
+\Aircraft Type	<	\CodeTelecomNetworkType
+\Aircraft Type	<	\CodeICAONationalityLettersType
+\Aircraft Type	<	\CodeMCDMCoordinationStatusType
+\Aircraft Type	<	\CodeConstraintOriginatorType
+\Aircraft Type	<	\CodeFlightReadyStatusType
+\Aircraft Type	<	\CodeATFMHotspotStatusType
+\Aircraft Type	<	\CodeRNAVFlightCapabilityType
+\Aircraft Type	<	\CodeDepartureClearanceStatusType
+\Aircraft Type	<	\CodeRelativeDirectionType
+\Aircraft Type	<	\CodeUomFrequencyType
+\Aircraft Type	<	\CodePlanningStatusType
+\Aircraft Type	<	\CodeMilitaryOperationsType
+\Aircraft Type	<	\CodeNavaidServiceType
+\Aircraft Type	<	\Entity
+\Aircraft Type	<	\CodeFinalGuidanceType
+\Aircraft Type	<	\CodeSurfaceCompositionType
+\Aircraft Type	<	\CodeAerodromeSurfaceRoutingNetworkEdgeGeometryDerivationMethodType
+\Aircraft Type	<	\CodeInstructionToAircraftType
+\Aircraft Type	<	\CodeStandServiceType
+\Aircraft Type	<	\ValPressureType
+\Aircraft Type	<	\CodeNonStandardReasonType
+\Aircraft Type	<	\CodeModeSType
+\Aircraft Type	<	\CodeSpeedReferenceType
+\Aircraft Type	<	\CodeDatalinkCommunicationCapabilityType
+\Aircraft Type	<	\CodeVerticalDatumType
+\Aircraft Type	<	\CodeIntegrityLevelILSType
+\Aircraft Type	<	\CodeTimeEventCombinationType
+\Aircraft Type	<	\CodeLogicalOperatorType
+\Aircraft Type	<	\CodeTACANChannelType
+\Aircraft Type	<	\CodeRadarServiceType
+\Aircraft Type	<	\CodeIATASeasonType
+\Aircraft Type	<	\CodeRouteDesignatorLetterType
+\Aircraft Type	<	\CodeServiceATFMType
+\Aircraft Type	<	\CodeWakeVortexClassificationType
+\Aircraft Type	<	\CodeACDMIrregularityType
+\Aircraft Type	<	\TwoDimensionalPointType
+\Aircraft Type	<	\CodeCommunicationCapabilityType
+\Aircraft Type	<	\CodeReasonForAbortingTakeOffType
+\Aircraft Type	<	\CodeBuoyType
+\Aircraft Type	<	\CodeMLSAzimuthType
+\Aircraft Type	<	\CodeMarkingStyleType
+\Aircraft Type	<	\CodeMissedApproachType
+\Aircraft Type	<	\CodeBearingType
+\Aircraft Type	<	\CodeUomMassType
+\Aircraft Type	<	\CodeSignificantPointDesignatorType
+\Aircraft Type	<	\CodeFlightRestrictionType
+\Aircraft Type	<	\CodeApproachLightingSystemType
+\Aircraft Type	<	\CodeNorthReferenceType
+\Aircraft Type	<	\CodeRVRTendencyType
+\Aircraft Type	<	\CodeSafeAltitudeType
+\Aircraft Type	<	\CodeRunwayMarkingType
+\Aircraft Type	<	\CodeBoundaryCrossingType
+\Aircraft Type	<	\CodeProcedurePhaseType
+\Aircraft Type	<	\DistanceVerticalRangeType
+\Aircraft Type	<	\CodeUomParticleContentType
+\Aircraft Type	<	\CodeRouteType
+\Aircraft Type	<	\CodeApprovalType
+\Aircraft Type	<	\CodeRouteDesignatorSuffixType
+\Aircraft Type	<	\CodeAirspaceAggregationType
+\Aircraft Type	<	\CodeApronElementType
+\Aircraft Type	<	\CodeSpecialNavigationSystemType
+\Aircraft Type	<	\CodeConstraintStatusType
+\Aircraft Type	<	\CodeAuthorityRoleType
+\Aircraft Type	<	\CodeAMANHorizonType
+\Aircraft Type	<	\CodeApronSectionType
+\Aircraft Type	<	\CodePassengerServiceType
+\Aircraft Type	<	\CodeReferenceLocationType
+\Aircraft Type	<	\CodeAltitudeAdjustmentType
+\Aircraft Type	<	\CodeLevelSeriesType
+\Aircraft Type	<	\CodeNitrogenSupplyType
+\Aircraft Type	<	\CodeSurfaceConditionType
+\Aircraft Type	<	\CodeMinimaFinalApproachPathType
+\Aircraft Type	<	\CodeNavaidPurposeType
+\Aircraft Type	<	\CodeAircraftPerformanceStatusType
+\Aircraft Type	<	\CodeRunwayType
+\Aircraft Type	<	\CodeRVRReadingType
+\Aircraft Type	<	\CodeAerialRefuellingPrefixType
+\Aircraft Type	<	\CodeUomSolidAngleType
+\Aircraft Type	<	\CodeLocationQualifierType
+\Aircraft Type	<	\CodeAircraftEquipmentType
+\Aircraft Type	<	\CodeConvectionCellType
+\Aircraft Type	<	\CodeEmergencyPhaseType
+\Aircraft Type	<	\CodeVerticalStructureMaterialType
+\Aircraft Type	<	\CodeAircraftStandType
+\Aircraft Type	<	\CodeObscurationType
+\Aircraft Type	<	\CodeUnitType
+\Aircraft Type	<	\CodeATCReportingType
+\Aircraft Type	<	\CodeCommunicationDirectionType
+\Aircraft Type	<	\CodeICAOCertificationType
+\Aircraft Type	<	\CodeMLSChannelType
+\Aircraft Type	<	\CodeIATACoordinationLevelType
+\Aircraft Type	<	\CodeVASISType
+\Aircraft Type	<	\CodeRadioSignalType
+\Aircraft Type	<	\CodeFuelType
+\Aircraft Type	<	\CodeReasonCancellationType
+\Aircraft Type	<	\CodeFiledFlightRulesType
+\Aircraft Type	<	\CodeAircraftWingspanClassType
+\Aircraft Type	<	\CodeTargetTimeStatusType
+\Aircraft Type	<	\CodeHoldingUseType
+\Aircraft Type	<	\CodeSeparationAdviceType
+\Aircraft Type	<	\CodeTrajectoryPointType
+\Aircraft Type	<	\ValHexType
+\Aircraft Type	<	\CodeATFMHotspotSeverityType
+\Aircraft Type	<	\CodeAircraftType
+\Aircraft Type	<	\CodeGroundLightingType
+\Aircraft Type	<	\CodeAircraftAvionicsEquipmentType
+\Aircraft Type	<	\CodeSegmentTerminationType
+\Aircraft Type	<	\CodeMarkingPatternType
+\Aircraft Type	<	\CodeTrajectoryType
+\Aircraft Type	<	\CodeSafetyMitigationAdviceType
+\Aircraft Type	<	\CodeSeparationAdviceReasonType
+\Aircraft Type	<	\CodeVORType
+\Aircraft Type	<	\CodeArcDirectionType
+\Aircraft Type	<	\CodeTaxiwayType
+\Aircraft Type	<	\CodeAirspaceClassificationType
+\Aircraft Type	<	\CodeAuthorityType
+\Aircraft Type	<	\CodeAerodromeType
+\Aircraft Type	<	\CodeAircraftAirframeEquipmentType
+\Aircraft Type	<	\CodeStatusAirspaceType
+\Aircraft Type	<	\CodeAirspacePointPositionType
+\Aircraft Type	<	\CodeFlightStatusForCountType
+\Aircraft Type	<	\CodeStatusOperationsType
+\Aircraft Type	<	\CodeRouteSegmentPathType
+\Aircraft Type	<	\CodeValueInterpretationType
+\Aircraft Type	<	\CodeDesignStandardType
+\Aircraft Type	<	\CodeConstraintCategoryType
+\Aircraft Type	<	\CodeTLOFSectionType
+\Aircraft Type	<	\CodePositionInILSType
+\Aircraft Type	<	\CodeAirspaceDependencyType
+\Aircraft Type	<	\CodeValueContaminationExtentType
+\Aircraft Type	<	\CodeProcedureDistanceType
+\Aircraft Type	<	\CodeADSBGSServiceStatusType
+\Aircraft Type	<	\TwoDimensionalCurveType
+\Aircraft Type	<	\CodeDirectionTurnType
+\Aircraft Type	<	\CodeUomElectricCurrentType
+\Aircraft Type	<	\CodeStatusConstructionType
+\Aircraft Type	<	\CodeAirspaceReservationPhaseType
+\Aircraft Type	<	\CodePilotControlledLightingType
+\Aircraft Type	<	\CodeNavigationAreaType
+\Aircraft Type	<	\CodeATFMMeasureStatusType
+\Aircraft Type	<	\CodeOceanicReclearanceReasonType
+\Aircraft Type	<	\CodeAircraftGroundServiceType
+\Aircraft Type	<	\ThreeDimensionalPointType
+\Aircraft Type	<	\CodePositionMarkingType
+\Aircraft Type	<	\CodeRunwayElementType
+\Aircraft Type	<	\CodeRouteDesignatorPrefixType
+\Aircraft Type	<	\CodeUomRatioType
+\Aircraft Type	<	\CodeAircraftSurvivalEquipmentType
+\Aircraft Type	<	\CodeRoleKindType
+\Aircraft Type	<	\ValMassType
+\Aircraft Type	<	\CodeBridgeDropSideType
+\Aircraft Type	<	\CodePCNMethodType
+\Aircraft Type	<	\CodeVerticalReferenceType
+\Aircraft Type	<	\CodeAircraftFlightStatusType
+\Aircraft Type	<	\CodeFlightServiceAvailabilityType
+\Aircraft Type	<	\CodeMinimumAltitudeType
+\Aircraft Type	<	\CodeAirportCDMActorType
+\Aircraft Type	<	\CodeUomDepthChangeRateType
+\Aircraft Type	<	\CodeCountCalculationType
+\Aircraft Type	<	\CodeSSRCategoryType
+\Aircraft Type	<	\CodeOperationManoeuvringAreaType
+\Aircraft Type	<	\SpeedRangeType
+\Aircraft Type	<	\IdentifierType
+\Aircraft Type	<	\CodeAerodromeSurfaceRoutingNetworkEdgeType
+\Aircraft Type	<	\CodeAircraftOperatorType
+\Aircraft Type	<	\CodeAircraftCapabilityType
+\Aircraft Type	<	\CodeApproachEquipmentAdditionalType
+\Aircraft Type	<	\CodeUomAreaType
+\Aircraft Type	<	\CodeContaminationType
+\Aircraft Type	<	\CodeCivilMilitaryCrossingStatusType
+\Aircraft Type	<	\CodeObstacleAssessmentSurfaceType
+\Aircraft Type	<	\CodeTaxiwaySectionType
+\Aircraft Type	<	\CodeApronServiceType
+\Aircraft Type	<	\CodeSurveillanceCapabilityType
+\Aircraft Type	<	\CodeTacticalReroutingConstraintType
+\Aircraft Type	<	\CodeLocationToDeiceType
+\Aircraft Type	<	\CodeReasonForSpecialHandlingType
+\Aircraft Type	<	\CodeFireFightingType
+\Aircraft Type	<	\CodeServiceClassType
+\Aircraft Type	<	\CodeAltitudeReportingCapabilityType
+\Aircraft Type	<	\CodeMCDMCoordinationLevelType
+\Aircraft Type	<	\CodeLightBulbType
+\Aircraft Type	<	\CodeUomEddyDissipationRateType
+\Aircraft Type	<	\CodeWeatherIntensityType
+\Aircraft Type	<	\CodeApproachType
+\Aircraft Type	<	\ValAccelerationType
+\Aircraft Type	<	\CodeStatusNavaidType
+\Aircraft Type	<	\CodeCapacityType
+\Aircraft Type	<	\CodeArrivalSeparationModeType
+\Aircraft Type	<	\CodeProcedureCodingStandardType
+\Aircraft Type	<	\ValTemperatureType
+\Aircraft Type	<	\CodeSSRCodeStatusType
+\Aircraft Type	<	\CodePCNSubgradeType
+\Aircraft Type	<	\CodeAerialRefuellingType
+\Aircraft Type	<	\ValConcentrationType
+\Aircraft Type	<	\CodeUomVelocityType
+\Aircraft Type	<	\CodeFFICEStatusType
+\Aircraft Type	<	\CodeATFMMeasureType
+\Aircraft Type	<	\CodeFacilityRankingType
+\Aircraft Type	<	\CodeRadioEmissionType
+\Aircraft Type	<	\CodeComparisonType
+\Aircraft Type	<	\CodeNavigationAreaRestrictionType
+\Aircraft Type	<	\CodeOilType
+\Aircraft Type	<	\CodeACASCapabilityType
+\Aircraft Type	<	\CodeDepartureSuspensionStatusType
+\Aircraft Type	<	\CodeRouteOriginType
+\Aircraft Type	<	\CodeReasonForDepartureSuspensionType
+\Aircraft Type	<	\CodeReflectorType
+\Aircraft Type	<	\CodeOxygenSupplyType
+\Aircraft Type	<	\CodeNDBUsageType
+\Aircraft Type	<	\CodeRegulationCauseType
+\Aircraft Type	<	\CodeRunwaySectionType
+\Aircraft Type	<	\FourDimensionalPointType
+\Aircraft Type	<	\CodeLifeJacketEquipmentType
+\Aircraft Type	<	\CodeAirTrafficType
+\Aircraft Type	<	\CodeRouteAvailabilityType
+\Aircraft Type	<	\CodeILSBackCourseType
+\Aircraft Type	<	\CodeTransponderType
+\Aircraft Type	<	\CodeFlightRulesType
+\Aircraft Type	<	\CodeLightSourceType
+\Aircraft Type	<	\CodeAlertSeverityLevelType
+\Aircraft Type	<	\CodeDistanceIndicationType
+\Aircraft Type	<	\CodeAirportWarningType
+\Aircraft Type	<	\CodeCommunicationModeType
+\Aircraft Type	<	\CodeCloudAmountType
+\Aircraft Type	<	\CodeAirportMovementType
+\Aircraft Type	<	\CodeUomLuminousIntensityType
+\Aircraft Type	<	\CodeFrictionEstimateType
+\Aircraft Type	<	\CodeAircraftEngineNumberType
+\Aircraft Type	<	\CodeEngineOperationModeType
+\Aircraft Type	<	\CodeTrajectoryDialogueStatusType
+\Aircraft Type	<	\CodeCourseQualityILSType
+\Aircraft Type	<	\CodeInstrumentApproachCategoryType
+\Aircraft Type	<	\CodeSignalPerformanceType
+\Aircraft Type	<	\CodeAlternativeFlightResponseKindType
+\Aircraft Type	<	\CodeUomPressureType
+\Aircraft Type	<	\ValFrequencyType
+\Aircraft Type	<	\CodeFlowCombinationRoleType
+\Aircraft Type	<	\CodeNasRoleType
+\Aircraft Type	<	\CodeAirspaceReservationImpactType
+\Aircraft Type	<	\CodeLAHSOMarkingType
+\Aircraft Type	<	\CodeGuidanceLineType
+\Aircraft Type	<	\CodeGradeSeparationType
+\Aircraft Type	<	\ThreeDimensionalCurveType
+\Aircraft Type	<	\CodePointUsageType
+\Aircraft Type	<	\CodeMCDMCoordinationApprovalStatusType
+\Aircraft Type	<	\CodeCheckpointCategoryType
+\Aircraft Type	<	\CodeAircraftClassificationType
+\Aircraft Type	<	\CodeResponsibilityKindType
+\Aircraft Type	<	\CodeMCDMCoordinationActorRoleType
+\Aircraft Type	<	\CodeUomLengthType
+\Aircraft Type	<	\TimeRangeType
+\Aircraft Type	<	\CodeUpperAlphaType
+\Aircraft Type	<	\CodeSegmentPathType
+\Aircraft Type	<	\CodeAerodromeSystemType
+\Aircraft Type	<	\CodeArrestingGearEnergyAbsorbType
+\Aircraft Type	<	\CodeMinimumHeightType
+\Aircraft Type	<	\CodeApproachPrefixType
+\Aircraft Type	<	\CodeEquipmentOperationalType
+\Aircraft Type	<	\CodeObstructionIdSurfaceZoneType
+\Aircraft Type	<	\CodeSlotImprovementProposalStatusType
+\Aircraft Type	<	\CodeIATACountryCodeType
+\Aircraft Type	<	\CodeConstraintHandlingType
+\Aircraft Type	<	\CodeTrajectorySegmentType
+\Aircraft Type	<	\CodeWeatherPhenomenonType
+\Aircraft Type	<	\CodeAircraftLandingCategoryType
+\Aircraft Type	<	\CodeArrestingGearEngageDeviceType
+\Aircraft Type	<	\CodeLightIntensityType
+\Aircraft Type	<	\CodeChangeIndicatorType
+\Aircraft Type	<	\CodeSpecialNavigationStationType
+\Aircraft Type	<	\CodeDeclaredDistanceType
+\Aircraft Type	<	\CodeAlertActivationStatusType
+\Aircraft Type	<	\CodeAircraftEngineType
+\Aircraft Type	<	\CodeEmergencyStatusType
+\Aircraft Type	<	\CodeStatusServiceType
+\Aircraft Type	<	\CodeSurfaceVehicleIdentificationType
+\Aircraft Type	<	\DateTimeWithPlanningType
+\Aircraft Type	<	\CodeReferenceRoleType
+\Aircraft Type	<	\CodeUomEnergyFluxType
+\Aircraft Type	<	\CodeDeicingStatusType
+\Aircraft Type	<	\CodeGeoBorderType
+\Aircraft Type	<	\CodeRelativePositionType
+\Aircraft Type	<	\CodeAMANStatusType
+\Aircraft Type	<	\CodeBasicCoordinationStatusType
+\Aircraft Type	<	\CodeDirectionType
+\Aircraft Type	<	\CodeOrganisationHierarchyType
+\Aircraft Type	<	\CodeAerodromeSurfaceRoutingNetworkEdgeDirectionType
+\Aircraft Type	<	\CodeUsageLimitationType
+\Aircraft Type	<	\CodeUomParticleFluxType
+\Aircraft Type	<	\CodeTurbulenceType
+\Aircraft Type	<	\ValRateOfTurnType
+\Aircraft Type	<	\CodeTargetTrajectoryChangeReportCapabilityType
+\Aircraft Type	<	\CodeUomMassConcentrationType
+\Aircraft Type	<	\CodeTrajectoryPointAcceptanceStatusType
+\Aircraft Type	<	\CodeTacticalReroutingReasonType
+\Aircraft Type	<	\CodeSeparationFromLeadIndicatorType
+\Aircraft Type	<	\CodeReleaseIndicationType
+\Aircraft Type	<	\CodeAlertTriggerType
+\Aircraft Type	<	\CodeUomVolumeType
+\Aircraft Type	<	\CodeRouteNavigationType
+\Aircraft Type	<	\CodeWindCharacteristicType
+\Aircraft Type	<	\CodeSeaStateType
+\Aircraft Type	<	\CodeAerodromeTrafficType
+\Aircraft Type	<	\CodeAltitudeUseType
+\Aircraft Type	<	\CodeAirTrafficServiceType
+\Aircraft Type	<	\CodeCompassPointType
+\Aircraft Type	<	\CodeLoadingBridgeType
+\Aircraft Type	<	\DurationWithPlanningType
+\Aircraft Type	<	\CodeSlotAllocationStatusType
+\Aircraft Type	<	\CodeEquipmentStatusType
+\Aircraft Type	<	\CodeEmissionBandType
+\Aircraft Type	<	\CodeFrictionDeviceType
+\Aircraft Type	<	\CodeHeadingType
+\Aircraft Type	<	\CodeParticularMatterType
+\Aircraft Type	<	\CodeRadioFrequencyAreaType
+\Aircraft Type	<	\CodeFlightType
+\Aircraft Type	<	\CodeNoiseCertificationType
+\Aircraft Type	<	\CodeFlightCrewQualificationType
+\Aircraft Type	<	\CodeIntensityStandByType
+\Aircraft Type	<	\CodeLightHoldingPositionType
+\Aircraft Type	<	\CodeTaxiRouteStatusType
+\Aircraft Type	<	\CodeCoordinationReasonType
+\Aircraft Type	<	\CodeServiceInformationType
+\Aircraft Type	<	\CodeRegulationCauseLocationCategoryType
+\Aircraft Type	<	\CodeTacticalIReroutingProposalStatusType
+\Aircraft Type	<	\TwoDimensionalSurfaceType
+\Aircraft Type	<	\CodeTaxiwayElementType
+\Aircraft Type	<	\CodeTimeReferenceType
+\Aircraft Type	<	\CodePCNTyrePressureType
+\Aircraft Type	<	\CodeLevelType
+\Aircraft Type	<	\CodeNavigationCapabilityType
+\Aircraft Type	<	\CodeTacticalReroutingApplicationType
+\Aircraft Type	<	\CodeCoordinationAndTransferStatusType
+\Aircraft Type	<	\CodeUnitDependencyType
+\Aircraft Type	<	\CodeRunwayDirectionOperationModeType
+\Aircraft Type	<	\CodeUomMassDensityType
+\Aircraft Type	<	\CodeStatusAirportType
+\Aircraft Type	<	\CodePARType
+\Aircraft Type	<	\CodeTaxiRouteModeType
+\Aircraft Type	<	\CodeSupplyDistributionMethodType
+\Aircraft Type	<	\CodeUomForceType
+\Aircraft Type	<	\CodeLevelTableDesignatorType
+\Aircraft Type	<	\ValWeightType
+\Aircraft Type	<	\CodeAirportSlotKindType
+\Aircraft Type	<	\CodeUomVolumeConcentrationType
+\Aircraft Type	<	\CodeServiceSARType
+\Aircraft Type	<	\CodeVisualDockingGuidanceType
+\Aircraft Type	<	\CodeUomPlaneAngleType
+\Aircraft Type	<	\CodeSpecialSSRCodeType
+\Aircraft Type	<	\CodeUomTimeType
+\Aircraft Type	<	\CodeDMEType
+\Aircraft Type	<	\CodeLightSystemActivationType
+\Aircraft Type	<	\CodeProtectAreaSectionType
+\Aircraft Type	<	\CodeOperationAerodromeType
+\Aircraft Type	<	\CodeColourType
+\Aircraft Type	<	\CodeMilitaryActivityType
+\Aircraft Type	<	\CodeValidityPeriodInterpretationType
+\Aircraft Type	<	\CodeAerodromeSignApplicabilityType
+\Aircraft Type	<	\CodeConvectionCellTopVariationType
+\Aircraft Type	<	\CodeLegPathType
+\Aircraft Type	<	\CodeFlightPhaseType
+\Aircraft Type	<	\CodeInstrumentRunwayType
+\Aircraft Type	<	\CodeObstacleAreaType
+\Aircraft Type	<	\CodeSpecialHeightValueType
+\Aircraft Type	<	\CodeRunwayProtectionAreaType
+\Aircraft Type	<	\CodeSignificantWeatherQualifierType
+\Aircraft Type	<	\ThreeDimensionalSurfaceType
+\Aircraft Type	<	\CodeAirspaceActivityType
+\Aircraft Type	<	\CodeUomAccelerationType
+\Aircraft Type	<	\CodeAviationStandardsType
+\Aircraft Type	<	\CodeUomTemperatureType
+\Aircraft Type	<	\CodeMilitaryTrainingType
+\Aircraft Type	<	\CodeStandbyPowerType
+\Aircraft Type	<	\CodeCourseType
+\Aircraft Type	<	\CodeUomLuminanceIntensityDensityType
+\Aircraft Type	<	\CodeCTAStatusType
+\Aircraft Type	<	\CodeAircraftAttitudeType
+\Aircraft Type	<	\CodeHoldingUsageType
+\Aircraft Type	<	\CodeTAAType
+\Aircraft Type	<	\CodeUomPowerType
+\Aircraft Type	<	\CodeTypeOfTaxiRouteType
+\Aircraft Type	<	\ValDistanceType\ValVerticalDistanceType
+\Aircraft Type	<	\ValDistanceType\ValAltitudeType\ValAltitudeWithBoundaryType
+\Aircraft Type	<	\CodeDayType\CodeParticularDayType
+\Aircraft Type	<	\Object\AircraftMakeModelSeries
+\Aircraft Type	=	\Object\AircraftType
+\Aircraft Type	<	\Object\AircraftCategory
+\Aircraft Type	<	\Object\AircraftColourAndMarking
+\Aircraft Type	<	\ValSpeedType\ValSpeedWithBoundaryType
+\Aircraft Type	<	\ValSpeedType\ValVelocityType
+\Airspace infrastructure component	<	\Entity
+\Airspace infrastructure component	<	\Object\NavaidComponent
+\Airspace infrastructure component	<	\Object\FormationComponent
+\Airspace infrastructure component	<	\Object\RadarComponent
+\Airspace infrastructure component	<	\Object\AirspaceGeometryComponent
+\Airspace infrastructure component	<	\Object\AirspaceVolumeDependency
+\Subsequence	<	\Entity
+\Subsequence	>	\Entity\TemporalEnabledEntity\LandingSequence
+\Subsequence	>	\Entity\TemporalEnabledEntity\DepartureSequence
+\Subsequence	>	\Object\StartUpSequencing
+\Subsequence	>	\Object\RunwaySequencing
+\Aircraft model	<	\Entity
+\Aircraft model	<	\Object\AircraftMakeModelSeries
+\Aircraft model	<	\Object\AircraftCategory
+\Aircraft model	<	\Object\AircraftColourAndMarking
+\Aircraft Wake Category	<	\Entity
+\Aircraft Wake Category	<	\Object\AircraftMakeModelSeries
+\Aircraft Wake Category	<	\Object\AircraftCategory
+\Aircraft Wake Category	<	\Object\AircraftColourAndMarking
+\NAS day	<	\Entity
+\NAS day	<	\Object
+\Crew member	<	\Entity
+\Crew member	<	\Object
+\Crew member	>	\Entity\TemporalEnabledEntity\CrewMember
+\Aviation service provider	<	\Entity
+\Aviation service provider	<	\Object\ADSBGroundStationService
+\Aviation service provider	<	\Object\ServiceProviderCallsign
+\ReRoute segment	<	\Entity
+\ReRoute segment	<	\Object
+\NAS facility	<	\Entity
+\NAS facility	<	\Object
+\Engine Type	<	\CodeUomWeightType
+\Engine Type	<	\CodeAltimeterType
+\Engine Type	<	\CodeFlightDataKindType
+\Engine Type	<	\CodeWakeTurbulenceCategoryType
+\Engine Type	<	\CodeMilitaryStatusType
+\Engine Type	<	\CodeAlternativeFlightStateType
+\Engine Type	<	\CodeNotePurposeType
+\Engine Type	<	\CodeFlightOriginType
+\Engine Type	<	\CodeSurfacePreparationType
+\Engine Type	<	\ValLightIntensityType
+\Engine Type	<	\CodeTacticalReroutingStatusType
+\Engine Type	<	\CodeHoldingSideType
+\Engine Type	<	\CodeAirspaceType
+\Engine Type	<	\CodeProcedureAvailabilityType
+\Engine Type	<	\CodeRNPCapabilityType
+\Engine Type	<	\CodeOrganisationType
+\Engine Type	<	\CodeWorkAreaType
+\Engine Type	<	\CodeApproachLightingICAOType
+\Engine Type	<	\CodeTrajectoryElementType
+\Engine Type	<	\AngleRangeType
+\Engine Type	<	\CodeAirToAirEngagementType
+\Engine Type	<	\CodeAerodromeSurfaceRoutingNetworkNodeType
+\Engine Type	<	\CodeConditionalRouteType
+\Engine Type	<	\CodeHelicopterPerformanceType
+\Engine Type	<	\CodeEquipmentUnavailableType
+\Engine Type	<	\CodeSSRModeType
+\Engine Type	<	\CodeRoadType
+\Engine Type	<	\CodeTimeEventType
+\Engine Type	<	\CodeMarkingConditionType
+\Engine Type	<	\CodeAerodromeCollocationType
+\Engine Type	<	\CodeSurvivalEquipmentType
+\Engine Type	<	\CodeRunwayExitType
+\Engine Type	<	\CodeVerticalStructureType
+\Engine Type	<	\CodePrecipitationType
+\Engine Type	<	\CodeMarkerBeaconSignalType
+\Engine Type	<	\CodeCloudType
+\Engine Type	<	\CodeDMEChannelType
+\Engine Type	<	\CodeGasType
+\Engine Type	<	\CodeHeightReferenceType
+\Engine Type	<	\CodeOceanicClearanceStatusType
+\Engine Type	<	\CodeRuleProcedureType
+\Engine Type	<	\CodeInternationalFlightType
+\Engine Type	<	\CodeRuleProcedureTitleType
+\Engine Type	<	\AltitudeRangeType
+\Engine Type	<	\CodeVerticalStructureMarkingType
+\Engine Type	<	\CodePCNPavementType
+\Engine Type	<	\CodeLightingJARType
+\Engine Type	<	\CodeTelecomNetworkType
+\Engine Type	<	\CodeICAONationalityLettersType
+\Engine Type	<	\CodeMCDMCoordinationStatusType
+\Engine Type	<	\CodeConstraintOriginatorType
+\Engine Type	<	\CodeFlightReadyStatusType
+\Engine Type	<	\CodeATFMHotspotStatusType
+\Engine Type	<	\CodeRNAVFlightCapabilityType
+\Engine Type	<	\CodeDepartureClearanceStatusType
+\Engine Type	<	\CodeRelativeDirectionType
+\Engine Type	<	\CodeUomFrequencyType
+\Engine Type	<	\CodePlanningStatusType
+\Engine Type	<	\CodeMilitaryOperationsType
+\Engine Type	<	\CodeNavaidServiceType
+\Engine Type	<	\Entity
+\Engine Type	<	\CodeFinalGuidanceType
+\Engine Type	<	\CodeSurfaceCompositionType
+\Engine Type	<	\CodeAerodromeSurfaceRoutingNetworkEdgeGeometryDerivationMethodType
+\Engine Type	<	\CodeInstructionToAircraftType
+\Engine Type	<	\CodeStandServiceType
+\Engine Type	<	\ValPressureType
+\Engine Type	<	\CodeNonStandardReasonType
+\Engine Type	<	\CodeModeSType
+\Engine Type	<	\CodeSpeedReferenceType
+\Engine Type	<	\CodeDatalinkCommunicationCapabilityType
+\Engine Type	<	\CodeVerticalDatumType
+\Engine Type	<	\CodeIntegrityLevelILSType
+\Engine Type	<	\CodeTimeEventCombinationType
+\Engine Type	<	\CodeLogicalOperatorType
+\Engine Type	<	\CodeTACANChannelType
+\Engine Type	<	\CodeRadarServiceType
+\Engine Type	<	\CodeIATASeasonType
+\Engine Type	<	\CodeRouteDesignatorLetterType
+\Engine Type	<	\CodeServiceATFMType
+\Engine Type	<	\CodeWakeVortexClassificationType
+\Engine Type	<	\CodeACDMIrregularityType
+\Engine Type	<	\TwoDimensionalPointType
+\Engine Type	<	\CodeCommunicationCapabilityType
+\Engine Type	<	\CodeReasonForAbortingTakeOffType
+\Engine Type	<	\CodeBuoyType
+\Engine Type	<	\CodeMLSAzimuthType
+\Engine Type	<	\CodeMarkingStyleType
+\Engine Type	<	\CodeMissedApproachType
+\Engine Type	<	\CodeBearingType
+\Engine Type	<	\CodeUomMassType
+\Engine Type	<	\CodeSignificantPointDesignatorType
+\Engine Type	<	\CodeFlightRestrictionType
+\Engine Type	<	\CodeApproachLightingSystemType
+\Engine Type	<	\CodeNorthReferenceType
+\Engine Type	<	\CodeRVRTendencyType
+\Engine Type	<	\CodeSafeAltitudeType
+\Engine Type	<	\CodeRunwayMarkingType
+\Engine Type	<	\CodeBoundaryCrossingType
+\Engine Type	<	\CodeProcedurePhaseType
+\Engine Type	<	\DistanceVerticalRangeType
+\Engine Type	<	\CodeUomParticleContentType
+\Engine Type	<	\CodeRouteType
+\Engine Type	<	\CodeApprovalType
+\Engine Type	<	\CodeRouteDesignatorSuffixType
+\Engine Type	<	\CodeAirspaceAggregationType
+\Engine Type	<	\CodeApronElementType
+\Engine Type	<	\CodeSpecialNavigationSystemType
+\Engine Type	<	\CodeConstraintStatusType
+\Engine Type	<	\CodeAuthorityRoleType
+\Engine Type	<	\CodeAMANHorizonType
+\Engine Type	<	\CodeApronSectionType
+\Engine Type	<	\CodePassengerServiceType
+\Engine Type	<	\CodeReferenceLocationType
+\Engine Type	<	\CodeAltitudeAdjustmentType
+\Engine Type	<	\CodeLevelSeriesType
+\Engine Type	<	\CodeNitrogenSupplyType
+\Engine Type	<	\CodeSurfaceConditionType
+\Engine Type	<	\CodeMinimaFinalApproachPathType
+\Engine Type	<	\CodeNavaidPurposeType
+\Engine Type	<	\CodeAircraftPerformanceStatusType
+\Engine Type	<	\CodeRunwayType
+\Engine Type	<	\CodeRVRReadingType
+\Engine Type	<	\CodeAerialRefuellingPrefixType
+\Engine Type	<	\CodeUomSolidAngleType
+\Engine Type	<	\CodeLocationQualifierType
+\Engine Type	<	\CodeAircraftEquipmentType
+\Engine Type	<	\CodeConvectionCellType
+\Engine Type	<	\CodeEmergencyPhaseType
+\Engine Type	<	\CodeVerticalStructureMaterialType
+\Engine Type	<	\CodeAircraftStandType
+\Engine Type	<	\CodeObscurationType
+\Engine Type	<	\CodeUnitType
+\Engine Type	<	\CodeATCReportingType
+\Engine Type	<	\CodeCommunicationDirectionType
+\Engine Type	<	\CodeICAOCertificationType
+\Engine Type	<	\CodeMLSChannelType
+\Engine Type	<	\CodeIATACoordinationLevelType
+\Engine Type	<	\CodeVASISType
+\Engine Type	<	\CodeRadioSignalType
+\Engine Type	<	\CodeFuelType
+\Engine Type	<	\CodeReasonCancellationType
+\Engine Type	<	\CodeFiledFlightRulesType
+\Engine Type	<	\CodeAircraftWingspanClassType
+\Engine Type	<	\CodeTargetTimeStatusType
+\Engine Type	<	\CodeHoldingUseType
+\Engine Type	<	\CodeSeparationAdviceType
+\Engine Type	<	\CodeTrajectoryPointType
+\Engine Type	<	\ValHexType
+\Engine Type	<	\CodeATFMHotspotSeverityType
+\Engine Type	<	\CodeAircraftType
+\Engine Type	<	\CodeGroundLightingType
+\Engine Type	<	\CodeAircraftAvionicsEquipmentType
+\Engine Type	<	\CodeSegmentTerminationType
+\Engine Type	<	\CodeMarkingPatternType
+\Engine Type	<	\CodeTrajectoryType
+\Engine Type	<	\CodeSafetyMitigationAdviceType
+\Engine Type	<	\CodeSeparationAdviceReasonType
+\Engine Type	<	\CodeVORType
+\Engine Type	<	\CodeArcDirectionType
+\Engine Type	<	\CodeTaxiwayType
+\Engine Type	<	\CodeAirspaceClassificationType
+\Engine Type	<	\CodeAuthorityType
+\Engine Type	<	\CodeAerodromeType
+\Engine Type	<	\CodeAircraftAirframeEquipmentType
+\Engine Type	<	\CodeStatusAirspaceType
+\Engine Type	<	\CodeAirspacePointPositionType
+\Engine Type	<	\CodeFlightStatusForCountType
+\Engine Type	<	\CodeStatusOperationsType
+\Engine Type	<	\CodeRouteSegmentPathType
+\Engine Type	<	\CodeValueInterpretationType
+\Engine Type	<	\CodeDesignStandardType
+\Engine Type	<	\CodeConstraintCategoryType
+\Engine Type	<	\CodeTLOFSectionType
+\Engine Type	<	\CodePositionInILSType
+\Engine Type	<	\CodeAirspaceDependencyType
+\Engine Type	<	\CodeValueContaminationExtentType
+\Engine Type	<	\CodeProcedureDistanceType
+\Engine Type	<	\CodeADSBGSServiceStatusType
+\Engine Type	<	\TwoDimensionalCurveType
+\Engine Type	<	\CodeDirectionTurnType
+\Engine Type	<	\CodeUomElectricCurrentType
+\Engine Type	<	\CodeStatusConstructionType
+\Engine Type	<	\CodeAirspaceReservationPhaseType
+\Engine Type	<	\CodePilotControlledLightingType
+\Engine Type	<	\CodeNavigationAreaType
+\Engine Type	<	\CodeATFMMeasureStatusType
+\Engine Type	<	\CodeOceanicReclearanceReasonType
+\Engine Type	<	\CodeAircraftGroundServiceType
+\Engine Type	<	\ThreeDimensionalPointType
+\Engine Type	<	\CodePositionMarkingType
+\Engine Type	<	\CodeRunwayElementType
+\Engine Type	<	\CodeRouteDesignatorPrefixType
+\Engine Type	<	\CodeUomRatioType
+\Engine Type	<	\CodeAircraftSurvivalEquipmentType
+\Engine Type	<	\CodeRoleKindType
+\Engine Type	<	\ValMassType
+\Engine Type	<	\CodeBridgeDropSideType
+\Engine Type	<	\CodePCNMethodType
+\Engine Type	<	\CodeVerticalReferenceType
+\Engine Type	<	\CodeAircraftFlightStatusType
+\Engine Type	<	\CodeFlightServiceAvailabilityType
+\Engine Type	<	\CodeMinimumAltitudeType
+\Engine Type	<	\CodeAirportCDMActorType
+\Engine Type	<	\CodeUomDepthChangeRateType
+\Engine Type	<	\CodeCountCalculationType
+\Engine Type	<	\CodeSSRCategoryType
+\Engine Type	<	\CodeOperationManoeuvringAreaType
+\Engine Type	<	\SpeedRangeType
+\Engine Type	<	\IdentifierType
+\Engine Type	<	\CodeAerodromeSurfaceRoutingNetworkEdgeType
+\Engine Type	<	\CodeAircraftOperatorType
+\Engine Type	<	\CodeAircraftCapabilityType
+\Engine Type	<	\CodeApproachEquipmentAdditionalType
+\Engine Type	<	\CodeUomAreaType
+\Engine Type	<	\CodeContaminationType
+\Engine Type	<	\CodeCivilMilitaryCrossingStatusType
+\Engine Type	<	\CodeObstacleAssessmentSurfaceType
+\Engine Type	<	\CodeTaxiwaySectionType
+\Engine Type	<	\CodeApronServiceType
+\Engine Type	<	\CodeSurveillanceCapabilityType
+\Engine Type	<	\CodeTacticalReroutingConstraintType
+\Engine Type	<	\CodeLocationToDeiceType
+\Engine Type	<	\CodeReasonForSpecialHandlingType
+\Engine Type	<	\CodeFireFightingType
+\Engine Type	<	\CodeServiceClassType
+\Engine Type	<	\CodeAltitudeReportingCapabilityType
+\Engine Type	<	\CodeMCDMCoordinationLevelType
+\Engine Type	<	\CodeLightBulbType
+\Engine Type	<	\CodeUomEddyDissipationRateType
+\Engine Type	<	\CodeWeatherIntensityType
+\Engine Type	<	\CodeApproachType
+\Engine Type	<	\ValAccelerationType
+\Engine Type	<	\CodeStatusNavaidType
+\Engine Type	<	\CodeCapacityType
+\Engine Type	<	\CodeArrivalSeparationModeType
+\Engine Type	<	\CodeProcedureCodingStandardType
+\Engine Type	<	\ValTemperatureType
+\Engine Type	<	\CodeSSRCodeStatusType
+\Engine Type	<	\CodePCNSubgradeType
+\Engine Type	<	\CodeAerialRefuellingType
+\Engine Type	<	\ValConcentrationType
+\Engine Type	<	\CodeUomVelocityType
+\Engine Type	<	\CodeFFICEStatusType
+\Engine Type	<	\CodeATFMMeasureType
+\Engine Type	<	\CodeFacilityRankingType
+\Engine Type	<	\CodeRadioEmissionType
+\Engine Type	<	\CodeComparisonType
+\Engine Type	<	\CodeNavigationAreaRestrictionType
+\Engine Type	<	\CodeOilType
+\Engine Type	<	\CodeACASCapabilityType
+\Engine Type	<	\CodeDepartureSuspensionStatusType
+\Engine Type	<	\CodeRouteOriginType
+\Engine Type	<	\CodeReasonForDepartureSuspensionType
+\Engine Type	<	\CodeReflectorType
+\Engine Type	<	\CodeOxygenSupplyType
+\Engine Type	<	\CodeNDBUsageType
+\Engine Type	<	\CodeRegulationCauseType
+\Engine Type	<	\CodeRunwaySectionType
+\Engine Type	<	\FourDimensionalPointType
+\Engine Type	<	\CodeLifeJacketEquipmentType
+\Engine Type	<	\CodeAirTrafficType
+\Engine Type	<	\CodeRouteAvailabilityType
+\Engine Type	<	\CodeILSBackCourseType
+\Engine Type	<	\CodeTransponderType
+\Engine Type	<	\CodeFlightRulesType
+\Engine Type	<	\CodeLightSourceType
+\Engine Type	<	\CodeAlertSeverityLevelType
+\Engine Type	<	\CodeDistanceIndicationType
+\Engine Type	<	\CodeAirportWarningType
+\Engine Type	<	\CodeCommunicationModeType
+\Engine Type	<	\CodeCloudAmountType
+\Engine Type	<	\CodeAirportMovementType
+\Engine Type	<	\CodeUomLuminousIntensityType
+\Engine Type	<	\CodeFrictionEstimateType
+\Engine Type	<	\CodeAircraftEngineNumberType
+\Engine Type	<	\CodeEngineOperationModeType
+\Engine Type	<	\CodeTrajectoryDialogueStatusType
+\Engine Type	<	\CodeCourseQualityILSType
+\Engine Type	<	\CodeInstrumentApproachCategoryType
+\Engine Type	<	\CodeSignalPerformanceType
+\Engine Type	<	\CodeAlternativeFlightResponseKindType
+\Engine Type	<	\CodeUomPressureType
+\Engine Type	<	\ValFrequencyType
+\Engine Type	<	\CodeFlowCombinationRoleType
+\Engine Type	<	\CodeNasRoleType
+\Engine Type	<	\CodeAirspaceReservationImpactType
+\Engine Type	<	\CodeLAHSOMarkingType
+\Engine Type	<	\CodeGuidanceLineType
+\Engine Type	<	\CodeGradeSeparationType
+\Engine Type	<	\ThreeDimensionalCurveType
+\Engine Type	<	\CodePointUsageType
+\Engine Type	<	\CodeMCDMCoordinationApprovalStatusType
+\Engine Type	<	\CodeCheckpointCategoryType
+\Engine Type	<	\CodeAircraftClassificationType
+\Engine Type	<	\CodeResponsibilityKindType
+\Engine Type	<	\CodeMCDMCoordinationActorRoleType
+\Engine Type	<	\CodeUomLengthType
+\Engine Type	<	\TimeRangeType
+\Engine Type	<	\CodeUpperAlphaType
+\Engine Type	<	\CodeSegmentPathType
+\Engine Type	<	\CodeAerodromeSystemType
+\Engine Type	<	\CodeArrestingGearEnergyAbsorbType
+\Engine Type	<	\CodeMinimumHeightType
+\Engine Type	<	\CodeApproachPrefixType
+\Engine Type	<	\CodeEquipmentOperationalType
+\Engine Type	<	\CodeObstructionIdSurfaceZoneType
+\Engine Type	<	\CodeSlotImprovementProposalStatusType
+\Engine Type	<	\CodeIATACountryCodeType
+\Engine Type	<	\CodeConstraintHandlingType
+\Engine Type	<	\CodeTrajectorySegmentType
+\Engine Type	<	\CodeWeatherPhenomenonType
+\Engine Type	<	\CodeAircraftLandingCategoryType
+\Engine Type	<	\CodeArrestingGearEngageDeviceType
+\Engine Type	<	\CodeLightIntensityType
+\Engine Type	<	\CodeChangeIndicatorType
+\Engine Type	<	\CodeSpecialNavigationStationType
+\Engine Type	<	\CodeDeclaredDistanceType
+\Engine Type	<	\CodeAlertActivationStatusType
+\Engine Type	<	\CodeAircraftEngineType
+\Engine Type	<	\CodeEmergencyStatusType
+\Engine Type	<	\CodeStatusServiceType
+\Engine Type	<	\CodeSurfaceVehicleIdentificationType
+\Engine Type	<	\DateTimeWithPlanningType
+\Engine Type	<	\CodeReferenceRoleType
+\Engine Type	<	\CodeUomEnergyFluxType
+\Engine Type	<	\CodeDeicingStatusType
+\Engine Type	<	\CodeGeoBorderType
+\Engine Type	<	\CodeRelativePositionType
+\Engine Type	<	\CodeAMANStatusType
+\Engine Type	<	\CodeBasicCoordinationStatusType
+\Engine Type	<	\CodeDirectionType
+\Engine Type	<	\CodeOrganisationHierarchyType
+\Engine Type	<	\CodeAerodromeSurfaceRoutingNetworkEdgeDirectionType
+\Engine Type	<	\CodeUsageLimitationType
+\Engine Type	<	\CodeUomParticleFluxType
+\Engine Type	<	\CodeTurbulenceType
+\Engine Type	<	\ValRateOfTurnType
+\Engine Type	<	\CodeTargetTrajectoryChangeReportCapabilityType
+\Engine Type	<	\CodeUomMassConcentrationType
+\Engine Type	<	\CodeTrajectoryPointAcceptanceStatusType
+\Engine Type	<	\CodeTacticalReroutingReasonType
+\Engine Type	<	\CodeSeparationFromLeadIndicatorType
+\Engine Type	<	\CodeReleaseIndicationType
+\Engine Type	<	\CodeAlertTriggerType
+\Engine Type	<	\CodeUomVolumeType
+\Engine Type	<	\CodeRouteNavigationType
+\Engine Type	<	\CodeWindCharacteristicType
+\Engine Type	<	\CodeSeaStateType
+\Engine Type	<	\CodeAerodromeTrafficType
+\Engine Type	<	\CodeAltitudeUseType
+\Engine Type	<	\CodeAirTrafficServiceType
+\Engine Type	<	\CodeCompassPointType
+\Engine Type	<	\CodeLoadingBridgeType
+\Engine Type	<	\DurationWithPlanningType
+\Engine Type	<	\CodeSlotAllocationStatusType
+\Engine Type	<	\CodeEquipmentStatusType
+\Engine Type	<	\CodeEmissionBandType
+\Engine Type	<	\CodeFrictionDeviceType
+\Engine Type	<	\CodeHeadingType
+\Engine Type	<	\CodeParticularMatterType
+\Engine Type	<	\CodeRadioFrequencyAreaType
+\Engine Type	<	\CodeFlightType
+\Engine Type	<	\CodeNoiseCertificationType
+\Engine Type	<	\CodeFlightCrewQualificationType
+\Engine Type	<	\CodeIntensityStandByType
+\Engine Type	<	\CodeLightHoldingPositionType
+\Engine Type	<	\CodeTaxiRouteStatusType
+\Engine Type	<	\CodeCoordinationReasonType
+\Engine Type	<	\CodeServiceInformationType
+\Engine Type	<	\CodeRegulationCauseLocationCategoryType
+\Engine Type	<	\CodeTacticalIReroutingProposalStatusType
+\Engine Type	<	\TwoDimensionalSurfaceType
+\Engine Type	<	\CodeTaxiwayElementType
+\Engine Type	<	\CodeTimeReferenceType
+\Engine Type	<	\CodePCNTyrePressureType
+\Engine Type	<	\CodeLevelType
+\Engine Type	<	\CodeNavigationCapabilityType
+\Engine Type	<	\CodeTacticalReroutingApplicationType
+\Engine Type	<	\CodeCoordinationAndTransferStatusType
+\Engine Type	<	\CodeUnitDependencyType
+\Engine Type	<	\CodeRunwayDirectionOperationModeType
+\Engine Type	<	\CodeUomMassDensityType
+\Engine Type	<	\CodeStatusAirportType
+\Engine Type	<	\CodePARType
+\Engine Type	<	\CodeTaxiRouteModeType
+\Engine Type	<	\CodeSupplyDistributionMethodType
+\Engine Type	<	\CodeUomForceType
+\Engine Type	<	\CodeLevelTableDesignatorType
+\Engine Type	<	\ValWeightType
+\Engine Type	<	\CodeAirportSlotKindType
+\Engine Type	<	\CodeUomVolumeConcentrationType
+\Engine Type	<	\CodeServiceSARType
+\Engine Type	<	\CodeVisualDockingGuidanceType
+\Engine Type	<	\CodeUomPlaneAngleType
+\Engine Type	<	\CodeSpecialSSRCodeType
+\Engine Type	<	\CodeUomTimeType
+\Engine Type	<	\CodeDMEType
+\Engine Type	<	\CodeLightSystemActivationType
+\Engine Type	<	\CodeProtectAreaSectionType
+\Engine Type	<	\CodeOperationAerodromeType
+\Engine Type	<	\CodeColourType
+\Engine Type	<	\CodeMilitaryActivityType
+\Engine Type	<	\CodeValidityPeriodInterpretationType
+\Engine Type	<	\CodeAerodromeSignApplicabilityType
+\Engine Type	<	\CodeConvectionCellTopVariationType
+\Engine Type	<	\CodeLegPathType
+\Engine Type	<	\CodeFlightPhaseType
+\Engine Type	<	\CodeInstrumentRunwayType
+\Engine Type	<	\CodeObstacleAreaType
+\Engine Type	<	\CodeSpecialHeightValueType
+\Engine Type	<	\CodeRunwayProtectionAreaType
+\Engine Type	<	\CodeSignificantWeatherQualifierType
+\Engine Type	<	\ThreeDimensionalSurfaceType
+\Engine Type	<	\CodeAirspaceActivityType
+\Engine Type	<	\CodeUomAccelerationType
+\Engine Type	<	\CodeAviationStandardsType
+\Engine Type	<	\CodeUomTemperatureType
+\Engine Type	<	\CodeMilitaryTrainingType
+\Engine Type	<	\CodeStandbyPowerType
+\Engine Type	<	\CodeCourseType
+\Engine Type	<	\CodeUomLuminanceIntensityDensityType
+\Engine Type	<	\CodeCTAStatusType
+\Engine Type	<	\CodeAircraftAttitudeType
+\Engine Type	<	\CodeHoldingUsageType
+\Engine Type	<	\CodeTAAType
+\Engine Type	<	\CodeUomPowerType
+\Engine Type	<	\CodeTypeOfTaxiRouteType
+\Engine Type	<	\ValDistanceType\ValVerticalDistanceType
+\Engine Type	<	\ValDistanceType\ValAltitudeType\ValAltitudeWithBoundaryType
+\Engine Type	<	\CodeDayType\CodeParticularDayType
+\Engine Type	<	\Object\AircraftType
+\Engine Type	<	\ValSpeedType\ValSpeedWithBoundaryType
+\Engine Type	<	\ValSpeedType\ValVelocityType
+\Sequence	<	\Entity
+\Sequence	>	\Entity\TemporalEnabledEntity\RunwayMixSequence
+\Sequence	>	\Entity\TemporalEnabledEntity\LandingSequence
+\Sequence	>	\Entity\TemporalEnabledEntity\DepartureSequence
+\Sequence	>	\Object\StartUpSequencing
+\Sequence	>	\Object\RunwaySequencing
+\Time interval	<	\Entity
+\Time interval	>	\Entity\TemporalEnabledEntity\DistanceIndication
+\Time interval	>	\Entity\TemporalEnabledEntity\DepartureSuspension
+\Time interval	>	\Entity\TemporalEnabledEntity\AirportSlot
+\Time interval	>	\Entity\TemporalEnabledEntity\TrajectoryConstraint\TimeConstraint\DelayApportionment
+\Traffic management initiative	<	\Entity
+\Flight	<	\Entity
+\Flight	=	\FlightTypeChange
+\Flight	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TrajectoryElement
+\Flight	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TrajectorySegment
+\Flight	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TrajectoryPoint
+\Flight	>	\Entity\TemporalEnabledEntity\Trajectory
+\Flight	>	\Entity\TemporalEnabledEntity\FlightCrewApplicationAndApproval
+\Flight	>	\Entity\TemporalEnabledEntity\FlightPhaseEfficiency
+\Flight	>	\Entity\TemporalEnabledEntity\ReclearanceInFlight
+\Flight	>	\Entity\TemporalEnabledEntity\FlightLevelChange
+\Flight	>	\Entity\TemporalEnabledEntity\FlightRulesChange
+\Flight	>	\Entity\TemporalEnabledEntity\FlightPhase
+\Flight	>	\Entity\TemporalEnabledEntity\TrajectoryConstraint
+\Flight	>	\Entity\TemporalEnabledEntity\Flight
+\Flight	>	\Entity\TemporalEnabledEntity\FlightRestriction
+\Flight	>	\Entity\TemporalEnabledEntity\FlightCapability
+\Flight	>	\Entity\TemporalEnabledEntity\AircraftConfiguration\FlightConfiguration
+\Flight	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TrajectoryElement
+\Flight	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TrajectorySegment
+\Flight	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TrajectoryPoint
+\Flight	=	\Object\FlightInMeasure
+\Flight	=	\Object\FlightRestrictionLevel
+\Flight	=	\Object\FlightRoutingElement
+\Flight	=	\Object\FlightRestrictionRoute
+\Flight	=	\Object\FlightConditionElement
+\Flight	=	\Object\FlightConditionCircumstance
+\Flight	>	\Object\FlightEnvelope
+\Flight	=	\Object\FlightDesignator
+\Flight	>	\Object\FlightPerformance
+\Flight	>	\Object\ObjectWithSchedule\FlightConditionCombination
+\Aircraft Weight Class	<	\Entity
+\Aircraft Weight Class	<	\Object\AircraftMakeModelSeries
+\Aircraft Weight Class	<	\Object\AircraftCategory
+\Aircraft Weight Class	<	\Object\OrganisationAssociation
+\Aircraft Weight Class	<	\Object\AircraftColourAndMarking
+\TFM control element	<	\Entity
+\TFM control element	!	\Entity\TemporalEnabledEntity\WeatherCondition\AviationCondition
+\TFM control element	!	\Object\ApproachCondition
+\TFM control element	!	\Object\CoordinationConditions
+\TFM control element	!	\Object\ObjectWithSchedule\UsageCondition
+\Flight spec	<	\Entity
+\Flight spec	<	\FlightTypeChange
+\Flight spec	<	\Object\FlightInMeasure
+\Flight spec	<	\Object\FlightRestrictionLevel
+\Flight spec	<	\Object\FlightRoutingElement
+\Flight spec	<	\Object\FlightRestrictionRoute
+\Flight spec	<	\Object\SpecialSSRCode
+\Flight spec	<	\Object\FlightConditionElement
+\Flight spec	<	\Object\FlightConditionCircumstance
+\Flight spec	<	\Object\FlightDesignator
+\Interval data	<	\Entity
+\Airport spec	<	\Entity
+\Airport spec	<	\Object\SpecialSSRCode
+\Airport spec	>	\Object\ObjectWithSchedule\UsageCondition\AerodromeUsage
+\Numeric Parameter	<	\Entity
+\Airport infrastructure component	<	\Entity
+\Airport infrastructure component	<	\Object\NavaidComponent
+\Airport infrastructure component	<	\Object\FormationComponent
+\Airport infrastructure component	<	\Object\RadarComponent
+\Airport infrastructure component	<	\Object\AirspaceGeometryComponent
+\Engineered system	<	\Entity
+\Engineered system	<	\Object\AuthorityForSpecialNavigationSystem
+\Location\PointLocation	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\WorkArea
+\Location\PointLocation	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\PositionMarking
+\Location\PointLocation	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\AircraftStand
+\Location\PointLocation	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\AerodromeHotSpot
+\Location\PointLocation	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\GuidanceLine
+\Location\PointLocation	>	\Entity\TemporalEnabledEntity\AltimeterSource
+\Location\PointLocation	>	\Entity\TemporalEnabledEntity\GroundHandling
+\Location\PointLocation	>	\Entity\TemporalEnabledEntity\Marking\StandMarking
+\Location\PointLocation	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\WorkArea
+\Location\PointLocation	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\PositionMarking
+\Location\PointLocation	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\AircraftStand
+\Location\PointLocation	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\AerodromeHotSpot
+\Location\PointLocation	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\GuidanceLine
+\Location\PointLocation	>	\Object\CircleSector
+\Location\PointLocation	>	\Object\PostalAddress
+\Location\PointLocation\Absolute fix\Intersection fix	!	\Object\CircleSector
+\Location\GeographicRegion\Region2D	>	\Entity\GeoEnabledEntity\MarkingElement
+\Location\GeographicRegion\Region2D	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Location\GeographicRegion\Region2D	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TrajectoryElement
+\Location\GeographicRegion\Region2D	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TaxiwayElement
+\Location\GeographicRegion\Region2D	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\RunwayElement
+\Location\GeographicRegion\Region2D	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\AerodromeHotSpot
+\Location\GeographicRegion\Region2D	>	\Entity\TemporalEnabledEntity\City
+\Location\GeographicRegion\Region2D	>	\Entity\TemporalEnabledEntity\Apron
+\Location\GeographicRegion\Region2D	>	\Entity\TemporalEnabledEntity\SectorConfiguration
+\Location\GeographicRegion\Region2D	>	\Entity\TemporalEnabledEntity\Marking\ApronMarking
+\Location\GeographicRegion\Region2D	>	\Entity\TemporalEnabledEntity\SurfaceContamination\ApronContamination
+\Location\GeographicRegion\Region2D	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Location\GeographicRegion\Region2D	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TrajectoryElement
+\Location\GeographicRegion\Region2D	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TaxiwayElement
+\Location\GeographicRegion\Region2D	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\RunwayElement
+\Location\GeographicRegion\Region2D	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\AerodromeHotSpot
+\Location\GeographicRegion\Region2D	>	\Object\UnitDependency
+\Location\GeographicRegion\Region2D	>	\Object\SectorDesign
+\Location\GeographicRegion\Region2D	>	\Object\LightElement
+\Location\GeographicRegion\Region2D	>	\Object\CircleSector
+\Location\GeographicRegion\Region2D	>	\Object\FlowElement
+\Location\GeographicRegion\Region2D	>	\Object\AerodromeTerrain
+\Location\GeographicRegion\Region3D	>	\Entity\GeoEnabledEntity\MarkingElement
+\Location\GeographicRegion\Region3D	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Location\GeographicRegion\Region3D	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TrajectoryElement
+\Location\GeographicRegion\Region3D	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TaxiwayElement
+\Location\GeographicRegion\Region3D	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\RunwayElement
+\Location\GeographicRegion\Region3D	>	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\AerodromeHotSpot
+\Location\GeographicRegion\Region3D	>	\Entity\TemporalEnabledEntity\City
+\Location\GeographicRegion\Region3D	>	\Entity\TemporalEnabledEntity\Apron
+\Location\GeographicRegion\Region3D	>	\Entity\TemporalEnabledEntity\SectorConfiguration
+\Location\GeographicRegion\Region3D	>	\Entity\TemporalEnabledEntity\Marking\ApronMarking
+\Location\GeographicRegion\Region3D	>	\Entity\TemporalEnabledEntity\SurfaceContamination\ApronContamination
+\Location\GeographicRegion\Region3D	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Location\GeographicRegion\Region3D	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TrajectoryElement
+\Location\GeographicRegion\Region3D	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TaxiwayElement
+\Location\GeographicRegion\Region3D	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\RunwayElement
+\Location\GeographicRegion\Region3D	>	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\AerodromeHotSpot
+\Location\GeographicRegion\Region3D	>	\Object\UnitDependency
+\Location\GeographicRegion\Region3D	>	\Object\SectorDesign
+\Location\GeographicRegion\Region3D	>	\Object\LightElement
+\Location\GeographicRegion\Region3D	>	\Object\CircleSector
+\Location\GeographicRegion\Region3D	>	\Object\FlowElement
+\Location\GeographicRegion\Region3D	>	\Object\AerodromeTerrain
+\Sequenced item\Aircraft	<	\Object\AircraftMakeModelSeries
+\Sequenced item\Aircraft	<	\Object\AircraftColourAndMarking
+\Sequenced item\Navigation element container	<	\Object\FlightRoutingElement
+\Sequenced item\Navigation element container	<	\Object\LightElement
+\Sequenced item\Navigation element container	<	\Object\FlightConditionElement
+\Sequenced item\Navigation element container	<	\Object\FlowElement
+\Sequenced item\Numeric parameter container	<	\Object
+\Sequenced item\Cloud layer	<	\Object\SurfaceContaminationLayer
+\Sequenced item\Cloud layer	<	\Object\AirspaceLayer
+\Sequenced item\Taxiway	<	\Object
+\Sequenced item\Taxiway	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Sequenced item\Taxiway	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\RunwayElement
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\Apron
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\RunwayDirection
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\Runway
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\RunwayConfiguration
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\Marking\RunwayMarking
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\Marking\ApronMarking
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\WeatherCondition\AviationCondition\RunwayCondition
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\SurfaceContamination\RunwayContamination
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\SurfaceContamination\ApronContamination
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Sequenced item\Taxiway	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\RunwayElement
+\Sequenced item\Taxiway	!	\Object\RunwayMode
+\Sequenced item\Taxiway	!	\Object\RunwaySequencing
+\Sequenced item\Aircraft Track Point	<	\Object\AircraftMakeModelSeries
+\Sequenced item\Aircraft Track Point	<	\Object\AircraftColourAndMarking
+\Sequenced item\PointLocation	<	\Object
+\Sequenced item\Numeric parameter container\Program arrival rate container	<	\Entity\ArrivalManagementAdvisory
+\Sequenced item\Numeric parameter container\Popup Factor container	<	\Object\EmissionFactor
+\Airspace infrastructure component\Airspace layer	<	\Object\SurfaceContaminationLayer
+\Airspace infrastructure component\Airspace layer	<	\Object\AirspaceLayer
+\Airspace infrastructure component\AirspaceRoute	<	\Object\FlightRestrictionRoute
+\Airspace infrastructure component\Sector	<	\Object\CircleSector
+\Airspace infrastructure component\AirspaceRoute\Federal airway\VOR route\Jet route	<	\Object\Fuel
+\Airspace infrastructure component\AirspaceRoute\Federal airway\VOR route\Jet route	<	\Object\FlowElement
+\Airspace infrastructure component\SIDSTAR\Standard Arrival Route	<	\Entity\ArrivalManagementAdvisory
+\Airspace infrastructure component\SIDSTAR\Standard Arrival Route	<	\Object\FlightRestrictionRoute
+\Airspace infrastructure component\SIDSTAR\Standard Instrument Departure	<	\Object\DepartureLegCondition
+\Subsequence\Navigation SubPath\Flight plan segment	<	\FlightTypeChange
+\Subsequence\Navigation SubPath\Flight plan segment	<	\Object\FlightInMeasure
+\Subsequence\Navigation SubPath\Flight plan segment	<	\Object\FlightRestrictionLevel
+\Subsequence\Navigation SubPath\Flight plan segment	<	\Object\FlightRoutingElement
+\Subsequence\Navigation SubPath\Flight plan segment	<	\Object\FlightRestrictionRoute
+\Subsequence\Navigation SubPath\Flight plan segment	<	\Object\FlightConditionElement
+\Subsequence\Navigation SubPath\Flight plan segment	<	\Object\FlightConditionCircumstance
+\Subsequence\Navigation SubPath\Flight plan segment	<	\Object\FlightDesignator
+\Subsequence\Navigation SubPath\Airspace route segment	<	\Object\FlightRestrictionRoute
+\Subsequence\Navigation SubPath\Airspace route segment	<	\Object\AirspaceGeometryComponent
+\Subsequence\Navigation SubPath\Airspace route segment	<	\Object\AirspaceVolumeDependency
+\Sequence\Program Arrival Rate Sequence	<	\Object
+\Sequence\Program Arrival Rate Sequence	<	\Entity\ArrivalManagementAdvisory
+\Sequence\Cloud layer profile	<	\Object\SurfaceContaminationLayer
+\Sequence\Cloud layer profile	<	\Object\FinalProfile
+\Sequence\Cloud layer profile	<	\Object\AirspaceLayer
+\Sequence\Navigation path	<	\Object
+\Sequence\Polygon boundary	<	\Object\TimeToEntryBoundary
+\Sequence\Polygon boundary	<	\Object\TimeToPointBoundary
+\Sequence\Deicing queue	<	\Object
+\Sequence\Taxipath	<	\Object
+\Sequence\Actual Flight Route	<	\FlightTypeChange
+\Sequence\Actual Flight Route	<	\Object\FlightInMeasure
+\Sequence\Actual Flight Route	<	\Object\FlightRestrictionLevel
+\Sequence\Actual Flight Route	<	\Object\FlightRoutingElement
+\Sequence\Actual Flight Route	<	\Object\FlightRestrictionRoute
+\Sequence\Actual Flight Route	<	\Object\FlightConditionElement
+\Sequence\Actual Flight Route	<	\Object\FlightConditionCircumstance
+\Sequence\Actual Flight Route	<	\Object\FlightDesignator
+\Sequence\Navigation path\AirspaceRoute	<	\Object\FlightRestrictionRoute
+\Sequence\Navigation path\Planned flight route	<	\FlightTypeChange
+\Sequence\Navigation path\Planned flight route	!	\Entity\TemporalEnabledEntity\UnplannedHolding
+\Sequence\Navigation path\Planned flight route	<	\Object\FlightInMeasure
+\Sequence\Navigation path\Planned flight route	<	\Object\FlightRestrictionLevel
+\Sequence\Navigation path\Planned flight route	<	\Object\FlightRoutingElement
+\Sequence\Navigation path\Planned flight route	<	\Object\FlightRestrictionRoute
+\Sequence\Navigation path\Planned flight route	<	\Object\FlightConditionElement
+\Sequence\Navigation path\Planned flight route	<	\Object\FlightConditionCircumstance
+\Sequence\Navigation path\Planned flight route	<	\Object\FlightDesignator
+\Sequence\Navigation path\AirspaceRoute\Federal airway\VOR route\Jet route	<	\Object\Fuel
+\Traffic management initiative\Ground Delay Program (GDP)	<	\Object\EnRouteDelay
+\Traffic management initiative\Ground Delay Program (GDP)	<	\Object\TrafficVolumeLinkedFlow
+\Traffic management initiative\Airspace Flow Program (AFP)	<	\Object\AirspaceGeometryComponent
+\Traffic management initiative\Airspace Flow Program (AFP)	<	\Object\AirspaceVolumeDependency
+\Traffic management initiative\Airspace Flow Program (AFP)	<	\Object\TrafficVolumeLinkedFlow
+\Traffic management initiative\Miles in Trail (MIT)	<	\Object\TrafficVolumeLinkedFlow
+\Traffic management initiative\Ground Stop (GS)	<	\Object\TrafficVolumeLinkedFlow
+\TFM control element\Airspace infrastructure component	<	\Object\NavaidComponent
+\TFM control element\Airspace infrastructure component	<	\Object\FormationComponent
+\TFM control element\Airspace infrastructure component	<	\Object\FlightRoutingElement
+\TFM control element\Airspace infrastructure component	<	\Object\LightElement
+\TFM control element\Airspace infrastructure component	<	\Object\RadarComponent
+\TFM control element\Airspace infrastructure component	<	\Object\FlightConditionElement
+\TFM control element\Airspace infrastructure component	<	\Object\FlowElement
+\TFM control element\Airspace infrastructure component	<	\Object\AirspaceGeometryComponent
+\TFM control element\Airspace infrastructure component	<	\Object\AirspaceVolumeDependency
+\TFM control element\Airspace infrastructure component\Airspace layer	<	\Object\SurfaceContaminationLayer
+\TFM control element\Airspace infrastructure component\Airspace layer	<	\Object\AirspaceLayer
+\TFM control element\Airspace infrastructure component\AirspaceRoute	<	\Object\FlightRestrictionRoute
+\TFM control element\Airspace infrastructure component\Sector	<	\Object\CircleSector
+\TFM control element\Airspace infrastructure component\SIDSTAR\Standard Arrival Route	<	\Entity\ArrivalManagementAdvisory
+\TFM control element\Airspace infrastructure component\SIDSTAR\Standard Arrival Route	<	\Object\FlightRestrictionRoute
+\TFM control element\Airspace infrastructure component\SIDSTAR\Standard Instrument Departure	<	\Object\DepartureLegCondition
+\TFM control element\Navigation element\Navigation path	<	\Object\FlightRoutingElement
+\TFM control element\Navigation element\Navigation path	<	\Object\LightElement
+\TFM control element\Navigation element\Navigation path	<	\Object\FlightConditionElement
+\TFM control element\Navigation element\Navigation path	<	\Object\FlowElement
+\TFM control element\Navigation element\Airport	<	\Object\FlightRoutingElement
+\TFM control element\Navigation element\Airport	<	\Object\LightElement
+\TFM control element\Navigation element\Airport	<	\Object\FlightConditionElement
+\TFM control element\Navigation element\Airport	<	\Object\FlowElement
+\TFM control element\Navigation element\Navigation path\AirspaceRoute	<	\Object\FlightRestrictionRoute
+\TFM control element\Navigation element\Navigation path\Planned flight route	<	\FlightTypeChange
+\TFM control element\Navigation element\Navigation path\Planned flight route	!	\Entity\TemporalEnabledEntity\UnplannedHolding
+\TFM control element\Navigation element\Navigation path\Planned flight route	<	\Object\FlightInMeasure
+\TFM control element\Navigation element\Navigation path\Planned flight route	<	\Object\FlightRestrictionLevel
+\TFM control element\Navigation element\Navigation path\Planned flight route	<	\Object\FlightRestrictionRoute
+\TFM control element\Navigation element\Navigation path\Planned flight route	<	\Object\FlightConditionCircumstance
+\TFM control element\Navigation element\Navigation path\Planned flight route	<	\Object\FlightDesignator
+\TFM control element\Navigation element\Navigation fix\Relative fix	<	\Object\FlightRoutingElement
+\TFM control element\Navigation element\Navigation fix\Relative fix	<	\Object\LightElement
+\TFM control element\Navigation element\Navigation fix\Relative fix	<	\Object\ApproachCondition
+\TFM control element\Navigation element\Navigation fix\Relative fix	<	\Object\FlightConditionElement
+\TFM control element\Navigation element\Navigation fix\Relative fix	<	\Object\CoordinationConditions
+\TFM control element\Navigation element\Navigation fix\Relative fix	<	\Object\FlowElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Meter fix	<	\Object\FlightRoutingElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Meter fix	<	\Object\LightElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Meter fix	<	\Object\ApproachCondition
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Meter fix	<	\Object\FlightConditionElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Meter fix	<	\Object\CoordinationConditions
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Meter fix	<	\Object\FlowElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Lat-lon fix\GPS fix	<	\Object\FlightRoutingElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Lat-lon fix\GPS fix	<	\Object\LightElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Lat-lon fix\GPS fix	<	\Object\ApproachCondition
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Lat-lon fix\GPS fix	<	\Object\FlightConditionElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Lat-lon fix\GPS fix	<	\Object\CoordinationConditions
+\TFM control element\Navigation element\Navigation fix\Absolute fix\Lat-lon fix\GPS fix	<	\Object\FlowElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\NavaidFix\VOR Fix\Airport Fix	<	\Object\FlightRoutingElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\NavaidFix\VOR Fix\Airport Fix	<	\Object\LightElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\NavaidFix\VOR Fix\Airport Fix	<	\Object\ApproachCondition
+\TFM control element\Navigation element\Navigation fix\Absolute fix\NavaidFix\VOR Fix\Airport Fix	<	\Object\FlightConditionElement
+\TFM control element\Navigation element\Navigation fix\Absolute fix\NavaidFix\VOR Fix\Airport Fix	<	\Object\CoordinationConditions
+\TFM control element\Navigation element\Navigation fix\Absolute fix\NavaidFix\VOR Fix\Airport Fix	<	\Object\FlowElement
+\TFM control element\Navigation element\Navigation SubPath\Flight plan segment	<	\FlightTypeChange
+\TFM control element\Navigation element\Navigation SubPath\Flight plan segment	<	\Object\FlightInMeasure
+\TFM control element\Navigation element\Navigation SubPath\Flight plan segment	<	\Object\FlightRestrictionLevel
+\TFM control element\Navigation element\Navigation SubPath\Flight plan segment	<	\Object\FlightRoutingElement
+\TFM control element\Navigation element\Navigation SubPath\Flight plan segment	<	\Object\LightElement
+\TFM control element\Navigation element\Navigation SubPath\Flight plan segment	<	\Object\FlightRestrictionRoute
+\TFM control element\Navigation element\Navigation SubPath\Flight plan segment	<	\Object\FlightConditionElement
+\TFM control element\Navigation element\Navigation SubPath\Flight plan segment	<	\Object\FlightConditionCircumstance
+\TFM control element\Navigation element\Navigation SubPath\Flight plan segment	<	\Object\FlowElement
+\TFM control element\Navigation element\Navigation SubPath\Flight plan segment	<	\Object\FlightDesignator
+\TFM control element\Navigation element\Navigation SubPath\Airspace route segment	<	\Object\FlightRoutingElement
+\TFM control element\Navigation element\Navigation SubPath\Airspace route segment	<	\Object\LightElement
+\TFM control element\Navigation element\Navigation SubPath\Airspace route segment	<	\Object\FlightRestrictionRoute
+\TFM control element\Navigation element\Navigation SubPath\Airspace route segment	<	\Object\FlightConditionElement
+\TFM control element\Navigation element\Navigation SubPath\Airspace route segment	<	\Object\FlowElement
+\TFM control element\Navigation element\Navigation SubPath\Airspace route segment	<	\Object\AirspaceGeometryComponent
+\TFM control element\Navigation element\Navigation SubPath\Airspace route segment	<	\Object\AirspaceVolumeDependency
+\Interval data\Airport Data	<	\Object\TransferData
+\Interval data\Runway status data	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Interval data\Runway status data	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TaxiwayElement
+\Interval data\Runway status data	!	\Entity\TemporalEnabledEntity\Apron
+\Interval data\Runway status data	!	\Entity\TemporalEnabledEntity\TaxiwayConfiguration
+\Interval data\Runway status data	!	\Entity\TemporalEnabledEntity\Taxiway
+\Interval data\Runway status data	!	\Entity\TemporalEnabledEntity\Marking\TaxiwayMarking
+\Interval data\Runway status data	!	\Entity\TemporalEnabledEntity\Marking\ApronMarking
+\Interval data\Runway status data	!	\Entity\TemporalEnabledEntity\SurfaceContamination\ApronContamination
+\Interval data\Runway status data	!	\Entity\TemporalEnabledEntity\SurfaceContamination\TaxiwayContamination
+\Interval data\Runway status data	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Interval data\Runway status data	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TaxiwayElement
+\Interval data\Runway status data	<	\Object\RunwayOperationalConstraints
+\Interval data\Runway status data	<	\Object\TransferData
+\Interval data\Runway status data	<	\Object\ADSBGroundStationStatus
+\Interval data\Aircraft flow capacity	<	\Object\AircraftMakeModelSeries
+\Interval data\Aircraft flow capacity	<	\Object\TransferData
+\Interval data\Aircraft flow capacity	<	\Object\Capability
+\Interval data\Aircraft flow capacity	<	\Object\AircraftColourAndMarking
+\Interval data\Aircraft flow capacity	<	\Object\TrafficVolumeLinkedFlow
+\Interval data\Aircraft flow capacity\Aircraft flow\Sector flow	<	\Object\CircleSector
+\Interval data\Aircraft flow capacity\Aircraft flow\Sector flow	<	\Object\AircraftDimensions
+\Interval data\Aircraft flow capacity\Aircraft capacity\Sector capacity	<	\Object\CircleSector
+\Interval data\Aircraft flow capacity\Aircraft capacity\Sector capacity	<	\Object\AircraftDimensions
+\Numeric Parameter\Float parameter	<	\Object
+\Numeric Parameter\Integer Parameter\Program arrival rate	<	\Object
+\Numeric Parameter\Integer Parameter\Program arrival rate	<	\Entity\ArrivalManagementAdvisory
+\Airport infrastructure component\Terminal	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\BridgeSide
+\Airport infrastructure component\Terminal	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\GuidanceLine
+\Airport infrastructure component\Terminal	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\VerticalStructurePart\Bridge
+\Airport infrastructure component\Terminal	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\BridgeSide
+\Airport infrastructure component\Terminal	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\GuidanceLine
+\Airport infrastructure component\Terminal	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\VerticalStructurePart\Bridge
+\Airport infrastructure component\Airport service vehicle	<	\Object\ADSBGroundStationService
+\Airport infrastructure component\Airport service vehicle	<	\Object\ServiceProviderCallsign
+\Airport infrastructure component\Operational runway	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Airport infrastructure component\Operational runway	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TaxiwayElement
+\Airport infrastructure component\Operational runway	!	\Entity\TemporalEnabledEntity\Apron
+\Airport infrastructure component\Operational runway	!	\Entity\TemporalEnabledEntity\TaxiwayConfiguration
+\Airport infrastructure component\Operational runway	!	\Entity\TemporalEnabledEntity\Taxiway
+\Airport infrastructure component\Operational runway	!	\Entity\TemporalEnabledEntity\Marking\TaxiwayMarking
+\Airport infrastructure component\Operational runway	!	\Entity\TemporalEnabledEntity\Marking\ApronMarking
+\Airport infrastructure component\Operational runway	!	\Entity\TemporalEnabledEntity\SurfaceContamination\ApronContamination
+\Airport infrastructure component\Operational runway	!	\Entity\TemporalEnabledEntity\SurfaceContamination\TaxiwayContamination
+\Airport infrastructure component\Operational runway	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Airport infrastructure component\Operational runway	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TaxiwayElement
+\Airport infrastructure component\Operational runway	<	\Object\RunwayOperationalConstraints
+\Airport infrastructure component\Physical Runway	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Airport infrastructure component\Physical Runway	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\TaxiwayElement
+\Airport infrastructure component\Physical Runway	!	\Entity\TemporalEnabledEntity\Apron
+\Airport infrastructure component\Physical Runway	!	\Entity\TemporalEnabledEntity\TaxiwayConfiguration
+\Airport infrastructure component\Physical Runway	!	\Entity\TemporalEnabledEntity\Taxiway
+\Airport infrastructure component\Physical Runway	!	\Entity\TemporalEnabledEntity\Marking\TaxiwayMarking
+\Airport infrastructure component\Physical Runway	!	\Entity\TemporalEnabledEntity\Marking\ApronMarking
+\Airport infrastructure component\Physical Runway	!	\Entity\TemporalEnabledEntity\SurfaceContamination\ApronContamination
+\Airport infrastructure component\Physical Runway	!	\Entity\TemporalEnabledEntity\SurfaceContamination\TaxiwayContamination
+\Airport infrastructure component\Physical Runway	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Airport infrastructure component\Physical Runway	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\TaxiwayElement
+\Airport infrastructure component\Physical Runway	<	\Object\RunwayOperationalConstraints
+\Airport infrastructure component\Taxiway	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Airport infrastructure component\Taxiway	!	\Entity\GeoEnabledEntity\GeoTemporalEnabledEntity\RunwayElement
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\Apron
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\RunwayDirection
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\Runway
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\RunwayConfiguration
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\Marking\RunwayMarking
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\Marking\ApronMarking
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\WeatherCondition\AviationCondition\RunwayCondition
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\SurfaceContamination\RunwayContamination
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\SurfaceContamination\ApronContamination
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\ApronElement
+\Airport infrastructure component\Taxiway	!	\Entity\TemporalEnabledEntity\GeoTemporalEnabledEntity\RunwayElement
+\Airport infrastructure component\Taxiway	!	\Object\RunwayMode
+\Airport infrastructure component\Taxiway	!	\Object\RunwaySequencing
+\Airport infrastructure component\Airport service vehicle\Refueling truck	<	\Object\Fuel
+\Engineered system\Decomposable system\Aircraft	<	\Object\AircraftMakeModelSeries
+\Engineered system\Decomposable system\Aircraft	<	\Object\AircraftColourAndMarking
+\Engineered system\Decomposable system\Aircraft subsystem	<	\Object\AircraftMakeModelSeries
+\Engineered system\Decomposable system\Aircraft subsystem	<	\Object\AircraftColourAndMarking

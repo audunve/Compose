@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <relationClass>fr.inrialpes.exmo.align.impl.rel.A5AlgebraRelation</relationClass>
+  <onto1>
+    <Ontology rdf:about="http://www.aifb.uni-karlsruhe.de/ontology#">
+      <location>http://www.aifb.uni-karlsruhe.de/ontology#</location>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#">
+      <location>http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#</location>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Organization'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://www.aifb.uni-karlsruhe.de/ontology#Thing'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thing'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

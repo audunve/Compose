@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.project-best.eu/owl/aixm#"
+     xml:base="http://www.project-best.eu/owl/aixm"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:aixm-geo="http://www.project-best.eu/owl/aixm-mod/geometry"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve-verticalDatum -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve-verticalDatum">
+        <rdfs:comment xml:lang="en">The set of reference points or a mathematical model of the Earth&apos;s surface (a datum) against which vertical position measurements are made as basis for measuring elevations.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint-verticalDatum -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint-verticalDatum">
+        <rdfs:comment xml:lang="en">The set of reference points or a mathematical model of the Earth&apos;s surface (a datum) against which vertical position measurements are made as basis for measuring elevations.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface-verticalDatum -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface-verticalDatum">
+        <rdfs:comment xml:lang="en">The set of reference points or a mathematical model of the Earth&apos;s surface (a datum) against which vertical position measurements are made as basis for measuring elevations.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#Curve-horizontalAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#Curve-horizontalAccuracy">
+        <rdfs:comment xml:lang="en">The difference between the recorded horizontal coordinates of a feature and its true position referenced to the same geodetic datum expressed as a circular error at 95 percent probability.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#Curve"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve-elevation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve-elevation">
+        <rdfs:comment xml:lang="en">The vertical distance at the curve level, measured from Mean Sea Level (MSL).</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve-geoidUndulation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve-geoidUndulation">
+        <rdfs:comment xml:lang="en">The distance of the geoid above (positive) or below (negative) the mathematical reference ellipsoid at the location of the curve.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve-verticalAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve-verticalAccuracy">
+        <rdfs:comment xml:lang="en">The difference between the recorded elevation of a feature and its true elevation referenced to the same vertical datum expressed as a linear error at 95 percent probability.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint-elevation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint-elevation">
+        <rdfs:comment xml:lang="en">The vertical distance of the point measured from Mean Sea Level (MSL).</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint-geoidUndulation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint-geoidUndulation">
+        <rdfs:comment xml:lang="en">The distance of the geoid above (positive) or below (negative) the mathematical reference ellipsoid at the location of the point.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint-verticalAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint-verticalAccuracy">
+        <rdfs:comment xml:lang="en">The difference between the recorded elevation of a feature and its true elevation referenced to the same vertical datum expressed as a linear error at 95 percent probability.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface-elevation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface-elevation">
+        <rdfs:comment xml:lang="en">The vertical distance of the surface level measured from Mean Sea Level (MSL).</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface-geoidUndulation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface-geoidUndulation">
+        <rdfs:comment xml:lang="en">The distance of the geoid above (positive) or below (negative) the mathematical reference ellipsoid at the location of the surface.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface-verticalAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface-verticalAccuracy">
+        <rdfs:comment xml:lang="en">The difference between the recorded elevation of a feature and its true elevation referenced to the same vertical datum expressed as a linear error at 95 percent probability.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#Point-horizontalAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#Point-horizontalAccuracy">
+        <rdfs:comment xml:lang="en">The difference between the recorded horizontal coordinates of a feature and its true position referenced to the same geodetic datum expressed as a circular error at 95 percent probability.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#Point"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#Surface-horizontalAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#Surface-horizontalAccuracy">
+        <rdfs:comment xml:lang="en">The difference between the recorded horizontal coordinates of a feature and its true position referenced to the same geodetic datum expressed as a circular error at 95 percent probability.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#Surface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumType">
+        <rdfs:comment xml:lang="en">List of vertical datums.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#Curve -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#Curve">
+        <rdfs:comment xml:lang="en">An AIXM curve derived from GM_Curve and extended to include Horizontal Accuracy Properties</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedCurve">
+        <rdfs:subClassOf rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#Curve"/>
+        <rdfs:comment xml:lang="en">An AIXM elevated curve derived from, which extends curve with properties that represent the vertical position (elevation, datum, accuracy).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedPoint">
+        <rdfs:subClassOf rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#Point"/>
+        <rdfs:comment xml:lang="en">An AIXM Point derived from GM_Point that includes properties for describing a point with elevation and vertical extent.  Used in obstacles, navaids, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#ElevatedSurface">
+        <rdfs:subClassOf rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#Surface"/>
+        <rdfs:comment xml:lang="en">An AIXM elevated surface derived from, which extends Surface with properties that represent the vertical position (elevation, datum, accuracy).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#Point -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#Point">
+        <rdfs:comment xml:lang="en">AIXM Point containing horizontal accuracy data. In AIXM horizontal accuracy is considered a property of the geometry.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#Surface -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#Surface">
+        <rdfs:comment xml:lang="en">An AIXM surface derived from GM_Surface and extended to include Horizontal Accuracy Properties</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumBaseType-AHD -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumBaseType-AHD">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumType"/>
+        <rdfs:comment xml:lang="en">Australian Height Datum</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumBaseType-EGM_96 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumBaseType-EGM_96">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumType"/>
+        <rdfs:comment xml:lang="en">(ICAO Doc 9674) Earth gravitational model 1996.  ICAO recommended vertical datum.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumBaseType-NAVD88 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumBaseType-NAVD88">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumType"/>
+        <rdfs:comment xml:lang="en">North American Vertical Datum of 1988</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/geometry#CodeVerticalDatumType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 1.3.8.1099) http://owlapi.sourceforge.net -->
+

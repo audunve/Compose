@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://denia.idi.ntnu.no/phd/transportmeans.owl#"
+     xml:base="http://denia.idi.ntnu.no/phd/transportmeans.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#drives -->
+
+    <owl:ObjectProperty rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#drives">
+        <rdfs:domain rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Driver"/>
+        <rdfs:range rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#hasDriver -->
+
+    <owl:ObjectProperty rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#hasDriver">
+        <rdfs:domain rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans"/>
+        <rdfs:range rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Driver"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#hasOwner -->
+
+    <owl:ObjectProperty rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#hasOwner">
+        <rdfs:domain rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans"/>
+        <rdfs:range rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Owner"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#hasPart">
+        <rdfs:domain rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#AirTransportMeans"/>
+        <rdfs:domain rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#RailTransportMeans"/>
+        <rdfs:domain rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#RoadTransportMeans"/>
+        <rdfs:range rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Cabin"/>
+        <rdfs:range rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Wagon"/>
+        <rdfs:range rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Wheel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#hasPassenger -->
+
+    <owl:ObjectProperty rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#hasPassenger">
+        <rdfs:domain rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans"/>
+        <rdfs:range rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Passenger"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#isLocatedAt -->
+
+    <owl:ObjectProperty rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#isLocatedAt"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#Agent -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Agent"/>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#AirTransportMeans -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#AirTransportMeans">
+        <rdfs:subClassOf rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans"/>
+    </owl:Class>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#Cabin -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Cabin">
+        <rdfs:subClassOf rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Parts"/>
+    </owl:Class>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#Driver -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Driver">
+        <rdfs:subClassOf rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#MaritimeTransportMeans -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#MaritimeTransportMeans">
+        <rdfs:subClassOf rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans"/>
+    </owl:Class>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#Owner -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Owner">
+        <rdfs:subClassOf rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#Parts -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Parts"/>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#Passenger -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Passenger">
+        <rdfs:subClassOf rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#Place -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Place"/>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#RailTransportMeans -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#RailTransportMeans">
+        <rdfs:subClassOf rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans"/>
+    </owl:Class>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#RoadTransportMeans -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#RoadTransportMeans">
+        <rdfs:subClassOf rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans"/>
+    </owl:Class>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans"/>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#Wagon -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Wagon">
+        <rdfs:subClassOf rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Parts"/>
+    </owl:Class>
+    
+
+
+    <!-- http://denia.idi.ntnu.no/phd/transportmeans.owl#Wheel -->
+
+    <owl:Class rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Wheel">
+        <rdfs:subClassOf rdf:resource="http://denia.idi.ntnu.no/phd/transportmeans.owl#Parts"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Agent"/>
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Parts"/>
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#TransportMeans"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#AirTransportMeans"/>
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#MaritimeTransportMeans"/>
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#RailTransportMeans"/>
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#RoadTransportMeans"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Cabin"/>
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Wagon"/>
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Wheel"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Driver"/>
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Owner"/>
+            <rdf:Description rdf:about="http://denia.idi.ntnu.no/phd/transportmeans.owl#Passenger"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

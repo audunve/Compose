@@ -1,0 +1,553 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.project-best.eu/owl/aixm#"
+     xml:base="http://www.project-best.eu/owl/aixm"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:aixm-org="http://www.project-best.eu/owl/aixm-mod/organisation#">
+    <owl:Ontology rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-contact -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-contact">
+        <rdfs:comment xml:lang="en">Association to Shared::Address::ContactInformation</rdfs:comment>
+        <rdfs:comment xml:lang="en">Identifies the contact for the Organisation.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-military -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-military">
+        <rdfs:comment xml:lang="en">Information on the type of operations allowed.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-relatedOrganisationAuthority -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-relatedOrganisationAuthority">
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-type -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-type">
+        <rdfs:comment xml:lang="en">A code indicating the nature of an authority in terms of its status or business role in ATM. For example: State, group of States, organisation within a State, aircraft operating agency, etc.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation-organisationAuthority -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation-organisationAuthority">
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation-relatedOrganisationAuthority -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation-relatedOrganisationAuthority">
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation-type -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation-type">
+        <rdfs:comment xml:lang="en">The kind of association between two Organisations/Authorities.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#Unit-airportLocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#Unit-airportLocation">
+        <rdfs:comment xml:lang="en">Association to Airport/Heliport::AirportHeliport</rdfs:comment>
+        <rdfs:comment xml:lang="en">Identifies the Airport of Heliport where the Unit is located.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#Unit-availability -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#Unit-availability">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#Unit"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#UnitAvailability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#Unit-military -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#Unit-military">
+        <rdfs:comment xml:lang="en">Indicates whether the Unit is civil, military or joint.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#Unit-ownerOrganisation -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#Unit-ownerOrganisation">
+        <rdfs:comment xml:lang="en">Identifies the Organisation that supervises the Unit.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#Unit-position -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#Unit-position">
+        <rdfs:comment xml:lang="en">Association to Geometry::ElevatedPoint</rdfs:comment>
+        <rdfs:comment xml:lang="en">Identifies the geographical point of the Unit.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#Unit-relatedUnit -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#Unit-relatedUnit">
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#Unit"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#UnitAvailability-operationalStatus -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#UnitAvailability-operationalStatus">
+        <rdfs:comment xml:lang="en">Operational status information.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#UnitAvailability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#UnitDependency-type -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#UnitDependency-type">
+        <rdfs:comment xml:lang="en">The kind of dependency between the Unit and the RelatedUnit.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This is a datatype in AIXM, but not defined in the UML</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#UnitDependency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-designator -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-designator">
+        <rdfs:comment xml:lang="en">A coded identifier of the organisation, authority, agency or unit.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority-name">
+        <rdfs:comment xml:lang="en">The full official name of the State, Organisation, Authority, aircraft operating agency, handling agency etc. </rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#Unit-designator -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#Unit-designator">
+        <rdfs:comment xml:lang="en">A coded designator associated with the Unit. For example, the ICAO Location Indicator of an ACC, as listed in DOC 7910.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#Unit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#Unit-name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#Unit-name">
+        <rdfs:comment xml:lang="en">The full textual name of a unit. This name must be established according to the rules specified by ICAO, viz.: in the official language of the country, transposed into the Latin Alphabet where necessary.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#Unit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#Unit-type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#Unit-type">
+        <rdfs:comment xml:lang="en">A type by which the Unit is recognised, usually related to the standard type of services provided by it (e.g. area control centre, advisory centre, aeronautical information services office).</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#Unit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsType">
+        <rdfs:comment xml:lang="en">A code indicating in terms of civil or military, the type of operations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyType">
+        <rdfs:comment xml:lang="en">The values indicating the type of association between two organisations/authorities. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType">
+        <rdfs:comment xml:lang="en">A code indicating the type of an Organisation/Authority.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsType">
+        <rdfs:comment xml:lang="en">Code indicating operational status.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeUnitType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeUnitType">
+        <rdfs:comment xml:lang="en">A unit providing particular ATS services. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority">
+        <rdfs:comment xml:lang="en">A feature used to model various Organisations and Authorities. For example: ATS Organisations, Aircraft Operating Agencies, States, Groups of States, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation-organisationAuthority"/>
+                <owl:someValuesFrom rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthority"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">This entity type serves to realise the different &apos;two-way associations&apos; which may exist between &apos;organisations/authorities&apos; of the same and/or different types.</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation-relatedOrganisationAuthority"/>
+        </owl:hasKey>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#OrganisationAuthorityAssociation-organisationAuthority"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#Unit -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#Unit">
+        <rdfs:comment xml:lang="en">A generic term meaning variously all types of &apos;units&apos; providing all types of services. This includes particularly Air Traffic Management (ATM) Units but also units which are not express verbs included in ATM such as SAR, MET, COM etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#UnitAvailability -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#UnitAvailability">
+        <rdfs:comment xml:lang="en">Unit availability information.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#UnitDependency -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#UnitDependency">
+        <rdfs:comment xml:lang="en">This association class describes the operational/functional relation that exists between a Unit and a RelatedUnit.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsBaseType-CIVIL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsBaseType-CIVIL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsType"/>
+        <rdfs:comment xml:lang="en">Only Civil Air traffic is concerned.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsBaseType-JOINT -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsBaseType-JOINT">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsType"/>
+        <rdfs:comment xml:lang="en">Both Civil and Military air traffic are concerned.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsBaseType-MIL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsBaseType-MIL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsType"/>
+        <rdfs:comment xml:lang="en">Only Military Air traffic is concerned.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeMilitaryOperationsType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-ACFT_OPR -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-ACFT_OPR">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:comment xml:lang="en">Aircraft operating agency.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-ATS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-ATS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:comment xml:lang="en">Air traffic services provider.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-COMMERCIAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-COMMERCIAL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:comment xml:lang="en">Other commercial organisation.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-HANDLING_AGENCY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-HANDLING_AGENCY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:comment xml:lang="en">Handling agency.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-INTL_ORG -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-INTL_ORG">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:comment xml:lang="en">International organisation.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-NTL_AUTH -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-NTL_AUTH">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:comment xml:lang="en">National authority.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-ORG -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-ORG">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:comment xml:lang="en">Organisation within a State.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:comment xml:lang="en">Other.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-STATE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-STATE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:comment xml:lang="en">State.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-STATE_GROUP -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationBaseType-STATE_GROUP">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationType"/>
+        <rdfs:comment xml:lang="en">Group of States.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyBaseType-MEMBER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyBaseType-MEMBER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyType"/>
+        <rdfs:comment xml:lang="en">Child ORG is a member of the parent ORG.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyType"/>
+        <rdfs:comment xml:lang="en">Other.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyBaseType-OWNED_BY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyBaseType-OWNED_BY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyType"/>
+        <rdfs:comment xml:lang="en">Indicates that the current feature is hierarchically positioned immediately below the parent organisation.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyBaseType-SUPERVISED_BY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyBaseType-SUPERVISED_BY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeOrganisationHierarchyType"/>
+        <rdfs:comment xml:lang="en">Indicates that the current feature is under the supervision of the parent organisation.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsBaseType-DOWNGRADED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsBaseType-DOWNGRADED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">The system is theoretically able to work at a higher level of service, but it is currently limited to the level described.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsBaseType-NORMAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsBaseType-NORMAL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Normal operations.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Other.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsBaseType-UNSERVICEABLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsBaseType-UNSERVICEABLE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Operation is unserviceable (unavailable).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsBaseType-WORK_IN_PROGRESS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsBaseType-WORK_IN_PROGRESS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/organisation#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Operation is under construction.</rdfs:comment>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 1.3.8.1099) http://owlapi.sourceforge.net -->
+

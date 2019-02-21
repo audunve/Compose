@@ -1,0 +1,1647 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.project-best.eu/owl/aixm#"
+     xml:base="http://www.project-best.eu/owl/aixm"
+     xmlns:aixm-sh="http://www.project-best.eu/owl/aixm-mod/shared#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.project-best.eu/owl/aixm-mod/shared"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation-address -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation-address">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation-networkNode -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation-networkNode">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation-phoneFax -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation-phoneFax">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#TelephoneContact"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#LightElement-availability -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#LightElement-availability">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#LightElement"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#LightElementStatus"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#LightElement-colour -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#LightElement-colour">
+        <rdfs:comment xml:lang="en">A code indicating the colour of the lights in the group.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#LightElement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#LightElement-intensity -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#LightElement-intensity">
+        <rdfs:comment xml:lang="en">The exact value of the intensity of the lights in the group.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#LightElement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#LightElement-intensityLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#LightElement-intensityLevel">
+        <rdfs:comment xml:lang="en">A code indicating the relative intensity of the lights in the group.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#LightElement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#LightElement-location -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#LightElement-location">
+        <rdfs:comment xml:lang="en">Association to Geometry::ElevatedPoint</rdfs:comment>
+        <rdfs:comment xml:lang="en">Identifies the geospatial location of the LightElement.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#LightElement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#LightElement-type -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#LightElement-type">
+        <rdfs:comment xml:lang="en">A code indicating the type of light source.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#LightElement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#LightElementStatus-status -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#LightElementStatus-status">
+        <rdfs:comment xml:lang="en">An indication of the operational status of the LightElement.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#LightElementStatus"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Meteorology-flightConditions -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology-flightConditions">
+        <rdfs:comment xml:lang="en">An overall indication whether the meteorological conditions allow visual or instrumental operations.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Meteorology-runwayVisualRangeInterpretation -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology-runwayVisualRangeInterpretation">
+        <rdfs:comment xml:lang="en">Indicates whether the RVR is a minimum or maximum value.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Meteorology-visibilityInterpretation -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology-visibilityInterpretation">
+        <rdfs:comment xml:lang="en">Indicates whether the visibility is a minimum or a maximum value.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact-network -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact-network">
+        <rdfs:comment xml:lang="en">The official name telecommunication network on which the resource is located. </rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#PropertiesWithSchedule-timeInterval -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#PropertiesWithSchedule-timeInterval">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PropertiesWithSchedule"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate-authority -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate-authority">
+        <rdfs:comment xml:lang="en">Association to Organisation::OrganisationAuthority</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate-type -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate-type">
+        <rdfs:comment xml:lang="en">An indication of the kind of the special dates.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-day -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-day">
+        <rdfs:comment xml:lang="en">A code indicating the day the timesheet is referring to.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-dayTil -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-dayTil">
+        <rdfs:comment xml:lang="en">A code indicating the days affected by a timesheet, as follows:</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-endEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-endEvent">
+        <rdfs:comment xml:lang="en">A coded reference to an event (like sunset or sunrise), the occurrence of which indicates when the period described in the Timesheet ends.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-endEventInterpretation -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-endEventInterpretation">
+        <rdfs:comment xml:lang="en">When both the &quot;endTime&quot; and &quot;endEvent&quot; values are not blank, this attribute explains how the combination of the two attributes should be interpreted, i.e. which of the two moments in time is the end of the period described by the timesheet.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-startEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-startEvent">
+        <rdfs:comment xml:lang="en">A coded reference to an event (like sunset or sunrise), the occurrence of which indicates when the period described in the Timesheet starts.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-startEventInterpretation -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-startEventInterpretation">
+        <rdfs:comment xml:lang="en">When both the &quot;startTime&quot; and &quot;startEvent&quot; values are not blank, this attribute explains how the combination of the two attributes should be interpreted, i.e. which of the two moments in time is the beginning of the period described by the timesheet.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-timeReference -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-timeReference">
+        <rdfs:comment xml:lang="en">A code indicating the time reference system (for example, &apos;UTC&apos;).</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation-name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation-name">
+        <rdfs:comment xml:lang="en">The official name of the contact.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation-title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation-title">
+        <rdfs:comment xml:lang="en">The official title of the contact.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#LightElement-intensity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#LightElement-intensity">
+        <rdfs:comment xml:lang="en">The exact value of the intensity of the lights in the group.</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Meteorology-runwayVisualRange -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology-runwayVisualRange">
+        <rdfs:comment xml:lang="en">The distance over which a pilot of an aircraft on the centreline of the runway can see the runway surface markings or the lights delineating the runway or identifying its centre line.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Meteorology-visibility -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology-visibility">
+        <rdfs:comment xml:lang="en">The greatest distance at which lights of 1,000 candelas can be seen and identified against an unlit background (as reported by the airport).</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact-eMail -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact-eMail">
+        <rdfs:comment xml:lang="en">The address of the electronic mailbox of the responsible organisation or individual.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact-linkage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact-linkage">
+        <rdfs:comment xml:lang="en">Location (address) for on-line access using a Uniform Resource Locator address or similar addressing scheme such as http://www.statkart.no/isotc211</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact-protocol -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact-protocol">
+        <rdfs:comment xml:lang="en">The connection protocol to be used.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress-administrativeArea -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress-administrativeArea">
+        <rdfs:comment xml:lang="en">The state or province of the location or organisation.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress-city -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress-city">
+        <rdfs:comment xml:lang="en">The city of the location or organisation.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress-country -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress-country">
+        <rdfs:comment xml:lang="en">The country of the physical address for the location or organisation. Full name, not ISO 3166 abbreviations.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress-deliveryPoint -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress-deliveryPoint">
+        <rdfs:comment xml:lang="en">The street address line for the location.  More than one address line may be used.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress-postalCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress-postalCode">
+        <rdfs:comment xml:lang="en">The ZIP or other postal code for the location or organisation.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate-dateDay -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate-dateDay">
+        <rdfs:comment xml:lang="en">The calendar date concerned.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate-dateYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate-dateYear">
+        <rdfs:comment xml:lang="en">The year concerned. If no year is indicated, then the same date will be concerned every year.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate-name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate-name">
+        <rdfs:comment xml:lang="en">The name by which the date is known by the public (especially for public holidays).</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#TelephoneContact-facsimile -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#TelephoneContact-facsimile">
+        <rdfs:comment xml:lang="en">The telephone number of a facsimile machine for the responsible organisation or individual.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#TelephoneContact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#TelephoneContact-voice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#TelephoneContact-voice">
+        <rdfs:comment xml:lang="en">The telephone number by which individuals can speak to the responsible organisation or individual.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#TelephoneContact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-endDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-endDate">
+        <rdfs:comment xml:lang="en">The end date of the validity of a timesheet. Used together with &quot;startDate&quot; to express repetitive time periods like 15 May to 15 November.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-endTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-endTime">
+        <rdfs:comment xml:lang="en">The time of the day when the period described in the timesheet ends.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-endTimeRelativeEvent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-endTimeRelativeEvent">
+        <rdfs:comment xml:lang="en">The number of minutes before or after the event referred to in the &quot;endEvent&quot; attribute when the period described in the Timesheet ends.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-startDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-startDate">
+        <rdfs:comment xml:lang="en">The start date of the validity of a timesheet. Used together with &quot;endDate&quot; to express repetitive time periods like 15 May to 15 November.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-startTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-startTime">
+        <rdfs:comment xml:lang="en">The time of the day (specified in the &quot;day&quot; attribute) when the period described in the timesheet starts.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-startTimeRelativeEvent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet-startTimeRelativeEvent">
+        <rdfs:comment xml:lang="en">The number of minutes before or after the event referred to in the &quot;startEvent&quot; attribute when the period described in the Timesheet starts.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType">
+        <rdfs:comment xml:lang="en">A code indicating a colour. The list of allowable values comprises &apos;named&apos; colours, not colours being only describable using the RGB or the CYMK or another colour system combination. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType">
+        <rdfs:comment xml:lang="en">A code indicating a particular day.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType">
+        <rdfs:comment xml:lang="en">A code indicating the intensity level of a light source.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceType">
+        <rdfs:comment xml:lang="en">A code indicating a type of light source, such as strobe or flood. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType">
+        <rdfs:comment xml:lang="en">A code indicating whether the meteorological conditions allow visual or instrumental operations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateType">
+        <rdfs:comment xml:lang="en">A code indicating the type of a special date, such as &apos;holiday&apos;, &apos;busy Friday&apos;, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType">
+        <rdfs:comment xml:lang="en">Code indicating operational status.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType">
+        <rdfs:comment xml:lang="en">Codelist containing the Telecom Networks that can be used to address an organisation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType">
+        <rdfs:comment xml:lang="en">A code indicating which event in a list of events in time should be given precedence over the others. E.g. the earliest or the latest. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventType">
+        <rdfs:comment xml:lang="en">A code indicating an event occurrence during any day.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType">
+        <rdfs:comment xml:lang="en">A coded indication of a time reference system - UTC or local.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationType">
+        <rdfs:comment xml:lang="en">A code indicating how a value needs to be interpreted when used as a filter or condition. For example: above the value or below the value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumType">
+        <rdfs:comment xml:lang="en">List of vertical datums.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#ContactInformation">
+        <rdfs:comment xml:lang="en">Information required to enable contact with the responsible person and/or organisation.  This model is derived from ISO19115-2003:Geographic Information- Metadata</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#LightElement -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#LightElement">
+        <rdfs:comment xml:lang="en">An elementary light source, part of a lighting system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#LightElementStatus -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#LightElementStatus">
+        <rdfs:subClassOf rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PropertiesWithSchedule"/>
+        <rdfs:comment xml:lang="en">The description of the operational status of the LightElement.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Meteorology -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Meteorology">
+        <rdfs:comment xml:lang="en">A specific set of meteorological conditions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#OnlineContact">
+        <rdfs:subClassOf rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PropertiesWithSchedule"/>
+        <rdfs:comment xml:lang="en">On-line or Network information that can be used to contact the individual or organisation, including eMail address and web site page.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#PostalAddress">
+        <rdfs:subClassOf rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PropertiesWithSchedule"/>
+        <rdfs:comment xml:lang="en">Physical address at which the organization or individual may be contacted. Derived from ISO19115-2003</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#PropertiesWithSchedule -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#PropertiesWithSchedule">
+        <rdfs:comment xml:lang="en">An abstract class that is used for associating a group of feature properties with a repetitive time period, occurring cyclically inside the validity of the Feature Timeslice, during which these properties have specific values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#SpecialDate">
+        <rdfs:comment xml:lang="en">A calendar date that has a special meaning for a particular State/organisation and which may be referred to in the description of the schedules associated with various aeronautical features.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#TelephoneContact -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#TelephoneContact">
+        <rdfs:subClassOf rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#PropertiesWithSchedule"/>
+        <rdfs:comment xml:lang="en">Telephone numbers at which the organisation or individual may be contacted.  From ISO19115-2003</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#Timesheet -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#Timesheet">
+        <rdfs:comment xml:lang="en">The definition of a single time interval, that occurs repeatedly as part of a schedule.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-AMBER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-AMBER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">amber</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-BLACK -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-BLACK">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Black</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-BLUE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-BLUE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Blue.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-BROWN -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-BROWN">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Brown</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-GREEN -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-GREEN">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Green.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-GREY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-GREY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Grey</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-LIGHT_GREY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-LIGHT_GREY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Light grey</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-MAGENTA -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-MAGENTA">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Magenta</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-ORANGE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-ORANGE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Orange.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Other.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-PINK -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-PINK">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Pink</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-PURPLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-PURPLE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Purple.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-RED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-RED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Red,</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-VIOLET -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-VIOLET">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Violet</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-WHITE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-WHITE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">White.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-YELLOW -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourBaseType-YELLOW">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Yellow.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-AFT_HOL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-AFT_HOL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">The day after a legal holiday.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-AFT_WORK_DAY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-AFT_WORK_DAY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">The day after a working day.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-ANY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-ANY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Any day.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-BEF_HOL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-BEF_HOL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">The day preceding a legal holiday.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-BEF_WORK_DAY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-BEF_WORK_DAY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">The day preceding a working day.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-BUSY_FRI -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-BUSY_FRI">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Formally declared as &apos;Busy Friday&apos; by the authority responsible for aeronautical information provision in the area concerned, in order to activate special traffic management arrangements.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-FRI -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-FRI">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Friday.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-HOL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-HOL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Legal Holiday.  The value does not include the weekly non-working days (for example, Saturday and Sunday in most European States).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-MON -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-MON">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Monday.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-SAT -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-SAT">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Saturday.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-SUN -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-SUN">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Sunday.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-THU -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-THU">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Thursday.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-TUE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-TUE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Tuesday.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-WED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-WED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Wednesday.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-WORK_DAY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayBaseType-WORK_DAY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeDayType"/>
+        <rdfs:comment xml:lang="en">Working Day.  This value indicates any day which is neither a Legal Holiday nor a weekly non-working day.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-LIH -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-LIH">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType"/>
+        <rdfs:comment xml:lang="en">Light intensity high.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-LIL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-LIL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType"/>
+        <rdfs:comment xml:lang="en">Light intensity low.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-LIL_LIH -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-LIL_LIH">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType"/>
+        <rdfs:comment xml:lang="en">Low intensity for night use; high intensity for day use, as determined by a photo-cell.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-LIM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-LIM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType"/>
+        <rdfs:comment xml:lang="en">Light intensity medium.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType"/>
+        <rdfs:comment xml:lang="en">Other.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-PREDETERMINED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityBaseType-PREDETERMINED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightIntensityType"/>
+        <rdfs:comment xml:lang="en">A predetermined intensity step, in the approach lighting system that takes precedence for air-to-ground radio control over the runway lighting system which is set, based on expected visibility conditions.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceBaseType-FLOOD -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceBaseType-FLOOD">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceType"/>
+        <rdfs:comment xml:lang="en">Flood light.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceType"/>
+        <rdfs:comment xml:lang="en">Another type of light source.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceBaseType-STROBE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceBaseType-STROBE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeLightSourceType"/>
+        <rdfs:comment xml:lang="en">Strobe light.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsBaseType-ALL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsBaseType-ALL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType"/>
+        <rdfs:comment xml:lang="en">Both IMC and VMC.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsBaseType-IMC -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsBaseType-IMC">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType"/>
+        <rdfs:comment xml:lang="en">[Instrument Meteorological Conditions] Weather conditions that normally require pilots to fly primarily by reference to instruments, and therefore under Instrument Flight Rules (IFR).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsBaseType-VMC -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsBaseType-VMC">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeMeteoConditionsType"/>
+        <rdfs:comment xml:lang="en">[Visual Meteorological Conditions] Weather conditions in which visual flight rules (VFR) flight is permitted. That is, conditions in which pilots have sufficient visibility to fly the aircraft maintaining visual separation from terrain and other aircraft.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateBaseType-BUSY_FRI -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateBaseType-BUSY_FRI">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateType"/>
+        <rdfs:comment xml:lang="en">Busy Friday.  note: The main usage is related to conditional weekend routes, when early access is allowed on Friday these routes. Such &apos;busy Fridays&apos; are typically declared in AIP Supplements.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateBaseType-HOL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateBaseType-HOL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateType"/>
+        <rdfs:comment xml:lang="en">Legal holiday.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeSpecialDateType"/>
+        <rdfs:comment xml:lang="en">Other.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsBaseType-DOWNGRADED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsBaseType-DOWNGRADED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">The system is theoretically able to work at a higher level of service, but it is currently limited to the level described.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsBaseType-NORMAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsBaseType-NORMAL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Normal operations.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Other.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsBaseType-UNSERVICEABLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsBaseType-UNSERVICEABLE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Operation is unserviceable (unavailable).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsBaseType-WORK_IN_PROGRESS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsBaseType-WORK_IN_PROGRESS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Operation is under construction.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-ACARS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-ACARS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType"/>
+        <rdfs:comment xml:lang="en">Aircraft Communications Addressing and Reporting System. A datalink system that enables ground stations (airports, aircraft maintenance bases, etc.) and commercial aircraft to communicate without voice using a datalink system.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-ADNS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-ADNS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType"/>
+        <rdfs:comment xml:lang="en">ARINC Data Network Service (retired Mar 2007)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-AFTN -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-AFTN">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType"/>
+        <rdfs:comment xml:lang="en">The data interchange in the AFS is performed by the Aeronautical Fixed Telecommunications Network, AFTN. This is a message handling network running according to ICAO Standards documented in Annex 10 to the ICAO Convention</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-AMHS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-AMHS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType"/>
+        <rdfs:comment xml:lang="en">Aeronautical Message Handling System. A standard for aeronautical ground-ground communications (e.g. for the transmission of NOTAM, Flight Plans or Meteorological Data) based on X.400 profiles. It has been defined by the International Civil Aviation Organization (ICAO)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-INTERNET -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-INTERNET">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType"/>
+        <rdfs:comment xml:lang="en">The Internet is a worldwide, publicly accessible series of interconnected computer networks that transmit data by packet switching using the standard Internet Protocol (IP)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-SITA -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkBaseType-SITA">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTelecomNetworkType"/>
+        <rdfs:comment xml:lang="en">SITA network</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventBaseType-SR -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventBaseType-SR">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventType"/>
+        <rdfs:comment xml:lang="en">Sunrise</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventBaseType-SS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventBaseType-SS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventType"/>
+        <rdfs:comment xml:lang="en">Sunset</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationBaseType-EARLIEST -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationBaseType-EARLIEST">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType"/>
+        <rdfs:comment xml:lang="en">Earliest.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationBaseType-LATEST -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationBaseType-LATEST">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType"/>
+        <rdfs:comment xml:lang="en">Latest.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeEventCombinationType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">Co-ordinated Universal Time</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+1">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 1 hour.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+10">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 10 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+11">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 11 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+12">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 12 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+13">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 13 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+14">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 14 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+2">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 2 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+3">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 3 hours</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+4">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 4 hours</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+5">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 5 hours</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+6">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 6 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+7">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 7 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+8">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 8 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC+9">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC plus 9 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-1">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 1 hour.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-10">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 10 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-11">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 11 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-12">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 12 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-2">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 2 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-3">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 3 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-4">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 4 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-5">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 5 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-6">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 6 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-7">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 7 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-8">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 8 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceBaseType-UTC-9">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeTimeReferenceType"/>
+        <rdfs:comment xml:lang="en">UTC minus 9 hours.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationBaseType-ABOVE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationBaseType-ABOVE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationType"/>
+        <rdfs:comment xml:lang="en">Higher than the value.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationBaseType-AT_OR_ABOVE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationBaseType-AT_OR_ABOVE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationType"/>
+        <rdfs:comment xml:lang="en">Equal or higher than the value.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationBaseType-AT_OR_BELOW -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationBaseType-AT_OR_BELOW">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationType"/>
+        <rdfs:comment xml:lang="en">Equal or lower than the value.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationBaseType-BELOW -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationBaseType-BELOW">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationType"/>
+        <rdfs:comment xml:lang="en">Lower than the value.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeValueInterpretationType"/>
+        <rdfs:comment xml:lang="en">Other.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumBaseType-AHD -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumBaseType-AHD">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumType"/>
+        <rdfs:comment xml:lang="en">Australian Height Datum</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumBaseType-EGM_96 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumBaseType-EGM_96">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumType"/>
+        <rdfs:comment xml:lang="en">(ICAO Doc 9674) Earth gravitational model 1996.  ICAO recommended vertical datum.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumBaseType-NAVD88 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumBaseType-NAVD88">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumType"/>
+        <rdfs:comment xml:lang="en">North American Vertical Datum of 1988</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/shared#CodeVerticalDatumType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 1.3.8.1099) http://owlapi.sourceforge.net -->
+

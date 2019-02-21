@@ -1,0 +1,558 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#"
+     xml:base="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:person="http://ebiquity.umbc.edu/v2.1/ontology/person.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:project="http://ebiquity.umbc.edu/v2.1/ontology/project.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">eBiquity Publication Ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.1</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/project.owl#relatedResource -->
+
+    <owl:ObjectProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/project.owl#relatedResource">
+        <owl:inverseOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#relatedProject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#author -->
+
+    <owl:ObjectProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#author">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/person.owl#Person"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource Author</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#editor -->
+
+    <owl:ObjectProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#editor">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/person.owl#Person"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Editor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#firstAuthor -->
+
+    <owl:ObjectProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#firstAuthor">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/person.owl#Person"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource First Author</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#relatedProject -->
+
+    <owl:ObjectProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#relatedProject">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/project.owl#Project"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Related Project</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopy -->
+
+    <owl:ObjectProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopy">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource Soft Copy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#abstract -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#abstract">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Abstract</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#address -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#address">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Address</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#booktitle -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#booktitle">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Book Title</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#chapter -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#chapter">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Chapter</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#counter -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#counter">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Counter</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#description -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#description">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource Description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#edition -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#edition">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Edition</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#institution -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#institution">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Institution</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#journal -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#journal">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Journal</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#keyword -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#keyword">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource Keyword</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#note -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#note">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Note</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#number -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#number">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#organization -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#organization">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Organization</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#pages -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#pages">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Pages</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#publishedOn -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#publishedOn">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource Published On Date and Time</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#publisher -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#publisher">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Publisher</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#school -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#school">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication School</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#series -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#series">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Series</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopyFormat -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopyFormat">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Soft Copy Format</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopySize -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopySize">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Soft Copy File Size</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopyURI -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopyURI">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Soft Copy URI</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#title">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Title</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#type -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#type">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource Type</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#version -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#version">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource Version</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#volume -->
+
+    <owl:DatatypeProperty rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#volume">
+        <rdfs:domain rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication Volume</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/person.owl#Person -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/person.owl#Person"/>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/project.owl#Project -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/project.owl#Project"/>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Article</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Book</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InBook</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InCollection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">InProceedings</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MastersThesis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Misc</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PhdThesis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Proceedings</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#editor"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#abstract"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Publication</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#author"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#firstAuthor"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#title"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#description"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#publishedOn"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#version"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopyFormat"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopySize"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#softCopyURI"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Soft Copy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport -->
+
+    <owl:Class rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport">
+        <rdfs:subClassOf rdf:resource="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TechReport</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

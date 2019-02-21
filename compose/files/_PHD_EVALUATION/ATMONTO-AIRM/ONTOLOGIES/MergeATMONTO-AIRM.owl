@@ -1,0 +1,482 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-203#"
+     xml:base="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-203"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:arg="http://spinrdf.org/arg#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:ATM="https://data.nasa.gov/ontologies/atmonto/ATM#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sp="http://spinrdf.org/sp#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-203">
+        <owl:imports rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#"/>
+        <owl:imports rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#Aerodrome -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#Aerodrome">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#Airport"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeSet -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeSet">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#AirportSpec"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#Aircraft -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#Aircraft">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#Aircraft"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#AircraftMakeModelSeries -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#AircraftMakeModelSeries">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftModel"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#AircraftOperator -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#AircraftOperator">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#AirCarrier"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#AircraftState -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#AircraftState">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftTrackPoint"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#AircraftType -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#AircraftType">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftType"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#AirspaceLayer -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#AirspaceLayer">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#AirspaceLayer"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#Capacity -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#Capacity">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftCapacity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAircraftEngineType -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#CodeAircraftEngineType">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#EngineType"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#CrewMember -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#CrewMember">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#CrewMember"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#DeicingArea -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#DeicingArea">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#DeicingPad"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#Engine -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#Engine">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftEngine"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#Flight -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#Flight">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#Flight"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#FlightConditionCombination -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#FlightConditionCombination">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#FlightSpec"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#Gate -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#Gate">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#Gate"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#HorizontalVisibility -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#HorizontalVisibility">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#VisibilityCondition"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#OccupancyTrafficMonitoringValue -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#OccupancyTrafficMonitoringValue">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftFlow"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#PointReference -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#PointReference">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#RelativeFix"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#RadioNavigationAid -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#RadioNavigationAid">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#NavigationAid"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#Runway -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#Runway">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#PhysicalRunway"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayDirection -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayDirection">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#OperationalRunway"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayVisualRange -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayVisualRange">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#RunwayVisibleRangeMeasurement"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#SignificantPoint -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#SignificantPoint">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#NavigationFix"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#StandardInstrumentArrival -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#StandardInstrumentArrival">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#STAR"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#StandardInstrumentDeparture -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#StandardInstrumentDeparture">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#SID"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#TaxiRoute -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#TaxiRoute">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#Taxipath"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#Taxiway -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#Taxiway">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#Taxiway"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#Terminal -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#Terminal">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#Terminal"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#TimeRangeType -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#TimeRangeType">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#TimeInterval"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#WeatherCondition -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#WeatherCondition">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#WeatherCondition"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.project-best.eu/owl/airm-mono/airm.owl#Wind -->
+
+    <rdf:Description rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#Wind">
+        <owl:equivalentClass rdf:resource="https://data.nasa.gov/ontologies/atmonto/ATM#SurfaceWindCondition"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#AirCarrier -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#AirCarrier"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#Aircraft -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#Aircraft"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#AircraftCapacity -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftCapacity"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#AircraftEngine -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftEngine"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#AircraftFlow -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftFlow"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#AircraftModel -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftModel"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#AircraftTrackPoint -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftTrackPoint"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#AircraftType -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#AircraftType"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#Airport -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#Airport"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#AirportSpec -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#AirportSpec"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#AirspaceLayer -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#AirspaceLayer"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#CrewMember -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#CrewMember"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#DeicingPad -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#DeicingPad"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#EngineType -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#EngineType"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#Flight -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#Flight"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#FlightSpec -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#FlightSpec"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#Gate -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#Gate"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#NavigationAid -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#NavigationAid"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#NavigationFix -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#NavigationFix"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#OperationalRunway -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#OperationalRunway"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#PhysicalRunway -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#PhysicalRunway"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#RelativeFix -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#RelativeFix"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#RunwayVisibleRangeMeasurement -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#RunwayVisibleRangeMeasurement"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#SID -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#SID"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#STAR -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#STAR"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#SurfaceWindCondition -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#SurfaceWindCondition"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#Taxipath -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#Taxipath"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#Taxiway -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#Taxiway"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#Terminal -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#Terminal"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#TimeInterval -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#TimeInterval"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#VisibilityCondition -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#VisibilityCondition"/>
+    
+
+
+    <!-- https://data.nasa.gov/ontologies/atmonto/ATM#WeatherCondition -->
+
+    <rdf:Description rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#WeatherCondition"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

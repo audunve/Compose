@@ -1,0 +1,519 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment' 
+   	  xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' 
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'>
+  <Alignment>
+    <xml>yes</xml>
+    <level>0</level>
+    <type>**</type>
+    <relationClass>fr.inrialpes.exmo.align.impl.rel.A5AlgebraRelation</relationClass>
+    <onto1>
+      <Ontology rdf:about="http://project-best.eu/owl/iwxxm-mod/metar#">
+        <location>http://project-best.eu/owl/iwxxm-mod/metar#</location>
+      </Ontology>
+    </onto1>
+    <onto2>
+      <Ontology rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl#">
+        <location>http://www.project-best.eu/owl/airm-mono/airm.owl#</location>
+      </Ontology>
+    </onto2>
+      <map>
+        <Cell>
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#HorizontalVisibility"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+<!--      <map>
+        <Cell cid="2">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility.minimumVisibility"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#HorizontalVisibility.minimumVisibility"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+ <!--     <map>
+        <Cell cid="3">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility.minimumVisibilityDirection"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#HorizontalVisibility.direction"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="4">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility.prevailingVisibility"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#HorizontalVisibility.prevailingVisibility"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="5">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeHorizontalVisibility.prevailingVisibilityOperator"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayVisualRange.rvrValueInterpretation"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="6">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeCondition.cloudcondition"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="7">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds.amountAndHeightUnobservableByAutoSystem"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Cloud.isAmoutAndBaseNotObservable"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="8">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds.layer"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeCondition.cloudcondition"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="9">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeObservedClouds.verticalVisibility"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeCondition.verticalVisibility"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="10">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromePresentWeather"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#WeatherPhenomenon.significantWeatherQualifier"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+    
+      <map>
+        <Cell cid="11">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromePresentWeather"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#CodeSignificantWeatherQualifierType"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="12">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromePresentWeather"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#CodePrecipitationType"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="13">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromePresentWeather"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#CodeObscurationType"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="14">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromePresentWeather"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeCondition"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="15">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRecentWeather"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SignificantWeatherQualifier"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="16">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRecentWeather"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#CodePrecipitationTypeType"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="17">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRecentWeather"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#CodeObscurationTypesType"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="18">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRecentWeather"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AviationCondition"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+<!--      <map>
+        <Cell cid="19">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState.cleared"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayContamination.wasCleared"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="20">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState.contamination"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SurfaceContaminationLayer.contaminationExtent"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+    
+<!--      <map>
+        <Cell cid="21">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState.depositType"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SurfaceContaminationLayer.type"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="22">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState.depthOfDeposit"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SurfaceContamination.depth"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="23">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState.estimatedSurfaceFriction"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SurfaceContamination.frictionCoefficient"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="24">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState.estimatedSurfaceFrictionUnreliable"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SurfaceContamination.estimatedSurfaceFrictionUnreliable"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="25">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState.runway"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayCondition.runway"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="26">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState.snowClosure"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SurfaceContamination.isExtremeDesposit"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--          <map>
+        <Cell cid="27">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayState.snowClosure"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeAvailability.SurfaceContamination"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+      <map>
+        <Cell cid="28">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayVisualRange"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>
+<!--      <map>
+        <Cell cid="29">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange.meanRVR"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayVisualRange.rvrValue"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+     <!-- <map>
+        <Cell cid="30">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange.meanRVROperator"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayVisualRange.rvrValueInterpretation"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="31">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange.pastTendency"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayVisualRange.rvrTendency"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="32">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeRunwayVisualRange.runway"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayVisualRange.associatedRunwayDirection"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="33">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeCondition.aerodromeSeaState"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="34">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState.seaState"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SeaCondition.seaState"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="35">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState.seaSurfaceTemperature"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SeaCondition.surfaceTemperature"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="36">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSeaState.significantWaveHeight"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SeaCondition.significantWaveHeight"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+      <map>
+        <Cell cid="37">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Wind"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>
+<!--      <map>
+        <Cell cid="38">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind.extremeClockwiseWindDirection"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Wind.extremeClockwiseWindDirection"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="39">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind.extremeCounterClockwiseWindDirection"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Wind.extremeCounterClockwiseWindDirection"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="40">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind.meanWindDirection"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Wind.windDirection"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="41">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind.meanWindSpeed"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Wind.windSpeed"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="42">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind.variableDirection"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Wind.isVariable"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="43">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind.windGust"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Wind.windGust"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="44">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeSurfaceWind.windGust"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Wind.verticalWindGust"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="45">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#AerodromeWindShear"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#WeatherPhenomenon[phenomenon]->[weatherCondition]WeatherContition"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+      <map>
+        <Cell cid="46">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#METAR"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#METAR"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>
+<!--      <map>
+        <Cell cid="47">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord.airTemperature"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AviationCondition.airTemperature"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="48">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord.cloudAndVisibilityOK"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeCondition.cavok"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="49">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord.dewpointTemperature"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AviationCondition.dewpointTemperature"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="50">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationRecord.qnh"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeCondition.qnh"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+      <map>
+        <Cell cid="51">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#MeteorologicalReport"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="52">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#ObservationReport"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+<!--      <map>
+        <Cell cid="53">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeObservationReport.observation"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeCondition"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>-->
+      <map>
+        <Cell cid="54">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecastRecord"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#TREND"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+<!--      <map>
+        <Cell cid="55">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecastRecord.changeIndicator"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#WeatherCondition.changeIndicator"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="56">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecastRecord.cloudAndVisibilityOK"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerodromeCondition.cavok"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="57">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#MeteorologicalAerodromeTrendForecastRecordType.prevailingVisibility"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#HorizontalVisibility.prevailingVisibility"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+<!--      <map>
+        <Cell cid="58">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RunwayContamination"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SurfaceContaminationLayer.surfaceExtent"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>-->
+      <map>
+        <Cell cid="59">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RunwayContamination"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#RunwayCondition"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="60">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#RunwayDeposits"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SurfaceContaminationLayer.type"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="61">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#SeaSurfaceState"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#CodeSeaStateType"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>=</relation>
+        </Cell>
+      </map>
+      <map>
+        <Cell cid="62">
+          <entity1 rdf:resource="http://project-best.eu/owl/iwxxm-mod/metar#SPECI"/>
+          <entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#SPECI"/>
+          <measure rdf:datatype="xsd:float">1.0</measure>
+          <relation>&lt;</relation>
+        </Cell>
+      </map>
+  </Alignment>
+</rdf:RDF>

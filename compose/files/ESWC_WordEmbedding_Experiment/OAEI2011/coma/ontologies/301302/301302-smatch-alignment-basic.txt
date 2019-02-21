@@ -1,0 +1,68 @@
+\Top	=	\Top
+\Top	>	\Top\Thing	
+\Top	>	\Top\        	MastersThesis
+\Top	>	\Top\        	InBook
+\Top	>	\Top\        	InCollection
+\Top	>	\Top\        	PhdThesis
+\Top	>	\Top\        	Article
+\Top	>	\Top\        	TechReport
+\Top	>	\Top\        	Book
+\Top	>	\Top\        	Misc
+\Top	>	\Top\        	InProceedings
+\Top	>	\Top\        	Proceedings
+\Top	>	\Top\Thing	\Person
+\Top	>	\Top\Thing	\Resource
+\Top	>	\Top\Thing	\Resource\Publication
+\Top	>	\Top\        	Proceedings\Soft Copy
+\Top	>	\Top\        	Proceedings\Project
+\Top\Thing		<	\Top
+\Top\Thing		=	\Top\Thing	
+\Top\Thing		>	\Top\Thing	\Person
+\Top\Thing		>	\Top\Thing	\Resource
+\Top\Thing		>	\Top\Thing	\Resource\Publication
+\Top\        	Unpublished	<	\Top
+\Top\        	TechReport	<	\Top
+\Top\        	TechReport	=	\Top\        	TechReport
+\Top\        	Misc	<	\Top
+\Top\        	Misc	=	\Top\        	Misc
+\Top\        	Inproceedings	<	\Top
+\Top\        	Inproceedings	=	\Top\        	InProceedings
+\Top\        	Inproceedings	=	\Top\        	Proceedings
+\Top\        	Inproceedings	>	\Top\        	Proceedings\Soft Copy
+\Top\        	Inproceedings	>	\Top\        	Proceedings\Project
+\Top\        	Phdthesis	<	\Top
+\Top\        	Phdthesis	>	\Top\        	MastersThesis
+\Top\        	Phdthesis	=	\Top\        	PhdThesis
+\Top\        	Proceedings	<	\Top
+\Top\        	Proceedings	=	\Top\        	InProceedings
+\Top\        	Proceedings	=	\Top\        	Proceedings
+\Top\        	Proceedings	>	\Top\        	Proceedings\Soft Copy
+\Top\        	Proceedings	>	\Top\        	Proceedings\Project
+\Top\        	Conference	<	\Top
+\Top\        	Inbook	<	\Top
+\Top\        	Inbook	=	\Top\        	InBook
+\Top\        	Inbook	=	\Top\        	Book
+\Top\        	Book	<	\Top
+\Top\        	Book	=	\Top\        	InBook
+\Top\        	Book	=	\Top\        	Book
+\Top\        	Incollection	<	\Top
+\Top\        	Incollection	=	\Top\        	InCollection
+\Top\Thing	\Article	<	\Top
+\Top\Thing	\Article	<	\Top\Thing	
+\Top\Thing	\Article	<	\Top\        	Article
+\Top\Thing	\Manual	<	\Top
+\Top\Thing	\Manual	<	\Top\Thing	
+\Top\Thing	\Manual	<	\Top\        	Book
+\Top\Thing	\Entry	<	\Top
+\Top\Thing	\Entry	<	\Top\Thing	
+\Top\Thing	\Entry\Mastersthesis	<	\Top
+\Top\Thing	\Entry\Mastersthesis	<	\Top\Thing	
+\Top\Thing	\Entry\Mastersthesis	<	\Top\        	MastersThesis
+\Top\Thing	\Entry\Mastersthesis	<	\Top\        	PhdThesis
+\Top\Thing	\Entry\Mastersthesis	<	\Top\Thing	\Person
+\Top\        	Incollection\Booklet	<	\Top
+\Top\        	Incollection\Booklet	<	\Top\        	InCollection
+\Top\        	Incollection\Booklet	<	\Top\        	Book
+\Top\        	Incollection\Journal	<	\Top
+\Top\        	Incollection\Journal	<	\Top\        	InCollection
+\Top\        	Incollection\Journal	<	\Top\        	Book

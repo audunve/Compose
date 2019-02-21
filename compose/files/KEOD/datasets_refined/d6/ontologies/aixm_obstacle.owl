@@ -1,0 +1,1716 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.project-best.eu/owl/aixm#"
+     xml:base="http://www.project-best.eu/owl/aixm"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:aixm-ob="http://www.project-best.eu/owl/aixm-mod/obstacle#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea-obstacle -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea-obstacle">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:comment xml:lang="en">Identifies the obstacle(s) associated with the obstacle area.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea-obstructionIdSurfaceCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea-obstructionIdSurfaceCondition">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Obstruction identification surface that obstructing area represents</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea-reference -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea-reference">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin"/>
+        <rdfs:comment xml:lang="en">Identifies the feature for which the Obstacle Area has been defined.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea-surfaceExtent -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea-surfaceExtent">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea"/>
+        <rdfs:comment xml:lang="en">Association to Geometry::Surface</rdfs:comment>
+        <rdfs:comment xml:lang="en">Identifies the extent of the Obstacle Area.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea-type -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea-type">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType"/>
+        <rdfs:comment xml:lang="en">Indicates the type of the obstacle coverage area. Examples: Area 1, 2, 3 or 4.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-CHOICE -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-CHOICE">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin"/>
+        <rdfs:comment xml:lang="en">Includes associations (choice) to Organisation::OrganisationAuthority, AirportHeliport::Airport/Heliport::AirportHeliport and AirportHeliport::Runway::Runway</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-ownerAirport -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-ownerAirport">
+        <rdfs:subPropertyOf rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-CHOICE"/>
+        <rdfs:comment xml:lang="en">Association to AirportHeliport::Airport/Heliport::AirportHeliport</rdfs:comment>
+        <rdfs:comment xml:lang="en">Used to identify obstacles within Area 2 or Area 3 (ICAO Annex 15).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-ownerOrganisation -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-ownerOrganisation">
+        <rdfs:subPropertyOf rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-CHOICE"/>
+        <rdfs:comment xml:lang="en">Association to Organisation::OrganisationAuthority</rdfs:comment>
+        <rdfs:comment xml:lang="en">Used to identify obstacles within a State Territory (Area 1 - ICAO Annex 15)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-ownerRunway -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-ownerRunway">
+        <rdfs:subPropertyOf rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-CHOICE"/>
+        <rdfs:comment xml:lang="en">Association to AirportHeliport::Runway::Runway</rdfs:comment>
+        <rdfs:comment xml:lang="en">Used to identify obstacles within a Area 4 (ICAO Annex 15)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-hostedOrganisation -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-hostedOrganisation">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:comment xml:lang="en">Association to Organisation::OrganisationAuthority</rdfs:comment>
+        <rdfs:comment xml:lang="en">Identifies the OrganisationAuthority hosted by the vertical structure.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-hostedUnit -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-hostedUnit">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:comment xml:lang="en">Association to Organisation::Unit</rdfs:comment>
+        <rdfs:comment xml:lang="en">Identifies the unit hosted by the vertical structure.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-lightingAvailability -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-lightingAvailability">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructureLightingStatus"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-part -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-part">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:comment xml:lang="en">Identifies a part(s) that makes up the Vertical Structure.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-supportedGroundLight -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-supportedGroundLight">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:comment xml:lang="en">Association to AirportHeliport::Lighting::GroundLightSystem</rdfs:comment>
+        <rdfs:comment xml:lang="en">Identifies the ground light system supported by the vertical structure.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-type -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-type">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">A code indicating the type of vertical structure, such as building, tower, cable, etc.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructureLightingStatus-status -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructureLightingStatus-status">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructureLightingStatus"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">A code indicating the operational status of the lighting. For example, serviceable, unserviceable, work in progress, etc.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-constructionStatus -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-constructionStatus">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionType"/>
+        <rdfs:comment xml:lang="en">This property enables the provision of information about the construction of the man-made object that constitutes the vertical structure.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-horizontalProjection -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-horizontalProjection">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry"/>
+        <rdfs:comment xml:lang="en">Indicates the horizontal projection of the VerticalStructurePart and the elevation of its top.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-lighting -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-lighting">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:comment xml:lang="en">Association to Shared::Light Element::LightElement</rdfs:comment>
+        <rdfs:comment xml:lang="en">Identifies the LightElements installed on  the Vertical StructurePart.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-markingFirstColour -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-markingFirstColour">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">The principal colour of the marking.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-markingPattern -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-markingPattern">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingType"/>
+        <rdfs:comment xml:lang="en">The general layout of the external paint or another marking element, intended to increase the visibility of the vertical structure.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-markingSecondColour -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-markingSecondColour">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">The secondary colour for the marking.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-type -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-type">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">A code indicating the type of vertical structure, such as building, tower, cable, etc.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-visibleMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-visibleMaterial">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:range rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">The type(s) of material that compose the load-bearing structure and/or exterior facing of a vertical construction (for example: a building or non-building structure).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry-linearExtent -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry-linearExtent">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry"/>
+        <rdfs:comment xml:lang="en">Association to Geometry::ElevatedCurve</rdfs:comment>
+        <rdfs:comment xml:lang="en">The horizontal projection of an obstacle is a Curve.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry-location -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry-location">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry"/>
+        <rdfs:comment xml:lang="en">Association to Geometry::ElevatedPoint</rdfs:comment>
+        <rdfs:comment xml:lang="en">The horizontal projection of an obstacle is a Point.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry-surfaceExtent -->
+
+    <owl:ObjectProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry-surfaceExtent">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry"/>
+        <rdfs:comment xml:lang="en">Association to Geometry::ElevatedSurface</rdfs:comment>
+        <rdfs:comment xml:lang="en">The horizontal projection of an obstacle is a Shape.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-length -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-length">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Overall length of the obstruction</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-name">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The name of the vertical structure, if applicable,</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-radius -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-radius">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The overall radius of an obstacle that has a relatively circular shape</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-width -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure-width">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Overall width of the obstruction</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-designator -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-designator">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">An alphanumeric code by which the structure is identified locally.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-verticalExtent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-verticalExtent">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">The extent of the vertical structure part.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-verticalExtentAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart-verticalExtentAccuracy">
+        <rdfs:domain rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Accuracy of the value of the declared vertical extent.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType">
+        <rdfs:comment xml:lang="en">A code indicating a colour. The list of allowable values comprises &apos;named&apos; colours, not colours being only describable using the RGB or the CYMK or another colour system combination. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType">
+        <rdfs:comment xml:lang="en">A code indicating the type of obstacle coverage area, according to ICAO Annex 15.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType">
+        <rdfs:comment xml:lang="en">A code indicating the type of SurfaceAssessment.  Used for indicating assessment surfaces used in design and evaluation activities such as ApproachProcedure design.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionType">
+        <rdfs:comment xml:lang="en">A code indicating the status of the construction of a Vertical Structure.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsType">
+        <rdfs:comment xml:lang="en">Code indicating operational status.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingType">
+        <rdfs:comment xml:lang="en">A code indicating the type and pattern of markings on a vertical structure.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType">
+        <rdfs:comment xml:lang="en">A coded list of values indicating the type(s) of material that could compose the load-bearing structure and/or exterior facing of a vertical construction.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType">
+        <rdfs:comment xml:lang="en">A code indicating the type of vertical structure.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleArea">
+        <rdfs:comment xml:lang="en">An area defined by ICAO for the purpose of collecting obstacle data in electronic format, as necessary to satisfy requirements of air navigation systems or functions.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-ownerAirport"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-ownerOrganisation"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#ObstacleAreaOrigin-ownerRunway"/>
+                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A link class that allows selecting the feature for which the Obstacle Area has been defined</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructure">
+        <rdfs:comment xml:lang="en">All fixed (whether temporary or permanent) and mobile objects, or parts thereof that extend above the surface of the Earth. Those vertical structures that are located on an area intended for the surface movement of aircraft or that extend above a defined surface intended to protect aircraft in flight are considered obstacles.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructureLightingStatus -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructureLightingStatus">
+        <rdfs:comment xml:lang="en">The description of the operational status of the Vertical Structure lighting.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePart">
+        <rdfs:comment xml:lang="en">A part of the vertical structure that can be represented as point, line or polygon with vertical extent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry -->
+
+    <owl:Class rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#VerticalStructurePartGeometry">
+        <rdfs:comment xml:lang="en">A link class that allows selecting between the three different possibilities for describing the horizontal projection of an obstacle: point, line or polygon</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-AMBER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-AMBER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">amber</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-BLACK -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-BLACK">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Black</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-BLUE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-BLUE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Blue.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-BROWN -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-BROWN">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Brown</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-GREEN -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-GREEN">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Green.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-GREY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-GREY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Grey</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-LIGHT_GREY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-LIGHT_GREY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Light grey</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-MAGENTA -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-MAGENTA">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Magenta</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-ORANGE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-ORANGE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Orange.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Other.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-PINK -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-PINK">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Pink</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-PURPLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-PURPLE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Purple.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-RED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-RED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Red,</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-VIOLET -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-VIOLET">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Violet</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-WHITE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-WHITE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">White.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-YELLOW -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourBaseType-YELLOW">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeColourType"/>
+        <rdfs:comment xml:lang="en">Yellow.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-AREA1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-AREA1">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType"/>
+        <rdfs:comment xml:lang="en">ICAO Area 1: entire territory of a State.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-AREA2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-AREA2">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType"/>
+        <rdfs:comment xml:lang="en">ICAO Area 2: terminal control area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-AREA3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-AREA3">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType"/>
+        <rdfs:comment xml:lang="en">ICAO Area 3: aerodrome/heliport area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-AREA4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-AREA4">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType"/>
+        <rdfs:comment xml:lang="en">ICAO Area 4: Category II or III operations area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-FAR77 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-FAR77">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType"/>
+        <rdfs:comment xml:lang="en">FAA Regulations Part 77 Obstacle Limitation Surfaces.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-MANAGED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-MANAGED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType"/>
+        <rdfs:comment xml:lang="en">A &apos;virtual&apos; area containing the VerticalStructures included in the data collection exercise, which do not qualify yet as Obstacles in any specific Area</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-OLS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-OLS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType"/>
+        <rdfs:comment xml:lang="en">ICAO Annex 14 Obstacle Limitation Surface.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAreaType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-40_TO_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-40_TO_1">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">40 to 1 sloped surface.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-72_TO_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-72_TO_1">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">72 to 1 sloped surface.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-AREA1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-AREA1">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">AREA 1</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-AREA2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-AREA2">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">AREA 2</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-AREA3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-AREA3">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">AREA 3</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-DER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-DER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Departure End of Runway Area</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-FINAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-FINAL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Final approach area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-MA -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-MA">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Missed approach area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-PRIMARY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-PRIMARY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Primary area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-PT_ENTRY_AREA -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-PT_ENTRY_AREA">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Procedure turn entry area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-SECONDARY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-SECONDARY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Secondary Area.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-TURN -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-TURN">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en"> </rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-TURN_INITIATION -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-TURN_INITIATION">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en"> </rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-ZONE1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-ZONE1">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Zone 1</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-ZONE2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-ZONE2">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Zone 2</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-ZONE3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceBaseType-ZONE3">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeObstacleAssessmentSurfaceType"/>
+        <rdfs:comment xml:lang="en">Zone 3</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionBaseType-COMPLETED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionBaseType-COMPLETED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionType"/>
+        <rdfs:comment xml:lang="en">Completed.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionBaseType-DEMOLITION_PLANNED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionBaseType-DEMOLITION_PLANNED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionType"/>
+        <rdfs:comment xml:lang="en">Removal is planned.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionBaseType-IN_CONSTRUCTION -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionBaseType-IN_CONSTRUCTION">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionType"/>
+        <rdfs:comment xml:lang="en">In Construction.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionBaseType-IN_DEMOLITION -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionBaseType-IN_DEMOLITION">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionType"/>
+        <rdfs:comment xml:lang="en">Work in progress to remove the item.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusConstructionType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsBaseType-DOWNGRADED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsBaseType-DOWNGRADED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">The system is theoretically able to work at a higher level of service, but it is currently limited to the level described.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsBaseType-NORMAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsBaseType-NORMAL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Normal operations.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Other.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsBaseType-UNSERVICEABLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsBaseType-UNSERVICEABLE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Operation is unserviceable (unavailable).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsBaseType-WORK_IN_PROGRESS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsBaseType-WORK_IN_PROGRESS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeStatusOperationsType"/>
+        <rdfs:comment xml:lang="en">Operation is under construction.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-AG_EQUIP -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-AG_EQUIP">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Agricultural Equipment</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-ANTENNA -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-ANTENNA">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Antenna.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-ARCH -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-ARCH">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Arch.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-BRIDGE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-BRIDGE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Bridge.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-BUILDING -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-BUILDING">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Building.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-CABLE_CAR -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-CABLE_CAR">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Cable car.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-CATENARY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-CATENARY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Catenary (wire).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-COMPRESSED_AIR_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-COMPRESSED_AIR_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of a compressed air system.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-CONTROL_MONITORING_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-CONTROL_MONITORING_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of an electronic monitoring and control system (EMCS) including cables, devices, and so on.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-CONTROL_TOWER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-CONTROL_TOWER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Control tower.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-COOLING_TOWER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-COOLING_TOWER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Cooling tower.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-CRANE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-CRANE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Crane.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-DAM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-DAM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Dam.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-DOME -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-DOME">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Dome.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-ELECTRICAL_EXIT_LIGHT -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-ELECTRICAL_EXIT_LIGHT">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of an electrical exterior lighting system including cables, switches, devices, transformers, and so on.  Does not include field, navaid, or approach lighting</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-ELECTRICAL_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-ELECTRICAL_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of an electrical distribution system including cables, switches, devices, motors, transformers, and so on.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-ELEVATOR -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-ELEVATOR">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Elevator.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-FENCE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-FENCE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Fence.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-FUEL_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-FUEL_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of a fuel distribution system consisting of pipes, fittings, fixtures, pumps, tanks, and so on</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-GATE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-GATE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Area of a fence which may be opened for passage through the fence or closed to prevent passage through the fence.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-GENERAL_UTILITY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-GENERAL_UTILITY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of  utility system which are universal in use and purpose and do not belong to a specific utility</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-GRAIN_ELEVATOR -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-GRAIN_ELEVATOR">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Grain elevator.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-HEAT_COOL_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-HEAT_COOL_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of a heating and cooling distribution system consisting of pipes, fittings, fixtures, and so on.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-INDUSTRIAL_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-INDUSTRIAL_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of an industrial waste collection system including pipes, fittings, fixtures, tanks, lagoons, and so on.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-LIGHTHOUSE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-LIGHTHOUSE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Lighthouse.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-MONUMENT -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-MONUMENT">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Monument.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-NATURAL_GAS_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-NATURAL_GAS_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of a natural gas distribution system consisting of pipes, fittings, fixtures, and so on.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-NATURAL_HIGHPOINT -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-NATURAL_HIGHPOINT">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Natural high point.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-NAVAID -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-NAVAID">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Navaid (navigation aid)</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-NUCLEAR_REACTOR -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-NUCLEAR_REACTOR">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Nuclear reactor.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-POLE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-POLE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Pole.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-POWER_PLANT -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-POWER_PLANT">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Power plant.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-REFINERY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-REFINERY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Refinery.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-RIG -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-RIG">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Rig (oil rig).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-SALTWATER_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-SALTWATER_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of a salt water collection system.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-SIGN -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-SIGN">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Sign.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-SPIRE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-SPIRE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Spire (steeple).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-STACK -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-STACK">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Stack (smoke, industrial).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-STADIUM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-STADIUM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Stadium.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-STORM_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-STORM_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of a storm drainage collection system including pipes, fittings, fixtures, and so on).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TANK -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TANK">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">tank.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TETHERED_BALLOON -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TETHERED_BALLOON">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Tethered balloon.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TOWER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TOWER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Tower.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TRAMWAY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TRAMWAY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Tramway.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TRANSMISSION_LINE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TRANSMISSION_LINE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Transmission Line.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TREE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-TREE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Tree.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-URBAN -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-URBAN">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Urban Area</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-VEGETATION -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-VEGETATION">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Vegetation.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WALL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WALL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Wall.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WASTEWATER_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WASTEWATER_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of a wastewater collection system including pipes, fittings, fixtures, treatment plants, collection locations, and so forth.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WATER_SYSTEM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WATER_SYSTEM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">AirMAT: The components of a water system including pipes, fittings, fixtures, treatment plants, and so on.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WATER_TOWER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WATER_TOWER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Water tower.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WINDMILL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WINDMILL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Windmill.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WINDMILL_FARMS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureBaseType-WINDMILL_FARMS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureType"/>
+        <rdfs:comment xml:lang="en">Windmill Farm.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-CHEQUERED -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-CHEQUERED">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingType"/>
+        <rdfs:comment xml:lang="en">Markings painted in a chequered pattern.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-FLAG -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-FLAG">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingType"/>
+        <rdfs:comment xml:lang="en">Flag marked with chequered pattern.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-HBANDS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-HBANDS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingType"/>
+        <rdfs:comment xml:lang="en">Markings painted as horizontal bands.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-MARKERS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-MARKERS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingType"/>
+        <rdfs:comment xml:lang="en">Marks attached to cables or wires.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-MONOCOLOUR -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-MONOCOLOUR">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingType"/>
+        <rdfs:comment xml:lang="en">Markings painted as a single colour.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-VBANDS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingBaseType-VBANDS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMarkingType"/>
+        <rdfs:comment xml:lang="en">Markings painted as vertical bands.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-ADOBE_BRICK -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-ADOBE_BRICK">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Brick made of adobe clay and straw, dried in the sun rather than by oven firing (as are standard bricks).  Larger than standard bricks, adobe bricks require a type of clay that contains between 25 and 45 percent aluminium salts.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-ALUMINIUM -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-ALUMINIUM">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">A light silvery ductile and malleable metal, not readily tarnished by air, which is a chemical element, atomic number 13. (Symbol Al) </rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-BRICK -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-BRICK">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Clay kneaded, moulded, and baked or sun-dried, used as a building material.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-CONCRETE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-CONCRETE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">A heavy-duty building material made from a mixture of broken stone or gravel, sand, cement and water, that forms a stonelike mass on hardening.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-FIBREGLASS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-FIBREGLASS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Any material consisting of glass filaments woven into a textile or paper, or embedded in plastic, for use as a construction or insulation material.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-GLASS -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-GLASS">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">A substance made by fusing soda and/or potash with other ingredients.  Usually transparent, lustrous, hard, and brittle.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-IRON -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-IRON">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">A malleable, magnetic, readily oxidizable metal which is a chemical element of the transition series, atomic number 26. (Symbol Fe)  Occurs abundantly in certain ores and in meteorites, and is widely used, chiefly in alloys such as steel.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-MASONRY -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-MASONRY">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Building materials (for example: stone, brick, concrete, hollow-tile, concrete block, gypsum block, or other similar building units or materials and/or combination of the same) bonded together with mortar to form a structure (for example: a wall, a pier).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-METAL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-METAL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Any of the class of substances that are characteristically lustrous, ductile, fusible, malleable solids and are good conductors of heat and electricity.  For example, gold, silver, copper, iron, lead, tin, and certain alloys (as brass and bronze).</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-MUD -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-MUD">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Constructed principally from mud applied to a structural scaffold of plant material (for example: wooden posts).  Effective only in extremely dry climates and usually must be resurfaced on a regular basis (for example: yearly) otherwise the structure steadily disintegrates under the effect of weather.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-OTHER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Other</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-PLANT -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-PLANT">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Plant material (for example: straw and/or tall coarse grass), possibly also containing the slices of soil to which the plant material is attached.  For example, used in thatching or sodding a roof.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-PRESTRESSED_CONCRETE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-PRESTRESSED_CONCRETE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Reinforced concrete in which internal stresses have been introduced to reduce potential tensile stress in the concrete resulting from loads.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-REINFORCED_CONCRETE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-REINFORCED_CONCRETE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Poured concrete containing steel bars or metal netting to increase its tensile strength.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-SOD -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-SOD">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">A usually square or oblong piece or slice of earth together with the grass growing on it.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-STEEL -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-STEEL">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Any of numerous artificially produced alloys of iron containing up to 3 per cent of other elements (including less than about 2.2 per cent carbon) and having great strength and malleability.  Able to be tempered to many different degrees of hardness.  Used for making tools, weapons, and/or machinery.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-STONE -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-STONE">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">Pieces of rock or mineral substance (other than metal) of definite form and size, usually artificially shaped, and used for some special purpose.  Used, for example, for building, for paving, or in the form of a block, slab, or pillar set up as  a memorial and/or a boundary-mark. </rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-TREATED_TIMBER -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-TREATED_TIMBER">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">A timber that has been impregnated with chemicals (for example: creosote oil) to reduce damage from wood rot and/or insects.  Often used for the portions of a structure that are likely to be in ongoing contact with soil and/or water.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-WOOD -->
+
+    <owl:NamedIndividual rdf:about="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialBaseType-WOOD">
+        <rdf:type rdf:resource="http://www.project-best.eu/owl/aixm-mod/obstacle#CodeVerticalStructureMaterialType"/>
+        <rdfs:comment xml:lang="en">The hard, compact, fibrous substance of which the roots, trunks, and branches of trees and shrubs consist.  Consists largely of secondary xylem, which forms the strengthening and water-transporting tissue of the plant.</rdfs:comment>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

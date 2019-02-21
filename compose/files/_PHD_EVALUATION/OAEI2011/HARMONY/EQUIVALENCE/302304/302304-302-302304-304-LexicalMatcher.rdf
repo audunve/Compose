@@ -1,0 +1,3989 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>**</type>
+  <alext:method>equivalencematching.LexicalMatcherWordNet#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://ebiquity.umbc.edu/v2.1/ontology/publication.owl">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/302304/302304-302.rdf</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/302304/302304-304.rdf</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.002737312030075188</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.005887803234501348</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.003876441881100266</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Resource'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.012446581196581196</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004522515527950311</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.002236943164362519</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0019442590120160213</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.002373030961434003</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.44935714285714284</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0036604524507750313</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0024190199335548173</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004079131652661065</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.15766917293233082</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.003457657301147606</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004379699248120301</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.005743317265556529</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InCollection'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Misc'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.02794509594882729</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.00931503198294243</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0079000904159132</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.07801339285714286</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.010949248120300752</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.011347402597402597</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.002849804305283757</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Publication'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004395120724346077</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004457908163265306</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>7.42984693877551E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.003429160125588697</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.00815826330532213</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.26967592592592593</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.002062028005034613</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004522515527950311</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.19203296703296704</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InBook'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.18674071991001126</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.005033122119815668</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.25946027287319423</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0038288781770376866</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0031680565627266134</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#TechReport'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.01327887537993921</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.01891233766233766</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.01327887537993921</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6241071428571429</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004800824175824176</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Article'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.00223427378111149</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.008668154761904762</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.3037689633375474</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>8.105287569573283E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.008915816326530612</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.015038726333907057</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.41607142857142854</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Book'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.002096664533674612</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>8.668154761904762E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>7.592544316996872E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>7.724098302687412E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0013884474813284603</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6241071428571429</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.5685250817884406</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.003044425087108014</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>8.299297112462006E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.00315604117753296</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>8.266319772942289E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>7.537525879917184E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Person'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.008491253644314868</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.011887755102040817</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>7.299498746867169E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>7.950409463148316E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.00713265306122449</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.007092126623376624</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.006304112554112555</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Project'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0038055313588850176</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.21581275033377836</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.005200892857142857</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.004379699248120301</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0058601609657947685</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>6.996716848174247E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>7.592544316996872E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.002849804305283757</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6241071428571429</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0067837732919254655</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#InProceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>8.299297112462006E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.6241071428571429</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>7.592544316996872E-4</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.00872877122877123</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.010949248120300752</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.21581275033377836</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.005805647840531562</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#Proceedings'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4917207792207792</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.017831632653061223</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#SoftCopy'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.510633116883117</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#MastersThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#InProceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Proceedings'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Thesis'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.4680803571428571</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Publisher'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Article'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Part'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#BookPart'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Deliverable'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#MotionPicture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PersonList'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Monography'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Academic'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Booklet'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Composite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Published'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Institution'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Informal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Unpublished'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Journal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Text'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Collection'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Date'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#LectureNotes'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Title'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#PageRange'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Chapter'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Entry'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Misc'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#DateWithMonth'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://ebiquity.umbc.edu/v2.1/ontology/publication.owl#PhdThesis'/>
+      <entity2 rdf:resource='http://oaei.ontologymatching.org/2009/benchmarks/304/onto.rdf#Manual'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.0</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

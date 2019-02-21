@@ -1,0 +1,2061 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<!DOCTYPE rdf:RDF [
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+<!ENTITY edoal "http://ns.inria.org/edoal/1.0/#">
+<!ENTITY gbo "http://gbo#">
+<!ENTITY gmo "http://gmo#">
+<!ENTITY time "http://www.w3.org/2006/time#">
+<!ENTITY geosparql "http://www.opengis.net/ont/geosparql#">
+]>
+
+<rdf:RDF xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#" 
+         xml:base="http://gbo-gbo/alignment/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:align="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#"
+         xmlns:gbo="http://gbo#"
+         xmlns:gmo="http://gbo#"
+         xmlns:time="http://www.w3.org/2006/time#"
+         xmlns:geosparql="http://www.opengis.net/ont/geosparql#"
+         xmlns:edoal="http://ns.inria.org/edoal/1.0/#">
+
+<Alignment>
+	<xml>yes</xml>
+	<level>2EDOAL</level> 
+	<type>**</type>
+	<method>manual</method>
+	<onto1>
+		<Ontology rdf:about="&gbo;">
+		  	<formalism>
+		    	<Formalism align:name="OWL1.0" align:uri="http://www.w3.org/2002/07/owl#" />
+		  	</formalism>
+		</Ontology>
+	</onto1>
+	<onto2>
+		<Ontology rdf:about="&gmo;">
+			<formalism>
+				<Formalism align:name="OWL1.0" align:uri="http://www.w3.org/2002/07/owl#" />
+			</formalism>
+		</Ontology>
+	</onto2>
+
+	    <map>
+			<Cell>
+		        <entity1>
+		          	<edoal:Property>
+		        		<edoal:and rdf:parseType="Collection">
+		        			<edoal:PropertyDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Award" />
+		        				</edoal:class>
+		        			</edoal:PropertyDomainRestriction>
+	          				<edoal:Property rdf:about="&gbo;hasEndDate" />
+		        		</edoal:and>
+		          	</edoal:Property>
+		        </entity1>
+		        <entity2>
+					<edoal:Property>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">  
+									<edoal:Relation rdf:about="&gmo;endsOnDate" />
+									<edoal:RelationDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;FundingAward" />
+										</edoal:class>
+									</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&time;Instant" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>	
+							</edoal:Relation>
+                            <edoal:Property rdf:about="&time;inXSDDate" />
+						</edoal:compose>
+					</edoal:Property>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+		        <entity1>
+		          	<edoal:Property>
+		        		<edoal:and rdf:parseType="Collection">
+		        			<edoal:PropertyDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Program" />
+		        				</edoal:class>
+		        			</edoal:PropertyDomainRestriction>
+		        			<edoal:Property rdf:about="&gbo;hasEndDate" />
+		        		</edoal:and>
+		          	</edoal:Property>
+		        </entity1>
+		        <entity2>
+		          	<edoal:Property>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">  
+									<edoal:Relation rdf:about="&gmo;endsOnDate" />
+									<edoal:RelationDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;Program" />
+										</edoal:class>
+									</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&time;Instant" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+                            <edoal:Property rdf:about="&time;inXSDDate" />
+						</edoal:compose>
+					</edoal:Property>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+		        <entity1>
+		          	<edoal:Property>
+		        		<edoal:and rdf:parseType="Collection">
+		        			<edoal:PropertyDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Program" />
+		        				</edoal:class>
+		        			</edoal:PropertyDomainRestriction>
+		        			<edoal:Property rdf:about="&gbo;hasStartDate" />
+		        		</edoal:and>
+		          	</edoal:Property>
+		        </entity1>
+		        <entity2>
+		          	<edoal:Property>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">  
+									<edoal:Relation rdf:about="&gmo;startsOnDate" />
+									<edoal:RelationDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;Program" />
+										</edoal:class>
+									</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&time;Instant" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+                            <edoal:Property rdf:about="&time;inXSDDate" />
+						</edoal:compose>
+					</edoal:Property>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Property>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:PropertyDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Person" />
+								</edoal:class>
+							</edoal:PropertyDomainRestriction>
+							<edoal:Property rdf:about="&gbo;hasFullName" />
+						</edoal:and>
+					</edoal:Property>
+				</entity1>
+				<entity2>
+					<edoal:Property>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">
+									<edoal:Relation rdf:about="&gmo;hasPersonName" />
+									<edoal:RelationDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;Person" />
+										</edoal:class>
+									</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;PersonName" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Property rdf:about="&gmo;fullName" />
+						</edoal:compose>
+					</edoal:Property>
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Property>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:PropertyDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Person" />
+								</edoal:class>
+							</edoal:PropertyDomainRestriction>
+							<edoal:Property rdf:about="&gbo;hasGivenName" />
+						</edoal:and>
+					</edoal:Property>
+				</entity1>
+				<entity2>
+					<edoal:Property>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">
+									<edoal:Relation rdf:about="&gmo;hasPersonalInfoItem" />
+									<edoal:RelationDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;Person" />
+										</edoal:class>
+									</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;PersonalInfoItem" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Property rdf:about="&gmo;hasedoal:LiteralValue" />
+						</edoal:compose>
+					</edoal:Property>
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>SubsumedBy</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Property>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:PropertyDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Person" />
+								</edoal:class>
+							</edoal:PropertyDomainRestriction>
+							<edoal:Property rdf:about="&gbo;hasGivenName" />
+						</edoal:and>
+					</edoal:Property>
+				</entity1>
+				<entity2>
+					<edoal:Property>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">
+									<edoal:Relation rdf:about="&gmo;hasPersonName" />
+									<edoal:RelationDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;Person" />
+										</edoal:class>
+									</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;PersonName" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Property rdf:about="&gmo;firstOrGivenName" />
+						</edoal:compose>
+					</edoal:Property>
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Property>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:PropertyDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Person" />
+								</edoal:class>
+							</edoal:PropertyDomainRestriction>
+							<edoal:Property rdf:about="&gbo;hasFamilyName" />
+						</edoal:and>
+					</edoal:Property>
+				</entity1>
+				<entity2>
+					<edoal:Property>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">
+									<edoal:Relation rdf:about="&gmo;hasPersonalInfoItem" />
+									<edoal:RelationDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;Person" />
+										</edoal:class>
+									</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;PersonalInfoItem" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Property rdf:about="&gmo;hasLiteralValue" />
+						</edoal:compose>
+					</edoal:Property> 
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>SubsumedBy</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Property>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:PropertyDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Person" />
+								</edoal:class>
+							</edoal:PropertyDomainRestriction>
+							<edoal:Property rdf:about="&gbo;hasFullName" />
+						</edoal:and>
+					</edoal:Property>
+				</entity1>
+				<entity2>
+					<edoal:Property>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">
+									<edoal:Relation rdf:about="&gmo;hasPersonalInfoItem" />
+									<edoal:RelationDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;Person" />
+										</edoal:class>
+									</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;PersonalInfoItem" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Property rdf:about="&gmo;hasLiteralValue" />
+						</edoal:compose>
+					</edoal:Property> 
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>SubsumedBy</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Property>
+	        			<edoal:and rdf:parseType="Collection">
+		        			<edoal:PropertyDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Program" />
+		        				</edoal:class>
+		        			</edoal:PropertyDomainRestriction>
+		        			<edoal:Property rdf:about="&gbo;hasAcronym" />
+			        	</edoal:and>
+	          		</edoal:Property>
+	        	</entity1>
+	        	<entity2>
+	            	<edoal:Property>
+	               		<edoal:compose rdf:parseType="Collection">
+	               			<edoal:Relation>
+	               			    <edoal:and rdf:parseType="Collection">  
+	                      			<edoal:Relation rdf:about="&gmo;describedBy" />
+	                    			<edoal:RelationDomainRestriction> 
+					                   	<edoal:class>
+					                       	<edoal:Class rdf:about="&gmo;Program" />
+					                   	</edoal:class>
+					                </edoal:RelationDomainRestriction>
+	                    			<edoal:RelationCoDomainRestriction> 
+					                   	<edoal:class>
+					                       	<edoal:Class rdf:about="&gmo;InformationObject" />
+					                   	</edoal:class>
+					                </edoal:RelationCoDomainRestriction>
+	                    		</edoal:and>
+	                  		</edoal:Relation>
+	                  	    <edoal:Property rdf:about="&gmo;alsoKnownAs" />
+	               		</edoal:compose>
+	              	</edoal:Property>
+	        	</entity2>
+	        	<measure rdf:datatype="&xsd;float">1.</measure>
+	        	<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Relation rdf:about="&gbo;hasIdentifier" />
+				</entity1>
+				<entity2>
+					<edoal:Relation>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">
+									<edoal:Relation rdf:about="&gmo;describedBy" />
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;InformationObject" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Relation rdf:about="&gmo;hasPrimaryIdentifier" />
+						</edoal:compose>
+					</edoal:Relation> 
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	          		<edoal:Property rdf:about="&gbo;hasAbstract" />
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Property>
+	           			<edoal:compose rdf:parseType="Collection">
+	            			<edoal:Relation>
+	             				<edoal:and rdf:parseType="Collection">
+	              					<edoal:Relation rdf:about="&gmo;describedBy" />
+	            					<edoal:RelationCoDomainRestriction>
+				                  		<edoal:class>
+				                    		<edoal:Class rdf:about="&gmo;InformationObject" />
+				                  		</edoal:class>
+	            					</edoal:RelationCoDomainRestriction>
+	             				</edoal:and>
+	             			</edoal:Relation>
+	              			<edoal:Property rdf:about="&gmo;hasDescription" />
+	              		</edoal:compose>
+	            	</edoal:Property>
+	        	</entity2>
+	      		<measure rdf:datatype="&xsd;float">1.</measure>
+	      		<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	          		<edoal:Property rdf:about="&gbo;hasTitle" />
+	        	</entity1>
+	        	<entity2>
+		          	<edoal:Property>
+		            	<edoal:compose rdf:parseType="Collection">
+		              		<edoal:Relation>
+		                		<edoal:and rdf:parseType="Collection">
+		                  			<edoal:Relation rdf:about="&gmo;describedBy" />
+	                    			<edoal:RelationCoDomainRestriction> 
+	                      				<edoal:class>
+	                        				<edoal:Class rdf:about="&gmo;InformationObject" />
+	                      				</edoal:class>
+	                    			</edoal:RelationCoDomainRestriction>
+		                		</edoal:and>
+		                	</edoal:Relation>
+		                	<edoal:Property rdf:about="&gmo;hasCanonicalName" />
+		            	</edoal:compose>
+		          	</edoal:Property> 
+	        	</entity2>
+	      		<measure rdf:datatype="&xsd;float">1.</measure>
+	      		<relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+			    <entity1>
+                    <edoal:Property rdf:about="&gbo;hasDescription" />
+			    </entity1>
+			    <entity2>
+			    	<edoal:Property>
+			        	<edoal:compose rdf:parseType="Collection">
+			          		<edoal:Relation>
+			            		<edoal:and rdf:parseType="Collection">
+			            			<edoal:Relation rdf:about="&gmo;describedBy" />
+		                        	<edoal:RelationCoDomainRestriction>
+		                            	<edoal:class>
+		                             		<edoal:Class rdf:about="&gmo;InformationObject" />
+		                            	</edoal:class>
+		                      		</edoal:RelationCoDomainRestriction>
+		                      	</edoal:and>
+		                    </edoal:Relation>
+                            <edoal:Property rdf:about="&gmo;hasDescription" />
+			            </edoal:compose>
+			        </edoal:Property> 
+			    </entity2>
+		     	<measure rdf:datatype="&xsd;float">1.</measure>
+		     	<relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+        <map>
+			<Cell>
+				<entity1>
+					<edoal:AttributeOccurenceRestriction>
+						<edoal:onAttribute>
+							<edoal:Relation rdf:about="&gbo;hasGeoFeatureType" />
+						</edoal:onAttribute>
+						<edoal:comparator rdf:resource="&edoal;greater-than" />
+                        <edoal:value>0</edoal:value>
+					</edoal:AttributeOccurenceRestriction>
+				</entity1>
+                <entity2>
+					<edoal:Class rdf:about="&gmo;Place" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>SubsumedBy</relation>
+			</Cell>
+	    </map>
+
+        <map>
+			<Cell>
+				<entity1>
+					<edoal:AttributeOccurenceRestriction>
+						<edoal:onAttribute>
+							<edoal:Relation rdf:about="&gbo;hasPlatformType" />
+						</edoal:onAttribute>
+						<edoal:comparator rdf:resource="&edoal;greater-than" />
+                        <edoal:value>0</edoal:value>
+					</edoal:AttributeOccurenceRestriction>
+				</entity1>
+                <entity2>
+					<edoal:Class rdf:about="&gmo;Platform" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>SubsumedBy</relation>
+			</Cell>
+	    </map>
+
+        <map>
+			<Cell>
+				<entity1>
+					<edoal:AttributeOccurenceRestriction>
+						<edoal:onAttribute>
+							<edoal:Relation rdf:about="&gbo;hasCruiseType" />
+						</edoal:onAttribute>
+						<edoal:comparator rdf:resource="&edoal;greater-than" />
+                        <edoal:value>0</edoal:value>
+					</edoal:AttributeOccurenceRestriction>
+				</entity1>
+                <entity2>
+					<edoal:Class rdf:about="&gmo;Cruise" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>SubsumedBy</relation>
+			</Cell>
+	    </map>
+
+        <map>
+			<Cell>
+				<entity1>
+					<edoal:AttributeOccurenceRestriction>
+						<edoal:onAttribute>
+							<edoal:Relation rdf:about="&gbo;hasSampleType" />
+						</edoal:onAttribute>
+						<edoal:comparator rdf:resource="&edoal;greater-than" />
+                        <edoal:value>0</edoal:value>
+					</edoal:AttributeOccurenceRestriction>
+				</entity1>
+                <entity2>
+					<edoal:Class rdf:about="&gmo;PhysicalSample" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>SubsumedBy</relation>
+			</Cell>
+	    </map>
+
+        <map>
+			<Cell>
+				<entity1>
+					<edoal:AttributeOccurenceRestriction>
+						<edoal:onAttribute>
+							<edoal:Relation rdf:about="&gbo;hasPlaceType" />
+						</edoal:onAttribute>
+						<edoal:comparator rdf:resource="&edoal;greater-than" />
+                        <edoal:value>0</edoal:value>
+					</edoal:AttributeOccurenceRestriction>
+				</entity1>
+                <entity2>
+					<edoal:Class rdf:about="&gmo;Place" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>SubsumedBy</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Class rdf:about="&gbo;Identifier" />
+				</entity1>
+				<entity2>
+				  	<edoal:Class rdf:about="&gmo;Identifier" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Relation rdf:about="&gbo;hasIdentifierScheme" />
+				</entity1>
+				<entity2>
+				  	<edoal:Property rdf:about="&gmo;hasIdentifierScheme" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+				  	<edoal:Property rdf:about="&gbo;hasIdentifierValue" />
+				</entity1>
+				<entity2>
+				  	<edoal:Property rdf:about="&gmo;hasIdentifierValue" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Class rdf:about="&gbo;Place" />
+				</entity1>
+				<entity2>
+					<edoal:Class rdf:about="&gmo;Place" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	          		<edoal:Class rdf:about="&gbo;GeoFeature" />
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Class rdf:about="&gmo;Place" />
+	        	</entity2>
+	        	<measure rdf:datatype="&xsd;float">1.</measure>
+	        	<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Class rdf:about="&gbo;Award" />
+				</entity1>
+				<entity2>
+					<edoal:Class rdf:about="&gmo;FundingAward" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Relation rdf:about="&gbo;hasAward" />
+				</entity1>
+				<entity2>
+					<edoal:Relation rdf:about="&gmo;fundedBy" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+		        <entity1>
+		        	<edoal:Relation>
+		        		<edoal:and rdf:parseType="Collection">
+		        			<edoal:RelationDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Award" />
+		        				</edoal:class>
+		        			</edoal:RelationDomainRestriction> 
+		        			<edoal:Relation rdf:about="&gbo;hasCoPrincipalInvestigator" />
+		        		</edoal:and>
+		          	</edoal:Relation>
+		        </entity1>
+		        <entity2>
+					<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction> 
+								<edoal:class>
+									<edoal:Class rdf:about="&gmo;FundingAward" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation>
+	    						<edoal:compose rdf:parseType="Collection">
+									<edoal:Relation>
+										<edoal:and rdf:parseType="Collection">  
+											<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+											<edoal:RelationCoDomainRestriction> 
+												<edoal:class>
+													<edoal:Class rdf:about="&gmo;CoPrincipalInvestigatorRole" />
+												</edoal:class>
+											</edoal:RelationCoDomainRestriction>
+										</edoal:and>
+									</edoal:Relation>		
+									<edoal:Relation rdf:about="&gmo;performedBy" />	
+								</edoal:compose>
+							</edoal:Relation>
+						</edoal:and>
+					</edoal:Relation>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+		        <entity1>
+		        	<edoal:Relation>
+		        		<edoal:and rdf:parseType="Collection">
+		        			<edoal:RelationDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Award" />
+		        				</edoal:class>
+		        			</edoal:RelationDomainRestriction>
+		          			<edoal:Relation rdf:about="&gbo;hasPrincipalInvestigator" />
+		          		</edoal:and>
+		          	</edoal:Relation>
+		        </entity1>
+		        <entity2>
+					<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction> 
+								<edoal:class>
+									<edoal:Class rdf:about="&gmo;FundingAward" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation>
+	        					<edoal:compose rdf:parseType="Collection">
+									<edoal:Relation>
+										<edoal:and rdf:parseType="Collection">  
+											<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+											<edoal:RelationCoDomainRestriction> 
+												<edoal:class>
+													<edoal:Class rdf:about="&gmo;PrincipalInvestigatorRole" />
+												</edoal:class>
+											</edoal:RelationCoDomainRestriction>	
+										</edoal:and>
+									</edoal:Relation>
+									<edoal:Relation rdf:about="&gmo;performedBy" />
+								</edoal:compose>
+							</edoal:Relation>
+						</edoal:and>
+					</edoal:Relation>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	        <Cell>
+		        <entity1>
+		        	<edoal:Relation>
+		        		<edoal:and rdf:parseType="Collection">
+		        			<edoal:RelationDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Award" />
+		        				</edoal:class>
+		        			</edoal:RelationDomainRestriction>
+		          			<edoal:Relation rdf:about="&gbo;hasProgramManager" />
+		          		</edoal:and>
+		          	</edoal:Relation>
+		        </entity1>
+		        <entity2>
+					<edoal:Relation>
+	    				<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">  
+									<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+					                    <edoal:RelationDomainRestriction> 
+					                    	<edoal:class>
+					                    		<edoal:Class rdf:about="&gmo;FundingAward" />
+					                    	</edoal:class>
+					                   	</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;ProgramManagerRole" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Relation rdf:about="&gmo;performedBy" />
+						</edoal:compose>
+					</edoal:Relation>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+		        <entity1>
+		          	<edoal:Relation>
+		        		<edoal:and rdf:parseType="Collection">
+		        			<edoal:RelationDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Award" />
+		        				</edoal:class>
+		        			</edoal:RelationDomainRestriction>
+	          				<edoal:Relation rdf:about="&gbo;hasSponsor" />
+	          			</edoal:and>
+		          	</edoal:Relation>
+		        </entity1>
+		        <entity2>
+		          	<edoal:Relation>
+	    				<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">  
+									<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+					                    <edoal:RelationDomainRestriction> 
+					                   		<edoal:class>
+					                   			<edoal:Class rdf:about="&gmo;FundingAward" />
+					                   		</edoal:class>
+					                   	</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;SponsorRole" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>	
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Relation rdf:about="&gmo;performedBy" />
+						</edoal:compose>
+					</edoal:Relation>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+		        <entity1>
+		          	<edoal:Property>
+		        		<edoal:and rdf:parseType="Collection">
+		        			<edoal:PropertyDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Award" />
+		        				</edoal:class>
+		        			</edoal:PropertyDomainRestriction>
+		          			<edoal:Property rdf:about="&gbo;hasStartDate" />
+	          			</edoal:and>
+		          	</edoal:Property>
+		        </entity1>
+		        <entity2>
+					<edoal:Property>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">  
+									<edoal:Relation rdf:about="&gmo;startsOnDate" />
+									<edoal:RelationDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;FundingAward" />
+										</edoal:class>
+									</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&time;Instant" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Property rdf:about="&time;inXSDDate" />
+						</edoal:compose>
+					</edoal:Property>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Class rdf:about="&gbo;Program" />
+				</entity1>
+				<entity2>
+					<edoal:Class rdf:about="&gmo;Program" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Relation rdf:about="&gbo;hasProgram" />
+				</entity1>
+				<entity2>
+					<edoal:Relation rdf:about="&gmo;associatedWithProgram" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+		        <entity1>
+		        	<edoal:Relation>
+		        		<edoal:and rdf:parseType="Collection">
+		        			<edoal:RelationDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Program" />
+		        				</edoal:class>
+		        			</edoal:RelationDomainRestriction>
+		        			<edoal:Relation rdf:about="&gbo;hasCoPrincipalInvestigator" />
+		          		</edoal:and>
+		          	</edoal:Relation>
+		        </entity1>
+		        <entity2>
+					<edoal:Relation>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">  
+									<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+					                    <edoal:RelationDomainRestriction> 
+					                    	<edoal:class>
+					                    		<edoal:Class rdf:about="&gmo;Program" />
+					                   		</edoal:class>
+					                   	</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;CoPrincipalInvestigatorRole" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Relation rdf:about="&gmo;performedBy" />
+						</edoal:compose>
+					</edoal:Relation>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+	        		    <edoal:and rdf:parseType="Collection">
+		        			<edoal:RelationDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Program" />
+		        				</edoal:class>
+		        			</edoal:RelationDomainRestriction>
+		        			<edoal:Relation rdf:about="&gbo;hasPrincipalInvestigator" />
+	          			</edoal:and>
+	          		</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+					<edoal:Relation>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">  
+									<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+					                    <edoal:RelationDomainRestriction> 
+						                    <edoal:class>
+						                    	<edoal:Class rdf:about="&gmo;Program" />
+					                   		</edoal:class>
+					                   	</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+					    					<edoal:Class rdf:about="&gmo;PrincipalInvestigatorRole" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Relation rdf:about="&gmo;performedBy" />
+						</edoal:compose>
+					</edoal:Relation>
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+	        <Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+	        		    <edoal:and rdf:parseType="Collection">
+		        			<edoal:RelationDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;Program" />
+		        				</edoal:class>
+		        			</edoal:RelationDomainRestriction>
+		        			<edoal:Relation rdf:about="&gbo;hasProgramManager" />
+		        		</edoal:and>
+	          		</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+					<edoal:Relation>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">  
+									<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+					                    <edoal:RelationDomainRestriction> 
+					                    	<edoal:class>
+						                    	<edoal:Class rdf:about="&gmo;Program" />
+					                    	</edoal:class>
+					                   	</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;ProgramManagerRole" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Relation rdf:about="&gmo;performedBy" />
+						</edoal:compose>
+					</edoal:Relation>
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Class rdf:about="&gbo;Organization" />
+				</entity1>
+				<entity2>
+					<edoal:Class rdf:about="&gmo;Organization" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+	        			<edoal:and rdf:parseType="Collection">
+	        				<edoal:RelationDomainRestriction>
+	        					<edoal:class>
+	        						<edoal:Class rdf:about="&gbo;Organization" />
+	        					</edoal:class>
+	        				</edoal:RelationDomainRestriction>
+	        				<edoal:Relation rdf:about="&gbo;fromCountry" />
+	        			</edoal:and>
+	          		</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+	               	<edoal:Relation>
+	                    <edoal:and rdf:parseType="Collection">
+	               		    <edoal:Relation rdf:about="&gmo;hasSite" />
+	               			<edoal:RelationDomainRestriction>
+	               				<edoal:class>
+	               					<edoal:Class rdf:about="&gmo;Organization" />
+	               				</edoal:class>
+	               			</edoal:RelationDomainRestriction>
+	               			<edoal:RelationCoDomainRestriction>
+	               				<edoal:class>
+	               					<edoal:Class rdf:about="&gmo;Place" />
+	               				</edoal:class>
+	               			</edoal:RelationCoDomainRestriction>
+	               		</edoal:and>
+	            	</edoal:Relation>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>SubsumedBy</relation>
+		    </Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Relation rdf:about="&gbo;hasSubOrganization" />
+				</entity1>
+				<entity2>
+					<edoal:Relation rdf:about="&gmo;hasSubOrganization" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Class rdf:about="&gbo;Person" />
+				</entity1>
+				<entity2>
+					<edoal:Class rdf:about="&gmo;Person" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Person" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasAffiliation" />
+						</edoal:and>
+					</edoal:Relation>
+				</entity1>
+				<entity2>
+					<edoal:Relation>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">
+									<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+									<edoal:RelationDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;Organization" />
+										</edoal:class>
+									</edoal:RelationDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;AffiliationRole" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Relation rdf:about="&gmo;performedBy" />
+						</edoal:compose>
+					</edoal:Relation>
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Property>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:PropertyDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Person" />
+								</edoal:class>
+							</edoal:PropertyDomainRestriction>
+							<edoal:Property rdf:about="&gbo;hasFamilyName" />
+						</edoal:and>
+					</edoal:Property>
+				</entity1>
+				<entity2>
+					<edoal:Relation>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">
+									<edoal:Relation rdf:about="&gmo;hasPersonName" />
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;Person" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+									<edoal:RelationCoDomainRestriction> 
+										<edoal:class>
+											<edoal:Class rdf:about="&gmo;PersonName" />
+										</edoal:class>
+									</edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Relation rdf:about="&gmo;familyOrSurname" />
+						</edoal:compose>
+					</edoal:Relation>
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Class rdf:about="&gbo;Platform" />
+				</entity1>
+				<entity2>
+					<edoal:Class rdf:about="&gmo;Platform" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+	        			<edoal:and rdf:parseType="Collection">
+	        				<edoal:RelationDomainRestriction>
+	        					<edoal:class>
+	        						<edoal:Class rdf:about="&gbo;Platform" />
+	        					</edoal:class>
+	        				</edoal:RelationDomainRestriction>
+	        				<edoal:Relation rdf:about="&gmo;hasOwner" />
+	        			</edoal:and>
+	          		</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Relation>
+	                	<edoal:compose rdf:parseType="Collection">
+	                  		<edoal:Relation>
+	                   			<edoal:and rdf:parseType="Collection">
+	                   				<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+	                   				<edoal:RelationDomainRestriction> 
+	                   					<edoal:class>
+	                   						<edoal:Class rdf:about="&gmo;Platform" />
+	                   					</edoal:class>
+	                   				</edoal:RelationDomainRestriction>
+	                   				<edoal:RelationCoDomainRestriction> 
+	                   					<edoal:class>
+	                    					<edoal:Class rdf:about="&gmo;AgentRole" />
+	                   					</edoal:class>
+	                   				</edoal:RelationCoDomainRestriction>
+	                   			</edoal:and>
+	                   		</edoal:Relation>
+	                   		<edoal:Relation rdf:about="&gmo;performedBy" />
+	                	</edoal:compose>
+	          		</edoal:Relation>
+	        	</entity2>
+	        	<measure rdf:datatype="&xsd;float">1.</measure>
+	        	<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+		        <entity1>
+		          	<edoal:Class rdf:about="&gbo;Vessel" />
+		        </entity1>
+		        <entity2>
+		          	<edoal:Class rdf:about="&gmo;Vessel" />
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+	        			<edoal:and rdf:parseType="Collection">
+	        				<edoal:RelationDomainRestriction>
+	        					<edoal:class>
+	        						<edoal:Class rdf:about="&gbo;Vessel" />
+	        					</edoal:class>
+	        				</edoal:RelationDomainRestriction>
+	        				<edoal:Relation rdf:about="&gbo;hasOwner" />
+	        			</edoal:and>
+	          		</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Relation>
+			           	<edoal:compose rdf:parseType="Collection">
+			           		<edoal:Relation>
+			               		<edoal:and rdf:parseType="Collection">
+			               			<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+			                   		<edoal:RelationCoDomainRestriction> 
+			                   			<edoal:class>
+			                   				<edoal:Class rdf:about="&gmo;Vessel" />
+			                   			</edoal:class>
+			                   		</edoal:RelationCoDomainRestriction>
+			                   		<edoal:RelationCoDomainRestriction> 
+			                   			<edoal:class>
+			                   				<edoal:Class rdf:about="&gmo;VesselOwnerRole" />
+			                   			</edoal:class>
+			                   		</edoal:RelationCoDomainRestriction>
+			               		</edoal:and>
+			               	</edoal:Relation>
+			               	<edoal:Relation rdf:about="&gmo;performedBy" />
+			           	</edoal:compose>
+		          	</edoal:Relation>
+		        </entity2>
+		        <measure rdf:datatype="&xsd;float">1.</measure>
+		        <relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Class rdf:about="&gbo;Cruise" />
+				</entity1>
+				<entity2>
+					<edoal:Class rdf:about="&gmo;Cruise" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Cruise" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasChiefScientist" />
+						</edoal:and>
+	          		</edoal:Relation>
+	        	</entity1>
+	       		<entity2>
+	          		<edoal:Relation>
+						<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+								<edoal:and rdf:parseType="Collection">
+								  	<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+								    <edoal:RelationDomainRestriction>
+								      <edoal:class>
+								        <edoal:Class rdf:about="&gmo;Cruise" />
+								      </edoal:class>
+								    </edoal:RelationDomainRestriction>
+								    <edoal:RelationCoDomainRestriction>
+								      <edoal:class>
+								        <edoal:Class rdf:about="&gmo;AgentRole" />
+								      </edoal:class>
+								    </edoal:RelationCoDomainRestriction>
+								</edoal:and>
+							</edoal:Relation>
+							<edoal:Relation rdf:about="&gmo;performedBy" />
+						</edoal:compose>
+	          		</edoal:Relation>
+	        	</entity2>
+	       		<measure rdf:datatype="&xsd;float">1.</measure>
+	       		<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+	        	        <edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Cruise" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasCoChiefScientist" />
+						</edoal:and>
+	      			</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Relation>
+	                	<edoal:compose rdf:parseType="Collection">
+	                  	    <edoal:Relation>
+	                   	        <edoal:and rdf:parseType="Collection">
+	                   		    	<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+	                   		    		<edoal:RelationDomainRestriction> 
+		                   	    			<edoal:class>
+		                        				<edoal:Class rdf:about="&gmo;Cruise" />
+		                   	    			</edoal:class>
+	                   		    		</edoal:RelationDomainRestriction>
+	                   		    		<edoal:RelationCoDomainRestriction> 
+		                   	    			<edoal:class>
+		                        				<edoal:Class rdf:about="&gmo;AgentRole" />
+		                   	    			</edoal:class>
+	                   		    		</edoal:RelationCoDomainRestriction>
+	                   		   	</edoal:and>
+	                   		</edoal:Relation>
+	                   		<edoal:Relation rdf:about="&gmo;performedBy" />
+	                	</edoal:compose>
+	          		</edoal:Relation>
+	        	</entity2>
+	       		<measure rdf:datatype="&xsd;float">1.</measure>
+	       		<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+	        		    <edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Cruise" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasScientist" />
+						</edoal:and>
+	          		</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+					<edoal:Relation>
+				   		<edoal:compose rdf:parseType="Collection">
+				   			<edoal:Relation>
+				       			<edoal:and rdf:parseType="Collection">
+				       				<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+				           			<edoal:RelationDomainRestriction> 
+				           				<edoal:class>
+				               				<edoal:Class rdf:about="&gmo;Cruise" />
+				           				</edoal:class>
+				           			</edoal:RelationDomainRestriction>
+				           			<edoal:RelationCoDomainRestriction> 
+				           				<edoal:class>
+				               				<edoal:Class rdf:about="&gmo;AgentRole" />
+				           				</edoal:class>
+				           			</edoal:RelationCoDomainRestriction>
+				       			</edoal:and>
+				       		</edoal:Relation>
+				       		<edoal:Relation rdf:about="&gmo;performedBy" />
+				   		</edoal:compose>
+					</edoal:Relation>
+		        </entity2>
+	       	<measure rdf:datatype="&xsd;float">1.</measure>
+	       	<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+	    	            <edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Cruise" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasEducator" />
+						</edoal:and>
+					</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+					<edoal:Relation>
+					   	<edoal:compose rdf:parseType="Collection">
+							<edoal:Relation>
+					   			<edoal:and rdf:parseType="Collection">
+					   				<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+					       			<edoal:RelationDomainRestriction> 
+					           			<edoal:class>
+					               			<edoal:Class rdf:about="&gmo;Cruise" />
+					           			</edoal:class>
+					       			</edoal:RelationDomainRestriction>
+					       			<edoal:RelationCoDomainRestriction> 
+					           			<edoal:class>
+					             			<edoal:Class rdf:about="&gmo;AgentRole" />
+					         			</edoal:class>
+					       			</edoal:RelationCoDomainRestriction>
+					   			</edoal:and>
+					   		</edoal:Relation>
+					   		<edoal:Relation rdf:about="&gmo;performedBy" />
+						</edoal:compose>
+					</edoal:Relation>
+	        	</entity2>
+	       		<measure rdf:datatype="&xsd;float">1.</measure>
+	       		<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+		        		<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Cruise" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasStudent" />
+						</edoal:and>
+					</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Relation>
+	                	<edoal:compose rdf:parseType="Collection">
+	                  		<edoal:Relation>
+	                   			<edoal:and rdf:parseType="Collection">
+	                   				<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+	                   				<edoal:RelationDomainRestriction> 
+	                   					<edoal:class>
+	                   						<edoal:Class rdf:about="&gmo;Cruise" />
+	                   					</edoal:class>
+	                   				</edoal:RelationDomainRestriction>
+	                   				<edoal:RelationCoDomainRestriction> 
+	                   					<edoal:class>
+	                   						<edoal:Class rdf:about="&gmo;AgentRole" />
+	                   					</edoal:class>
+	                   				</edoal:RelationCoDomainRestriction>
+	                   			</edoal:and>
+	                   		</edoal:Relation>
+	                   		<edoal:Relation rdf:about="&gmo;performedBy" />
+	                	</edoal:compose>
+	          		</edoal:Relation>
+	        	</entity2>
+	       		<measure rdf:datatype="&xsd;float">1.</measure>
+	       		<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      <Cell>
+	        <entity1>
+	        	<edoal:Relation>
+	        		<edoal:and rdf:parseType="Collection">
+						<edoal:RelationDomainRestriction>
+							<edoal:class>
+								<edoal:Class rdf:about="&gbo;Cruise" />
+							</edoal:class>
+						</edoal:RelationDomainRestriction>
+						<edoal:Relation rdf:about="&gbo;hasObserver" />
+					</edoal:and>
+				</edoal:Relation>
+	        </entity1>
+	        <entity2>
+				<edoal:Relation>
+					<edoal:compose rdf:parseType="Collection">
+					  	<edoal:Relation>
+					    	<edoal:and rdf:parseType="Collection">
+					      		<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+				        		<edoal:RelationDomainRestriction> 
+				          			<edoal:class>
+				            			<edoal:Class rdf:about="&gmo;Cruise" />
+				          			</edoal:class>
+				        		</edoal:RelationDomainRestriction>
+				        		<edoal:RelationCoDomainRestriction> 
+				          			<edoal:class>
+				            			<edoal:Class rdf:about="&gmo;AgentRole" />
+				          			</edoal:class>
+				        		</edoal:RelationCoDomainRestriction>
+					    	</edoal:and>
+					    </edoal:Relation>
+					    <edoal:Relation rdf:about="&gmo;performedBy" />
+					</edoal:compose>
+				</edoal:Relation>
+	        </entity2>
+	       	<measure rdf:datatype="&xsd;float">1.</measure>
+	       	<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      <Cell>
+	        <entity1>
+	        	<edoal:Relation>
+	        		<edoal:and rdf:parseType="Collection">
+						<edoal:RelationDomainRestriction>
+							<edoal:class>
+								<edoal:Class rdf:about="&gbo;Cruise" />
+							</edoal:class>
+						</edoal:RelationDomainRestriction>
+						<edoal:Relation rdf:about="&gbo;hasScheduler" />
+					</edoal:and>
+				</edoal:Relation>
+	        </entity1>
+	        <entity2>
+				<edoal:Relation>
+					<edoal:compose rdf:parseType="Collection">
+						<edoal:Relation>
+							<edoal:and rdf:parseType="Collection">
+								<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+							    <edoal:RelationDomainRestriction> 
+									<edoal:class>
+										<edoal:Class rdf:about="&gmo;Cruise" />
+									</edoal:class>
+							    </edoal:RelationDomainRestriction>
+							    <edoal:RelationCoDomainRestriction> 
+									<edoal:class>
+										<edoal:Class rdf:about="&gmo;AgentRole" />
+									</edoal:class>
+							    </edoal:RelationCoDomainRestriction>
+							</edoal:and>
+						</edoal:Relation>
+						<edoal:Relation rdf:about="&gmo;performedBy" />
+					</edoal:compose>
+				</edoal:Relation>
+	        </entity2>
+	       	<measure rdf:datatype="&xsd;float">1.</measure>
+	       	<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;Cruise" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasTechnician" />
+						</edoal:and>
+					</edoal:Relation>
+		        </entity1>
+		        <entity2>
+	          		<edoal:Relation>
+	                	<edoal:compose rdf:parseType="Collection">
+	                  		<edoal:Relation>
+	                   			<edoal:and rdf:parseType="Collection">
+	                   				<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+	                   				<edoal:RelationDomainRestriction> 
+					                   	<edoal:class>
+					                       	<edoal:Class rdf:about="&gmo;Cruise" />
+					                   	</edoal:class>
+	                   				</edoal:RelationDomainRestriction>
+	                   				<edoal:RelationCoDomainRestriction> 
+					                   	<edoal:class>
+					                       	<edoal:Class rdf:about="&gmo;AgentRole" />
+					                   	</edoal:class>
+	                   				</edoal:RelationCoDomainRestriction>
+	                   			</edoal:and>
+	                   		</edoal:Relation>
+	                   		<edoal:Relation rdf:about="&gmo;performedBy" />
+	                	</edoal:compose>
+	          		</edoal:Relation>
+	        	</entity2>
+	       	<measure rdf:datatype="&xsd;float">1.</measure>
+	       	<relation>SubsumedBy</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Class rdf:about="&gbo;PortCall" />
+				</entity1>
+				<entity2>
+					<edoal:Class rdf:about="&gmo;Fix" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>SubsumedBy</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+			<Cell>
+				<entity1>
+					<edoal:Relation rdf:about="&gbo;atPort" />
+				</entity1>
+				<entity2>
+					<edoal:Relation rdf:about="&gmo;atPort" />
+				</entity2>
+				<measure rdf:datatype="&xsd;float">1.</measure>
+				<relation>Equivalence</relation>
+			</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	          		<edoal:Class rdf:about="&gbo;PhysicalSample" />
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Class rdf:about="&gmo;PhysicalSample" />
+	        	</entity2>
+	        	<measure rdf:datatype="&xsd;float">1.</measure>
+	        	<relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+		        <entity1>
+		        	<edoal:Relation>
+		        		<edoal:and rdf:parseType="Collection">
+		        			<edoal:RelationDomainRestriction>
+		        				<edoal:class>
+		        					<edoal:Class rdf:about="&gbo;PhysicalSample" />
+		        				</edoal:class>
+		        			</edoal:RelationDomainRestriction>
+		        			<edoal:Relation rdf:about="&gbo;hasCollector" />
+		        		</edoal:and>
+		          	</edoal:Relation>
+		        </entity1>
+		        <entity2>
+			        <edoal:Relation>
+			            <edoal:compose rdf:parseType="Collection">
+				            <edoal:Relation>
+				               	<edoal:and rdf:parseType="Collection">
+				               		<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+			                   		<edoal:RelationDomainRestriction> 
+			                   			<edoal:class>
+			                       			<edoal:Class rdf:about="&gmo;PhysicalSample" />
+			                   			</edoal:class>
+			                   		</edoal:RelationDomainRestriction>
+			                   		<edoal:RelationCoDomainRestriction> 
+			                   			<edoal:class>
+			                      			<edoal:Class rdf:about="&gmo;CollectorRole" />
+			                   			</edoal:class>
+			                   		</edoal:RelationCoDomainRestriction>
+				               	</edoal:and>
+				            </edoal:Relation>
+				            <edoal:Relation rdf:about="&gmo;performedBy" />
+			           	</edoal:compose>
+		          	</edoal:Relation>
+		        </entity2>
+		       	<measure rdf:datatype="&xsd;float">1.</measure>
+		       	<relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;PhysicalSample" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasContact" />
+						</edoal:and>
+	  				</edoal:Relation> 
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Relation>
+	                	<edoal:compose rdf:parseType="Collection">
+	                  		<edoal:Relation>
+	                   			<edoal:and rdf:parseType="Collection">
+	                   					<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+	                   				<edoal:RelationDomainRestriction> 
+	                   					<edoal:class>
+	                   						<edoal:Class rdf:about="&gmo;PhysicalSample" />
+	                   					</edoal:class>
+	                   				</edoal:RelationDomainRestriction>
+	                   				<edoal:RelationCoDomainRestriction> 
+	                   					<edoal:class>
+	                   						<edoal:Class rdf:about="&gmo;ContactRole" />
+	                   					</edoal:class>
+	                   				</edoal:RelationCoDomainRestriction>
+	                   			</edoal:and>
+	                   		</edoal:Relation>
+	                   		<edoal:Relation rdf:about="&gmo;performedBy" />
+	                	</edoal:compose>
+	          		</edoal:Relation>
+	        	</entity2>
+	       	<measure rdf:datatype="&xsd;float">1.</measure>
+	       	<relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;PhysicalSample" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasContributor" />
+						</edoal:and>
+					</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Relation>
+				       <edoal:compose rdf:parseType="Collection">
+				           	<edoal:Relation>
+				           	    <edoal:and rdf:parseType="Collection">
+				            	    <edoal:Relation rdf:about="&gmo;providesAgentRole" />
+			                   		<edoal:RelationDomainRestriction> 
+			                   		    <edoal:class>
+			                       		    <edoal:Class rdf:about="&gmo;PhysicalSample" />
+			                   		    </edoal:class>
+			                   		</edoal:RelationDomainRestriction>
+			                  		<edoal:RelationCoDomainRestriction> 
+			                   		    <edoal:class>
+			                    		    <edoal:Class rdf:about="&gmo;ContributorRole" />
+			                   		    </edoal:class>
+			                   		</edoal:RelationCoDomainRestriction>
+				               	</edoal:and>
+				            </edoal:Relation>
+				            <edoal:Relation rdf:about="&gmo;performedBy" />
+				        </edoal:compose>
+	          		</edoal:Relation>
+	        	</entity2>
+	       	<measure rdf:datatype="&xsd;float">1.</measure>
+	       	<relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;PhysicalSample" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasCurator" />
+						</edoal:and>
+					</edoal:Relation>  
+		        </entity1>
+	        	<entity2>
+	          		<edoal:Relation>
+				        <edoal:compose rdf:parseType="Collection">
+				           	<edoal:Relation>
+				               <edoal:and rdf:parseType="Collection">
+				                    <edoal:Relation rdf:about="&gmo;providesAgentRole" />
+					                <edoal:RelationDomainRestriction> 
+					                   	<edoal:class>
+					                       	<edoal:Class rdf:about="&gmo;PhysicalSample" />
+					                   	</edoal:class>
+					                </edoal:RelationDomainRestriction>
+					                <edoal:RelationCoDomainRestriction> 
+					                   	<edoal:class>
+					                       	<edoal:Class rdf:about="&gmo;CuratorRole" />
+					                   	</edoal:class>
+					                </edoal:RelationCoDomainRestriction>
+				               	</edoal:and>
+				            </edoal:Relation>
+				            <edoal:Relation rdf:about="&gmo;performedBy" />
+				        </edoal:compose>
+	          		</edoal:Relation>
+	        	</entity2>
+	       	<measure rdf:datatype="&xsd;float">1.</measure>
+	       	<relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;PhysicalSample" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasEditor" />
+						</edoal:and>
+					</edoal:Relation> 
+	        	</entity1>
+	        	<entity2>
+					<edoal:Relation>
+						<edoal:compose rdf:parseType="Collection">
+						  	<edoal:Relation>
+							    <edoal:and rdf:parseType="Collection">
+							      	<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+							      	<edoal:RelationDomainRestriction> 
+							          	<edoal:class>
+							            	<edoal:Class rdf:about="&gmo;PhysicalSample" />
+							          	</edoal:class>
+							        </edoal:RelationDomainRestriction>
+							      	<edoal:RelationCoDomainRestriction> 
+							          	<edoal:class>
+							            	<edoal:Class rdf:about="&gmo;EditorRole" />
+							          	</edoal:class>
+							        </edoal:RelationCoDomainRestriction>
+							    </edoal:and>
+						   	</edoal:Relation>
+						   	<edoal:Relation rdf:about="&gmo;performedBy" />
+						</edoal:compose>
+					</edoal:Relation>
+	        	</entity2>
+	       	<measure rdf:datatype="&xsd;float">1.</measure>
+	       	<relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        	   	<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;PhysicalSample" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasRegistrant" />
+						</edoal:and>
+					</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Relation>
+	                	<edoal:compose rdf:parseType="Collection">
+	                  		<edoal:Relation>
+	                   			<edoal:and rdf:parseType="Collection">
+	                   				<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+	                   				<edoal:RelationDomainRestriction> 
+	                   					<edoal:class>
+	                   						<edoal:Class rdf:about="&gmo;PhysicalSample" />
+	                   					</edoal:class>
+	                   				</edoal:RelationDomainRestriction>
+	                   				<edoal:RelationCoDomainRestriction> 
+	                   					<edoal:class>
+	                   						<edoal:Class rdf:about="&gmo;RegistrantRole" />
+	                   					</edoal:class>
+	                   				</edoal:RelationCoDomainRestriction>
+	                   			</edoal:and>
+	                   		</edoal:Relation>
+	                   		<edoal:Relation rdf:about="&gmo;performedBy" />
+	                	</edoal:compose>
+	          		</edoal:Relation>
+	        	</entity2>
+	       	<measure rdf:datatype="&xsd;float">1.</measure>
+	       	<relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	      	<Cell>
+	        	<entity1>
+	        		<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;PhysicalSample" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+							<edoal:Relation rdf:about="&gbo;hasRightsHolder" />
+						</edoal:and>
+					</edoal:Relation>
+	        	</entity1>
+	        	<entity2>
+	          		<edoal:Relation>
+	                	<edoal:compose rdf:parseType="Collection">
+	                  		<edoal:Relation>
+	                   			<edoal:and rdf:parseType="Collection">
+	                   				<edoal:Relation rdf:about="&gmo;providesAgentRole" />
+	                   				<edoal:RelationDomainRestriction> 
+	                   					<edoal:class>
+	                   						<edoal:Class rdf:about="&gmo;PhysicalSample" />
+	                   					</edoal:class>
+	                   				</edoal:RelationDomainRestriction>
+	                   				<edoal:RelationCoDomainRestriction> 
+	                   					<edoal:class>
+	                   						<edoal:Class rdf:about="&gmo;RightsHolderRole" />
+	                   					</edoal:class>
+	                   				</edoal:RelationCoDomainRestriction>
+	                   			</edoal:and>
+	                   		</edoal:Relation>
+	                   		<edoal:Relation rdf:about="&gmo;performedBy" />
+	                	</edoal:compose>
+	          		</edoal:Relation>
+	        	</entity2>
+	       	<measure rdf:datatype="&xsd;float">1.</measure>
+	       	<relation>Equivalence</relation>
+	      	</Cell>
+	    </map>
+
+	    <map>
+	    	<Cell>
+	    		<entity1>
+	    			<edoal:Relation rdf:about="&gbo;originatesFrom" />
+	    		</entity1>
+	    		<entity2>
+	    			<edoal:Relation rdf:about="&gmo;originatesFrom" />
+	    		</entity2>
+	    		<measure rdf:datatype="&xsd;float">1.</measure>
+	       		<relation>Equivalence</relation>
+	    	</Cell>
+	    </map>
+
+	    <map>
+	    	<Cell>
+	    		<entity1>
+					<edoal:Relation>
+						<edoal:and rdf:parseType="Collection">
+							<edoal:RelationDomainRestriction>
+								<edoal:class>
+									<edoal:Class rdf:about="&gbo;PhysicalSample" />
+								</edoal:class>
+							</edoal:RelationDomainRestriction>
+	    					<edoal:Relation rdf:about="&gbo;originatesFrom" />
+	    					<edoal:RelationCoDomainRestriction>
+	    						<edoal:class>
+	    							<edoal:Class rdf:about="&gbo;PhysicalSample" />
+	    						</edoal:class>
+	    					</edoal:RelationCoDomainRestriction>
+	    				</edoal:and>
+	    			</edoal:Relation>
+	    		</entity1>
+	    		<entity2>
+	    			<edoal:Relation>
+	    				<edoal:compose rdf:parseType="Collection">
+	    					<edoal:Relation>
+	    						<edoal:and rdf:parseType="Collection">
+	    							<edoal:Relation rdf:about="&gmo;derivedUsing" />
+	    							<edoal:RelationDomainRestriction>
+	    								<edoal:class>
+	    									<edoal:Class rdf:about="&gmo;PhysicalSample" />
+	    								</edoal:class>
+	    							</edoal:RelationDomainRestriction>
+	    							<edoal:RelationCoDomainRestriction>
+	    								<edoal:class>
+	    									<edoal:Class rdf:about="&gmo;SamplingProcess" />
+	    								</edoal:class>
+	    							</edoal:RelationCoDomainRestriction>
+	    						</edoal:and>
+	    					</edoal:Relation>
+	    					<edoal:Relation rdf:about="&gmo;hasInputFeature" />
+	    				</edoal:compose>
+	    			</edoal:Relation>
+	    		</entity2>
+	    		<measure rdf:datatype="&xsd;float">1.</measure>
+	       		<relation>SubsumedBy</relation>
+	    	</Cell>
+	    </map>
+	</Alignment>
+</rdf:RDF>

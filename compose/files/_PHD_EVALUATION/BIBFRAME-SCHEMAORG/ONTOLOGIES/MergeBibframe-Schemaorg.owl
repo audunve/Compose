@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-206#"
+     xml:base="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-206"
+     xmlns:schema="http://schema.org#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/audunvennesland/ontologies/2019/0/untitled-ontology-206">
+        <owl:imports rdf:resource="http://schema.org"/>
+        <owl:imports rdf:resource="http://id.loc.gov/ontologies/bibframe/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Audio -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Audio">
+        <owl:equivalentClass rdf:resource="http://schema.org#AudioObject"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Barcode -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Barcode">
+        <owl:equivalentClass rdf:resource="http://schema.org#Barcode"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/BookFormat -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/BookFormat">
+        <owl:equivalentClass rdf:resource="http://schema.org#BookFormatType"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Dataset -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Dataset">
+        <owl:equivalentClass rdf:resource="http://purl.org/dc/dcmitype/Dataset"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Enumeration -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Enumeration">
+        <owl:equivalentClass rdf:resource="http://schema.org#Enumeration"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Event -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Event">
+        <owl:equivalentClass rdf:resource="http://schema.org#Event"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/IntendedAudience -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/IntendedAudience">
+        <owl:equivalentClass rdf:resource="http://schema.org#Audience"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Language -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Language">
+        <owl:equivalentClass rdf:resource="http://schema.org#Language"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Media -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Media">
+        <owl:equivalentClass rdf:resource="http://schema.org#MediaObject"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/MusicFormat -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/MusicFormat">
+        <owl:equivalentClass rdf:resource="http://schema.org#MusicReleaseFormatType"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Organization -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Organization">
+        <owl:equivalentClass rdf:resource="http://schema.org#Organization"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Person -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Person">
+        <owl:equivalentClass rdf:resource="http://schema.org#Person"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Place -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Place">
+        <owl:equivalentClass rdf:resource="http://schema.org#Place"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Review -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Review">
+        <owl:equivalentClass rdf:resource="http://schema.org#Review"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Role -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Role">
+        <owl:equivalentClass rdf:resource="http://schema.org#Role"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://id.loc.gov/ontologies/bibframe/Text -->
+
+    <rdf:Description rdf:about="http://id.loc.gov/ontologies/bibframe/Text">
+        <owl:equivalentClass rdf:resource="http://schema.org#Text"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.org/dc/dcmitype/Dataset -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/dcmitype/Dataset"/>
+    
+
+
+    <!-- http://schema.org#Audience -->
+
+    <rdf:Description rdf:about="http://schema.org#Audience"/>
+    
+
+
+    <!-- http://schema.org#AudioObject -->
+
+    <rdf:Description rdf:about="http://schema.org#AudioObject"/>
+    
+
+
+    <!-- http://schema.org#Barcode -->
+
+    <rdf:Description rdf:about="http://schema.org#Barcode"/>
+    
+
+
+    <!-- http://schema.org#BookFormatType -->
+
+    <rdf:Description rdf:about="http://schema.org#BookFormatType"/>
+    
+
+
+    <!-- http://schema.org#Enumeration -->
+
+    <rdf:Description rdf:about="http://schema.org#Enumeration"/>
+    
+
+
+    <!-- http://schema.org#Event -->
+
+    <rdf:Description rdf:about="http://schema.org#Event"/>
+    
+
+
+    <!-- http://schema.org#Language -->
+
+    <rdf:Description rdf:about="http://schema.org#Language"/>
+    
+
+
+    <!-- http://schema.org#MediaObject -->
+
+    <rdf:Description rdf:about="http://schema.org#MediaObject"/>
+    
+
+
+    <!-- http://schema.org#MusicReleaseFormatType -->
+
+    <rdf:Description rdf:about="http://schema.org#MusicReleaseFormatType"/>
+    
+
+
+    <!-- http://schema.org#Organization -->
+
+    <rdf:Description rdf:about="http://schema.org#Organization"/>
+    
+
+
+    <!-- http://schema.org#Person -->
+
+    <rdf:Description rdf:about="http://schema.org#Person"/>
+    
+
+
+    <!-- http://schema.org#Place -->
+
+    <rdf:Description rdf:about="http://schema.org#Place"/>
+    
+
+
+    <!-- http://schema.org#Review -->
+
+    <rdf:Description rdf:about="http://schema.org#Review"/>
+    
+
+
+    <!-- http://schema.org#Role -->
+
+    <rdf:Description rdf:about="http://schema.org#Role"/>
+    
+
+
+    <!-- http://schema.org#Text -->
+
+    <rdf:Description rdf:about="http://schema.org#Text"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,500 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>?*</type>
+  <alext:method>compose.matchers.equivalence.EditMatcher#clone</alext:method>
+  <onto1>
+    <Ontology rdf:about="http://dbpedia.org/ontology/">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/wndomainsexperiment/dbpedia_2014.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://schema.org">
+      <location>file:/Users/audunvennesland/git/Compose/compose/./files/wndomainsexperiment/schema-org.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/City'/>
+      <entity2 rdf:resource='http://schema.org#City'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Language'/>
+      <entity2 rdf:resource='http://schema.org#Language'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Organisation'/>
+      <entity2 rdf:resource='http://schema.org#Organization'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>0.9166666666666666</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Mosque'/>
+      <entity2 rdf:resource='http://schema.org#Mosque'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/SportsEvent'/>
+      <entity2 rdf:resource='http://schema.org#SportsEvent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Event'/>
+      <entity2 rdf:resource='http://schema.org#Event'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+ 
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/AnatomicalStructure'/>
+      <entity2 rdf:resource='http://schema.org#AnatomicalStructure'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Church'/>
+      <entity2 rdf:resource='http://schema.org#Church'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Ligament'/>
+      <entity2 rdf:resource='http://schema.org#Ligament'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Airline'/>
+      <entity2 rdf:resource='http://schema.org#Airline'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Continent'/>
+      <entity2 rdf:resource='http://schema.org#Continent'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/BodyOfWater'/>
+      <entity2 rdf:resource='http://schema.org#BodyOfWater'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Park'/>
+      <entity2 rdf:resource='http://schema.org#Park'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Canal'/>
+      <entity2 rdf:resource='http://schema.org#Canal'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Mountain'/>
+      <entity2 rdf:resource='http://schema.org#Mountain'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Muscle'/>
+      <entity2 rdf:resource='http://schema.org#Muscle'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Country'/>
+      <entity2 rdf:resource='http://schema.org#Country'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Zoo'/>
+      <entity2 rdf:resource='http://schema.org#Zoo'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/School'/>
+      <entity2 rdf:resource='http://schema.org#School'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Painting'/>
+      <entity2 rdf:resource='http://schema.org#Painting'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/SkiResort'/>
+      <entity2 rdf:resource='http://schema.org#SkiResort'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/GolfCourse'/>
+      <entity2 rdf:resource='http://schema.org#GolfCourse'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/SportsTeam'/>
+      <entity2 rdf:resource='http://schema.org#SportsTeam'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Code'/>
+      <entity2 rdf:resource='http://schema.org#code'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Cemetery'/>
+      <entity2 rdf:resource='http://schema.org#Cemetery'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Nerve'/>
+      <entity2 rdf:resource='http://schema.org#Nerve'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Restaurant'/>
+      <entity2 rdf:resource='http://schema.org#Restaurant'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/TelevisionStation'/>
+      <entity2 rdf:resource='http://schema.org#TelevisionStation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Artery'/>
+      <entity2 rdf:resource='http://schema.org#Artery'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Hospital'/>
+      <entity2 rdf:resource='http://schema.org#Hospital'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Place'/>
+      <entity2 rdf:resource='http://schema.org#Place'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Vein'/>
+      <entity2 rdf:resource='http://schema.org#Vein'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Casino'/>
+      <entity2 rdf:resource='http://schema.org#Casino'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Bridge'/>
+      <entity2 rdf:resource='http://schema.org#Bridge'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Volcano'/>
+      <entity2 rdf:resource='http://schema.org#Volcano'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Person'/>
+      <entity2 rdf:resource='http://schema.org#Person'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Synagogue'/>
+      <entity2 rdf:resource='http://schema.org#Synagogue'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/State'/>
+      <entity2 rdf:resource='http://schema.org#State'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Hotel'/>
+      <entity2 rdf:resource='http://schema.org#Hotel'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/VideoGame'/>
+      <entity2 rdf:resource='http://schema.org#VideoGame'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Drug'/>
+      <entity2 rdf:resource='http://schema.org#Drug'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Sculpture'/>
+      <entity2 rdf:resource='http://schema.org#Sculpture'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/RadioStation'/>
+      <entity2 rdf:resource='http://schema.org#RadioStation'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Brewery'/>
+      <entity2 rdf:resource='http://schema.org#Brewery'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Library'/>
+      <entity2 rdf:resource='http://schema.org#Library'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Airport'/>
+      <entity2 rdf:resource='http://schema.org#Airport'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Website'/>
+      <entity2 rdf:resource='http://schema.org#WebSite'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Game'/>
+      <entity2 rdf:resource='http://schema.org#Game'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Museum'/>
+      <entity2 rdf:resource='http://schema.org#Museum'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Winery'/>
+      <entity2 rdf:resource='http://schema.org#Winery'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+ 
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Book'/>
+      <entity2 rdf:resource='http://schema.org#Book'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Status'/>
+      <entity2 rdf:resource='http://schema.org#status'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Bone'/>
+      <entity2 rdf:resource='http://schema.org#Bone'/>
+      <relation>=</relation>
+      <measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

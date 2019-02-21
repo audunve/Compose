@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+	xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+	xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+	xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+	<Alignment>
+		<xml>yes</xml>
+		<level>0</level>
+		<type>11</type>
+		<onto1>
+			<Ontology rdf:about="https://data.nasa.gov/ontologies/atmonto/ATM#">
+				<location>https://data.nasa.gov/ontologies/atmonto/ATM#</location>
+			</Ontology>
+		</onto1>
+		<onto2>
+			<Ontology rdf:about="http://www.project-best.eu/owl/airm-mono/airm.owl">
+				<location>http://www.project-best.eu/owl/airm-mono/airm.owl</location>
+			</Ontology>
+		</onto2>
+	
+	<!--ADDED FROM EXPERT ALIGNMENT SPREADSHEET-->
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#AirportServiceVehicle"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Vehicle"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.8</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#AircraftEngineManufacturer"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerospaceManufacturer"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#AirframeManufacturer"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#AerospaceManufacturer"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#CanadianAirport"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Aerodrome"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#DeicingTruck"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Vehicle"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#InternationalAirport"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Aerodrome"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#QRoute"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Route"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#RadialRoute"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Route"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#RNAVroute"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Route"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#TRoute"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Route"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#USairport"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Aerodrome"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#VictorRoute"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Route"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+	<map>
+		<Cell>
+			<entity1 rdf:resource="https://data.nasa.gov/ontologies/atmonto/equipment#VORroute"/>
+			<entity2 rdf:resource="http://www.project-best.eu/owl/airm-mono/airm.owl#Route"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+	
+
+</Alignment>
+</rdf:RDF>
