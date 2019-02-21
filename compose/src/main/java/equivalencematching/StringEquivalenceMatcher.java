@@ -2,6 +2,8 @@ package equivalencematching;
 
 import java.util.Properties;
 
+import org.neo4j.graphdb.DynamicLabel;
+import org.neo4j.graphdb.GraphDatabaseService;
 import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
@@ -18,6 +20,15 @@ import utilities.ISub;
 public class StringEquivalenceMatcher extends ObjectAlignment implements AlignmentProcess {
 
 	ISub isubMatcher = new ISub();
+	
+	double weight;
+	
+	
+	public StringEquivalenceMatcher(double weight) {
+		
+		this.weight = weight;
+		
+	}
 
 	public void align(Alignment alignment, Properties param) throws AlignmentException {
 
@@ -27,7 +38,7 @@ public class StringEquivalenceMatcher extends ObjectAlignment implements Alignme
 				for ( Object cl1: ontology1().getClasses() ){
 
 					// add mapping into alignment object 
-					addAlignCell(cl1,cl2, "=", iSubScore(cl1,cl2));  
+					addAlignCell(cl1,cl2, "=", weight*iSubScore(cl1,cl2));  
 				}
 
 			}
@@ -47,6 +58,7 @@ public class StringEquivalenceMatcher extends ObjectAlignment implements Alignme
 		//get the objects (entities)
 		String s1 = ontology1().getEntityName(o1).toLowerCase();
 		String s2 = ontology2().getEntityName(o2).toLowerCase();
+
 		
 		//System.out.println("Matching " +  s1 + " and " + s2);
 

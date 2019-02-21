@@ -25,14 +25,18 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
+import org.semanticweb.owlapi.model.OWLClass;
 
 import edu.stanford.nlp.simple.Sentence;
+import net.didion.jwnl.JWNLException;
 
 public class StringUtilities {
 
 	//private static OWLAxiomIndex ontology;
 	static OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 	static OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
+	
+
 
 	/**
 	 * Returns the lemma of a word using the Stanford SimpleNLP API
@@ -138,10 +142,10 @@ public class StringUtilities {
 	}
 	
 	/**
-	 * Takes a string as input and returns an arraylist of tokens from this string
+	 * Takes a string as input and returns set of tokens from this string
 	 * @param s: the input string to tokenize
 	 * @param lowercase: if the output tokens should be lowercased
-	 * @return an ArrayList of tokens
+	 * @return a set of tokens
 	 * @throws IOException 
 	 */
 	public static Set<String> tokenizeToSet(String s, boolean lowercase) throws IOException {
@@ -190,6 +194,66 @@ public class StringUtilities {
 		}
 
 		return strings;
+	}
+	
+	/**
+	 * Takes a string as input and returns set of lemmatized tokens from this string
+	 * @param s: the input string to tokenize and lemmatize
+	 * @param lowercase: if the output tokens should be lowercased
+	 * @return a set of lemmatized tokens from a string (e.g. sentence)
+	 * @throws IOException 
+	 */
+	public static Set<String> tokenizeAndLemmatizeToSet(String s, boolean lowercase) throws IOException {
+		if (s == null) {
+			return null;
+		}
+		
+		//remove stopwords
+		String stringWOStopWords = removeStopWords(s);
+
+		Set<String> strings = new HashSet<String>();
+
+		String current = "";
+		Character prevC = 'x';
+
+		for (Character c: stringWOStopWords.toCharArray()) {
+
+			if ((Character.isLowerCase(prevC) && Character.isUpperCase(c)) || 
+					c == '_' || c == '-' || c == ' ' || c == '/' || c == '\\' || c == '>') {
+
+				current = current.trim();
+
+				if (current.length() > 0) {
+					if (lowercase) 
+						strings.add(current.toLowerCase());
+					else
+						strings.add(current);
+				}
+
+				current = "";
+			}
+
+			if (c != '_' && c != '-' && c != '/' && c != '\\' && c != '>') {
+				current += c;
+				prevC = c;
+			}
+		}
+
+		current = current.trim();
+
+		if (current.length() > 0) {
+			if (!(current.length() > 4 && Character.isDigit(current.charAt(0)) && 
+					Character.isDigit(current.charAt(current.length()-1)))) {
+				strings.add(current.toLowerCase());
+			}
+		}
+		
+		Set<String> lemmatizedStrings = new HashSet<String>();
+		for (String string : strings) {
+			lemmatizedStrings.add(getLemma(string));
+		}
+
+		return lemmatizedStrings;
 	}
 
 	
@@ -652,6 +716,7 @@ public class StringUtilities {
 	 * @return results - basically an iterator that counts the number of equal strings in the two arrays
 	 * @throws OWLOntologyCreationException 
 	 * @throws IOException 
+	 * @throws JWNLException 
 	 *//*
 	public static int commonWords(String[] s1, String[] s2) {
 
@@ -706,10 +771,26 @@ public class StringUtilities {
 		return label;
 	}*/
 
-	public static void main(String args[]) throws OWLOntologyCreationException, IOException {
+	public static void main(String args[]) throws OWLOntologyCreationException, IOException, JWNLException {
+		
+		String test = "regularly";
+		System.out.println("The lemma of " + test + " is " + getLemma(test));
+		
+		//public static String stringTokenize(String s, boolean lowercase) {
+		
+		System.out.println("This is the tokenized version of the gloss where stopwords are removed: " + removeStopWords(stringTokenize(WordNet.getGloss("publication"), true)));
+		
+		//public static Set<String> tokenizeToSet(String s, boolean lowercase) throws IOException {
+		System.out.println("\nThis is the set version of the gloss");
+		Set<String> glossSet = tokenizeToSet(WordNet.getGloss("publication"), true);
+		for (String s : glossSet) {
+			System.out.println(s);
+		}
 		
 		String s = "cloudLayer";
 		String t = "cloud";
+		
+		System.out.println("Testing stringTokenize: " + stringTokenize(s, true));
 		
 		String u = getCompoundQualifier(s);
 		System.out.println(u);
@@ -725,6 +806,10 @@ public class StringUtilities {
 		//public static String splitCompoundString(String s) {
 		String propName = "isWrittenBy";
 		System.out.println("The new property name is " + splitCompoundString(propName));
+		
+		//public static String stringTokenize(String s, boolean lowercase) {
+		String def = "a written or printed work consisting of pages glued or sewn together along one side and bound in covers.";
+		System.out.println(stringTokenize(def, true));
 		
 		
 			

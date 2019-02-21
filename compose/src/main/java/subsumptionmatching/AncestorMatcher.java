@@ -32,10 +32,10 @@ import fr.inrialpes.exmo.ontowrap.OntowrapException;
 import utilities.ISub;
 
 @SuppressWarnings("deprecation")
-public class AncestorSubsumptionMatcher extends ObjectAlignment implements AlignmentProcess {
+public class AncestorMatcher extends ObjectAlignment implements AlignmentProcess {
 
 	
-	private static final Logger logger = LoggerFactory.getLogger(AncestorSubsumptionMatcher.class);
+	private static final Logger logger = LoggerFactory.getLogger(AncestorMatcher.class);
 
 	final double THRESHOLD = 0.6;
 	final String isA = "&lt;";
@@ -43,6 +43,8 @@ public class AncestorSubsumptionMatcher extends ObjectAlignment implements Align
 
 	Label labelOnto1;
 	Label labelOnto2;
+	
+	double weight;
 
 	GraphDatabaseService db;
 
@@ -52,10 +54,11 @@ public class AncestorSubsumptionMatcher extends ObjectAlignment implements Align
 
 
 	//constructor that receives the labels (ontology file names) from TestMatcher.java
-	public AncestorSubsumptionMatcher(String ontology1Name, String ontology2Name, GraphDatabaseService database) {
+	public AncestorMatcher(String ontology1Name, String ontology2Name, GraphDatabaseService database, double weight) {
 		labelOnto1 = DynamicLabel.label(ontology1Name);
 		labelOnto2 = DynamicLabel.label(ontology2Name);
 		db = database;
+		this.weight = weight;
 	}
 
 
@@ -64,6 +67,8 @@ public class AncestorSubsumptionMatcher extends ObjectAlignment implements Align
 	 */
 	public void align( Alignment alignment, Properties param ) throws AlignmentException {
 		
+		System.out.println("\nStarting Ancestor Matcher...");
+		long startTime = System.currentTimeMillis();
 		
 		try {
 
@@ -77,7 +82,7 @@ public class AncestorSubsumptionMatcher extends ObjectAlignment implements Align
 
 					// add mapping into alignment object for each entry in the matching map
 					for (Map.Entry<String, Double> entry : matchingMap.entrySet()) {
-						addAlignCell(cl1,cl2, entry.getKey(), entry.getValue());  
+						addAlignCell(cl1,cl2, entry.getKey(), weight*entry.getValue());  
 					}
 
 
@@ -86,6 +91,9 @@ public class AncestorSubsumptionMatcher extends ObjectAlignment implements Align
 			}
 
 		} catch (Exception e) { e.printStackTrace(); }
+		
+		long endTime = System.currentTimeMillis();
+		System.out.println("Ancestor Matcher completed in " + (endTime - startTime) / 1000 + " seconds.");
 	}
 
 	

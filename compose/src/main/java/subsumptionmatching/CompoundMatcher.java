@@ -20,27 +20,36 @@ import utilities.Relation;
  * @author audunvennesland
  *
  */
-public class CompoundSubsumptionMatcher extends ObjectAlignment implements AlignmentProcess {
+public class CompoundMatcher extends ObjectAlignment implements AlignmentProcess {
 
 
 	final double THRESHOLD = 0.9;
+	double weight;
 
-	public CompoundSubsumptionMatcher() {
+	public CompoundMatcher(double weight) {
+		this.weight = weight;
 	}
 
 
 
 	public void align( Alignment alignment, Properties param ) throws AlignmentException {
+		
+		System.out.println("\nStarting Compound Matcher...");
+		long startTime = System.currentTimeMillis();
+		
 		try {
 			// Match classes
 			for ( Object cl2: ontology2().getClasses() ){
 				for ( Object cl1: ontology1().getClasses() ){
 					// add mapping into alignment object 
-					addAlignCell(cl1,cl2, findCompoundRelation(cl1,cl2), compoundMatchWithSynonyms(cl1,cl2));  
+					addAlignCell(cl1,cl2, findCompoundRelation(cl1,cl2), weight*compoundMatchWithSynonyms(cl1,cl2));  
 				}
 			}
 
 		} catch (Exception e) { e.printStackTrace(); }
+		
+		long endTime = System.currentTimeMillis();
+		System.out.println("Compound Matcher completed in " + (endTime - startTime) / 1000 + " seconds.");
 	}
 
 //	public Relation getRelation(Object o1, Object o2) throws AlignmentException, OntowrapException {
@@ -122,6 +131,8 @@ public class CompoundSubsumptionMatcher extends ObjectAlignment implements Align
 
 				score = 0.8;
 			}
+		} else {
+			score = 0.0;
 		}
 
 		return score;

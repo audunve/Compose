@@ -14,6 +14,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -44,6 +45,84 @@ import fr.inrialpes.exmo.align.parser.AlignmentParser;
  */
 public class AlignmentOperations {
 	
+	public static void removeZeroConfidenceRelations(URIAlignment inputAlignment) throws AlignmentException {
+		
+		URIAlignment alignmentWithNonZeroRelations = new URIAlignment();
+		
+		//need to initialise the alignment with ontology URIs and the type of relation (e.g. A5AlgebraRelation) otherwise exceptions are thrown
+		URI onto1URI = inputAlignment.getOntology1URI();
+		URI onto2URI = inputAlignment.getOntology2URI();
+		
+		alignmentWithNonZeroRelations.init( onto1URI, onto2URI, A5AlgebraRelation.class, BasicConfidence.class );
+		
+		
+		for (Cell c : inputAlignment) {
+			if (c.getStrength() != 0.0) {
+				alignmentWithNonZeroRelations.addAlignCell(c.getObject1(), c.getObject2(), c.getRelation().getRelation(), c.getStrength());
+			} 
+		}
+
+	}
+	
+	
+	public static void sortAlignment(URIAlignment alignment) throws AlignmentException {
+		System.out.println("\nPrinting unsorted alignment");
+		for (Cell c : alignment) {
+			System.out.println(c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment() + " - " +c.getRelation().getRelation() + ": " + c.getStrength());
+		}
+	
+		Map<Cell, Double> alignmentMap = new HashMap<Cell, Double>();
+		
+		for (Cell c : alignment) {
+			alignmentMap.put(c, c.getStrength());
+		}
+		
+		Map<Cell, Double> sortedAlignmentMap = sortByValues(alignmentMap);
+		
+		System.out.println("\nPrinting sorted alignment");
+		for (Entry<Cell, Double> e : sortedAlignmentMap.entrySet()) {
+		System.out.println(e.getKey().getObject1AsURI().getFragment() + " - " + e.getKey().getObject2AsURI().getFragment() + " - " + e.getKey().getRelation().getRelation() + ": " + e.getValue());
+		}
+	}
+	
+	/**
+	 * Combines the relations from all alignments in a folder into a single alignment, basically the union. 
+	 * @param folderName
+	 * @return Alignment holding all relations from a set of individual alignments
+	 * @throws AlignmentException
+	   Feb 12, 2019
+	 */
+	public static URIAlignment combineAlignments(String folderName) throws AlignmentException {
+		URIAlignment combinedAlignment = new URIAlignment();
+		
+		File folder = new File(folderName);
+		File[] filesInDir = folder.listFiles();
+		
+		URIAlignment alignment = null;
+		File alignmentFile = null;
+		
+		AlignmentParser parser = new AlignmentParser();
+		
+		for (int i = 0; i < filesInDir.length; i++) {			
+			alignmentFile = filesInDir[i];
+			
+			alignment = (URIAlignment) parser.parse(alignmentFile.toURI().toString());
+			
+			System.out.println("Processing file " + alignmentFile.getPath() + " (" + alignment.nbCells() + " relations)");
+			
+			for (Cell c : alignment) {
+				combinedAlignment.addAlignCell(c.getObject1(), c.getObject2(),  c.getRelation().getRelation(), c.getStrength());
+			}
+
+		}
+		
+		System.out.println("The combined alignment contains " + combinedAlignment.nbCells() + " relations");
+		
+		//normalize confidences between [0..1]
+		normalizeConfidence(combinedAlignment);
+		
+		return combinedAlignment;
+	}
 	
 	/**
 	 * Extracts all subsumption relations from an alignment file
@@ -216,6 +295,12 @@ public class AlignmentOperations {
 		
 	}
 	
+	/**
+	 * Simply prints the ontology URIs of an input alignment
+	 * @param inputAlignmentFile
+	 * @throws AlignmentException
+	   Feb 12, 2019
+	 */
 	public static void printAlignmentURIs (File inputAlignmentFile) throws AlignmentException {
 		AlignmentParser parser = new AlignmentParser();
 		BasicAlignment inputAlignment = (BasicAlignment) parser.parse(inputAlignmentFile.toURI().toString());
@@ -223,10 +308,7 @@ public class AlignmentOperations {
 		for (Cell c : inputAlignment) {
 			System.out.println(c.getObject1AsURI().getSchemeSpecificPart());
 		}
-//		System.out.println("Printing URIs for ontology 2: ");
-//		for (Cell c : inputAlignment) {
-//			System.out.println(c.getObject2AsURI().getSchemeSpecificPart());
-//		}
+
 	}
 	
 	/**
@@ -346,8 +428,6 @@ public class AlignmentOperations {
 
 			System.out.println("- " + fullPath1 + " <-> " + fullPath2 +  ": " + c.getStrength());
 		}
-
-
 	}
 	
 	
@@ -412,8 +492,6 @@ public class AlignmentOperations {
 
 		URI onto1URI = initialAlignment.getOntology1URI();
 		URI onto2URI = initialAlignment.getOntology2URI();
-
-		System.out.println("The URIs are " + onto1URI.toString() + " and " + onto2URI.toString());
 
 		BasicAlignment newAlignment = new BasicAlignment();
 
@@ -651,6 +729,31 @@ public class AlignmentOperations {
 		System.out.println("Ontology 1 URI: " + originalAlignment.getOntology1URI());
 		System.out.println("Ontology 2 URI: " + originalAlignment.getOntology2URI());
 	}
+	
+	public static URIAlignment createAllRelations(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException, AlignmentException {
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
+		OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
+		URIAlignment alignment = new URIAlignment();
+		
+		URI onto1URI = onto1.getOntologyID().getOntologyIRI().toURI();
+		URI onto2URI = onto2.getOntologyID().getOntologyIRI().toURI();
+		System.out.println("Test: The URIs are " + onto1URI.toString() + " and " + onto2URI.toString());
+
+		//need to initialise the alignment with ontology URIs and the type of relation (e.g. A5AlgebraRelation) otherwise exceptions are thrown
+		alignment.init( onto1URI, onto2URI, A5AlgebraRelation.class, BasicConfidence.class );
+		
+		
+		for (OWLClass s : onto1.getClassesInSignature()) {
+			for (OWLClass t : onto2.getClassesInSignature()) {
+				alignment.addAlignCell(s.getIRI().toURI(), t.getIRI().toURI(), "=", 0.0);
+			}
+		}
+		
+		
+		return alignment;
+
+	}
 
 	/**
 	 * Increases an input value by 12 percent
@@ -860,6 +963,19 @@ public class AlignmentOperations {
 		return diffAlignment;
 
 	}
+	
+	public static <K, V extends Comparable<V>> Map<K, V> sortByValues(final Map<K, V> map) {
+	    Comparator<K> valueComparator =  new Comparator<K>() {
+	        public int compare(K k1, K k2) {
+	            int compare = map.get(k2).compareTo(map.get(k1));
+	            if (compare == 0) return 1;
+	            else return compare;
+	        }
+	    };
+	    Map<K, V> sortedByValues = new TreeMap<K, V>(valueComparator);
+	    sortedByValues.putAll(map);
+	    return sortedByValues;
+	}
 
 	/**
 	 * Testing
@@ -870,6 +986,60 @@ public class AlignmentOperations {
 	 * @throws OWLOntologyCreationException 
 	 */
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException, OWLOntologyCreationException {
+		
+		//public static URIAlignment createAllRelations(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException, AlignmentException {
+		File ontoFile1 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301302/301302-301.rdf");
+		File ontoFile2 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301302/301302-302.rdf");
+		
+		URIAlignment a = createAllRelations(ontoFile1, ontoFile2);
+		
+		String output = "./files/TestAlignment.rdf";
+		
+		File outputAlignment = new File(output);
+
+		PrintWriter writer = new PrintWriter(
+				new BufferedWriter(
+						new FileWriter(outputAlignment)), true); 
+		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+		
+		a.render(renderer);
+
+		writer.flush();
+		writer.close();
+		
+		/*COMBINE ALL ALIGNMENT FILES IN A FOLDER INTO A SINGLE ALIGNMENT FILE */
+		//public static URIAlignment combineAlignments(String folderName) throws AlignmentException {
+//		String folder = "./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/HARMONY/backup";
+//		URIAlignment combinedAlignment = combineAlignments(folder);
+//		for (Cell c : combinedAlignment) {
+//			System.out.println(c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment() + " - " + c.getRelation().getRelation() + " - " + c.getStrength());
+//		}
+		
+		/* SCALE THE CONFIDENCE OF RELATIONS BETWEEN [0..1]*/
+		//public static void normalizeConfidence (BasicAlignment initialAlignment) throws AlignmentException {
+		File alignmentFile = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/HARMONY/ComputedHarmonyAlignment.rdf");
+		File alignmentFile2 = new File("./files/_PHD_EVALUATION/OAEI2011/HARMONY/EQUIVALENCE/301302/301302-301-301302-302-RangeMatcher.rdf");
+		
+		AlignmentParser parser = new AlignmentParser();
+		URIAlignment alignment = (URIAlignment) parser.parse(alignmentFile.toURI().toString());
+		URIAlignment alignment2= (URIAlignment) parser.parse(alignmentFile2.toURI().toString());
+		
+		System.out.println("The alignent file contains "  + alignment2.nbCells() + " relations");
+		
+		//sortAlignment(alignment);
+		
+		System.out.println("\nPrinting initial alignment");
+		for (Cell c : alignment) {
+			System.out.println(c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment() + " - " + c.getRelation().getRelation() + " - " + c.getStrength());
+		}
+		
+		normalizeConfidence(alignment);
+		System.out.println("\nPrinting alignment after normalization");
+		for (Cell c : alignment) {
+			System.out.println(c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment() + " - " + c.getRelation().getRelation() + " - " + c.getStrength());
+		}
+		
+		sortAlignment(alignment);
 		
 		/* TRANSFORM FROM COMA ALIGNMENT TO ALIGNMENT API */
 //		String comafile = "./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/COMA/bibframe-schemaorg-coma.txt";
@@ -987,32 +1157,32 @@ public class AlignmentOperations {
 		
 //		*** CREATING A SUBSUMPTION ALIGNMENT FROM EQ ALIGNMENT*** 
 		
-		File eqReferenceAlignmentFile = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/REFALIGN/ReferenceAlignment-BIBFRAME-SCHEMAORG-EQ.rdf");
-
-		
-		File onto1File = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/bibframe.rdf");
-		File onto2File = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/schema-org.owl");
-
-		//convertToComaFormat(eqReferenceAlignmentFile, onto1File, onto2File); 
-
-						AlignmentParser parser = new AlignmentParser();
-				BasicAlignment a1 = (BasicAlignment) parser.parse(eqReferenceAlignmentFile.toURI().toString());
-
-				BasicAlignment subReferenceAlignment = createSubsumptionReferenceAlignment(a1);
-
-				//store the computed reference alignment to file
-				String AlignmentFileName = "./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/REFALIGN/ReferenceAlignment-BIBFRAME-SCHEMAORG-SUB.rdf";
-				File outputAlignment = new File(AlignmentFileName);
-
-				PrintWriter writer = new PrintWriter(
-						new BufferedWriter(
-								new FileWriter(outputAlignment)), true); 
-				AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-
-				subReferenceAlignment.render(renderer);
-
-				writer.flush();
-				writer.close();
+//		File eqReferenceAlignmentFile = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/REFALIGN/ReferenceAlignment-BIBFRAME-SCHEMAORG-EQ.rdf");
+//
+//		
+//		File onto1File = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/bibframe.rdf");
+//		File onto2File = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/schema-org.owl");
+//
+//		//convertToComaFormat(eqReferenceAlignmentFile, onto1File, onto2File); 
+//
+//						AlignmentParser parser = new AlignmentParser();
+//				BasicAlignment a1 = (BasicAlignment) parser.parse(eqReferenceAlignmentFile.toURI().toString());
+//
+//				BasicAlignment subReferenceAlignment = createSubsumptionReferenceAlignment(a1);
+//
+//				//store the computed reference alignment to file
+//				String AlignmentFileName = "./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/REFALIGN/ReferenceAlignment-BIBFRAME-SCHEMAORG-SUB.rdf";
+//				File outputAlignment = new File(AlignmentFileName);
+//
+//				PrintWriter writer = new PrintWriter(
+//						new BufferedWriter(
+//								new FileWriter(outputAlignment)), true); 
+//				AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+//
+//				subReferenceAlignment.render(renderer);
+//
+//				writer.flush();
+//				writer.close();
 
 
 

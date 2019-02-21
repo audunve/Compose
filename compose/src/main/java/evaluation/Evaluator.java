@@ -47,6 +47,7 @@ import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
+import fr.inrialpes.exmo.align.impl.URIAlignment;
 import fr.inrialpes.exmo.align.impl.eval.PRecEvaluator;
 import fr.inrialpes.exmo.align.parser.AlignmentParser;
 import utilities.StringUtilities;
@@ -103,7 +104,7 @@ public class Evaluator {
 	 * @throws AlignmentException
 	 * @throws URISyntaxException
 	 */
-	public static void evaluateSingleAlignment (BasicAlignment inputAlignment, String referenceAlignmentFileName) throws AlignmentException, URISyntaxException {
+	public static void evaluateSingleAlignment (URIAlignment inputAlignment, String referenceAlignmentFileName) throws AlignmentException, URISyntaxException {
 
 		AlignmentParser refAlignParser = new AlignmentParser(0);
 		AlignmentParser evalAlignParser = new AlignmentParser(1);

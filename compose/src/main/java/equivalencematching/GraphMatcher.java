@@ -33,7 +33,7 @@ import fr.inrialpes.exmo.ontowrap.OntowrapException;
 import utilities.ISub;
 
 @SuppressWarnings("deprecation")
-public class GraphEquivalenceMatcher extends ObjectAlignment implements AlignmentProcess {
+public class GraphMatcher extends ObjectAlignment implements AlignmentProcess {
 
 	final static double THRESHOLD = 0.6;
 
@@ -51,15 +51,17 @@ public class GraphEquivalenceMatcher extends ObjectAlignment implements Alignmen
 	ISub iSubMatcher = new ISub();
 
 	final static String key = "classname";
+	double weight;
 
 	
-	public GraphEquivalenceMatcher(String ontology1Name, String ontology2Name, GraphDatabaseService database) {
+	public GraphMatcher(String ontology1Name, String ontology2Name, GraphDatabaseService database, double weight) {
 		labelOnto1 = DynamicLabel.label(ontology1Name);
 		labelOnto2 = DynamicLabel.label(ontology2Name);
 		db = database;
+		this.weight = weight;
 	}
 	
-	public GraphEquivalenceMatcher() {
+	public GraphMatcher() {
 		
 	}
 	
@@ -77,7 +79,7 @@ public class GraphEquivalenceMatcher extends ObjectAlignment implements Alignmen
 
 					// add mapping into alignment object 
 
-					addAlignCell(cl1,cl2, "=", computeStructProx(cl1,cl2));  
+					addAlignCell(cl1,cl2, "=", weight*computeStructProx(cl1,cl2));  
 				}
 
 			}

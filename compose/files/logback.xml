@@ -5,8 +5,8 @@
 <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n</pattern>
 </encoder>
 </appender>
-<logger name="no.ntnu.idi.compose.ui" level="debug"/>
-<logger name="compose.matchers" level="debug"/>
+<logger name="no.ntnu.idi.compose.ui" level="error"/>
+<logger name="compose.matchers" level="error"/>
 <root level="ERROR">
 <appender-ref ref="STDOUT" />
 </root>

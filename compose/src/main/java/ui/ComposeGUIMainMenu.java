@@ -38,8 +38,8 @@ import matchercombination.ParallelCombination;
 import matchercombination.SequentialCombination;
 import net.didion.jwnl.JWNLException;
 import ontologyprofiling.OntologyProfiler;
-import subsumptionmatching.AncestorSubsumptionMatcher;
-import subsumptionmatching.CompoundSubsumptionMatcher;
+import subsumptionmatching.AncestorMatcher;
+import subsumptionmatching.CompoundMatcher;
 import subsumptionmatching.LexicalSubsumptionMatcher;
 import utilities.AlignmentOperations;
 import utilities.StringUtilities;
@@ -2863,7 +2863,7 @@ public class ComposeGUIMainMenu extends JFrame {
 				//compound matcher
 				if (checkBoxCompoundMatcher.isSelected()) {
 
-					Alignment a = new CompoundSubsumptionMatcher();
+					Alignment a = new CompoundMatcher();
 					threshold = (double)sliderCompoundMatcher.getValue()/100;
 
 					try {
@@ -3291,7 +3291,7 @@ public class ComposeGUIMainMenu extends JFrame {
 					}
 
 					//perform the matching
-					a = new AncestorSubsumptionMatcher(ontologyParameter1,ontologyParameter2, db);
+					a = new AncestorMatcher(ontologyParameter1,ontologyParameter2, db);
 					threshold = (double)sliderAncestorMatcher.getValue()/100;
 					try {
 						a.init(ontoFile1.toURI(), ontoFile2.toURI());

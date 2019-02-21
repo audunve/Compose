@@ -31,15 +31,15 @@ import backup.TrigramMatcher;
 import backup.WNRiWordNetDistance;
 import equivalencematching.DefinitionsEquivalenceMatcher;
 import equivalencematching.StringEquivalenceMatcher;
-import equivalencematching.PropertyEquivalenceMatcher;
+import equivalencematching.PropertyMatcher_Slow;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import graph.Graph;
 import meronymmatching.WNMeronymMatcher;
-import subsumptionmatching.AncestorSubsumptionMatcher;
-import subsumptionmatching.CompoundSubsumptionMatcher;
+import subsumptionmatching.AncestorMatcher;
+import subsumptionmatching.CompoundMatcher;
 import subsumptionmatching.DefinitionsSubsumptionMatcher;
-import subsumptionmatching.LexicalSubsumptionMatcher;
+import subsumptionmatching.LexicalSubsumptionMatcher_oldest;
 import utilities.StringUtilities;
 
 
@@ -147,7 +147,7 @@ public class TestMatcher {
 			break;
 			
 		case "PROPERTYMATCHER":
-			a = new PropertyEquivalenceMatcher();
+			a = new PropertyMatcher_Slow();
 			threshold = 0.2;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -352,7 +352,7 @@ public class TestMatcher {
 			creator.createOntologyGraph(o2, labelO2);
 			
 			//perform the matching
-			a = new AncestorSubsumptionMatcher(ontologyParameter1,ontologyParameter2, db);
+			a = new AncestorMatcher(ontologyParameter1,ontologyParameter2, db);
 			threshold = 0.6;
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
 			params = new Properties();
@@ -381,7 +381,7 @@ public class TestMatcher {
 
 		case "SUBSUMPTION_COMPOUND":
 			
-			a = new CompoundSubsumptionMatcher();
+			a = new CompoundMatcher();
 			threshold = 0.6;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
@@ -473,7 +473,7 @@ public class TestMatcher {
 
 		case "SUBSUMPTION_WORDNET":
 			
-			a = new LexicalSubsumptionMatcher();
+			a = new LexicalSubsumptionMatcher_oldest();
 			threshold = 0.6;
 
 			a.init(ontoFile1.toURI(), ontoFile2.toURI());
