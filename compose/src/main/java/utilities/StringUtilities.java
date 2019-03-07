@@ -609,7 +609,7 @@ public class StringUtilities {
 		
 	}
 	
-	public static String getCompoundWordsWithSpaces (String s) {
+	public static String getCompoundWordWithSpaces (String s) {
 		
 		//System.err.println("From getCompoundWordsWithSpaces: String s is " + s);
 		

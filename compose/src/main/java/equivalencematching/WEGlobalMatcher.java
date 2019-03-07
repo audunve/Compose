@@ -10,7 +10,7 @@ import org.semanticweb.owl.align.Alignment;
 import org.semanticweb.owl.align.AlignmentException;
 import org.semanticweb.owl.align.AlignmentProcess;
 
-
+import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.ObjectAlignment;
 import fr.inrialpes.exmo.ontosim.vector.CosineVM;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
@@ -25,8 +25,8 @@ public class WEGlobalMatcher extends ObjectAlignment implements AlignmentProcess
 	
 	//TODO: The vector files should be created in run-time
 	
-	 String vectorFileOnto1 = "./files/ATMONTO_AIRM/vectorfiles/ATMOntoCoreMerged.txt";
-	 String vectorFileOnto2 = "./files/ATMONTO_AIRM/vectorfiles/airm-mono.txt";
+	 static String vectorFileOnto1 = "./files/ATMOntoCoreMerged.txt";
+	 static String vectorFileOnto2 = "./files/airm-mono.txt";
 	
 	 File vc1File = new File(vectorFileOnto1);
 	 File vc2File = new File(vectorFileOnto2);
@@ -39,6 +39,24 @@ public class WEGlobalMatcher extends ObjectAlignment implements AlignmentProcess
 		//standard constructor
 		public WEGlobalMatcher() {
 
+		}
+		
+		public static void main(String[] args) throws AlignmentException {
+			File ontoFile1 = new File("./files/_PHD_EVALUATION/ATMONTO-AIRM/ONTOLOGIES/ATMOntoCoreMerged.owl");
+			File ontoFile2 = new File("./files/_PHD_EVALUATION/ATMONTO-AIRM/ONTOLOGIES/airm-mono.owl");
+			
+			AlignmentProcess a = new WEGlobalMatcher(vectorFileOnto1, vectorFileOnto2);
+			a.init(ontoFile1.toURI(), ontoFile2.toURI());
+			Properties params = new Properties();
+			params.setProperty("", "");
+			a.align((Alignment)null, params);	
+			BasicAlignment WEGlobalMatcherAlignment = new BasicAlignment();
+
+			WEGlobalMatcherAlignment = (BasicAlignment) (a.clone());
+
+			WEGlobalMatcherAlignment.normalise();
+			
+			
 		}
 
 	public void align(Alignment alignment, Properties param) throws AlignmentException {

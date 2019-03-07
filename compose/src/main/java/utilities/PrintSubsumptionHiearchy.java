@@ -21,7 +21,7 @@ import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
  * @author audunvennesland (originally Sean Bechhofer)
  */
 public class PrintSubsumptionHiearchy {
-    private static int INDENT = 4;
+    private static int INDENT = 1;
     private final OWLReasonerFactory reasonerFactory;
     private final OWLOntology ontology;
     private final PrintStream out;
@@ -96,7 +96,7 @@ public class PrintSubsumptionHiearchy {
     	 	OWLReasonerFactory reasonerFactory = new StructuralReasonerFactory();
     	
     	 	//the file for which its subsumption hiearchy will be printed
-		File ontoFile = new File("./files/ESWC_WordEmbedding_Experiment/ATMONTO-AIRM-O/ontologies/ATMOntoCoreMerged.owl");
+		File ontoFile = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/bibframe.rdf");
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
 

@@ -104,6 +104,8 @@ public class LexicalSubsumptionMatcher_20022019 extends ObjectAlignment implemen
 			for (Object source : ontology1().getClasses()) {
 				sourceName = ontology1().getEntityName(source).toLowerCase();
 				
+				if (WordNet.containedInWordNet(sourceName))
+				
 				hyponyms = WordNet.getAllHyponymsAsSet(sourceName);
 				glossTokens = StringUtilities.tokenizeToSet(WordNet.getGloss(sourceName), true);
 				System.out.println("sourceName = " + sourceName);
@@ -135,10 +137,7 @@ public class LexicalSubsumptionMatcher_20022019 extends ObjectAlignment implemen
 				for ( Object target: ontology2().getClasses() ){
 					long start = System.currentTimeMillis();
 					matchingMap = wordNetSubsumptionMatch(source, target);
-					long stop = System.currentTimeMillis();
-					System.out.println("Source : " + source.toString());
-					System.out.println("Creating the matchingMap for target concept  " + target + " takes " + (stop - startTime) / 1000 + " seconds.");
-					
+					long stop = System.currentTimeMillis();					
 					for (Map.Entry<String, Double> entry : matchingMap.entrySet()) {
 
 						// add mapping into alignment object 

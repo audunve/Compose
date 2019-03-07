@@ -24,35 +24,35 @@ public class FileUtils {
 			
 			File ontoFile1 = new File("./files/_PHD_EVALUATION/ATMONTO-AIRM/ONTOLOGIES/ATMOntoCoreMerged.owl");
 			File ontoFile2 = new File("./files/_PHD_EVALUATION/ATMONTO-AIRM/ONTOLOGIES/airm-mono.owl");
-			File ontoFile3 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301302/301302-301.rdf");
-			File ontoFile4 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301302/301302-302.rdf");
-			File ontoFile5 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301303/301303-303.rdf");
-			File ontoFile6 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301304/301304-304.rdf");
+//			File ontoFile3 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301302/301302-301.rdf");
+//			File ontoFile4 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301302/301302-302.rdf");
+//			File ontoFile5 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301303/301303-303.rdf");
+//			File ontoFile6 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301304/301304-304.rdf");
 			
 			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 			OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
 			OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(ontoFile2);	
-			OWLOntology onto3 = manager.loadOntologyFromOntologyDocument(ontoFile3);	
-			OWLOntology onto4 = manager.loadOntologyFromOntologyDocument(ontoFile4);	
-			OWLOntology onto5 = manager.loadOntologyFromOntologyDocument(ontoFile5);	
-			OWLOntology onto6 = manager.loadOntologyFromOntologyDocument(ontoFile6);	
+//			OWLOntology onto3 = manager.loadOntologyFromOntologyDocument(ontoFile3);	
+//			OWLOntology onto4 = manager.loadOntologyFromOntologyDocument(ontoFile4);	
+//			OWLOntology onto5 = manager.loadOntologyFromOntologyDocument(ontoFile5);	
+//			OWLOntology onto6 = manager.loadOntologyFromOntologyDocument(ontoFile6);	
 			
 			Set<String> corpus = new HashSet<String>();
 			corpus.addAll(OntologyOperations.getAllOntologyTokens(onto1));
 			corpus.addAll(OntologyOperations.getAllOntologyTokens(onto2));
-			corpus.addAll(OntologyOperations.getAllOntologyTokens(onto3));
-			corpus.addAll(OntologyOperations.getAllOntologyTokens(onto4));
-			corpus.addAll(OntologyOperations.getAllOntologyTokens(onto5));
-			corpus.addAll(OntologyOperations.getAllOntologyTokens(onto6));
+//			corpus.addAll(OntologyOperations.getAllOntologyTokens(onto3));
+//			corpus.addAll(OntologyOperations.getAllOntologyTokens(onto4));
+//			corpus.addAll(OntologyOperations.getAllOntologyTokens(onto5));
+//			corpus.addAll(OntologyOperations.getAllOntologyTokens(onto6));
 			
 			System.out.println("The corpus contains " + corpus.size() + " tokens");
 			for (String s : corpus) {
 				System.out.println(s);
 			}
 			
-//			String inputFile = "./files/_PHD_EVALUATION/EMBEDDINGS/wikipedia-300.txt";
-//			
-//			removeLines(corpus, inputFile);
+			String inputFile = "./files/_PHD_EVALUATION/EMBEDDINGS/skybrary_trained.txt";
+			
+			removeLines(corpus, inputFile);
 
 			
 			
@@ -61,7 +61,7 @@ public class FileUtils {
 		
 		public static File removeLines(Set<String> corpus, String inputFile) throws IOException {
 			
-			File processedFile = new File("./files/processedFile_Lemmatized_Wikipedia.txt");
+			File processedFile = new File("./files/skybrary_trained_ontology_tokens.txt");
 			
 			BufferedReader br=new BufferedReader(new FileReader(inputFile));
 			

@@ -47,6 +47,8 @@ public class VectorExtractor {
 
 	static OWLDataFactory factory = manager.getOWLDataFactory();
 
+	//private static DecimalFormat df6 = new DecimalFormat(".######");
+
 	public static String getConceptURI(OWLClass cls) {
 		String conceptURI = cls.getIRI().toString();
 
@@ -127,7 +129,7 @@ public class VectorExtractor {
 		return test;
 	}
 
-
+	
 
 	/**
 	 * Checks whether a string contains only letters 
@@ -151,20 +153,20 @@ public class VectorExtractor {
 	 * @param inputVectors ArrayList holding a set of input vectors
 	 * @return an average of all input vectors
 	 */
-//	public static double averageVectors (ArrayList<Double> inputVectors) {
-//
-//		int num = inputVectors.size();
-//
-//		double sum = 0;
-//
-//		for (Double d : inputVectors) {
-//			sum+=d;
-//		}
-//
-//		double averageVectors = sum/num;
-//
-//		return averageVectors;
-//	}
+	public static double averageVectors (ArrayList<Double> inputVectors) {
+
+		int num = inputVectors.size();
+
+		double sum = 0;
+
+		for (Double d : inputVectors) {
+			sum+=d;
+		}
+
+		double averageVectors = sum/num;
+
+		return averageVectors;
+	}
 
 
 
@@ -202,21 +204,280 @@ public class VectorExtractor {
 
 		return vectorMap;
 	}
+	
+	/**
+	 * Returns a "global vector", that is an average of a label vector and a comment vector
+	 * @param labelVector The average vector for an OWL class´ label
+	 * @param commentVector The average vector for all (string) tokens in the OWL class´ RDFS comment
+	 * @return a set of vectors averaged between label vectors and comment vectors
+	 * @throws IOException 
+	 */
+	public static double[] getGlobalVector(String label, String def, Map<String, ArrayList<Double>> vectorMap) throws IOException {
 
+		ArrayList<Double> labelVectors = getLabelVector(label, vectorMap);
+		
+		ArrayList<Double> commentVectors = getCommentVector(def, vectorMap);
+
+		ArrayList<Double> globalVectors = new ArrayList<Double>();
+
+		ArrayList<Double> globalVector = new ArrayList<Double>();
+		
+		double[] vectors = new double[300];
+
+
+		//a fixed dimension of vectors is 300
+		int numVectors = 300;
+
+		//if there also are comment vectors, we average the label vector and the comment vector (already averaged between all token vectors for each comment) into a global vector
+		//TODO: Simplify this computation of averages
+		if (labelVectors != null && !labelVectors.isEmpty() && commentVectors!= null && !commentVectors.isEmpty()) {
+
+			double average = 0;
+			for (int i = 0; i < numVectors; i++) {
+				if (labelVectors.size() < 1 && commentVectors.size() < 1) {
+					return null;
+				} else if (labelVectors.size() < 1 && commentVectors.size() > 0) {
+					average = commentVectors.get(i);
+				} else if (labelVectors.size() > 0 && commentVectors.size() < 1) { 
+					average = labelVectors.get(i);
+				} else {
+
+					if (labelVectors.get(i) == 0.0) {
+						average = commentVectors.get(i);
+					} else if (commentVectors.get(i) == 0.0) {
+						average = labelVectors.get(i);
+					} else {
+
+						average = (labelVectors.get(i) + commentVectors.get(i)) / 2;
+					}
+				}
+				globalVectors.add(average);
+
+			}
+
+		} else {
+			
+			globalVector = labelVectors;
+		}
+
+		//round the vector value to 6 decimals
+		for (double d : globalVectors) {
+			globalVector.add(MathUtils.round(d, 6));
+		}
+
+		
+		if (globalVector != null && !globalVector.isEmpty()) {
+		
+		for (int i = 0; i < vectors.length; i++) {
+			vectors[i] = globalVector.get(i);
+		}
+		
+		return vectors;
+		
+		} else {
+			return null;
+		}
+
+	}
+	
 	/**
 	 * Checks if the vectorMap contains the label of an OWL class as key and if so the vectors of the label are returned. 
 	 * @param cls An input OWL class
 	 * @param vectorMap The Map holding words and corresponding vectors
 	 * @return a set of vectors (as a string) associated with the label
 	 */
-	public static String getLabelVector(OWLClass cls, Map<String, ArrayList<Double>> vectorMap) {
+	public static ArrayList<Double> getLabelVector(String label, Map<String, ArrayList<Double>> vectorMap) {
+
+
+		ArrayList<ArrayList<Double>> avgLabelVectors = new ArrayList<ArrayList<Double>>();
+		ArrayList<Double> labelVector = new ArrayList<Double>();
+		ArrayList<Double> localVectors = new ArrayList<Double>();
+
+		//if the class name is not a compound, turn it into lowercase, 
+		if (!StringUtilities.isCompoundWord(label)) {
+
+			String lcLabel = label.toLowerCase();
+
+			//if the class name is in the vectormap, get its vectors
+			if (vectorMap.containsKey(lcLabel)) {
+				labelVector = vectorMap.get(lcLabel);
+
+			} else {
+
+				labelVector = null;
+			}
+
+
+			//if the class name is a compound, split the compounds, and if the vectormap contains ANY of the compounds, extract the vectors from 
+			//the compound parts and average them in order to return the vector for the compound class name
+		} else if (StringUtilities.isCompoundWord(label)) {
+			
+
+			//get the compounds and check if any of them are in the vector file
+			String[] compounds = label.split("(?<=.)(?=\\p{Lu})");
+
+
+			for (int i = 0; i < compounds.length; i++) {
+				
+				if (vectorMap.containsKey(compounds[i].toLowerCase())) {
+					
+					localVectors = vectorMap.get(compounds[i].toLowerCase());
+					
+					avgLabelVectors.add(localVectors);
+
+
+				} else {
+					
+					labelVector = null;
+				}
+			}
+			
+			//averages all vector arraylists
+			labelVector = getAVGVectors(avgLabelVectors, 300);
+
+		}
+
+		return labelVector;
+
+
+	}
+	
+	/**
+	 * Returns the average vector of all tokens represented in the RDFS comment for an OWL class
+	 * @param onto The ontology holding the OWL class
+	 * @param cls The OWL class
+	 * @param vectorMap The map of vectors from en input vector file
+	 * @return An average vector for all (string) tokens in an RDFS comment
+	 * @throws IOException
+	 */
+	public static ArrayList<Double> getCommentVector(String comment, Map<String, ArrayList<Double>> vectorMap) throws IOException {
+		
+		
+		ArrayList<ArrayList<Double>> avgCommentVectors = new ArrayList<ArrayList<Double>>();
+
+		ArrayList<Double> commentVector = new ArrayList<Double>();
+
+		ArrayList<Double> commentVectors = new ArrayList<Double>();
+
+		if (comment != null && !comment.isEmpty()) {
+
+			//create tokens from comment
+			ArrayList<String> tokens = StringUtilities.tokenize(comment, true);
+			
+
+			if (containedInVectorMap(tokens, vectorMap)) {
+			//put all tokens that have an associated vector in the vectorMap in allCommentVectors along with the associated vector
+			for (String s : tokens) {
+				
+				if (vectorMap.containsKey(s)) {
+
+					commentVectors = vectorMap.get(s);
+					
+					avgCommentVectors.add(commentVectors);
+
+				}
+			} 
+			
+			//create average vector representing all token vectors in each comment
+			//averages all vector arraylists
+			commentVector = getAVGVectors(avgCommentVectors, 300);
+			
+			} 
+
+			else {
+				commentVector = null;
+			}
+			
+		} else {
+			commentVector = null;
+		}
+		
+
+		return commentVector;
+
+	}
+	
+	private static double[] getAVGVectorsToArray(ArrayList<ArrayList<Double>> a_input, int numVectors) {
+
+		ArrayList<Double> avgList = new ArrayList<Double>();
+
+		double[] avgArray = new double[300];
+
+		double[] temp = new double[numVectors];
+
+
+		for (ArrayList<Double> singleArrayList : a_input) {
+			for (int i = 0; i < temp.length; i++) {
+				temp[i] += singleArrayList.get(i);
+			}
+		}
+
+		for (int i = 0; i < temp.length; i++) {
+			avgList.add(temp[i]/(double) a_input.size());
+		}
+
+		for (int i = 0; i < avgArray.length; i++) {
+			avgArray[i] = avgList.get(i);
+		}
+
+
+		return avgArray;
+	}
+
+	
+	
+	private static ArrayList<Double> getAVGVectors(ArrayList<ArrayList<Double>> a_input, int numVectors) {
+
+		ArrayList<Double> avgList = new ArrayList<Double>();
+		
+		double[] temp = new double[numVectors];
+		
+		
+		for (ArrayList<Double> singleArrayList : a_input) {
+			for (int i = 0; i < temp.length; i++) {
+				temp[i] += singleArrayList.get(i);
+			}
+		}
+		
+		for (int i = 0; i < temp.length; i++) {
+			avgList.add(temp[i]/(double) a_input.size());
+		}
+		
+		
+		
+		return avgList;
+	}
+	
+	private static boolean containedInVectorMap (ArrayList<String> tokens, Map<String, ArrayList<Double>> vectorMap) {
+		
+		boolean contains = false;
+		
+		for (String s : tokens) {
+			if (vectorMap.containsKey(s)) {
+				contains = true;
+			}
+		}
+		
+		return contains;
+		
+	}
+
+	
+	/**
+	 * Checks if the vectorMap contains the label of an OWL class as key and if so the vectors of the label are returned. 
+	 * @param cls An input OWL class
+	 * @param vectorMap The Map holding words and corresponding vectors
+	 * @return a set of vectors (as a string) associated with the label
+	 */
+	public static ArrayList<Double> getLemmatizedLabelVector(String lemmatizedConceptName, Map<String, ArrayList<Double>> vectorMap) {
 
 		StringBuffer sb = new StringBuffer();
 
 		ArrayList<Double> labelVectors = new ArrayList<Double>();
 		Map<String, ArrayList<Double>> compoundVectors = new HashMap<String, ArrayList<Double>>();
-		String labelVector = null;
-		String label = cls.getIRI().getFragment().toString();
+		ArrayList<Double> labelVector = new ArrayList<Double>();
+//		String labelVector = null;
+		String label = lemmatizedConceptName;
 
 		//if the class name is not a compound, turn it into lowercase, 
 		if (!isCompound(label)) {
@@ -227,53 +488,40 @@ public class VectorExtractor {
 			if (vectorMap.containsKey(lcLabel)) {
 				labelVectors = vectorMap.get(lcLabel);
 
-				for (double d : labelVectors) {
-					sb.append(Double.toString(d) + " ");
-
-				}
+//				for (double d : labelVectors) {
+//					sb.append(Double.toString(d) + " ");
+//
+//				}
 
 			} else {
 
 				labelVectors = null;
 			}
 
-			labelVector = sb.toString();
+			labelVector = labelVectors;
 
-			//if the class name is a compound, check first if the full compound work is in the vectormap, if so use this. If not, split the compounds, see if the compund head is in the vectormap. If so, use this. If not, if the vectormap contains ANY of the compounds, extract the vectors from 
+			//if the class name is a compound, split the compounds, and if the vectormap contains ANY of the compounds, extract the vectors from 
 			//the compound parts and average them in order to return the vector for the compound class name
 		} else if (isCompound(label)) {
 
-			String lcLabel = label.toLowerCase();
-			
 			//get the compounds and check if any of them are in the vector file
 			String[] compounds = label.split("(?<=.)(?=\\p{Lu})");
-			String compoundHead = StringUtilities.getCompoundHead(label);
-
-			if (vectorMap.containsKey(lcLabel)) {
-				labelVectors = vectorMap.get(lcLabel);
-			}
-
-			else if (vectorMap.containsKey(compoundHead.toLowerCase())) {
-				labelVectors = vectorMap.get(compoundHead);
-			}
-
-			else {
-
-				for (int i = 0; i < compounds.length; i++) {
-					if (vectorMap.containsKey(compounds[i].toLowerCase())) {
-						labelVectors = vectorMap.get(compounds[i].toLowerCase());
-
-						compoundVectors.put(compounds[i].toLowerCase(), labelVectors);
 
 
-					} else {
-						labelVectors = null;
-					}
+			for (int i = 0; i < compounds.length; i++) {
+				if (vectorMap.containsKey(compounds[i].toLowerCase())) {
+					labelVectors = vectorMap.get(compounds[i].toLowerCase());
+
+					compoundVectors.put(compounds[i].toLowerCase(), labelVectors);
+
+
+				} else {
+					labelVectors = null;
 				}
 			}
 
 			//we need to create average scores for each vector dimension (i.e. the rows of a vector matrix)
-			/*ArrayList<Double> avgs = new ArrayList<Double>();
+			ArrayList<Double> avgs = new ArrayList<Double>();
 
 			//get the number (dimension) of vectors for each entry (should be 300)
 			int numVectors = 300;
@@ -313,13 +561,12 @@ public class VectorExtractor {
 
 			}
 
-			for (double d : avgs) {
-				sb.append(Double.toString(MathUtils.round(d, 6)) + " ");
+//			for (double d : avgs) {
+//				sb.append(Double.toString(MathUtils.round(d, 6)) + " ");
+//
+//			}
 
-			}*/
-
-			labelVector = ProcessEmbeddings.getAVGVectors(compoundVectors, compoundVectors.size());
-//			labelVector = sb.toString();
+			labelVector = avgs;
 
 		}
 
@@ -330,266 +577,4 @@ public class VectorExtractor {
 	}
 
 
-
-	/**
-	 * Returns the average vector of all tokens represented in the RDFS comment for an OWL class
-	 * @param onto The ontology holding the OWL class
-	 * @param cls The OWL class
-	 * @param vectorMap The map of vectors from en input vector file
-	 * @return An average vector for all (string) tokens in an RDFS comment
-	 * @throws IOException
-	 */
-	public static String getCommentVector(OWLOntology onto, OWLClass cls, Map<String, ArrayList<Double>> vectorMap) throws IOException {
-
-
-		Map<String, ArrayList<Double>> allCommentVectors = new HashMap<String, ArrayList<Double>>();
-		StringBuffer sb = new StringBuffer();
-		String comment = getComment(onto, cls);
-		String commentVector = null;
-
-		ArrayList<Double> commentVectors = new ArrayList<Double>();
-
-		if (comment != null && !comment.isEmpty()) {
-
-			//create tokens from comment
-			ArrayList<String> tokens = StringUtilities.tokenize(comment, true);
-
-			//put all tokens that have an associated vector in the vectorMap in allCommentVectors along with the associated vector
-			for (String s : tokens) {
-				if (vectorMap.containsKey(s)) {
-					commentVectors = vectorMap.get(s);
-
-					allCommentVectors.put(s, commentVectors);
-
-				} else {
-					commentVectors = null;
-				}
-
-			}
-
-			//create average vector representing all token vectors in each comment
-			/*ArrayList<Double> avgs = new ArrayList<Double>();
-
-			int numVectors = 0;
-
-			for (Entry<String, ArrayList<Double>> e : vectorMap.entrySet()) {
-
-				numVectors = e.getValue().size();
-
-			}
-
-			for (int i = 0; i < numVectors; i++) {
-
-				ArrayList<Double> temp = new ArrayList<Double>();
-
-				for (Entry<String, ArrayList<Double>> e : allCommentVectors.entrySet()) {
-
-					ArrayList<Double> a = e.getValue();
-
-					temp.add(a.get(i));
-
-				}
-
-				double avg = 0;
-
-				int entries = temp.size();
-
-				for (double d : temp) {
-					avg += d;
-				}
-
-				double newAvg = avg/entries;
-
-
-				if (newAvg != 0.0 && !Double.isNaN(newAvg)) {
-					avgs.add(newAvg);
-
-				}
-
-			}
-
-			for (double d : avgs) {
-				sb.append(Double.toString(MathUtils.round(d, 6)) + " ");
-
-			}*/
-
-			commentVector = ProcessEmbeddings.getAVGVectors(allCommentVectors, allCommentVectors.size());
-			
-			//commentVector = sb.toString();
-			
-		} else {
-			commentVector = null;
-		}
-			
-			
-
-		return commentVector;
-
 	}
-
-
-
-	/**
-	 * Returns a "global vector", that is an average of a label vector and a comment vector
-	 * @param labelVector The average vector for an OWL class´ label
-	 * @param commentVector The average vector for all (string) tokens in the OWL class´ RDFS comment
-	 * @return a set of vectors averaged between label vectors and comment vectors
-	 */
-	public static String getGlobalVector(String labelVector, String commentVector) {
-
-		//average label vectors and comment vectors into global vectors
-		String[] v1 = null;
-		String[] v2 = null;
-		StringBuilder sb = new StringBuilder();
-		ArrayList<Double> globalVectors = new ArrayList<Double>();
-		ArrayList<Double> labelVectors = new ArrayList<Double>();
-		ArrayList<Double> commentVectors = new ArrayList<Double>();
-
-
-		//there is always a label vector
-		if (labelVector != null ) {
-			v1 = labelVector.split(" ");
-
-			if (v1 != null) {
-				for (String s : v1) {
-					if (!s.isEmpty()) {
-						labelVectors.add(Double.valueOf(s));
-					}
-				}
-			} else {
-				labelVectors = null;
-			}
-
-		}
-
-		//a fixed dimension of vectors is 300
-		int numVectors = 300;
-
-		//if there also are comment vectors, we average the label vector and the comment vector (already averaged between all token vectors for each comment) into a global vector
-		if (commentVector!= null && !commentVector.isEmpty()) {
-			v2 = commentVector.split(" ");
-
-			for (String t : v2) {
-				if (!t.isEmpty()) {
-					commentVectors.add(Double.valueOf(t));
-				} else {
-					commentVectors = null;
-				}
-			}
-
-			double average = 0;
-			for (int i = 0; i < numVectors; i++) {
-				if (labelVectors.size() < 1 && commentVectors.size() < 1) {
-					sb = null;
-				} else if (labelVectors.size() < 1 && commentVectors.size() > 0) {
-					average = commentVectors.get(i);
-				} else if (labelVectors.size() > 0 && commentVectors.size() < 1) { 
-					average = labelVectors.get(i);
-				} else {
-
-					if (labelVectors.get(i) == 0.0) {
-						average = commentVectors.get(i);
-					} else if (commentVectors.get(i) == 0.0) {
-						average = labelVectors.get(i);
-					} else {
-
-						average = (labelVectors.get(i) + commentVectors.get(i)) / 2;
-					}
-				}
-				globalVectors.add(average);
-
-			}
-
-		} 
-
-		//round the vector value to 6 decimals
-		for (double d : globalVectors) {
-			sb.append(MathUtils.round(d, 6) + " ");
-		}
-
-		String globalVector = sb.toString();
-
-		return globalVector;
-
-	}
-
-
-
-
-	/**
-	 * The main method
-	 * @param args
-	 * @throws OWLOntologyCreationException
-	 * @throws IOException
-	 */
-	public static void main(String[] args) throws OWLOntologyCreationException, IOException {
-
-		Scanner scanner = new Scanner(new 
-				InputStreamReader(System.in));
-
-		//read the ontology files folder from console
-		System.out.println("Enter path to ontology file folder: ");  
-		String ontoFileName = scanner.nextLine();
-
-		//read the vector file from console
-		System.out.println("Enter path to vector file:");  
-		String vectorFileName = scanner.nextLine(); 
-
-		//time with extraction process starts (to present run-time after .the process is completed)
-		final long start = System.nanoTime();
-
-		final File ontologyDir = new File(ontoFileName);
-		File[] filesInDir = null;
-
-		filesInDir = ontologyDir.listFiles();
-
-		for (int i = 0; i < filesInDir.length; i++) {
-
-			//import ontology
-			File ontoFile = new File(filesInDir[i].toString());
-			Map<String, ArrayList<Double>> vectorMap = createVectorMap (new File(vectorFileName));
-			OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-			OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
-			Set<OWLClass> classes = onto.getClassesInSignature();
-
-			PrintWriter writer = new PrintWriter("./files/ATMONTO_AIRM/vectorOutput" + StringUtilities.stripOntologyName(filesInDir[i].toString()) + ".txt");
-
-			for (OWLClass cls : classes) {
-
-				String labelVector = getLabelVector(cls, vectorMap);
-				String commentVector = getCommentVector(onto, cls, vectorMap);
-
-				if ((labelVector != null && !labelVector.isEmpty()) && (commentVector == null || commentVector.isEmpty())) {
-					writer.println("conceptUri: " + getConceptURI(cls));
-					writer.println("label: " + getLabel(cls));
-					writer.println("label vector: " + labelVector);
-					writer.println("comment: " + null);
-					writer.println("comment vector: " + "no vectors for these comment tokens");
-					writer.println("global vector: " + labelVector);
-					writer.println("\n");
-				} else if (labelVector != null && !labelVector.isEmpty()) {
-					writer.println("conceptUri: " + getConceptURI(cls));
-					writer.println("label: " + getLabel(cls));
-					writer.println("label vector: " + labelVector);
-					writer.println("comment: " + getComment(onto, cls));
-					writer.println("comment vector: " + commentVector);
-					writer.println("global vector: " +getGlobalVector(labelVector, commentVector));
-					writer.println("\n");
-				}
-
-
-			}
-			writer.flush();
-			writer.close();
-
-		}
-
-		System.out.println("Vectors created!");
-
-		final long duration = System.nanoTime() - start;
-		long sec = duration/1000000000;
-
-		System.out.println("The vector extraction took " + sec + " seconds");
-	}
-
-}

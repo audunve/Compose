@@ -1461,6 +1461,21 @@ public class OntologyOperations {
 
 	}
 	
+	public static String getClassDefinitionFull (OWLOntology onto, OWLClass c) {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		for (OWLClass cls : onto.getClassesInSignature()) {
+			if (cls.equals(c)) {
+				for (OWLAnnotationAssertionAxiom a : onto.getAnnotationAssertionAxioms(cls.getIRI())) {
+					sb.append(a.getValue().toString().replaceAll("\"", ""));
+				}
+			}
+		}
+		
+		return sb.toString();
+	}
+	
 	public static Set<String> getClassDefinitionTokensFull (OWLOntology onto, OWLClass c) {
 		Set<String> definitionTokens = new HashSet<String>();
 		

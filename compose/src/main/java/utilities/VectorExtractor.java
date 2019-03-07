@@ -82,7 +82,7 @@ public class VectorExtractor {
 			OWLAnnotationValue value = a.getValue();
 			if(value instanceof OWLLiteral) {
 				comment = ((OWLLiteral) value).getLiteral().toString();
-				commentWOStopWords = StringUtilities.removeStopWordsFromString(comment);
+				commentWOStopWords = StringUtilities.removeStopWords(comment);
 			}
 		}
 

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -23,7 +24,7 @@ import fr.inrialpes.exmo.align.impl.renderer.RDFRendererVisitor;
 import fr.inrialpes.exmo.ontowrap.OntowrapException;
 import net.didion.jwnl.JWNLException;
 import rita.RiWordNet;
-import utilities.Relation;
+import utilities.LexicalConcept;
 import utilities.SimpleRelation;
 import utilities.StringUtilities;
 import utilities.WordNet;
@@ -37,14 +38,14 @@ public class LexicalSubsumptionMatcher extends ObjectAlignment implements Alignm
 	public LexicalSubsumptionMatcher(double weight) {
 		this.weight = weight;
 	}
-	
+
 	//test method
 	public static void main(String[] args) throws AlignmentException, IOException {
 		File ontoFile1 = new File("./files/_PHD_EVALUATION/ATMONTO-AIRM/ONTOLOGIES/ATMOntoCoreMerged.owl");
 		File ontoFile2 = new File("./files/_PHD_EVALUATION/ATMONTO-AIRM/ONTOLOGIES/airm-mono.owl");
-		
+
 		double testWeight = 1.0;
-		
+
 		AlignmentProcess a = new LexicalSubsumptionMatcher(testWeight);
 		a.init(ontoFile1.toURI(), ontoFile2.toURI());
 		Properties params = new Properties();
@@ -78,278 +79,205 @@ public class LexicalSubsumptionMatcher extends ObjectAlignment implements Alignm
 	 * The align() method is imported from the Alignment API and is modified to use the wordNetMatch method declared in this class
 	 */
 	public void align( Alignment alignment, Properties param ) throws AlignmentException {
-		
+
 		System.out.println("\nStarting Lexical Subsumption Matcher...");
-		long startTime = System.currentTimeMillis();
-		
+
 		int numConceptsOnto1 = 0;
 		int numConceptsOnto2 = 0;
+
+		LexicalConcept lc = new LexicalConcept();
+
+		Set<String> hyponyms = new HashSet<String>();
+		Set<String> glossTokens = new HashSet<String>();
 		
+		Map<String, LexicalConcept> onto1LexicalMap = new HashMap<String, LexicalConcept>();
+		Map<String, LexicalConcept> onto2LexicalMap = new HashMap<String, LexicalConcept>();
+
+		String lexicalName = null;
+
+		System.out.println("Retrieving lexical data for " + ontology1().getURI());
+		long startTime1 = System.currentTimeMillis();
+
+		try {
+			for (Object source : ontology1().getClasses()) {
+				lexicalName = WordNet.getLexicalName(ontology1().getEntityName(source)).toLowerCase();
+				if (WordNet.containedInWordNet(lexicalName)) {
+					hyponyms = WordNet.getAllHyponymsAsSet(lexicalName);
+					glossTokens = StringUtilities.tokenizeToSet(WordNet.getGloss(lexicalName), true);
+					lc = new LexicalConcept(lexicalName.replace(" ", ""), ontology1().getEntityURI(source), hyponyms, glossTokens);
+					onto1LexicalMap.put(lexicalName.replace(" ", ""), lc);
+				}
+			}
+		} catch (OntowrapException | IOException | JWNLException e3) {
+			e3.printStackTrace();
+		}
+		long endTime1 = System.currentTimeMillis();
+
+		System.out.println("The retrieval of lexical data for " + ontology1().getURI() + " took " + (endTime1 - startTime1) / 1000 + " seconds.");
+
+		System.out.println("\nRetrieving lexical data for " + ontology2().getURI());
+		long startTime2 = System.currentTimeMillis();
+		try {
+			for (Object target : ontology2().getClasses()) {
+				lexicalName = WordNet.getLexicalName(ontology2().getEntityName(target)).toLowerCase();
+				if (WordNet.containedInWordNet(lexicalName)) {
+					hyponyms = WordNet.getAllHyponymsAsSet(lexicalName);
+					glossTokens = StringUtilities.tokenizeToSet(WordNet.getGloss(lexicalName), true);
+					lc = new LexicalConcept(lexicalName.replace(" ", ""), ontology2().getEntityURI(target), hyponyms, glossTokens);
+					onto2LexicalMap.put(lexicalName.replace(" ", ""), lc);
+				}
+			}
+		} catch (OntowrapException | IOException | JWNLException e3) {
+			e3.printStackTrace();
+		}
+
+		long endTime2 = System.currentTimeMillis();
+
+		System.out.println("The retrieval of lexical data for " + ontology2().getURI() + " took " + (endTime2 - startTime2) / 1000 + " seconds.");
+		
+		System.out.println("Starting matching process...");
+		
+		long startTimeMatchingProcess = System.currentTimeMillis();
+
 		try {
 			numConceptsOnto1 = ontology1().nbClasses();
 			System.out.println("Ontology 1 contains " + numConceptsOnto1 + " classes");
 		} catch (OntowrapException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-		
+
 		try {
 			numConceptsOnto2 = ontology2().nbClasses();
 			System.out.println("Ontology 2 contains " + numConceptsOnto2 + " classes");
 		} catch (OntowrapException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
+
+
+		//if neither of the concepts are in WordNet -> give the relation a score of 0
+		//if both concepts are in WordNet, we extract their hyponyms and their gloss
+		//if the full source is a part of the set of hyponyms of target AND a part of the WordNet gloss of target --> source > target and score 1.0
+		//if the compound head of source is a part of the set of hyponyms of target and the full source OR the compound head is a part of the WordNet gloss of target --> source > target and score 0.75
+		//if the full source is a part of the set of hyponyms of target: source > target and a score of 0.5
+		//if the compound head of source is a part of the set of hyponyms of target: source > target and score 0.25
+
+		String sourceEntity = null;
+		String targetEntity = null;
+		//required to have their representation without lowercase for the compound analysis
+		String sourceEntityNormalCase = null;
+		String targetEntityNormalCase = null;
 		
+		Set<String> hyponymsSource = new HashSet<String>();
+		Set<String> hyponymsTarget = new HashSet<String>();
+		Set<String> glossSource = new HashSet<String>();
+		Set<String> glossTarget = new HashSet<String>();
+
 		try {
-			int counter = 1;
-			int targetCounter = 1;
-			// Match classes
+
 			for ( Object source: ontology1().getClasses() ){
-				System.out.println("Processing " + counter + " of " + numConceptsOnto2 + " classes");
 				for ( Object target: ontology2().getClasses() ){
-					long start = System.currentTimeMillis();
-					matchingMap = wordNetSubsumptionMatch(source, target);
-					long stop = System.currentTimeMillis();
-					System.out.println("Creating the matchingMap for target concept " + targetCounter + " takes " + (stop - startTime) / 1000 + " seconds.");
 					
-					for (Map.Entry<String, Double> entry : matchingMap.entrySet()) {
+					//get the entity names for source and target to make the code more readable
+					sourceEntity = ontology1().getEntityName(source).toLowerCase();
+					targetEntity = ontology2().getEntityName(target).toLowerCase();
+					sourceEntityNormalCase = ontology1().getEntityName(source);
+					targetEntityNormalCase = ontology2().getEntityName(target);
+					
 
-						// add mapping into alignment object 
-						addAlignCell(source,target, entry.getKey(), weight*entry.getValue());  
+					if (sourceEntity.equals(targetEntity)) {
+						addAlignCell(source, target, "=", 0);
+						System.out.println(source + " and " + target + " are the same");
 					}
-					targetCounter++;
-				}
-				counter++;
-				
-			}
-			
-		} catch (Exception e) { e.printStackTrace(); }
-		
-		long endTime = System.currentTimeMillis();
-		System.out.println("Lexical Subsumption Matcher completed in " + (endTime - startTime) / 1000 + " seconds.");
-	}
+					
+					//if source nor target is a lexicalconcept == they are not in wordnet, give the relation between them score 0
+					else if (!onto1LexicalMap.containsKey(sourceEntity) || !onto2LexicalMap.containsKey(targetEntity)) {
+						addAlignCell(source, target, "=", 0);
+						System.out.println(sourceEntity + " and " + targetEntity + " are not in WordNet");
 
-	//if the full source is a part of the set of hyponyms of target AND a part of the WordNet gloss of target --> source > target and score 1.0
-	//if the compound head of source is a part of the set of hyponyms of target and the full source OR the compound head is a part of the WordNet gloss of target --> source > target and score 0.75
-	//if the full source is a part of the set of hyponyms of target: source > target and a score of 0.5
-	//if the compound head of source is a part of the set of hyponyms of target: source > target and score 0.25
-	public Map<String, Double> wordNetSubsumptionMatch (Object o1, Object o2) throws AlignmentException, OntowrapException, FileNotFoundException, JWNLException, IOException {
+					} 
+					
+					//if both concepts are in WordNet, we compare their hyponyms and their gloss
+					else if (onto1LexicalMap.containsKey(sourceEntity) && onto2LexicalMap.containsKey(targetEntity)) {
+						//get the hyponyms of source and target entities
+						hyponymsSource = onto1LexicalMap.get(sourceEntity).getHyponyms();
+						hyponymsTarget = onto2LexicalMap.get(targetEntity).getHyponyms();
+						//get the glosses of source and target entities
+						glossSource = onto1LexicalMap.get(sourceEntity).getGlossTokens();
+						glossTarget = onto2LexicalMap.get(targetEntity).getGlossTokens();
+					}
+										
+					//if either hyponym set is empty -> score is 0
+					if ((hyponymsSource == null || hyponymsSource.isEmpty()) || (hyponymsTarget == null || hyponymsTarget.isEmpty())) {
+						addAlignCell(source, target, "=", 0);
+						System.out.println("There are no hyponyms for EITHER " + source + " or " + target);
+					}
 
-		double finalDistance = 0;
-		String relation = null;
-		Map<String, Double> matchingMap = new HashMap<String, Double>();
-		ArrayList<SimpleRelation> relationsList = new ArrayList<SimpleRelation>();
-		SimpleRelation rel = null;
-
-		String source = StringUtilities.stringTokenize(ontology1().getEntityName(o1), true).toLowerCase();
-		String target = StringUtilities.stringTokenize(ontology2().getEntityName(o2), true).toLowerCase();
-		
-//		System.out.println("\nSource is: " + source + ", Target is: " + target);
-
-		//if the concept names are equal we consider them as equivalent and give the relation a score of 0
-		if (source.equals(target)) {
-			rel = new SimpleRelation("=", 0.0);
-			relationsList.add(rel);
-			matchingMap.put("=", 0.0);
-			
-//			System.out.println(source + " equals " + target);
-		
-			//if neither of the concepts are in WordNet
-		} else if (!WordNet.containedInWordNet(source) && !WordNet.containedInWordNet(target)) {			
-			relation = "&lt;";
-			finalDistance = 0.0;
-			matchingMap.put(relation, finalDistance);
-			
-			rel = new SimpleRelation("&lt;", 0.0);
-			relationsList.add(rel);
-			
-//			System.out.println(source + " and " + target + " is not in WordNet");
-			
-			//just to create a relation for all concept combinations when calculating the Harmony value
-		} else if (!WordNet.containedInWordNet(source) || !WordNet.containedInWordNet(target)) {
-			relation = "&lt;";
-			finalDistance = 0.0;
-			matchingMap.put(relation, finalDistance);
-			
-			rel = new SimpleRelation("&lt;", 0.0);
-			relationsList.add(rel);
-			
-//			System.out.println("EITHER " + source + " or " + target + " is not in WordNet");
-
-			//if both concepts are in WordNet, we extract their hyponyms and their gloss
-		} else if (WordNet.containedInWordNet(source) && WordNet.containedInWordNet(target)) {
-			
-			Set<String> source_hyponyms = WordNet.getAllHyponymsAsSet(source);
-			Set<String> target_hyponyms = WordNet.getAllHyponymsAsSet(target);
-			Set<String> source_wnGloss = StringUtilities.tokenizeToSet(WordNet.getGloss(source), true);
-			Set<String> target_wnGloss = StringUtilities.tokenizeToSet(WordNet.getGloss(target), true);
-			
-//			System.out.println("source_hyponyms contains " + source_hyponyms.size() + " items, " + " and target_hyponyms contains " + target_hyponyms.size() + "items");
-			
-			if (source_hyponyms.isEmpty() || target_hyponyms.isEmpty()) {
-				relation = "&lt;";
-				finalDistance = 0.0;
-				matchingMap.put(relation, finalDistance);
-				
-				rel = new SimpleRelation("&lt;", 0.0);
-				relationsList.add(rel);
-				
-//				System.out.println("There are no hyponyms for EITHER " + source + " or " + target);
-			}
-
-			else {
-			//if the full source is a part of the set of hyponyms of target AND a part of the WordNet gloss of target: source > target and score 1.0
-					if (target_hyponyms.contains(source) && target_wnGloss.contains(source)) {
-
-						relation = "&lt;";
-						finalDistance = 1.0;
-						matchingMap.put(relation, finalDistance);
-						
-						rel = new SimpleRelation("&lt;", 1.0);
-						relationsList.add(rel);
-						
-//						System.out.println(source + " is included in the hyponym list of " + target + " and in the gloss of " + target + " -> 1.0");
-
+					else {
+						//if the full source is a part of the set of hyponyms of target AND a part of the WordNet gloss of target: source > target and score 1.0
+						if (hyponymsTarget.contains(sourceEntity) && glossTarget.contains(sourceEntity)) {
+							addAlignCell(source, target, "&lt;", 1.0);
+						}
 						//if the compound head of source is a part of the set of hyponyms of target AND the full source OR the compound head of source is a part of the WordNet gloss of target: source > target and score 0.75
-					} else if (StringUtilities.isCompoundWord(source) 
-							&& target_hyponyms.contains(StringUtilities.getCompoundHead(source).toLowerCase())
-							&& (target_wnGloss.contains(source) 
-							|| target_wnGloss.contains(StringUtilities.getCompoundHead(source).toLowerCase()))) {
-						relation = "&lt;";
-						finalDistance = 0.75;
-						matchingMap.put(relation, finalDistance);
+						else if (StringUtilities.isCompoundWord(sourceEntityNormalCase) 
+								&& hyponymsTarget.contains(StringUtilities.getCompoundHead(sourceEntityNormalCase))
+								&& glossTarget.contains(sourceEntity)
+								|| glossTarget.contains(StringUtilities.getCompoundHead(sourceEntityNormalCase).toLowerCase())) {
+							addAlignCell(source, target, "&lt;", 0.75);
+							System.out.println("The compound head of " + source + " is included in the hyponym list of " + target + ", and " +  source + " is in the gloss of " + target + " OR the compound head of " +
+							source + " is in the gloss of " + target + " -> 0.75");
+						}
 						
-						rel = new SimpleRelation("&lt;", 0.75);
-						relationsList.add(rel);
-						
-//						System.out.println("The compound head of " + source + " is included in the hyponym list of " + target + ", and " +  source + " is in the gloss of " + target + " OR the compound head of " +
-//						source + " is in the gloss of " + target + " -> 0.75");
-
 						//if the full source is a part of the set of hyponyms of target: source > target and a score of 0.5
-					} else if (target_hyponyms.contains(source)) {
-						relation = "&lt;";
-						finalDistance = 0.50;
-						matchingMap.put(relation, finalDistance);
+						else if(hyponymsTarget.contains(sourceEntity)) {
+							addAlignCell(source, target, "&lt;", 0.5);
+							System.out.println(source + " is included in the hyponym list of " + target + " -> 0.5");
+						}
 						
-						rel = new SimpleRelation("&lt;", 0.50);
-						relationsList.add(rel);
+						//if the compound head of source is a part of the set of hyponyms of target: source > target and score 0.25
+						else if (StringUtilities.isCompoundWord(sourceEntityNormalCase) && hyponymsTarget.contains(StringUtilities.getCompoundHead(sourceEntityNormalCase))) {
+							addAlignCell(source, target, "&lt;", 0.25);
+							System.out.println("The compound head of " + source + " is included in the hyponym list of " + target);
+						}
 						
-//						System.out.println(source + " is included in the hyponym list of " + target + " -> 0.5");
+						else if (hyponymsSource.contains(targetEntity) && glossSource.contains(targetEntity)) {
+							addAlignCell(source, target, "&gt;", 1.0);
+							System.out.println(target + " is included in the hyponym set of " + source + " AND in the gloss of " + target);
+						}
 						
+						else if (StringUtilities.isCompoundWord(targetEntityNormalCase) 
+								&& hyponymsSource.contains(StringUtilities.getCompoundHead(targetEntityNormalCase))
+								&& glossSource.contains(targetEntity) 
+								|| glossSource.contains(StringUtilities.getCompoundHead(targetEntityNormalCase).toLowerCase())) {
+							addAlignCell(source, target, "&gt;", 0.75);
+							System.out.println("The compound head of " + target + " is included in the hyponym set of " + source + " AND EITHER the compound head or the full concept of " + target + " is in the gloss of " + source);
+						}
 						
-					} 
-					//NOTE: RELYING THIS MUCH ON THE GLOSS IS DANGEROUS! if the full source is included in the gloss of the target: source > target and score 0.5
-//					else if (target_wnGloss.contains(source)) {
-//							relation = "&lt;";
-//							finalDistance = 0.50;
-//							matchingMap.put(relation, finalDistance);
-//							
-//							rel = new SimpleRelation("&lt;", 0.50);
-//							relationsList.add(rel);
-//							
-//							System.out.println(source + " is included in the gloss of " + target);	
-//					} 
-					
-					//if the compound head of source is a part of the set of hyponyms of target: source > target and score 0.25
-					else if (StringUtilities.isCompoundWord(source) && target_hyponyms.contains(StringUtilities.getCompoundHead(source))) {
-						relation = "&lt;";
-						finalDistance = 0.25;
-						matchingMap.put(relation, finalDistance);
+						else if (hyponymsSource.contains(targetEntity)) {
+							addAlignCell(source, target, "&gt;", 0.5);
+							System.out.println(target + " is included in the hyponym set of " + source);
+						}
 						
-						rel = new SimpleRelation("&lt;", 0.25);
-						relationsList.add(rel);
+						else if (StringUtilities.isCompoundWord(targetEntityNormalCase)
+								&& hyponymsSource.contains(StringUtilities.getCompoundHead(targetEntityNormalCase).toLowerCase())) {
+							addAlignCell(source, target, "&gt;", 0.25);
+							System.out.println("The compound head of " + target + " is included in the hyponym set of " + source);
+						}
 						
-//						System.out.println("The compound head of " + source + " is included in the hyponym list of " + target);
-						
-					} 
-					
-					else if (source_hyponyms.contains(target) && source_wnGloss.contains(target)) {
-						relation = "&gt;";
-						finalDistance = 1.0;
-						matchingMap.put(relation, finalDistance);
-						
-						rel = new SimpleRelation("&gt;", 1.0);
-						relationsList.add(rel);
-						
-//						System.out.println(target + " is included in the hyponym set of " + source + " AND in the gloss of " + target);
-
-						//if the compound head of target is a part of the set of hyponyms of source and the full target OR the compound head of target is a part of the WordNet gloss of source: target < source and score 0.75
-					} else if (StringUtilities.isCompoundWord(target) 
-							&& source_hyponyms.contains(StringUtilities.getCompoundHead(target).toLowerCase())
-							&& (source_wnGloss.contains(target)
-							|| source_wnGloss.contains(StringUtilities.getCompoundHead(target).toLowerCase()))) {
-						relation = "&gt;";
-						finalDistance = 0.75;
-						matchingMap.put(relation, finalDistance);
-						
-						rel = new SimpleRelation("&gt;", 0.75);
-						relationsList.add(rel);
-						
-//						System.out.println("The compound head of " + target + " is included in the hyponym set of " + source + " AND EITHER the compound head or the full concept of " + target + " is in the gloss of " + source);
-
-						//if the full target is a part of the set of hyponyms of source: target < source and a score of 0.5
-					} else if (source_hyponyms.contains(target)) {
-						relation = "&gt;";
-						finalDistance = 0.50;
-						matchingMap.put(relation, finalDistance);
-						
-						rel = new SimpleRelation("&gt;", 0.50);
-						relationsList.add(rel);
-						
-//						System.out.println(target + " is included in the hyponym set of " + source);
-						
-						
-					} 
-					
-					//NOTE: RELYING THIS MUCH ON THE GLOSS IS DANGEROUS! if the full target is included in the gloss of the source: target < source and score 0.5
-//					else if (source_wnGloss.contains(target)) {
-//						relation = "&gt;";
-//						finalDistance = 0.50;
-//						matchingMap.put(relation, finalDistance);
-//						
-//						rel = new SimpleRelation("&gt;", 0.50);
-//						relationsList.add(rel);
-//						
-//						System.out.println(target + " is included in the gloss of " + source);
-//						
-//					} 
-					
-					//if the compound head of target is a part of the set of hyponyms of source: target < source and score 0.25
-					else if (StringUtilities.isCompoundWord(target) 
-							&& source_hyponyms.contains(StringUtilities.getCompoundHead(target))) {
-						relation = "&gt;";
-						finalDistance = 0.25;
-						matchingMap.put(relation, finalDistance);
-						
-						rel = new SimpleRelation("&gt;", 0.25);
-						relationsList.add(rel);
-						
-//						System.out.println("The compound head of " + target + " is included in the hyponym set of " + source);
-						
-					} else {
-						relation = "&gt;";
-						finalDistance = 0.0;
-						matchingMap.put(relation, finalDistance);
-						
-						rel = new SimpleRelation("&gt;", 0.0);
-						relationsList.add(rel);
-						
-//						System.out.println("None of the rules apply for " + source + " and " + target + " - 2");
+						else {
+							addAlignCell(source, target, "=", 0);
+							System.out.println("None of the rules apply for " + source + " and " + target);
+						}
 					}
 				}
-				
-//		} 
-		}
-		
-//		System.out.println("\nThe ArrayList with simple relations contains " + relationsList.size() + " relations");
-//		for (SimpleRelation simpleR : relationsList) {
-//			System.out.println(simpleR.getRelation() + " : " + simpleR.getConfidence());
-//		}
-//		System.out.println("matchingMap contains " + matchingMap.size() + " relations");
-		return matchingMap;
-		
+
+			}
+
+		} catch (Exception e) { e.printStackTrace(); }
+
+		long endTimeMatchingProcess = System.currentTimeMillis();
+
+		System.out.println("The matching operation took " + (endTimeMatchingProcess - startTimeMatchingProcess) / 1000 + " seconds.");
 	}
 
 }

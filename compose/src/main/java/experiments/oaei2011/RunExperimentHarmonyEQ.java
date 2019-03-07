@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
@@ -31,6 +33,7 @@ import equivalencematching.LexicalMatcherWordNet;
 import equivalencematching.PropertyMatcher;
 import equivalencematching.RangeMatcher_slow;
 import equivalencematching.StringEquivalenceMatcher;
+import evaluation.Evaluator;
 import fr.inrialpes.exmo.align.impl.BasicAlignment;
 import fr.inrialpes.exmo.align.impl.BasicConfidence;
 import fr.inrialpes.exmo.align.impl.URIAlignment;
@@ -41,16 +44,20 @@ import matchercombination.Harmony;
 import net.didion.jwnl.JWNLException;
 import ontologyprofiling.OntologyProfiler;
 import utilities.StringUtilities;
+import wordembedding.VectorExtractor;
 
 public class RunExperimentHarmonyEQ {
 	
-	static String onto1 = "303";
-	static String onto2 = "304";
+	static String onto1 = "301";
+	static String onto2 = "302";
 
 	final static File ontoFile1 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/" + onto1+onto2 + "/" + onto1+onto2 + "-" + onto1 + ".rdf");
 	final static File ontoFile2 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/" + onto1+onto2 + "/" + onto1+onto2 + "-" + onto2 + ".rdf");
 	final static String prefix = "file:";
 	final static String storePath = "./files/_PHD_EVALUATION/OAEI2011/HARMONY/EQUIVALENCE/"+ onto1+onto2;
+	
+	final static String wiki_vectorFile = "./files/_PHD_EVALUATION/EMBEDDINGS/Wikipedia_vectors_lemmatized.txt";
+	final static String referenceAlignment = "./files/_PHD_EVALUATION/OAEI2011/REFALIGN/" + onto1+onto2 + "/" + onto1 + "-" + onto2 +"-EQ.rdf";
 
 	public static void main(String[] args) throws AlignmentException, URISyntaxException, IOException, OWLOntologyCreationException, JWNLException {
 
@@ -63,8 +70,7 @@ public class RunExperimentHarmonyEQ {
 		for (Entry<String, Double> e : ontologyProfilingScores.entrySet()) {
 			System.out.println("Profiling metric: " + e.getKey() + ", Score: " + e.getValue());
 		}
-		
-		
+
 		//run individual matchers
 		System.out.println("\nRunning String Equivalence Matcher (SEM)");
 		runStringEquivalenceMatcher(ontologyProfilingScores.get("cne"));
@@ -90,7 +96,7 @@ public class RunExperimentHarmonyEQ {
 		//store the computed Harmony alignment
 		URIAlignment storedHarmonyAlignment = new URIAlignment();
 
-		String alignmentFileName = "./files/_PHD_EVALUATION/OAEI2011/HARMONY/EQUIVALENCE/ComputedHarmonyAlignment_" + onto1+onto2 + ".rdf";
+		String alignmentFileName = "./files/_PHD_EVALUATION/OAEI2011/ALIGNMENTS/" + onto1+onto2 + "/HARMONY/EQUIVALENCE/ComputedHarmonyAlignment_" + onto1+onto2 + ".rdf";
 
 		File outputAlignment = new File(alignmentFileName);
 
@@ -111,6 +117,9 @@ public class RunExperimentHarmonyEQ {
 		storedHarmonyAlignment.render(renderer);
 		writer.flush();
 		writer.close();
+		
+		//evaluate Harmony alignment
+		Evaluator.evaluateSingleAlignment(storedHarmonyAlignment, referenceAlignment);
 
 	}
 
@@ -147,9 +156,15 @@ public class RunExperimentHarmonyEQ {
 	}
 
 
-	private static void runDefinitionsEquivalenceMatcher(double weight) throws AlignmentException, URISyntaxException, IOException {
+	private static void runDefinitionsEquivalenceMatcher(double weight) throws AlignmentException, URISyntaxException, IOException, OWLOntologyCreationException {
 
-		AlignmentProcess a = new DefinitionsEquivalenceMatcher(weight);
+		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
+		OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
+		
+		Map<String, ArrayList<Double>> wordAndVecMap = VectorExtractor.createVectorMap(new File(wiki_vectorFile));
+		
+		AlignmentProcess a = new DefinitionsEquivalenceMatcher(onto1, onto2, wordAndVecMap, weight);
 		a.init(ontoFile1.toURI(), ontoFile2.toURI());
 		Properties params = new Properties();
 		params.setProperty("", "");

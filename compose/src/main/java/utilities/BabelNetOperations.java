@@ -44,7 +44,7 @@ public class BabelNetOperations {
 //		
 //		System.out.println("BabeldNet contains synsets for " + babelNetRepresentation(onto1, onto2) + " classes");
 		
-		String inputWord = "car";
+		String inputWord = "vehicle";
 		getHyponyms(inputWord);
 		
 	}
@@ -143,19 +143,18 @@ public class BabelNetOperations {
 		return hypernymsList;
 	}
 	
-	public static ArrayList<String> getHyponyms (String inputWord) {
-		ArrayList<String> hyponymList = new ArrayList<String>();
+	public static Set<String> getHyponyms (String inputWord) {
+		Set<String> hyponymList = new HashSet<String>();
 		BabelSynset by = bn.getSynset(getKeyBabelSynsetObject(inputWord));
 		List<BabelSynsetRelation> relationsList = new ArrayList<BabelSynsetRelation>();
 		if (by != null) {
-		relationsList = by.getOutgoingEdges(BabelPointer.WIKIDATA_HYPONYM);
+		relationsList = by.getOutgoingEdges(BabelPointer.ANY_HYPONYM);
 		System.out.println("Test: Trying to get hyponyms of " + by.getMainSense(Language.EN).get().getSenseString());
 		for (BabelSynsetRelation edge : relationsList) {
 			System.out.println("Test: Trying edge: " + edge.toString());
 			if (edge.getBabelSynsetIDTarget() != null) {
 			hyponymList.add(edge.getBabelSynsetIDTarget().toBabelSynset().getMainSense(Language.EN).get().getSimpleLemma());
 			}
-//			hyponymList.add(edge.getBabelSynsetIDTarget().toBabelSynset().getMainSense(Language.EN).get().getFullLemma());
 		}
 		} 
 		

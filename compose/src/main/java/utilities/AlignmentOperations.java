@@ -657,11 +657,13 @@ public class AlignmentOperations {
 		URI onto1URI = representativeAlignment.getOntology1URI();
 		URI onto2URI = representativeAlignment.getOntology2URI();
 		
-		File ontoFile = new File("./files/ESWC_WordEmbedding_Experiment/ATMONTO-AIRM-O/ontologies/ATMOntoCoreMerged.owl");
+		File ontoFile1 = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/bibframe.rdf");
+		File ontoFile2 = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/ONTOLOGIES/schema-org.owl");
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-		OWLOntology onto = manager.loadOntologyFromOntologyDocument(ontoFile);
+		OWLOntology onto1 = manager.loadOntologyFromOntologyDocument(ontoFile1);
+		OWLOntology onto2 = manager.loadOntologyFromOntologyDocument(ontoFile2);
 		
-		System.out.println("Test: The URIs are " + onto1URI.toString() + " and " + onto2URI.toString());
+//		System.out.println("Test: The URIs are " + onto1URI.toString() + " and " + onto2URI.toString());
 
 		//need to initialise the alignment with ontology URIs and the type of relation (e.g. A5AlgebraRelation) otherwise exceptions are thrown
 		transformedAlignment.init( onto1URI, onto2URI, A5AlgebraRelation.class, BasicConfidence.class );
@@ -684,25 +686,41 @@ public class AlignmentOperations {
 			for (int i = 0; i < array.length; i++) {
 				
 //				System.out.println("Printing contents of each line");
-//				System.out.println("Concept 1: " + OntologyOperations.getClassFromLabel(array[0].substring(array[0].lastIndexOf("\\") +1), onto).getIRI().getFragment());
+//				System.out.println("Concept 1: " + OntologyOperations.getClassFromLabel( array[0].substring(array[0].lastIndexOf("\\") +1), onto1 ).getIRI().getFragment());
 //				System.out.println("Relation: " + array[1]);
 //				System.out.println("Concept 2: " + array[2].substring(array[2].lastIndexOf("\\") +1));
+//				System.out.println("Trying for " + array[2]);
+//				System.out.println("Concept 2: " + OntologyOperations.getClassFromLabel(array[2].substring(array[2].lastIndexOf("\\") +1), onto2).getIRI().getFragment());
 
-				System.out.println("Concept 1 is " + array[0].substring(array[0].lastIndexOf("\\") +1));
-				OWLClass cls = OntologyOperations.getClassFromLabel(array[0].substring(array[0].lastIndexOf("\\") +1), onto);
-				if (cls != null) {
-				concept1 = URI.create(onto1URI.toString()+OntologyOperations.getClassFromLabel(array[0].substring(array[0].lastIndexOf("\\") +1), onto).getIRI().getFragment());
+//				System.out.println("Concept 1 is " + array[0].substring(array[0].lastIndexOf("\\") +1));
+				OWLClass cls1 = OntologyOperations.getClassFromLabel(array[0].substring(array[0].lastIndexOf("\\") +1), onto1);
+				OWLClass cls2 = OntologyOperations.getClassFromLabel(array[2].substring(array[2].lastIndexOf("\\") +1), onto2);
+				
+				if (cls1 != null) {
+				concept1 = URI.create(onto1URI.toString()+OntologyOperations.getClassFromLabel(array[0].substring(array[0].lastIndexOf("\\") +1), onto1).getIRI().getFragment());
 				} else {
 					concept1 = URI.create(onto1URI.toString() + array[0].substring(array[0].lastIndexOf("\\") +1));
 				}
 				relation = array[1];
+				
+				if (cls2 != null) {
+					concept2 = URI.create(onto2URI.toString()+OntologyOperations.getClassFromLabel(array[2].substring(array[2].lastIndexOf("\\") +1), onto2).getIRI().getFragment());
+				} else {
+					concept2 = URI.create(onto2URI.toString() + array[2].substring(array[2].lastIndexOf("\\") +1));
+				}
+				
 				//concept2 = URI.create(onto2URI.toString() + "#" + array[2].substring(array[2].lastIndexOf("\\") +1));
-				concept2 = URI.create(onto2URI.toString() + array[2].substring(array[2].lastIndexOf("\\") +1));
+				//concept2 = URI.create(onto2URI.toString() + array[2].substring(array[2].lastIndexOf("\\") +1));
 
-				System.out.println("Concept1 URI: " + concept1.toString());
-				System.out.println("Concept2 URI: " + concept2.toString());
+//				System.out.println("Concept1 URI: " + concept1.toString());
+//				System.out.println("Concept2 URI: " + concept2.toString());
+				
+				//do not include disjointness relations
+				if (!relation.equals("!")) {
 
 				transformedAlignment.addAlignCell(concept1, concept2, relation, 0);
+				
+				}
 
 			}
 
@@ -988,24 +1006,24 @@ public class AlignmentOperations {
 	public static void main(String[] args) throws AlignmentException, IOException, URISyntaxException, OWLOntologyCreationException {
 		
 		//public static URIAlignment createAllRelations(File ontoFile1, File ontoFile2) throws OWLOntologyCreationException, AlignmentException {
-		File ontoFile1 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301302/301302-301.rdf");
-		File ontoFile2 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301302/301302-302.rdf");
-		
-		URIAlignment a = createAllRelations(ontoFile1, ontoFile2);
-		
-		String output = "./files/TestAlignment.rdf";
-		
-		File outputAlignment = new File(output);
-
-		PrintWriter writer = new PrintWriter(
-				new BufferedWriter(
-						new FileWriter(outputAlignment)), true); 
-		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
-		
-		a.render(renderer);
-
-		writer.flush();
-		writer.close();
+//		File ontoFile1 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301302/301302-301.rdf");
+//		File ontoFile2 = new File("./files/_PHD_EVALUATION/OAEI2011/ONTOLOGIES/301302/301302-302.rdf");
+//		
+//		URIAlignment a = createAllRelations(ontoFile1, ontoFile2);
+//		
+//		String output = "./files/TestAlignment.rdf";
+//		
+//		File outputAlignment = new File(output);
+//
+//		PrintWriter writer = new PrintWriter(
+//				new BufferedWriter(
+//						new FileWriter(outputAlignment)), true); 
+//		AlignmentVisitor renderer = new RDFRendererVisitor(writer);
+//		
+//		a.render(renderer);
+//
+//		writer.flush();
+//		writer.close();
 		
 		/*COMBINE ALL ALIGNMENT FILES IN A FOLDER INTO A SINGLE ALIGNMENT FILE */
 		//public static URIAlignment combineAlignments(String folderName) throws AlignmentException {
@@ -1017,29 +1035,29 @@ public class AlignmentOperations {
 		
 		/* SCALE THE CONFIDENCE OF RELATIONS BETWEEN [0..1]*/
 		//public static void normalizeConfidence (BasicAlignment initialAlignment) throws AlignmentException {
-		File alignmentFile = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/HARMONY/ComputedHarmonyAlignment.rdf");
-		File alignmentFile2 = new File("./files/_PHD_EVALUATION/OAEI2011/HARMONY/EQUIVALENCE/301302/301302-301-301302-302-RangeMatcher.rdf");
-		
-		AlignmentParser parser = new AlignmentParser();
-		URIAlignment alignment = (URIAlignment) parser.parse(alignmentFile.toURI().toString());
-		URIAlignment alignment2= (URIAlignment) parser.parse(alignmentFile2.toURI().toString());
-		
-		System.out.println("The alignent file contains "  + alignment2.nbCells() + " relations");
-		
-		//sortAlignment(alignment);
-		
-		System.out.println("\nPrinting initial alignment");
-		for (Cell c : alignment) {
-			System.out.println(c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment() + " - " + c.getRelation().getRelation() + " - " + c.getStrength());
-		}
-		
-		normalizeConfidence(alignment);
-		System.out.println("\nPrinting alignment after normalization");
-		for (Cell c : alignment) {
-			System.out.println(c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment() + " - " + c.getRelation().getRelation() + " - " + c.getStrength());
-		}
-		
-		sortAlignment(alignment);
+//		File alignmentFile = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/HARMONY/ComputedHarmonyAlignment.rdf");
+//		File alignmentFile2 = new File("./files/_PHD_EVALUATION/OAEI2011/HARMONY/EQUIVALENCE/301302/301302-301-301302-302-RangeMatcher.rdf");
+//		
+//		AlignmentParser parser = new AlignmentParser();
+//		URIAlignment alignment = (URIAlignment) parser.parse(alignmentFile.toURI().toString());
+//		URIAlignment alignment2= (URIAlignment) parser.parse(alignmentFile2.toURI().toString());
+//		
+//		System.out.println("The alignent file contains "  + alignment2.nbCells() + " relations");
+//		
+//		//sortAlignment(alignment);
+//		
+//		System.out.println("\nPrinting initial alignment");
+//		for (Cell c : alignment) {
+//			System.out.println(c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment() + " - " + c.getRelation().getRelation() + " - " + c.getStrength());
+//		}
+//		
+//		normalizeConfidence(alignment);
+//		System.out.println("\nPrinting alignment after normalization");
+//		for (Cell c : alignment) {
+//			System.out.println(c.getObject1AsURI().getFragment() + " - " + c.getObject2AsURI().getFragment() + " - " + c.getRelation().getRelation() + " - " + c.getStrength());
+//		}
+//		
+//		sortAlignment(alignment);
 		
 		/* TRANSFORM FROM COMA ALIGNMENT TO ALIGNMENT API */
 //		String comafile = "./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/COMA/bibframe-schemaorg-coma.txt";
@@ -1186,13 +1204,13 @@ public class AlignmentOperations {
 
 
 
-		/*	//		//public static void readAlignment(File inputAlignmentFile) throws AlignmentException {
-		File alignmentTestFile = new File("./files/smatch/MERONYM_SYN-Meronymy.rdf");
+			//		//public static void readAlignment(File inputAlignmentFile) throws AlignmentException {
+		File alignmentTestFile = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/STROMA/bibframe-schemaorg-aml.rdf");
 
 		//readAlignment(alignmentTestFile);
 
 
-		File inputFile = new File("./files/smatch/airportheliport_aerodromeinfrastructure.txt");
+		File inputFile = new File("./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/SMATCH/bibframe-schemaorg-min.txt");
 
 		BasicAlignment smatchAlignment = transformSMatchAlignment(alignmentTestFile, inputFile);
 
@@ -1200,7 +1218,7 @@ public class AlignmentOperations {
 		System.out.println(smatchAlignment.getOntology2URI());
 
 		//store the computed alignment to file
-		String AlignmentFileName = "./files/smatch/smatch-atmonto-airm.rdf";
+		String AlignmentFileName = "./files/_PHD_EVALUATION/BIBFRAME-SCHEMAORG/SMATCH/smatch-bibframe-schemaorg-min.rdf";
 		File outputAlignment = new File(AlignmentFileName);
 
 		PrintWriter writer = new PrintWriter(
@@ -1211,7 +1229,7 @@ public class AlignmentOperations {
 		smatchAlignment.render(renderer);
 
 		writer.flush();
-		writer.close();*/
+		writer.close();
 
 
 

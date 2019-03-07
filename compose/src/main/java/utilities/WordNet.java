@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLOntology;
 
@@ -46,6 +47,29 @@ public class WordNet {
 	static RiWordNet database = new RiWordNet("/Users/audunvennesland/Documents/PhD/Development/WordNet/WordNet-3.0/dict");
 	
 
+	/**
+	 * Processes a word so that it can be queried in WordNet, basically adding space between compounds and lowercasing it.
+	 * @param inputWord
+	 * @return
+	   Feb 22, 2019
+	 */
+	public static String getLexicalName (String inputWord) {
+		
+		String lexicalName = null;
+		
+		//if all chars in the input word are uppercase, we keep it as is
+		if (StringUtils.isAllUpperCase(inputWord)) {			
+			return inputWord;
+		
+			//if the input word is a compound we split it
+		} else if (StringUtilities.isCompoundWord(inputWord)) {
+			lexicalName = StringUtilities.getCompoundWordWithSpaces(inputWord);
+			return lexicalName.toLowerCase();
+		}
+
+		//if the word is not a compound nor only uppercase, we return the word in lowercase
+		return inputWord.toLowerCase();
+	}
 	
 	/**
 	 * Retrieves synsets from WordNet associated with an input word
